@@ -11,6 +11,10 @@ import {
   calculateTitledVideoMetadata,
 } from "./TitledVideo";
 import { EndTag, EndTagProps } from "./components/EndTag";
+import {
+  DefenseSignalDefs,
+  DefenseSegment,
+} from "./DefenseSignalDefs";
 import { HeroTitle } from "./components/HeroTitle";
 import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
@@ -295,6 +299,24 @@ export const Root: React.FC = () => {
           lyrics: [],
           bottomY: 0.88,
         } as LyricOverlayProps}
+      />
+      <Composition
+        id="DefenseSignal"
+        component={DefenseSignalDefs}
+        durationInFrames={30 * 100}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          segments: [
+            { start: 0, end: 12.72, title: "央广《国防时空》藏了 3 个战略信号锚点" },
+            { start: 12.72, end: 36.02, title: "跨昼夜实弹考核 · 体系响应效率", sub: "对标美军斯崔克旅全天候战备" },
+            { start: 36.02, end: 60.38, title: "非战场领域 · 军民融合平战转换", sub: "力量建设导向已落到日常考核" },
+            { start: 60.38, end: 79.51, title: "战略定力 · 周边安全变量抬头" },
+            { start: 79.51, end: 97.66, title: "国防信息公开的新常态？", sub: "把常规栏目做成战略信号的发布窗口" },
+          ],
+          threeColor: "#3B82F6",
+        }}
       />
       <Composition
         id="EndTag"
