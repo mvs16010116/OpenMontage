@@ -10,6 +10,9 @@ build/
 *.onnx
 *.onnx.json
 
+# Whisper ASR model (downloaded via ModelScope for narration-video subtitles)
+.models/
+
 # Test/IDE
 .pytest_cache/
 .mypy_cache/

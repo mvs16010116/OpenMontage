@@ -1,9 +1,9 @@
 {
   "scenes": [
-    ["news studio broadcast", "television news studio camera", "breaking news anchor"],
-    ["military press conference", "army briefing room", "soldiers briefing"],
-    ["military night exercise shooting", "army night operation", "soldier firing night"],
-    ["cyber security data", "soldiers working radar", "army communication"],
-    ["national flag waving", "china flag", "flag pole sky"]
+    ["us iran flag diplomacy", "world politics meeting", "negotiation table"],
+    ["nuclear power plant cooling tower", "diplomacy handshake", "white house exterior"],
+    ["government building parliament", "strategic planning map", "decision makers meeting"],
+    ["middle east map oil", "world map geopolitics", "military tension"],
+    ["audience questions comments", "people voting raise hands", "social media interaction"]
   ]
 }
