@@ -1,0 +1,200 @@
+name: narration-montage
+version: "1.0"
+description: >
+  Narration-led explainer pipeline. Takes a written script (口播文案) and turns it
+  into a finished video: segment the script, generate TTS narration via the
+  tts_selector, fetch distinct Pexels footage per segment, cut the master at a fixed
+  shot cadence, force-align subtitles to the real speech with the transcriber, and
+  burn static subtitle lines with audio muxed in via video_compose. A director
+  reviews the script, the visual organization, the shot-cadence, and the final
+  render at every stage — the executive producer and per-stage directors deliver
+  professional notes before execution and a structured final review after.
+category: generated
+stability: beta
+default_checkpoint_policy: guided
+
+# Reference video input support — narration-montage is script-led, not reference-led.
+reference_input:
+  supported: false
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/narration-montage/executive-producer
+  budget_default_usd: 0.10
+  max_revisions_per_stage: 3
+  max_send_backs: 2
+  max_wall_time_minutes: 60
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/narration-montage/executive-producer
+  - pipelines/narration-montage/idea-director
+  - pipelines/narration-montage/script-director
+  - pipelines/narration-montage/scene-director
+  - pipelines/narration-montage/asset-director
+  - pipelines/narration-montage/edit-director
+  - pipelines/narration-montage/compose-director
+  - meta/reviewer
+  - meta/checkpoint-protocol
+
+compatible_playbooks:
+  custom_allowed: true
+
+stages:
+  - name: idea
+    skill: pipelines/narration-montage/idea-director
+    produces:
+      - brief
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Hook is a single clear question or thesis in the first segment
+      - Script segments are split at meaningful boundaries (not mid-sentence)
+      - Target duration and tone are concrete
+      - Narration voice/register is chosen and recorded
+      - Music plan is present (MANDATORY — silent only if user explicitly opted out)
+    success_criteria:
+      - Schema-valid brief artifact
+      - hook present and non-empty
+      - metadata.narration_plan present (provider + voice)
+      - metadata.music_plan present (source may be `none` ONLY with explicit opt-out note)
+
+  - name: script
+    skill: pipelines/narration-montage/script-director
+    required_artifacts_in:
+      - brief
+    produces:
+      - script
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Sections are ordered with a clear hook → body → closing arc
+      - Per-section text is sized for the target duration (Chinese ~4-5 chars/sec)
+      - Every section has a start/end and a delivery cue when needed
+      - No section is so long it will exceed 90s of narration
+    success_criteria:
+      - Schema-valid script artifact
+      - sections[].text non-empty for every section
+      - total_duration_seconds matches the estimated narration length
+      - every section has id, text, start_seconds, end_seconds
+
+  - name: scene_plan
+    skill: pipelines/narration-montage/scene-director
+    required_artifacts_in:
+      - script
+    produces:
+      - scene_plan
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - One scene per script section, time-aligned to the section window
+      - Scene descriptions use concrete noun-and-adjective visual language
+      - Every scene has 3+ English Pexels queries in metadata
+      - Shot language (framing/movement) is set per scene, not left default
+      - No two adjacent scenes reuse the same query vocabulary
+    success_criteria:
+      - Schema-valid scene_plan artifact
+      - One scene per script section (count matches sections count)
+      - Sum of (end_seconds - start_seconds) within 10% of script.total_duration_seconds
+      - metadata.queries present for every scene
+
+  - name: assets
+    skill: pipelines/narration-montage/asset-director
+    required_artifacts_in:
+      - scene_plan
+      - script
+    produces:
+      - asset_manifest
+    required_tools:
+      - pexels_video
+      - tts_selector
+    optional_tools:
+      - pexels_video
+      - video_trimmer
+    tools_available:
+      - pexels_video
+      - video_trimmer
+      - tts_selector
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Enough distinct clips fetched per scene to cover the section without reuse
+      - No clip_id picked for two scenes (global dedup via manifest.json)
+      - Every asset has provenance (provider, original_url, license)
+      - No clip shorter than the shot cadence is used (would flash-cut)
+      - rejected_picks log records duplicate video_ids that were skipped
+    success_criteria:
+      - Schema-valid asset_manifest artifact
+      - At least ceil(section_duration / shot_dur) + 3 distinct clips per scene
+      - metadata.clip_counts present per scene
+      - No two assets share the same source video_id
+
+  - name: edit
+    skill: pipelines/narration-montage/edit-director
+    required_artifacts_in:
+      - scene_plan
+      - asset_manifest
+    produces:
+      - edit_decisions
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Shot cadence is fixed (SHOT_DUR, default 3s) so no frame lingers too long
+      - One full shot per distinct clip; no clip is re-cut into repeated frames
+      - Subtitle style is locked (font size, static whole-line, force-aligned timing)
+      - Audio layout matches the narration plan from the brief
+      - render_runtime is locked to ffmpeg and carried unchanged
+    success_criteria:
+      - Schema-valid edit_decisions artifact
+      - render_runtime present and ffmpeg
+      - subtitles.enabled is true and subtitles.style is set
+      - metadata.shot_dur present
+      - total duration matches script.total_duration_seconds within 10%
+
+  - name: compose
+    skill: pipelines/narration-montage/compose-director
+    required_artifacts_in:
+      - edit_decisions
+      - asset_manifest
+      - brief
+    produces:
+      - render_report
+      - final_review
+    required_tools:
+      - video_compose
+    optional_tools:
+      - video_trimmer
+      - video_stitch
+      - transcriber
+      - subtitle_gen
+    tools_available:
+      - video_compose
+      - video_trimmer
+      - video_stitch
+      - transcriber
+      - subtitle_gen
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Output duration matches planned within 1s
+      - Resolution matches the 1920x1080 canvas
+      - Subtitle lines are burned and readable (no \k karaoke markers)
+      - Narration is muxed and synchronized (force-aligned timestamps)
+      - No repeated frames across cuts (distinct clips verified)
+      - "render_runtime locked at edit MUST stay 'ffmpeg' — narration-montage renders via video_compose (ffmpeg ASS subtitle burn + narration/music mux). Remotion and HyperFrames are NOT valid runtimes on this pipeline; a silent swap is a CRITICAL governance violation."
+    success_criteria:
+      - Schema-valid render_report artifact
+      - Schema-valid final_review artifact (status pass/revise/fail)
+      - Output file exists and passes ffprobe validation
+      - final_review.checks.subtitle_check.subtitles_present = true
+      - final_review.checks.audio_spotcheck.narration_present = true
+      - final_review.recommended_action present
