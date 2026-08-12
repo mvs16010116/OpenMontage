@@ -190,6 +190,23 @@ class MixkitSource:
                         download_url = url
                         break
 
+            # Fallback: regex over the raw HTML. Mixkit serves clips from
+            # assets.mixkit.co/videos/<id>/<id>-<quality>.mp4; the markup
+            # around them changes over time, so a regex is more robust
+            # than CSS selectors for this site.
+            if not download_url:
+                matches = re.findall(
+                    r"https?://assets\.mixkit\.co/videos/[^\"'\s]+\.mp4",
+                    r.text,
+                )
+                if matches:
+                    # Prefer the highest-quality rendition present.
+                    download_url = sorted(
+                        set(matches),
+                        key=lambda u: _quality_from_mixkit_url(u),
+                        reverse=True,
+                    )[0]
+
             if not download_url:
                 raise ValueError(f"Could not find download URL on Mixkit page: {detail_url}")
 
@@ -198,6 +215,15 @@ class MixkitSource:
 
             return self._stream_download(download_url, out_path)
 
+        except ValueError as e:
+            # Newer Mixkit clips (id >= 100000) render their player via JS
+            # and expose no mp4 in the detail HTML. Fall back to the 360p
+            # preview URL captured at search time — lower quality, but the
+            # clip is real and free.
+            preview = (candidate.extra or {}).get("preview_url")
+            if preview:
+                return self._stream_download(preview, out_path)
+            raise ValueError(str(e)) from e
         except Exception as e:
             raise RuntimeError(f"Mixkit download failed for {detail_url}: {e}") from e
 
@@ -214,3 +240,16 @@ class MixkitSource:
                     if chunk:
                         f.write(chunk)
         return out_path
+
+
+def _quality_from_mixkit_url(url: str) -> int:
+    """Extract a quality rank from a Mixkit asset URL for sorting.
+
+    URLs look like ``https://assets.mixkit.co/videos/16581/16581-720.mp4``
+    — the number before ``.mp4`` is the height. Unknown/non-numeric tails
+    sort lowest.
+    """
+    m = re.search(r"-(\d+)\.mp4$", url)
+    if m:
+        return int(m.group(1))
+    return 0

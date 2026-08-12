@@ -8,8 +8,11 @@ ORG — typically the output of ``ner_extractor``), this tool:
    English queries (ASCII-containing entities are used verbatim; pure-Chinese
    entities fall back to a per-category English shot vocabulary). A
    ``query_map`` input lets the caller override any entity → queries.
-2. **Searches stock sources** (default ``pexels``, same adapters the
-   corpus builder uses) for footage matching each entity.
+2. **Searches stock sources** for footage matching each entity. Default
+   order is ``pexels`` → ``mixkit`` (the free tier reachable from China
+   without extra keys; Pexels needs ``PEXELS_API_KEY``). Coverr is
+   available via ``sources`` once ``COVERR_API_KEY`` is set. The same
+   adapters the corpus builder uses.
 3. **Downloads** matching clips into the project and writes an
    ``asset_manifest``-compatible ``manifest.json`` next to them, with
    full provenance (provider, original_url, license, duration,
@@ -166,8 +169,9 @@ class NerVideoSearch(BaseTool):
             "sources": {
                 "type": "array",
                 "items": {"type": "string"},
-                "description": "Stock source names to search, e.g. ['pexels']. "
-                               "Defaults to all configured sources.",
+                "description": "Stock source names to search, e.g. ['pexels', "
+                               "'mixkit', 'coverr']. Defaults to pexels → mixkit "
+                               "(whichever are configured).",
             },
             "filters": {
                 "type": "object",
@@ -466,15 +470,20 @@ class NerVideoSearch(BaseTool):
             all_sources, available_sources, get_source,
         )
         if not names:
-            # Default to Pexels only: it is the fastest, highest-quality
-            # general B-roll source and matches the narration-montage
-            # pipeline convention. Other no-key sources (NASA, Wikimedia,
-            # ...) are niche and noisy — enable them explicitly via
-            # `sources` when the topic calls for them.
-            pexels = all_sources()
-            pexels = [s for s in pexels if s.name == "pexels" and s.is_available()]
-            if pexels:
-                return pexels
+            # Default order: Pexels (best quality, needs key) → Mixkit
+            # (free, no key, reachable from China). Coverr's free tier
+            # returns 401 without COVERR_API_KEY as of 2026-08, so it is
+            # NOT in the default list — add it explicitly once a key is
+            # configured. Other niche no-key sources (NASA, Wikimedia,
+            # ...) stay opt-in via `sources`.
+            default_order = ["pexels", "mixkit"]
+            known = {s.name: s for s in all_sources()}
+            picked = [
+                known[name] for name in default_order
+                if name in known and known[name].is_available()
+            ]
+            if picked:
+                return picked
             return available_sources()
         requested: list[Any] = []
         known = {s.name: s for s in all_sources()}
