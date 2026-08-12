@@ -1,0 +1,5 @@
+file 'D:/Danny/projects/animation/my_open_montage/projects/meiyi-nuclear-deal/assets/work/scene1_flat.mp4'
+file 'D:/Danny/projects/animation/my_open_montage/projects/meiyi-nuclear-deal/assets/work/scene2_flat.mp4'
+file 'D:/Danny/projects/animation/my_open_montage/projects/meiyi-nuclear-deal/assets/work/scene3_flat.mp4'
+file 'D:/Danny/projects/animation/my_open_montage/projects/meiyi-nuclear-deal/assets/work/scene4_flat.mp4'
+file 'D:/Danny/projects/animation/my_open_montage/projects/meiyi-nuclear-deal/assets/work/scene5_flat.mp4'

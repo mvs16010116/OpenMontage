@@ -1,0 +1,47 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,MS YaHei,84,&H00FFFFFF,&H00FFFFFF,&H80000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,2,60,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:04.69,Default,,0,0,0,,大家好我是侯哥军情你能想象吗在国际政
+Dialogue: 0,0:00:04.69,0:00:08.82,Default,,0,0,0,,治的棋盘上美国和伊朗看似剑拔弩张却悄
+Dialogue: 0,0:00:08.82,0:00:12.40,Default,,0,0,0,,悄就核协议形成了模糊框架这背后到底藏
+Dialogue: 0,0:00:12.40,0:00:17.20,Default,,0,0,0,,着怎样的权力博弈从权力逻辑解码来看此
+Dialogue: 0,0:00:17.20,0:00:20.72,Default,,0,0,0,,次核协议谈判暴露了美伊双方内部复杂的
+Dialogue: 0,0:00:20.72,0:00:25.28,Default,,0,0,0,,权力运作和派系平衡在美国特朗普幕僚推
+Dialogue: 0,0:00:25.28,0:00:28.70,Default,,0,0,0,,动谈判但可能面临国内不同政治势力的反
+Dialogue: 0,0:00:28.70,0:00:33.14,Default,,0,0,0,,对在伊朗伊朗革命卫队和强硬派政客可能
+Dialogue: 0,0:00:33.14,0:00:36.18,Default,,0,0,0,,会对伊朗外长阿拉格齐的谈判成果构成威
+Dialogue: 0,0:00:36.18,0:00:39.92,Default,,0,0,0,,胁这就像两个内部各揣心思的大家庭家长
+Dialogue: 0,0:00:39.92,0:00:43.99,Default,,0,0,0,,想办事家里的兄弟却各有算盘反映出美伊
+Dialogue: 0,0:00:43.94,0:00:47.52,Default,,0,0,0,,两国在外交决策中内部不同派系之间存在
+Dialogue: 0,0:00:47.52,0:00:51.78,Default,,0,0,0,,着激烈的博弈而且美国推动核协议也有其
+Dialogue: 0,0:00:51.78,0:00:55.20,Default,,0,0,0,,外交杠杆的考量试图通过限制伊朗核计划
+Dialogue: 0,0:00:55.20,0:00:58.86,Default,,0,0,0,,来维护自身在中东的利益和影响力这跟当
+Dialogue: 0,0:00:58.86,0:01:02.48,Default,,0,0,0,,年美苏争霸时争夺势力范围的逻辑如出一
+Dialogue: 0,0:01:02.48,0:01:07.14,Default,,0,0,0,,辙从制度与决策机制透视方面美国的决策
+Dialogue: 0,0:01:07.14,0:01:11.10,Default,,0,0,0,,呈现出多派参与复杂制衡的特点不同官员
+Dialogue: 0,0:01:11.10,0:01:15.04,Default,,0,0,0,,和势力都在核协议谈判中发声决策过程并
+Dialogue: 0,0:01:15.04,0:01:17.92,Default,,0,0,0,,非由单一权力中心主导就像个多轮驱动的
+Dialogue: 0,0:01:17.92,0:01:21.96,Default,,0,0,0,,机器有时反而不如单引擎跑得快而伊朗的
+Dialogue: 0,0:01:21.96,0:01:25.74,Default,,0,0,0,,决策则需要平衡政府革命卫队等多方力量
+Dialogue: 0,0:01:26.30,0:01:30.10,Default,,0,0,0,,相较于一些集权国家高效的决策模式美伊
+Dialogue: 0,0:01:30.10,0:01:34.78,Default,,0,0,0,,这种决策模式显得较为拖沓和充满变数展
+Dialogue: 0,0:01:34.78,0:01:38.30,Default,,0,0,0,,望未来这意味着美伊关系可能会迎来新的
+Dialogue: 0,0:01:38.30,0:01:42.28,Default,,0,0,0,,变化如果核协议能够顺利推进美伊关系可
+Dialogue: 0,0:01:42.28,0:01:45.82,Default,,0,0,0,,能会有所缓和中东地区的紧张局势也可能
+Dialogue: 0,0:01:45.82,0:01:49.46,Default,,0,0,0,,会得到一定程度的缓解但它的潜台词是美
+Dialogue: 0,0:01:49.46,0:01:53.06,Default,,0,0,0,,伊内部的反对声音随时可能让协议流产一
+Dialogue: 0,0:01:53.06,0:01:56.52,Default,,0,0,0,,旦协议失败中东局势可能会再次陷入动荡
+Dialogue: 0,0:01:56.88,0:02:01.04,Default,,0,0,0,,这就像走钢丝稍有不慎就会跌入深渊我们
+Dialogue: 0,0:02:01.04,0:02:04.79,Default,,0,0,0,,可以用核协议博弈来概括这次事件最后我
+Dialogue: 0,0:02:04.79,0:02:08.32,Default,,0,0,0,,想问大家你认为美伊核协议最终能够达成
+Dialogue: 0,0:02:08.32,0:02:11.24,Default,,0,0,0,,吗欢迎在评论区留下你的看法

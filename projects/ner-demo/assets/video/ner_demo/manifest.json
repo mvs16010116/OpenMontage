@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "pexels_12685044",
+      "type": "video",
+      "path": "assets\\video\\ner_demo\\clip2.mp4",
+      "source_tool": "ner_video_search",
+      "scene_id": "ner_demo",
+      "provider": "pexels",
+      "license": "Pexels License (free, no attribution required)",
+      "original_url": "https://www.pexels.com/video/skyscrapers-in-downtown-minneapolis-minnesota-usa-12685044/",
+      "duration_seconds": 10.0,
+      "resolution": "1920x1080",
+      "query": "city landscape",
+      "subtype": "stock",
+      "generation_summary": "NER entity '深圳' (LOC) → stock query 'city landscape'"
+    },
+    {
+      "id": "pexels_6324541",
+      "type": "video",
+      "path": "assets\\video\\ner_demo\\clip3.mp4",
+      "source_tool": "ner_video_search",
+      "scene_id": "ner_demo",
+      "provider": "pexels",
+      "license": "Pexels License (free, no attribution required)",
+      "original_url": "https://www.pexels.com/video/man-with-dimple-looking-straight-at-the-camera-6324541/",
+      "duration_seconds": 10.0,
+      "resolution": "1440x2560",
+      "query": "person portrait",
+      "subtype": "stock",
+      "generation_summary": "NER entity '任正非' (PER) → stock query 'person portrait'"
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "tool": "ner_video_search",
+    "generated_by": "ner_video_search",
+    "scene_id": "ner_demo",
+    "entities": [
+      {
+        "text": "深圳",
+        "type": "LOC",
+        "confidence": 0.8392,
+        "queries": [
+          "city landscape",
+          "landmark aerial",
+          "city street people"
+        ],
+        "footage": [
+          "clip2.mp4"
+        ]
+      },
+      {
+        "text": "任正非",
+        "type": "PER",
+        "confidence": 0.7696,
+        "queries": [
+          "person portrait",
+          "interview closeup",
+          "person talking"
+        ],
+        "footage": [
+          "clip3.mp4"
+        ]
+      }
+    ],
+    "stats": {
+      "entities_found": 2,
+      "entities_with_footage": 2,
+      "clips_downloaded": 2,
+      "used_video_ids": 2,
+      "errors": []
+    }
+  }
+}

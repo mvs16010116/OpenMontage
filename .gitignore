@@ -35,6 +35,33 @@ projects/*
 !projects/junzheng-commentary/**
 # junzheng-commentary video clips/renders are regenerable — never push mp4
 projects/junzheng-commentary/**/*.mp4
+# Other project workspaces: track non-media files (configs, artifacts,
+# manifests, subtitles, scripts); media files are regenerable — never push.
+!projects/**/
+!projects/**/*.json
+!projects/**/*.jsonl
+!projects/**/*.txt
+!projects/**/*.md
+!projects/**/*.yaml
+!projects/**/*.yml
+!projects/**/*.csv
+!projects/**/*.srt
+!projects/**/*.ass
+!projects/**/*.py
+!projects/**/*.sh
+projects/**/*.mp4
+projects/**/*.mp3
+projects/**/*.wav
+projects/**/*.aac
+projects/**/*.m4a
+projects/**/*.jpg
+projects/**/*.jpeg
+projects/**/*.png
+projects/**/*.webp
+projects/**/*.npy
+projects/**/*.safetensors
+projects/**/*.bin
+projects/**/*.pt
 
 # Corpus directories (downloaded stock clips, thumbnails, embeddings —
 # regenerable from source APIs via corpus_builder). Explicit rule even
