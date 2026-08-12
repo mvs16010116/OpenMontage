@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "pexels_12685044",
+      "type": "video",
+      "path": "assets/video/ner_multi_src/clip1.mp4",
+      "source_tool": "ner_video_search",
+      "scene_id": "ner_multi_src",
+      "provider": "pexels",
+      "license": "Pexels License (free, no attribution required)",
+      "original_url": "https://www.pexels.com/video/skyscrapers-in-downtown-minneapolis-minnesota-usa-12685044/",
+      "duration_seconds": 10.0,
+      "resolution": "1920x1080",
+      "query": "city landscape",
+      "subtype": "stock",
+      "generation_summary": "NER entity '深圳' (LOC) → stock query 'city landscape'"
+    },
+    {
+      "id": "pexels_3044678",
+      "type": "video",
+      "path": "assets/video/ner_multi_src/clip2.mp4",
+      "source_tool": "ner_video_search",
+      "scene_id": "ner_multi_src",
+      "provider": "pexels",
+      "license": "Pexels License (free, no attribution required)",
+      "original_url": "https://www.pexels.com/video/a-woman-talking-on-her-phone-while-walking-across-the-office-3044678/",
+      "duration_seconds": 20.0,
+      "resolution": "1920x1080",
+      "query": "business office",
+      "subtype": "stock",
+      "generation_summary": "NER entity '航天科技' (ORG) → stock query 'business office'"
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "tool": "ner_video_search",
+    "generated_by": "ner_video_search",
+    "scene_id": "ner_multi_src",
+    "entities": [
+      {
+        "text": "深圳",
+        "type": "LOC",
+        "confidence": 1.0,
+        "queries": [
+          "city landscape",
+          "landmark aerial",
+          "city street people"
+        ],
+        "footage": [
+          "clip1.mp4"
+        ]
+      },
+      {
+        "text": "航天科技",
+        "type": "ORG",
+        "confidence": 1.0,
+        "queries": [
+          "business office",
+          "corporate team",
+          "office building"
+        ],
+        "footage": [
+          "clip2.mp4"
+        ]
+      }
+    ],
+    "stats": {
+      "entities_found": 2,
+      "entities_with_footage": 2,
+      "clips_downloaded": 2,
+      "used_video_ids": 2,
+      "errors": []
+    }
+  }
+}

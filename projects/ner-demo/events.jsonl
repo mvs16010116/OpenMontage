@@ -4,3 +4,9 @@
 {"ts": "2026-08-12T12:59:36.957477+00:00", "tool": "ner_video_search", "scene_id": "ner_demo2", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 18.04}
 {"ts": "2026-08-12T13:08:51.708991+00:00", "tool": "ner_video_search", "scene_id": "ner_split", "event": "start"}
 {"ts": "2026-08-12T13:08:59.667521+00:00", "tool": "ner_video_search", "scene_id": "ner_split", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 7.96}
+{"ts": "2026-08-12T13:34:59.619463+00:00", "tool": "ner_video_search", "scene_id": "ner_multi_src", "event": "start"}
+{"ts": "2026-08-12T13:35:12.418703+00:00", "tool": "ner_video_search", "scene_id": "ner_multi_src", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 12.8}
+{"ts": "2026-08-12T13:35:17.346937+00:00", "tool": "ner_video_search", "scene_id": "ner_mixkit_only", "event": "start"}
+{"ts": "2026-08-12T13:35:35.229523+00:00", "tool": "ner_video_search", "scene_id": "ner_mixkit_only", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 17.88}
+{"ts": "2026-08-12T13:36:25.116465+00:00", "tool": "ner_video_search", "scene_id": "ner_mixkit_fixed", "event": "start"}
+{"ts": "2026-08-12T13:36:29.895977+00:00", "tool": "ner_video_search", "scene_id": "ner_mixkit_fixed", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 4.78}

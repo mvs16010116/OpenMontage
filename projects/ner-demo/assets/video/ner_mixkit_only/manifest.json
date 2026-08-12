@@ -1,0 +1,99 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "mixkit_mixkit_people-walking-on-a-busy-city-street-6779",
+      "type": "video",
+      "path": "assets/video/ner_mixkit_only/clip1.mp4",
+      "source_tool": "ner_video_search",
+      "scene_id": "ner_mixkit_only",
+      "provider": "mixkit",
+      "license": "Mixkit License (free for commercial and personal use, no attribution required)",
+      "original_url": "https://mixkit.co/free-stock-video/people-walking-on-a-busy-city-street-6779/",
+      "duration_seconds": 0.0,
+      "resolution": "",
+      "query": "city street people",
+      "subtype": "stock",
+      "generation_summary": "NER entity '深圳' (LOC) → stock query 'city street people'"
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "tool": "ner_video_search",
+    "generated_by": "ner_video_search",
+    "scene_id": "ner_mixkit_only",
+    "entities": [
+      {
+        "text": "深圳",
+        "type": "LOC",
+        "confidence": 1.0,
+        "queries": [
+          "city landscape",
+          "landmark aerial",
+          "city street people"
+        ],
+        "footage": [
+          "clip1.mp4"
+        ]
+      }
+    ],
+    "stats": {
+      "entities_found": 1,
+      "entities_with_footage": 1,
+      "clips_downloaded": 1,
+      "used_video_ids": 1,
+      "errors": [
+        {
+          "clip_id": "mixkit_mixkit_flock-of-birds-over-urban-lake-101383",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/flock-of-birds-over-urban-lake-101383/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/flock-of-birds-over-urban-lake-101383/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_modern-office-buildings-reflecting-on-a-lake-101385",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/modern-office-buildings-reflecting-on-a-lake-101385/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/modern-office-buildings-reflecting-on-a-lake-101385/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_sunny-lake-with-swimming-ducks-101382",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/sunny-lake-with-swimming-ducks-101382/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/sunny-lake-with-swimming-ducks-101382/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_pan-of-corporate-park-with-nature-101381",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/pan-of-corporate-park-with-nature-101381/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/pan-of-corporate-park-with-nature-101381/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_urban-landscape-reflected-on-lake-101386",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/urban-landscape-reflected-on-lake-101386/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/urban-landscape-reflected-on-lake-101386/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_fast-motion-sky-reflections-on-buildings-101376",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/fast-motion-sky-reflections-on-buildings-101376/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/fast-motion-sky-reflections-on-buildings-101376/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_corporate-park-reflected-on-lake-101384",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/corporate-park-reflected-on-lake-101384/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/corporate-park-reflected-on-lake-101384/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_lake-reflection-of-peaceful-park-101387",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/lake-reflection-of-peaceful-park-101387/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/lake-reflection-of-peaceful-park-101387/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_time-lapse-of-sky-reflecting-on-a-building-101379",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/time-lapse-of-sky-reflecting-on-a-building-101379/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/time-lapse-of-sky-reflecting-on-a-building-101379/"
+        },
+        {
+          "clip_id": "mixkit_mixkit_sky-reflections-on-glass-building-101377",
+          "entity": "深圳",
+          "error": "RuntimeError: Mixkit download failed for https://mixkit.co/free-stock-video/sky-reflections-on-glass-building-101377/: Could not find download URL on Mixkit page: https://mixkit.co/free-stock-video/sky-reflections-on-glass-building-101377/"
+        }
+      ]
+    }
+  }
+}

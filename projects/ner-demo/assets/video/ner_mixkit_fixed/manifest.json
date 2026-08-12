@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "mixkit_mixkit_flock-of-birds-over-urban-lake-101383",
+      "type": "video",
+      "path": "assets/video/ner_mixkit_fixed/clip1.mp4",
+      "source_tool": "ner_video_search",
+      "scene_id": "ner_mixkit_fixed",
+      "provider": "mixkit",
+      "license": "Mixkit License (free for commercial and personal use, no attribution required)",
+      "original_url": "https://mixkit.co/free-stock-video/flock-of-birds-over-urban-lake-101383/",
+      "duration_seconds": 0.0,
+      "resolution": "",
+      "query": "city landscape",
+      "subtype": "stock",
+      "generation_summary": "NER entity '深圳' (LOC) → stock query 'city landscape'"
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "tool": "ner_video_search",
+    "generated_by": "ner_video_search",
+    "scene_id": "ner_mixkit_fixed",
+    "entities": [
+      {
+        "text": "深圳",
+        "type": "LOC",
+        "confidence": 1.0,
+        "queries": [
+          "city landscape",
+          "landmark aerial",
+          "city street people"
+        ],
+        "footage": [
+          "clip1.mp4"
+        ]
+      }
+    ],
+    "stats": {
+      "entities_found": 1,
+      "entities_with_footage": 1,
+      "clips_downloaded": 1,
+      "used_video_ids": 1,
+      "errors": []
+    }
+  }
+}
