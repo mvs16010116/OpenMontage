@@ -1,0 +1,802 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-commentary",
+  "pipeline_type": "narration-montage",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-08-12T05:17:54.465649+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "renderer_family": "narration-montage",
+      "render_runtime": "ffmpeg",
+      "composition_mode": "templated",
+      "cuts": [
+        {
+          "id": "cut_001",
+          "source": "asset_video_scene_01_35559233",
+          "in_seconds": 0.0,
+          "out_seconds": 4.5,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "fade_in",
+          "transition_out": "cut",
+          "transition_duration": 0.4,
+          "reason": "scene_01/section_01 \u2014 Hook \u2014 Fetched for scene_01"
+        },
+        {
+          "id": "cut_002",
+          "source": "asset_video_scene_01_38789615",
+          "in_seconds": 4.5,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_01/section_01 \u2014 Hook \u2014 Fetched for scene_01"
+        },
+        {
+          "id": "cut_003",
+          "source": "asset_video_scene_01_6952223",
+          "in_seconds": 9.0,
+          "out_seconds": 13.5,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_01/section_01 \u2014 Hook \u2014 Fetched for scene_01"
+        },
+        {
+          "id": "cut_004",
+          "source": "asset_video_scene_01_29924971",
+          "in_seconds": 13.5,
+          "out_seconds": 14.5,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_01/section_01 \u2014 Hook \u2014 Fetched for scene_01"
+        },
+        {
+          "id": "cut_005",
+          "source": "asset_video_scene_02_8731567",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_02/section_02 \u2014 \u5185\u90e8\u6743\u529b\u8fd0\u4f5c \u2014 Fetched for scene_02"
+        },
+        {
+          "id": "cut_006",
+          "source": "asset_video_scene_02_7981961",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_02/section_02 \u2014 \u5185\u90e8\u6743\u529b\u8fd0\u4f5c \u2014 Fetched for scene_02"
+        },
+        {
+          "id": "cut_007",
+          "source": "asset_video_scene_02_5849623",
+          "in_seconds": 6.0,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_02/section_02 \u2014 \u5185\u90e8\u6743\u529b\u8fd0\u4f5c \u2014 Fetched for scene_02"
+        },
+        {
+          "id": "cut_008",
+          "source": "asset_video_scene_03_8863754",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_03/section_03 \u2014 \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08 \u2014 Fetched for scene_03"
+        },
+        {
+          "id": "cut_009",
+          "source": "asset_video_scene_03_6814372",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_03/section_03 \u2014 \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08 \u2014 Fetched for scene_03"
+        },
+        {
+          "id": "cut_010",
+          "source": "asset_video_scene_03_8102861",
+          "in_seconds": 6.0,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_03/section_03 \u2014 \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08 \u2014 Fetched for scene_03"
+        },
+        {
+          "id": "cut_011",
+          "source": "asset_video_scene_03_7844849",
+          "in_seconds": 1.34,
+          "out_seconds": 4.34,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_03/section_03 \u2014 \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08 \u2014 Fetched for scene_03"
+        },
+        {
+          "id": "cut_012",
+          "source": "asset_video_scene_03_8853410",
+          "in_seconds": 2.24,
+          "out_seconds": 4.5,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_03/section_03 \u2014 \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08 \u2014 Fetched for scene_03"
+        },
+        {
+          "id": "cut_013",
+          "source": "asset_video_scene_04_6603157",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_04/section_04 \u2014 \u5927\u5bb6\u5ead\u6bd4\u55bb \u2014 Fetched for scene_04"
+        },
+        {
+          "id": "cut_014",
+          "source": "asset_video_scene_04_8481280",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_04/section_04 \u2014 \u5927\u5bb6\u5ead\u6bd4\u55bb \u2014 Fetched for scene_04"
+        },
+        {
+          "id": "cut_015",
+          "source": "asset_video_scene_04_6305040",
+          "in_seconds": 0.22,
+          "out_seconds": 3.22,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_04/section_04 \u2014 \u5927\u5bb6\u5ead\u6bd4\u55bb \u2014 Fetched for scene_04"
+        },
+        {
+          "id": "cut_016",
+          "source": "asset_video_scene_04_6603164",
+          "in_seconds": 9.0,
+          "out_seconds": 12.36,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_04/section_04 \u2014 \u5927\u5bb6\u5ead\u6bd4\u55bb \u2014 Fetched for scene_04"
+        },
+        {
+          "id": "cut_017",
+          "source": "asset_video_scene_05_26736801",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_05/section_05 \u2014 \u5916\u4ea4\u6760\u6746\u8003\u91cf \u2014 Fetched for scene_05"
+        },
+        {
+          "id": "cut_018",
+          "source": "asset_video_scene_05_30322003",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_05/section_05 \u2014 \u5916\u4ea4\u6760\u6746\u8003\u91cf \u2014 Fetched for scene_05"
+        },
+        {
+          "id": "cut_019",
+          "source": "asset_video_scene_05_36721728",
+          "in_seconds": 6.0,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_05/section_05 \u2014 \u5916\u4ea4\u6760\u6746\u8003\u91cf \u2014 Fetched for scene_05"
+        },
+        {
+          "id": "cut_020",
+          "source": "asset_video_scene_05_1319747",
+          "in_seconds": 9.0,
+          "out_seconds": 12.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_05/section_05 \u2014 \u5916\u4ea4\u6760\u6746\u8003\u91cf \u2014 Fetched for scene_05"
+        },
+        {
+          "id": "cut_021",
+          "source": "asset_video_scene_05_10719817",
+          "in_seconds": 12.0,
+          "out_seconds": 14.71,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_05/section_05 \u2014 \u5916\u4ea4\u6760\u6746\u8003\u91cf \u2014 Fetched for scene_05"
+        },
+        {
+          "id": "cut_022",
+          "source": "asset_video_scene_06_6599402",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_06/section_06 \u2014 \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_06"
+        },
+        {
+          "id": "cut_023",
+          "source": "asset_video_scene_06_28158986",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_06/section_06 \u2014 \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_06"
+        },
+        {
+          "id": "cut_024",
+          "source": "asset_video_scene_06_6581274",
+          "in_seconds": 6.0,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_06/section_06 \u2014 \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_06"
+        },
+        {
+          "id": "cut_025",
+          "source": "asset_video_scene_06_11154588",
+          "in_seconds": 9.0,
+          "out_seconds": 12.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_06/section_06 \u2014 \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_06"
+        },
+        {
+          "id": "cut_026",
+          "source": "asset_video_scene_06_28671359",
+          "in_seconds": 12.0,
+          "out_seconds": 15.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_06/section_06 \u2014 \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_06"
+        },
+        {
+          "id": "cut_027",
+          "source": "asset_video_scene_06_37307216",
+          "in_seconds": 0.83,
+          "out_seconds": 3.93,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_06/section_06 \u2014 \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_06"
+        },
+        {
+          "id": "cut_028",
+          "source": "asset_video_scene_07_18486224",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_07/section_07 \u2014 \u4f0a\u6717\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_07"
+        },
+        {
+          "id": "cut_029",
+          "source": "asset_video_scene_07_3078548",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_07/section_07 \u2014 \u4f0a\u6717\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_07"
+        },
+        {
+          "id": "cut_030",
+          "source": "asset_video_scene_07_9834838",
+          "in_seconds": 6.0,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_07/section_07 \u2014 \u4f0a\u6717\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_07"
+        },
+        {
+          "id": "cut_031",
+          "source": "asset_video_scene_07_3078540",
+          "in_seconds": 1.17,
+          "out_seconds": 4.17,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_07/section_07 \u2014 \u4f0a\u6717\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_07"
+        },
+        {
+          "id": "cut_032",
+          "source": "asset_video_scene_07_18827448",
+          "in_seconds": 12.0,
+          "out_seconds": 13.2,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_07/section_07 \u2014 \u4f0a\u6717\u51b3\u7b56\u673a\u5236 \u2014 Fetched for scene_07"
+        },
+        {
+          "id": "cut_033",
+          "source": "asset_video_scene_08_30346370",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_08/section_08 \u2014 \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f \u2014 Fetched for scene_08"
+        },
+        {
+          "id": "cut_034",
+          "source": "asset_video_scene_08_35207576",
+          "in_seconds": 0.3,
+          "out_seconds": 3.3,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_08/section_08 \u2014 \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f \u2014 Fetched for scene_08"
+        },
+        {
+          "id": "cut_035",
+          "source": "asset_video_scene_08_18338778",
+          "in_seconds": 6.0,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_08/section_08 \u2014 \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f \u2014 Fetched for scene_08"
+        },
+        {
+          "id": "cut_036",
+          "source": "asset_video_scene_08_35972202",
+          "in_seconds": 0.02,
+          "out_seconds": 3.02,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_08/section_08 \u2014 \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f \u2014 Fetched for scene_08"
+        },
+        {
+          "id": "cut_037",
+          "source": "asset_video_scene_08_35038207",
+          "in_seconds": 0.92,
+          "out_seconds": 2.65,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_08/section_08 \u2014 \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f \u2014 Fetched for scene_08"
+        },
+        {
+          "id": "cut_038",
+          "source": "asset_video_scene_09_12124876",
+          "in_seconds": 0.0,
+          "out_seconds": 4.5,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_09/section_09 \u2014 \u98ce\u9669\u4e0e\u6f5c\u53f0\u8bcd \u2014 Fetched for scene_09"
+        },
+        {
+          "id": "cut_039",
+          "source": "asset_video_scene_09_8492952",
+          "in_seconds": 4.5,
+          "out_seconds": 9.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_09/section_09 \u2014 \u98ce\u9669\u4e0e\u6f5c\u53f0\u8bcd \u2014 Fetched for scene_09"
+        },
+        {
+          "id": "cut_040",
+          "source": "asset_video_scene_09_38459351",
+          "in_seconds": 9.0,
+          "out_seconds": 13.5,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_09/section_09 \u2014 \u98ce\u9669\u4e0e\u6f5c\u53f0\u8bcd \u2014 Fetched for scene_09"
+        },
+        {
+          "id": "cut_041",
+          "source": "asset_video_scene_09_8492948",
+          "in_seconds": 0.22,
+          "out_seconds": 3.21,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_09/section_09 \u2014 \u98ce\u9669\u4e0e\u6f5c\u53f0\u8bcd \u2014 Fetched for scene_09"
+        },
+        {
+          "id": "cut_042",
+          "source": "asset_video_scene_10_8847367",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_10/section_10 \u2014 \u7ed3\u8bed\u4e92\u52a8 \u2014 Fetched for scene_10"
+        },
+        {
+          "id": "cut_043",
+          "source": "asset_video_scene_10_7103392",
+          "in_seconds": 3.0,
+          "out_seconds": 6.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "transition_duration": 0.0,
+          "reason": "scene_10/section_10 \u2014 \u7ed3\u8bed\u4e92\u52a8 \u2014 Fetched for scene_10"
+        },
+        {
+          "id": "cut_044",
+          "source": "asset_video_scene_10_8847371",
+          "in_seconds": 6.0,
+          "out_seconds": 7.92,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.0,
+            "position": "center"
+          },
+          "transition_in": "cut",
+          "transition_out": "fade_out",
+          "transition_duration": 0.4,
+          "reason": "scene_10/section_10 \u2014 \u7ed3\u8bed\u4e92\u52a8 \u2014 Fetched for scene_10"
+        }
+      ],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "asset_narration_section_01",
+              "start_seconds": 0.0,
+              "end_seconds": 14.5
+            },
+            {
+              "asset_id": "asset_narration_section_02",
+              "start_seconds": 14.5,
+              "end_seconds": 23.52
+            },
+            {
+              "asset_id": "asset_narration_section_03",
+              "start_seconds": 23.52,
+              "end_seconds": 37.78
+            },
+            {
+              "asset_id": "asset_narration_section_04",
+              "start_seconds": 37.78,
+              "end_seconds": 50.14
+            },
+            {
+              "asset_id": "asset_narration_section_05",
+              "start_seconds": 50.14,
+              "end_seconds": 64.85
+            },
+            {
+              "asset_id": "asset_narration_section_06",
+              "start_seconds": 64.85,
+              "end_seconds": 82.95
+            },
+            {
+              "asset_id": "asset_narration_section_07",
+              "start_seconds": 82.95,
+              "end_seconds": 96.15
+            },
+            {
+              "asset_id": "asset_narration_section_08",
+              "start_seconds": 96.15,
+              "end_seconds": 109.88
+            },
+            {
+              "asset_id": "asset_narration_section_09",
+              "start_seconds": 109.88,
+              "end_seconds": 126.37
+            },
+            {
+              "asset_id": "asset_narration_section_10",
+              "start_seconds": 126.37,
+              "end_seconds": 134.29
+            }
+          ]
+        }
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "static_whole_line",
+        "source": "force_aligned",
+        "font_size": 56,
+        "color": "#FFFFFF",
+        "outline_color": "#000000",
+        "background": "#00000080",
+        "position": "bottom-center",
+        "max_words_per_line": 16
+      },
+      "metadata": {
+        "pipeline": "narration-montage",
+        "shot_cadence_seconds": 3.0,
+        "hero_scenes": [
+          "scene_01",
+          "scene_09"
+        ],
+        "hero_hold_seconds": 4.5,
+        "total_duration_seconds": 134.27,
+        "real_narration_total_seconds": 134.29,
+        "compose_target": {
+          "width": 1920,
+          "height": 1080,
+          "fit": "pad"
+        },
+        "proposal_render_runtime": "ffmpeg",
+        "music_plan": {
+          "source": "none",
+          "opt_out_reason": "\u7528\u6237\u660e\u786e\u8981\u6c42\u53bb\u6389\u80cc\u666f\u97f3\u4e50\uff08\u591a\u6b21\u786e\u8ba4\uff09\u3002\u7eaf\u914d\u97f3\u3002"
+        },
+        "audio_levels": {
+          "loudness_target_lufs": -12,
+          "max_true_peak_db": -1.5,
+          "limiter_threshold": 0.85,
+          "note": "\u7528\u6237\u8981\u6c42\u8bed\u97f3\u97f3\u91cf\u8c03\u5927\u3002compose \u9636\u6bb5 loudnorm -12 LUFS + alimiter 0.85\u3002"
+        },
+        "diversity_notes": []
+      }
+    }
+  },
+  "style_playbook": "clean-professional",
+  "review": {
+    "findings": [
+      {
+        "severity": "info",
+        "item": "44 cuts, timeline 134.27s == real narration 134.29s"
+      },
+      {
+        "severity": "info",
+        "item": "render_runtime locked ffmpeg; renderer_family narration-montage; proposal_render_runtime=ffmpeg for runtime-swap check"
+      },
+      {
+        "severity": "info",
+        "item": "subtitles static whole-line force-aligned (font 56, bottom-center)"
+      },
+      {
+        "severity": "info",
+        "item": "audio: narration-only (music none d-002); loudness target -12 LUFS + limiter 0.85 (\u97f3\u91cf\u8c03\u5927)"
+      }
+    ],
+    "conclusion": "pass"
+  },
+  "metadata": {
+    "n_cuts": 44,
+    "timeline_duration_seconds": 134.27
+  }
+}

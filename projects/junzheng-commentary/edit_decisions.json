@@ -1,0 +1,763 @@
+{
+  "version": "1.0",
+  "renderer_family": "narration-montage",
+  "render_runtime": "ffmpeg",
+  "composition_mode": "templated",
+  "cuts": [
+    {
+      "id": "cut_001",
+      "source": "asset_video_scene_01_35559233",
+      "in_seconds": 0.0,
+      "out_seconds": 4.5,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "fade_in",
+      "transition_out": "cut",
+      "transition_duration": 0.4,
+      "reason": "scene_01/section_01 — Hook — Fetched for scene_01"
+    },
+    {
+      "id": "cut_002",
+      "source": "asset_video_scene_01_38789615",
+      "in_seconds": 4.5,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_01/section_01 — Hook — Fetched for scene_01"
+    },
+    {
+      "id": "cut_003",
+      "source": "asset_video_scene_01_6952223",
+      "in_seconds": 9.0,
+      "out_seconds": 13.5,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_01/section_01 — Hook — Fetched for scene_01"
+    },
+    {
+      "id": "cut_004",
+      "source": "asset_video_scene_01_29924971",
+      "in_seconds": 13.5,
+      "out_seconds": 14.5,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_01/section_01 — Hook — Fetched for scene_01"
+    },
+    {
+      "id": "cut_005",
+      "source": "asset_video_scene_02_8731567",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_02/section_02 — 内部权力运作 — Fetched for scene_02"
+    },
+    {
+      "id": "cut_006",
+      "source": "asset_video_scene_02_7981961",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_02/section_02 — 内部权力运作 — Fetched for scene_02"
+    },
+    {
+      "id": "cut_007",
+      "source": "asset_video_scene_02_5849623",
+      "in_seconds": 6.0,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_02/section_02 — 内部权力运作 — Fetched for scene_02"
+    },
+    {
+      "id": "cut_008",
+      "source": "asset_video_scene_03_8863754",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_03/section_03 — 美伊内部派系博弈 — Fetched for scene_03"
+    },
+    {
+      "id": "cut_009",
+      "source": "asset_video_scene_03_6814372",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_03/section_03 — 美伊内部派系博弈 — Fetched for scene_03"
+    },
+    {
+      "id": "cut_010",
+      "source": "asset_video_scene_03_8102861",
+      "in_seconds": 6.0,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_03/section_03 — 美伊内部派系博弈 — Fetched for scene_03"
+    },
+    {
+      "id": "cut_011",
+      "source": "asset_video_scene_03_7844849",
+      "in_seconds": 1.34,
+      "out_seconds": 4.34,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_03/section_03 — 美伊内部派系博弈 — Fetched for scene_03"
+    },
+    {
+      "id": "cut_012",
+      "source": "asset_video_scene_03_8853410",
+      "in_seconds": 2.24,
+      "out_seconds": 4.5,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_03/section_03 — 美伊内部派系博弈 — Fetched for scene_03"
+    },
+    {
+      "id": "cut_013",
+      "source": "asset_video_scene_04_6603157",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_04/section_04 — 大家庭比喻 — Fetched for scene_04"
+    },
+    {
+      "id": "cut_014",
+      "source": "asset_video_scene_04_8481280",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_04/section_04 — 大家庭比喻 — Fetched for scene_04"
+    },
+    {
+      "id": "cut_015",
+      "source": "asset_video_scene_04_6305040",
+      "in_seconds": 0.22,
+      "out_seconds": 3.22,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_04/section_04 — 大家庭比喻 — Fetched for scene_04"
+    },
+    {
+      "id": "cut_016",
+      "source": "asset_video_scene_04_6603164",
+      "in_seconds": 9.0,
+      "out_seconds": 12.36,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_04/section_04 — 大家庭比喻 — Fetched for scene_04"
+    },
+    {
+      "id": "cut_017",
+      "source": "asset_video_scene_05_26736801",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_05/section_05 — 外交杠杆考量 — Fetched for scene_05"
+    },
+    {
+      "id": "cut_018",
+      "source": "asset_video_scene_05_30322003",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_05/section_05 — 外交杠杆考量 — Fetched for scene_05"
+    },
+    {
+      "id": "cut_019",
+      "source": "asset_video_scene_05_36721728",
+      "in_seconds": 6.0,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_05/section_05 — 外交杠杆考量 — Fetched for scene_05"
+    },
+    {
+      "id": "cut_020",
+      "source": "asset_video_scene_05_1319747",
+      "in_seconds": 9.0,
+      "out_seconds": 12.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_05/section_05 — 外交杠杆考量 — Fetched for scene_05"
+    },
+    {
+      "id": "cut_021",
+      "source": "asset_video_scene_05_10719817",
+      "in_seconds": 12.0,
+      "out_seconds": 14.71,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_05/section_05 — 外交杠杆考量 — Fetched for scene_05"
+    },
+    {
+      "id": "cut_022",
+      "source": "asset_video_scene_06_6599402",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_06/section_06 — 美国决策机制 — Fetched for scene_06"
+    },
+    {
+      "id": "cut_023",
+      "source": "asset_video_scene_06_28158986",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_06/section_06 — 美国决策机制 — Fetched for scene_06"
+    },
+    {
+      "id": "cut_024",
+      "source": "asset_video_scene_06_6581274",
+      "in_seconds": 6.0,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_06/section_06 — 美国决策机制 — Fetched for scene_06"
+    },
+    {
+      "id": "cut_025",
+      "source": "asset_video_scene_06_11154588",
+      "in_seconds": 9.0,
+      "out_seconds": 12.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_06/section_06 — 美国决策机制 — Fetched for scene_06"
+    },
+    {
+      "id": "cut_026",
+      "source": "asset_video_scene_06_28671359",
+      "in_seconds": 12.0,
+      "out_seconds": 15.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_06/section_06 — 美国决策机制 — Fetched for scene_06"
+    },
+    {
+      "id": "cut_027",
+      "source": "asset_video_scene_06_37307216",
+      "in_seconds": 0.83,
+      "out_seconds": 3.93,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_06/section_06 — 美国决策机制 — Fetched for scene_06"
+    },
+    {
+      "id": "cut_028",
+      "source": "asset_video_scene_07_18486224",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_07/section_07 — 伊朗决策机制 — Fetched for scene_07"
+    },
+    {
+      "id": "cut_029",
+      "source": "asset_video_scene_07_3078548",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_07/section_07 — 伊朗决策机制 — Fetched for scene_07"
+    },
+    {
+      "id": "cut_030",
+      "source": "asset_video_scene_07_9834838",
+      "in_seconds": 6.0,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_07/section_07 — 伊朗决策机制 — Fetched for scene_07"
+    },
+    {
+      "id": "cut_031",
+      "source": "asset_video_scene_07_3078540",
+      "in_seconds": 1.17,
+      "out_seconds": 4.17,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_07/section_07 — 伊朗决策机制 — Fetched for scene_07"
+    },
+    {
+      "id": "cut_032",
+      "source": "asset_video_scene_07_18827448",
+      "in_seconds": 12.0,
+      "out_seconds": 13.2,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_07/section_07 — 伊朗决策机制 — Fetched for scene_07"
+    },
+    {
+      "id": "cut_033",
+      "source": "asset_video_scene_08_30346370",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_08/section_08 — 展望：缓和前景 — Fetched for scene_08"
+    },
+    {
+      "id": "cut_034",
+      "source": "asset_video_scene_08_35207576",
+      "in_seconds": 0.3,
+      "out_seconds": 3.3,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_08/section_08 — 展望：缓和前景 — Fetched for scene_08"
+    },
+    {
+      "id": "cut_035",
+      "source": "asset_video_scene_08_18338778",
+      "in_seconds": 6.0,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_08/section_08 — 展望：缓和前景 — Fetched for scene_08"
+    },
+    {
+      "id": "cut_036",
+      "source": "asset_video_scene_08_35972202",
+      "in_seconds": 0.02,
+      "out_seconds": 3.02,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_08/section_08 — 展望：缓和前景 — Fetched for scene_08"
+    },
+    {
+      "id": "cut_037",
+      "source": "asset_video_scene_08_35038207",
+      "in_seconds": 0.92,
+      "out_seconds": 2.65,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_08/section_08 — 展望：缓和前景 — Fetched for scene_08"
+    },
+    {
+      "id": "cut_038",
+      "source": "asset_video_scene_09_12124876",
+      "in_seconds": 0.0,
+      "out_seconds": 4.5,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_09/section_09 — 风险与潜台词 — Fetched for scene_09"
+    },
+    {
+      "id": "cut_039",
+      "source": "asset_video_scene_09_8492952",
+      "in_seconds": 4.5,
+      "out_seconds": 9.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_09/section_09 — 风险与潜台词 — Fetched for scene_09"
+    },
+    {
+      "id": "cut_040",
+      "source": "asset_video_scene_09_38459351",
+      "in_seconds": 9.0,
+      "out_seconds": 13.5,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_09/section_09 — 风险与潜台词 — Fetched for scene_09"
+    },
+    {
+      "id": "cut_041",
+      "source": "asset_video_scene_09_8492948",
+      "in_seconds": 0.22,
+      "out_seconds": 3.21,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_09/section_09 — 风险与潜台词 — Fetched for scene_09"
+    },
+    {
+      "id": "cut_042",
+      "source": "asset_video_scene_10_8847367",
+      "in_seconds": 0.0,
+      "out_seconds": 3.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_10/section_10 — 结语互动 — Fetched for scene_10"
+    },
+    {
+      "id": "cut_043",
+      "source": "asset_video_scene_10_7103392",
+      "in_seconds": 3.0,
+      "out_seconds": 6.0,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "transition_duration": 0.0,
+      "reason": "scene_10/section_10 — 结语互动 — Fetched for scene_10"
+    },
+    {
+      "id": "cut_044",
+      "source": "asset_video_scene_10_8847371",
+      "in_seconds": 6.0,
+      "out_seconds": 7.92,
+      "layer": "primary",
+      "transform": {
+        "scale": 1.0,
+        "position": "center"
+      },
+      "transition_in": "cut",
+      "transition_out": "fade_out",
+      "transition_duration": 0.4,
+      "reason": "scene_10/section_10 — 结语互动 — Fetched for scene_10"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "asset_narration_section_01",
+          "start_seconds": 0.0,
+          "end_seconds": 14.5
+        },
+        {
+          "asset_id": "asset_narration_section_02",
+          "start_seconds": 14.5,
+          "end_seconds": 23.52
+        },
+        {
+          "asset_id": "asset_narration_section_03",
+          "start_seconds": 23.52,
+          "end_seconds": 37.78
+        },
+        {
+          "asset_id": "asset_narration_section_04",
+          "start_seconds": 37.78,
+          "end_seconds": 50.14
+        },
+        {
+          "asset_id": "asset_narration_section_05",
+          "start_seconds": 50.14,
+          "end_seconds": 64.85
+        },
+        {
+          "asset_id": "asset_narration_section_06",
+          "start_seconds": 64.85,
+          "end_seconds": 82.95
+        },
+        {
+          "asset_id": "asset_narration_section_07",
+          "start_seconds": 82.95,
+          "end_seconds": 96.15
+        },
+        {
+          "asset_id": "asset_narration_section_08",
+          "start_seconds": 96.15,
+          "end_seconds": 109.88
+        },
+        {
+          "asset_id": "asset_narration_section_09",
+          "start_seconds": 109.88,
+          "end_seconds": 126.37
+        },
+        {
+          "asset_id": "asset_narration_section_10",
+          "start_seconds": 126.37,
+          "end_seconds": 134.29
+        }
+      ]
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": "static_whole_line",
+    "source": "force_aligned",
+    "font_size": 56,
+    "color": "#FFFFFF",
+    "outline_color": "#000000",
+    "background": "#00000080",
+    "position": "bottom-center",
+    "max_words_per_line": 16
+  },
+  "metadata": {
+    "pipeline": "narration-montage",
+    "shot_cadence_seconds": 3.0,
+    "hero_scenes": [
+      "scene_01",
+      "scene_09"
+    ],
+    "hero_hold_seconds": 4.5,
+    "total_duration_seconds": 134.27,
+    "real_narration_total_seconds": 134.29,
+    "compose_target": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "pad"
+    },
+    "proposal_render_runtime": "ffmpeg",
+    "music_plan": {
+      "source": "none",
+      "opt_out_reason": "用户明确要求去掉背景音乐（多次确认）。纯配音。"
+    },
+    "audio_levels": {
+      "loudness_target_lufs": -12,
+      "max_true_peak_db": -1.5,
+      "limiter_threshold": 0.85,
+      "note": "用户要求语音音量调大。compose 阶段 loudnorm -12 LUFS + alimiter 0.85。"
+    },
+    "diversity_notes": []
+  }
+}

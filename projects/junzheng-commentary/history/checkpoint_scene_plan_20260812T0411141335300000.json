@@ -1,0 +1,463 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-commentary",
+  "pipeline_type": "narration-montage",
+  "stage": "scene_plan",
+  "status": "awaiting_human",
+  "timestamp": "2026-08-12T04:11:14.133530+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "clean-professional",
+      "scenes": [
+        {
+          "id": "scene_01",
+          "type": "broll",
+          "description": "US flag and Iran flag facing each other across a long negotiation table in a dim government hall, wide shot",
+          "start_seconds": 0.0,
+          "end_seconds": 15.33,
+          "script_section_id": "section_01",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "fade_in",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 35,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "visualize section section_01: Hook",
+          "narrative_role": "establish_context",
+          "information_role": "viewer sees Hook in concrete imagery",
+          "hero_moment": true,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "US flag and Iran flag facing each other across a long negotiation table in a dim government hall, wide shot",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_02",
+          "type": "broll",
+          "description": "two delegates shaking hands at a formal meeting table with advisors watching, medium shot",
+          "start_seconds": 15.33,
+          "end_seconds": 24.0,
+          "script_section_id": "section_02",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "visualize section section_02: \u5185\u90e8\u6743\u529b\u8fd0\u4f5c",
+          "narrative_role": "introduce_subject",
+          "information_role": "viewer sees \u5185\u90e8\u6743\u529b\u8fd0\u4f5c in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "two delegates shaking hands at a formal meeting table with advisors watching, medium shot",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_03",
+          "type": "broll",
+          "description": "tense strategy meeting with divided advisors arguing in a low light briefing room, close up",
+          "start_seconds": 24.0,
+          "end_seconds": 39.33,
+          "script_section_id": "section_03",
+          "framing": "close",
+          "movement": "handheld",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "handheld",
+            "lens_mm": 85,
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "visualize section section_03: \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08",
+          "narrative_role": "build_tension",
+          "information_role": "viewer sees \u7f8e\u4f0a\u5185\u90e8\u6d3e\u7cfb\u535a\u5f08 in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional",
+            "gritty"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "tense strategy meeting with divided advisors arguing in a low light briefing room, close up",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_04",
+          "type": "broll",
+          "description": "family members at a dinner table in warm household light, visible disagreement, medium shot",
+          "start_seconds": 39.33,
+          "end_seconds": 53.56,
+          "script_section_id": "section_04",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "visualize section section_04: \u5927\u5bb6\u5ead\u6bd4\u55bb",
+          "narrative_role": "comparison",
+          "information_role": "viewer sees \u5927\u5bb6\u5ead\u6bd4\u55bb in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "family members at a dinner table in warm household light, visible disagreement, medium shot",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_05",
+          "type": "broll",
+          "description": "middle east map with oil field markers on a war room table, aerial top down shot",
+          "start_seconds": 53.56,
+          "end_seconds": 69.56,
+          "script_section_id": "section_05",
+          "framing": "aerial",
+          "movement": "dolly_in",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "extreme_wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 24,
+            "lighting_key": "blue_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "visualize section section_05: \u5916\u4ea4\u6760\u6746\u8003\u91cf",
+          "narrative_role": "evidence",
+          "information_role": "viewer sees \u5916\u4ea4\u6760\u6746\u8003\u91cf in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "middle east map with oil field markers on a war room table, aerial top down shot",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_06",
+          "type": "broll",
+          "description": "multiple officials in a capitol briefing room debating in front of large screens, wide pan shot",
+          "start_seconds": 69.56,
+          "end_seconds": 90.0,
+          "script_section_id": "section_06",
+          "framing": "wide",
+          "movement": "pan_left",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "pan_left",
+            "lens_mm": 24,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "visualize section section_06: \u7f8e\u56fd\u51b3\u7b56\u673a\u5236",
+          "narrative_role": "establish_context",
+          "information_role": "viewer sees \u7f8e\u56fd\u51b3\u7b56\u673a\u5236 in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "multiple officials in a capitol briefing room debating in front of large screens, wide pan shot",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_07",
+          "type": "broll",
+          "description": "modern iranian officials walking past ancient persian architecture, low angle tilt up",
+          "start_seconds": 90.0,
+          "end_seconds": 103.56,
+          "script_section_id": "section_07",
+          "framing": "close",
+          "movement": "tilt_up",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "tilt_up",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "visualize section section_07: \u4f0a\u6717\u51b3\u7b56\u673a\u5236",
+          "narrative_role": "comparison",
+          "information_role": "viewer sees \u4f0a\u6717\u51b3\u7b56\u673a\u5236 in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "modern iranian officials walking past ancient persian architecture, low angle tilt up",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_08",
+          "type": "broll",
+          "description": "sunrise over a calm middle east skyline at golden hour with doves flying, wide static shot",
+          "start_seconds": 103.56,
+          "end_seconds": 119.11,
+          "script_section_id": "section_08",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 35,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "visualize section section_08: \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f",
+          "narrative_role": "resolution",
+          "information_role": "viewer sees \u5c55\u671b\uff1a\u7f13\u548c\u524d\u666f in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "sunrise over a calm middle east skyline at golden hour with doves flying, wide static shot",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_09",
+          "type": "broll",
+          "description": "a person walking a tightrope high above city lights at night, dramatic dolly out",
+          "start_seconds": 119.11,
+          "end_seconds": 138.22,
+          "script_section_id": "section_09",
+          "framing": "close",
+          "movement": "dolly_out",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "dolly_out",
+            "lens_mm": 135,
+            "lighting_key": "neon",
+            "depth_of_field": "shallow",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "visualize section section_09: \u98ce\u9669\u4e0e\u6f5c\u53f0\u8bcd",
+          "narrative_role": "build_tension",
+          "information_role": "viewer sees \u98ce\u9669\u4e0e\u6f5c\u53f0\u8bcd in concrete imagery",
+          "hero_moment": true,
+          "texture_keywords": [
+            "clean",
+            "professional",
+            "gritty"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "a person walking a tightrope high above city lights at night, dramatic dolly out",
+              "source": "source"
+            }
+          ]
+        },
+        {
+          "id": "scene_10",
+          "type": "broll",
+          "description": "audience raising hands and people typing comments on smartphones in a discussion, medium shot",
+          "start_seconds": 138.22,
+          "end_seconds": 146.44,
+          "script_section_id": "section_10",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "fade_out",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "natural",
+            "depth_of_field": "medium",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "visualize section section_10: \u7ed3\u8bed\u4e92\u52a8",
+          "narrative_role": "call_to_action",
+          "information_role": "viewer sees \u7ed3\u8bed\u4e92\u52a8 in concrete imagery",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "audience raising hands and people typing comments on smartphones in a discussion, medium shot",
+              "source": "source"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "pipeline": "narration-montage",
+        "tone": "authoritative",
+        "shot_cadence_seconds": 3.0,
+        "queries": {
+          "scene_01": [
+            "us flag diplomacy",
+            "iran flag government building",
+            "flags at international summit",
+            "diplomacy negotiation table"
+          ],
+          "scene_02": [
+            "diplomacy handshake",
+            "white house exterior",
+            "government officials meeting room",
+            "international summit talks"
+          ],
+          "scene_03": [
+            "tense negotiation room",
+            "advisors arguing meeting",
+            "political strategy planning",
+            "government crisis meeting"
+          ],
+          "scene_04": [
+            "family dinner conflict",
+            "family gathering table disagreement",
+            "household discussion warm light",
+            "traditional family dinner"
+          ],
+          "scene_05": [
+            "middle east map oil",
+            "world map geopolitics",
+            "military strategy map table",
+            "energy diplomacy oil fields"
+          ],
+          "scene_06": [
+            "congress building columns",
+            "government briefing room screens",
+            "officials debate office",
+            "capitol building interior"
+          ],
+          "scene_07": [
+            "iran persian architecture",
+            "middle east government building",
+            "tehran city skyline",
+            "ancient mosque corridor"
+          ],
+          "scene_08": [
+            "middle east skyline sunrise",
+            "peace doves flying sky",
+            "calm city morning golden hour",
+            "hope sunrise horizon"
+          ],
+          "scene_09": [
+            "tightrope walker high wire",
+            "walking on tightrope danger",
+            "balance risk high line",
+            "acrobat high wire night"
+          ],
+          "scene_10": [
+            "people raising hands vote",
+            "social media interaction phones",
+            "audience questions discussion",
+            "typing comments smartphone"
+          ]
+        }
+      }
+    }
+  },
+  "style_playbook": "clean-professional",
+  "review": {
+    "findings": [
+      {
+        "severity": "info",
+        "item": "10 scenes == 10 sections; each window matches its section."
+      },
+      {
+        "severity": "info",
+        "item": "Hero moments: scene_01 (hook) and scene_09 (payoff risk)."
+      },
+      {
+        "severity": "info",
+        "item": "Adjacent scenes differ in framing or movement; queries per scene >=3 english."
+      }
+    ],
+    "conclusion": "pass"
+  },
+  "metadata": {
+    "n_scenes": 10,
+    "hero_scenes": [
+      "scene_01",
+      "scene_09"
+    ]
+  }
+}

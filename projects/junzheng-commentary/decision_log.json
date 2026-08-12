@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-commentary",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "idea",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "edge_tts_yunxi",
+          "label": "edge-tts zh-CN-YunxiNeural\uff08\u4e2d\u6587\u7537\u58f0\uff09",
+          "score": 0.95,
+          "reason": "\u672c\u5730\u514d\u8d39\uff0c\u4e2d\u6587\u7537\u58f0\uff0c\u7b26\u5408\u519b\u60c5\u89e3\u8bf4\u8bed\u6c14"
+        },
+        {
+          "option_id": "openai_tts",
+          "label": "OpenAI gpt-4o-mini-tts",
+          "score": 0.3,
+          "reason": "\u9700 API key\uff0c\u6ce8\u518c\u8868\u672a\u914d\u7f6e"
+        }
+      ],
+      "selected": "edge_tts_yunxi",
+      "reason": "\u7528\u6237\u6307\u5b9a\u4e2d\u6587\u7537\u58f0\u89e3\u8bf4\uff1bedge-tts \u672c\u5730\u53ef\u7528",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "idea",
+      "category": "music_source",
+      "subject": "Background music plan",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "\u65e0\u80cc\u666f\u97f3\u4e50",
+          "score": 1.0,
+          "reason": "\u7528\u6237\u660e\u786e\u8981\u6c42\u53bb\u6389\u80cc\u666f\u97f3\u4e50"
+        },
+        {
+          "option_id": "library",
+          "label": "\u97f3\u4e50\u5e93\u66f2\u76ee",
+          "score": 0.2,
+          "reason": "\u7528\u6237\u4e0d\u8981\u97f3\u4e50"
+        },
+        {
+          "option_id": "generated",
+          "label": "API \u751f\u6210",
+          "score": 0.1,
+          "reason": "\u97f3\u4e50\u751f\u6210 0/3 \u672a\u914d\u7f6e\uff0c\u4e14\u7528\u6237\u4e0d\u8981"
+        }
+      ],
+      "selected": "none",
+      "reason": "\u7528\u6237\u591a\u6b21\u660e\u786e\u8981\u6c42\u7eaf\u914d\u97f3\u3001\u65e0\u80cc\u666f\u97f3\u4e50",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "idea",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg\uff08\u9759\u6001\u5b57\u5e55\u70e7\u5f55+\u914d\u97f3\u6df7\u6d41\uff09",
+          "score": 1.0,
+          "reason": "narration-montage \u539f\u751f\u8def\u5f84\uff0c\u811a\u672c\u4e3b\u5bfc stock-cut"
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion\uff08React \u573a\u666f\u6808\uff09",
+          "score": 0.1,
+          "reason": "\u672c\u7247\u4e0d\u9700\u8981\u573a\u666f\u7c7b\u578b\u52a8\u753b"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames\uff08HTML/GSAP \u6392\u7248\uff09",
+          "score": 0.1,
+          "reason": "\u672c\u7247\u4e3a stock-cut\uff0c\u65e0\u9700 HTML \u6392\u7248"
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "narration-montage \u9501\u5b9a ffmpeg\uff1bRemotion/HyperFrames \u4e0d\u9002\u7528\u672c\u6d41\u6c34\u7ebf",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    }
+  ]
+}

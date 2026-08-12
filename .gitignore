@@ -28,8 +28,13 @@ output/
 pipeline/
 tests/qa/output/
 
-# Project workspaces (generated assets, renders — all regenerable)
-projects/
+# Project workspaces (generated assets, renders — all regenerable; except
+# junzheng-commentary which is tracked to share config + final render)
+projects/*
+!projects/junzheng-commentary/
+!projects/junzheng-commentary/**
+# junzheng-commentary video clips/renders are regenerable — never push mp4
+projects/junzheng-commentary/**/*.mp4
 
 # Corpus directories (downloaded stock clips, thumbnails, embeddings —
 # regenerable from source APIs via corpus_builder). Explicit rule even
