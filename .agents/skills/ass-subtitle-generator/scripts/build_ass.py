@@ -106,10 +106,14 @@ def build(script, manifest, font_size=68, max_chars=16, primary="&H00FFFFFF",
         dur = nar.get(idx)
         if dur is None:
             continue
-        start = sum(
-            nar[s["id"].replace("section_", "")]
-            for s in sections if s["id"] < sec["id"]
-        )
+        # FIX: 章节起点优先使用 script.start_seconds（尊重成片时间线里的
+        # opener/章节卡等非旁白间隙），仅当缺失时才退回到旁白时长累加。
+        start = sec.get("start_seconds")
+        if start is None:
+            start = sum(
+                nar[s["id"].replace("section_", "")]
+                for s in sections if s["id"] < sec["id"]
+            )
         lines = split_lines(sec["text"], max_chars)
         total_chars = sum(len(l) for l in lines)
         t = start

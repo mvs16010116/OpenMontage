@@ -1,0 +1,605 @@
+{
+  "version": "1.0",
+  "style_playbook": "clean-professional",
+  "scenes": [
+    {
+      "id": "scene_opener",
+      "type": "generated",
+      "description": "opener — center title card with video title under the hook",
+      "start_seconds": 0.0,
+      "end_seconds": 3.0,
+      "script_section_id": "section_opener",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "fade_in",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "establish the video's thesis with an authoritative title card",
+      "narrative_role": "establish_context",
+      "information_role": "opener — center title card with video title under the hook",
+      "hero_moment": true,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "opener — center title card with video title under the hook", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_01",
+      "type": "generated",
+      "description": "hook — NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands",
+      "start_seconds": 3.0,
+      "end_seconds": 14.064,
+      "script_section_id": "section_01",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "visualize the coincidence the hook posits: NATO expansion timing clashes with the drill",
+      "narrative_role": "build_tension",
+      "information_role": "hook — NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands",
+      "hero_moment": true,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "hook — NATO eastward-expansion arrow over Baltic/Eastern Europe", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_chapter_1",
+      "type": "generated",
+      "description": "chapter 1 break — lower-mode title card into the airborne-forces analysis",
+      "start_seconds": 14.064,
+      "end_seconds": 16.564,
+      "script_section_id": "section_chapter_1",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "mark the transition from hook to the core analysis",
+      "narrative_role": "transition",
+      "information_role": "chapter 1 break — lower-mode title card into the airborne-forces analysis",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "chapter 1 break — lower-mode title card", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_02a",
+      "type": "generated",
+      "description": "segment 2a — airborne unit icons: high-mobility rapid-response strategic projection force",
+      "start_seconds": 16.564,
+      "end_seconds": 29.353,
+      "script_section_id": "section_02",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "show airborne units as a high-mobility rapid-response strategic projection force",
+      "narrative_role": "introduce_subject",
+      "information_role": "segment 2a — airborne unit icons: what makes the air assault force a strategic projection force",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "airborne unit icons — high mobility, rapid response, strategic projection", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_02b",
+      "type": "generated",
+      "description": "segment 2b — cross-domain coordination org chart: from basic drills to joint-system cooperation",
+      "start_seconds": 29.353,
+      "end_seconds": 41.441,
+      "script_section_id": "section_02",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "contrast basic drills vs real cross-system joint coordination",
+      "narrative_role": "build_tension",
+      "information_role": "segment 2b — the exercise is real cross-system coordination, not basic drills",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "cross-domain coordination chart — joint-system cooperation structure", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_02c",
+      "type": "generated",
+      "description": "segment 2c — forward radar/EW warning: demonstrating coordination capability is the deterrent signal",
+      "start_seconds": 41.441,
+      "end_seconds": 47.572,
+      "script_section_id": "section_02",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "medium_wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "land the point: showing coordination ability at the forward node is the most direct deterrent signal",
+      "narrative_role": "deliver_payload",
+      "information_role": "segment 2c — the rapid-response cooperation template as a deterrent signal",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "forward radar/EW sweep — deterrent signal of demonstrated coordination", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_03a",
+      "type": "generated",
+      "description": "segment 3a — dual-front map: NATO reaches toward both ends of the Eurasian continent",
+      "start_seconds": 47.572,
+      "end_seconds": 58.653,
+      "script_section_id": "section_03",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "show NATO's tentacles reaching toward both ends of Eurasia at once",
+      "narrative_role": "build_tension",
+      "information_role": "segment 3a — NATO spreading into the Pacific and pressing Eurasia from both ends",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "dual-front squeeze map — NATO presses from Baltic/E. Europe and the W. Pacific", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_03b",
+      "type": "generated",
+      "description": "segment 3b — tactics: west front Baltic/E. Europe presses Russia, east front island-chain deployment",
+      "start_seconds": 58.653,
+      "end_seconds": 69.734,
+      "script_section_id": "section_03",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "extreme_wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "show the two-front squeeze: Baltic/E. Europe in the west, island chain in the W. Pacific",
+      "narrative_role": "deliver_payload",
+      "information_role": "segment 3b — the dual-front pincer press against Russia and the island-chain deployment",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "tactical pincer diagram — two-front squeeze and island-chain deployment", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_03c",
+      "type": "generated",
+      "description": "segment 3c — satellite: China-Belarus airborne cooperation as the mid-continent hub, transparency on the table",
+      "start_seconds": 69.734,
+      "end_seconds": 83.068,
+      "script_section_id": "section_03",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "show the Belarus buffer zone and the China-Belarus airborne cooperation at the Eurasian mid-continent hub",
+      "narrative_role": "deliver_payload",
+      "information_role": "segment 3c — Russia's strategic buffer and China's compensating cooperation laid transparent on the table",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "satellite orbit over Eurasian mid-continent — cooperation transparency", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_chapter_2",
+      "type": "generated",
+      "description": "chapter 2 break — lower-mode title card into the signal analysis",
+      "start_seconds": 83.068,
+      "end_seconds": 85.568,
+      "script_section_id": "section_chapter_2",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "mark the transition from strategic logic to signal interpretation",
+      "narrative_role": "transition",
+      "information_role": "chapter 2 break — lower-mode title card into the signal analysis",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "chapter 2 break — lower-mode title card", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_04a",
+      "type": "generated",
+      "description": "segment 4a — red-header joint-training notice stamps over the 'public transparency, not targeting third parties' line",
+      "start_seconds": 85.568,
+      "end_seconds": 98.516,
+      "script_section_id": "section_04",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "underscore the official, deliberate nature of the openly publicized drill",
+      "narrative_role": "evidence",
+      "information_role": "segment 4a — the signal is more direct: full transparency, explicitly not targeting third parties",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "red-header joint-training notice seal — full public transparency", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_04b",
+      "type": "generated",
+      "description": "segment 4b — closing title card: anyone seeking bloc confrontation in Eurasia must first calculate the strategic cost",
+      "start_seconds": 98.516,
+      "end_seconds": 106.952,
+      "script_section_id": "section_04",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "deliver the warning: block confrontation costs more than it gains",
+      "narrative_role": "evidence",
+      "information_role": "segment 4b — strategic cost warning for anyone seeking bloc confrontation",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "warning title card — calculate the strategic cost before confrontation", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_05",
+      "type": "generated",
+      "description": "timeline — joint drill frequency trend across years under the 'only up, never down' line",
+      "start_seconds": 106.952,
+      "end_seconds": 118.088,
+      "script_section_id": "section_05",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "show the rising trend line and tactical-standard convergence",
+      "narrative_role": "build_tension",
+      "information_role": "timeline — joint drill frequency trend across years under the 'only up, never down' line",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "timeline — joint drill frequency trend across years", "source": "generate" }
+      ]
+    },
+    {
+      "id": "scene_06",
+      "type": "generated",
+      "description": "closing — keyword card with count-up (dual fronts) under the CTA question",
+      "start_seconds": 118.088,
+      "end_seconds": 131.984,
+      "script_section_id": "section_06",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "fade_out",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "static",
+        "lens_mm": 24,
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "land the closing question with a minimal, memorable frame",
+      "narrative_role": "call_to_action",
+      "information_role": "closing — keyword card with count-up (dual fronts) under the CTA question",
+      "hero_moment": false,
+      "texture_keywords": ["clean", "professional"],
+      "required_assets": [
+        { "type": "animation", "description": "closing title card — count-up dual fronts + CTA question", "source": "generate" }
+      ]
+    }
+  ],
+  "metadata": {
+    "pipeline": "narration-synth",
+    "tone": "authoritative",
+    "scene_plan_version": "2.0",
+    "migration_note": "Reworked multi-shot scene plan: section_02/03 split into 3 shots each, section_04 into 2 shots; narration laid back-to-back (opener 3s + chapter cards 2.5s hold), total 131.984s vs prior 153.2s.",
+    "allowed_skills_used": {
+      "military-title-card": 4,
+      "military-map-deduction": 2,
+      "military-data-viz": 2,
+      "military-seal": 1,
+      "military-equipment-icons": 1,
+      "military-org-chart": 1,
+      "military-radar-ew": 1,
+      "military-tactics": 1,
+      "military-satellite": 1
+    },
+    "adjacency_checked": true,
+    "total_scene_seconds": 131.984,
+    "script_total_duration_seconds": 147.1,
+    "generation_specs": {
+      "scene_opener": {
+        "skill": "military-title-card",
+        "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+        "cli_args": {
+          "--title": "神鹰-2026：空降兵的威慑信号",
+          "--keyword": "空降兵 · 联合演习",
+          "--accent": "#fbbf24",
+          "--duration": "3"
+        },
+        "cluster_args": { "duration": 3 },
+        "output_note": "opener — center title card with video title under the hook"
+      },
+      "scene_01": {
+        "skill": "military-map-deduction",
+        "build_script": ".agents/skills/military-map-deduction/scripts/build_map_deduction.mjs",
+        "cli_args": {
+          "--theatre": "欧洲方向",
+          "--regions": ["白俄罗斯:重点", "波罗的海:高亮", "东欧:高亮"],
+          "--arrows": ["西→东:北约东扩"],
+          "--phase": "北约东扩 · 战略警告",
+          "--accent": "#fbbf24",
+          "--duration": "11.064"
+        },
+        "cluster_args": { "duration": 11.064 },
+        "output_note": "hook — NATO eastward-expansion arrow over Baltic/Eastern Europe"
+      },
+      "scene_chapter_1": {
+        "skill": "military-title-card",
+        "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+        "cli_args": {
+          "--title": "第一章 · 空降兵拆解",
+          "--keyword": "跨体系协同",
+          "--lower": "神鹰-2026 · 核心拆解",
+          "--accent": "#fbbf24",
+          "--duration": "2.5"
+        },
+        "cluster_args": { "duration": 2.5 },
+        "output_note": "chapter 1 break — lower-mode title card"
+      },
+      "scene_02a": {
+        "skill": "military-equipment-icons",
+        "build_script": ".agents/skills/military-equipment-icons/scripts/build_equipment_icons.mjs",
+        "cli_args": {
+          "--title": "空降兵 · 战略投射力量",
+          "--icons": ["fighter:空降突击", "missile:威慑火力", "drone:无人侦察", "radar:前沿预警"],
+          "--accent": "#fbbf24",
+          "--duration": "12.789"
+        },
+        "cluster_args": { "duration": 12.789 },
+        "output_note": "airborne unit icons — high-mobility rapid-response strategic projection force"
+      },
+      "scene_02b": {
+        "skill": "military-org-chart",
+        "build_script": ".agents/skills/military-org-chart/scripts/build_org_chart.mjs",
+        "cli_args": {
+          "--title": "跨体系协同",
+          "--root": "联合指挥中心",
+          "--nodes": ["空降作战:1", "战略投送:1", "信息支援:1", "空降突击:2", "运输机编队:2", "无人侦察:2"],
+          "--accent": "#fbbf24",
+          "--duration": "12.088"
+        },
+        "cluster_args": { "duration": 12.088 },
+        "output_note": "cross-domain coordination chart — real joint-system cooperation, not basic drills"
+      },
+      "scene_02c": {
+        "skill": "military-radar-ew",
+        "build_script": ".agents/skills/military-radar-ew/scripts/build_radar_ew.mjs",
+        "cli_args": {
+          "--title": "前沿威慑信号",
+          "--mode": "radar",
+          "--range": "600km",
+          "--accent": "#fbbf24",
+          "--duration": "6.132"
+        },
+        "cluster_args": { "duration": 6.132 },
+        "output_note": "forward radar/EW sweep — the deterrent signal of demonstrated coordination"
+      },
+      "scene_03a": {
+        "skill": "military-map-deduction",
+        "build_script": ".agents/skills/military-map-deduction/scripts/build_map_deduction.mjs",
+        "cli_args": {
+          "--theatre": "欧亚大陆",
+          "--regions": ["西太:高亮", "波罗的海:重点", "东欧:高亮", "白俄罗斯:重点"],
+          "--arrows": ["西→东:北约东扩", "东→西:岛链挤压"],
+          "--phase": "东西双线 · 渗透挤压",
+          "--accent": "#fbbf24",
+          "--duration": "11.081"
+        },
+        "cluster_args": { "duration": 11.081 },
+        "output_note": "dual-front squeeze map — NATO reaches toward both ends of Eurasia"
+      },
+      "scene_03b": {
+        "skill": "military-tactics",
+        "build_script": ".agents/skills/military-tactics/scripts/build_tactics.mjs",
+        "cli_args": {
+          "--title": "东西双线 · 挤压态势",
+          "--phase": "岛链部署 · 东欧压制",
+          "--own": ["白俄罗斯:空降集群", "空中梯队:投送力量"],
+          "--enemy": ["北约东翼:波罗的海-东欧", "西太岛链:亚太方向"],
+          "--arrows": ["东→西:压俄罗斯", "西→东:岛链部署"],
+          "--accent": "#fbbf24",
+          "--duration": "11.081"
+        },
+        "cluster_args": { "duration": 11.081 },
+        "output_note": "tactical pincer diagram — two-front squeeze and island-chain deployment"
+      },
+      "scene_03c": {
+        "skill": "military-satellite",
+        "build_script": ".agents/skills/military-satellite/scripts/build_satellite.mjs",
+        "cli_args": {
+          "--title": "中间纽带 · 空降协同",
+          "--sat": "协作中继",
+          "--orbit": "欧亚腹地",
+          "--alt": "巡航高度",
+          "--accent": "#fbbf24",
+          "--duration": "13.334"
+        },
+        "cluster_args": { "duration": 13.334 },
+        "output_note": "satellite orbit over Eurasian mid-continent — cooperation laid transparent on the table"
+      },
+      "scene_chapter_2": {
+        "skill": "military-title-card",
+        "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+        "cli_args": {
+          "--title": "第二章 · 信号解读",
+          "--keyword": "公开透明",
+          "--lower": "神鹰-2026 · 信号解读",
+          "--accent": "#fbbf24",
+          "--duration": "2.5"
+        },
+        "cluster_args": { "duration": 2.5 },
+        "output_note": "chapter 2 break — lower-mode title card"
+      },
+      "scene_04a": {
+        "skill": "military-seal",
+        "build_script": ".agents/skills/military-seal/scripts/build_seal.mjs",
+        "cli_args": {
+          "--title": "中白 · 神鹰-2026 联合训练",
+          "--org": "国防部",
+          "--seal-text": "全程公开透明 · 不针对第三方",
+          "--accent": "#d33",
+          "--duration": "12.948"
+        },
+        "cluster_args": { "duration": 12.948 },
+        "output_note": "red-header joint-training notice — full public transparency, not targeting third parties"
+      },
+      "scene_04b": {
+        "skill": "military-title-card",
+        "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+        "cli_args": {
+          "--title": "战略成本 · 请先算清",
+          "--keyword": "不针对第三方 · 非对抗",
+          "--accent": "#d33",
+          "--duration": "8.436"
+        },
+        "cluster_args": { "duration": 8.436 },
+        "output_note": "warning title card — calculate the strategic cost before confrontation"
+      },
+      "scene_05": {
+        "skill": "military-data-viz",
+        "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+        "cli_args": {
+          "--title": "中远程机动类联合演训 · 频次",
+          "--type": "timeline",
+          "--timeline": ["2022:启动", "2024:常态", "2025:加码", "2026:频次上升"],
+          "--kpi": "频率只升不降 · 战术协同对齐",
+          "--accent": "#fbbf24",
+          "--duration": "11.136"
+        },
+        "cluster_args": { "duration": 11.136 },
+        "output_note": "timeline — joint drill frequency trend across years"
+      },
+      "scene_06": {
+        "skill": "military-title-card",
+        "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+        "cli_args": {
+          "--title": "关键中间节点的公开协作",
+          "--keyword": "成本最低 · 效果最实",
+          "--number": "2:战线",
+          "--accent": "#fbbf24",
+          "--duration": "13.896"
+        },
+        "cluster_args": { "duration": 13.896 },
+        "output_note": "closing — keyword card with count-up (dual fronts) under the CTA question"
+      }
+    }
+  }
+}

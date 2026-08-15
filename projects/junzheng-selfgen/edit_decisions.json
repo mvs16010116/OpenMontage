@@ -1,8 +1,9 @@
 {
-  "version": "1.0",
+  "version": "2.0",
   "renderer_family": "narration-montage",
   "render_runtime": "ffmpeg",
   "composition_mode": "templated",
+  "total_duration_seconds": 131.984,
   "cuts": [
     {
       "id": "cut_scene_opener",
@@ -13,47 +14,87 @@
       "transition_in": "fade_in",
       "transition_out": "cut",
       "transition_duration": 0.5,
-      "reason": "scene_opener — opener — center title card with video title under the hook"
+      "reason": "opener — center title card with video title under the hook"
     },
     {
       "id": "cut_scene_01",
       "source": "anim_scene_01",
       "in_seconds": 0.0,
-      "out_seconds": 12.0,
+      "out_seconds": 11.064,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_01 — hook — NATO eastward-expansion arrow over Baltic/Eastern Eur"
+      "reason": "scene_01 — hook — NATO eastward-expansion arrow over Baltic/Eastern Europe"
     },
     {
       "id": "cut_scene_chapter_1",
       "source": "anim_scene_chapter_1",
       "in_seconds": 0.0,
-      "out_seconds": 3.0,
+      "out_seconds": 2.5,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_chapter_1 — chapter 1 break — lower-mode title card into the airborne-fo"
+      "reason": "scene_chapter_1 — chapter 1 break — lower-mode title card into airborne-forces analysis"
     },
     {
-      "id": "cut_scene_02",
-      "source": "anim_scene_02",
+      "id": "cut_scene_02a",
+      "source": "anim_scene_02a",
       "in_seconds": 0.0,
-      "out_seconds": 39.3,
+      "out_seconds": 12.789,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_02 — bars — airborne rapid-projection response time (hours) vs co"
+      "reason": "scene_02a — airborne rapid-projection response capability under the 快速反应 line"
     },
     {
-      "id": "cut_scene_03",
-      "source": "anim_scene_03",
+      "id": "cut_scene_02b",
+      "source": "anim_scene_02b",
       "in_seconds": 0.0,
-      "out_seconds": 42.0,
+      "out_seconds": 12.088,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_03 — hero — dual-front squeeze map (Baltic/E. Europe press Russia"
+      "reason": "scene_02b — cross-service cooperation chain — 跨体系协同"
+    },
+    {
+      "id": "cut_scene_02c",
+      "source": "anim_scene_02c",
+      "in_seconds": 0.0,
+      "out_seconds": 6.131,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "scene_02c — cold-war front-line cooperation precedent — 前沿节点协同样板"
+    },
+    {
+      "id": "cut_scene_03a",
+      "source": "anim_scene_03a",
+      "in_seconds": 0.0,
+      "out_seconds": 11.081,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "scene_03a — dual-front squeeze map — Baltic/E. Europe press Russia + island-chain"
+    },
+    {
+      "id": "cut_scene_03b",
+      "source": "anim_scene_03b",
+      "in_seconds": 0.0,
+      "out_seconds": 11.081,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "scene_03b — east-west dual-line squeeze and cooperation compensation"
+    },
+    {
+      "id": "cut_scene_03c",
+      "source": "anim_scene_03c",
+      "in_seconds": 0.0,
+      "out_seconds": 13.334,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "scene_03c — Belarus airborne cooperation transparency in Eurasian pivot"
     },
     {
       "id": "cut_scene_chapter_2",
@@ -63,38 +104,48 @@
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_chapter_2 — chapter 2 break — lower-mode title card into the signal anal"
+      "reason": "scene_chapter_2 — chapter 2 break — lower-mode title card into signal analysis"
     },
     {
-      "id": "cut_scene_04",
-      "source": "anim_scene_04",
+      "id": "cut_scene_04a",
+      "source": "anim_scene_04a",
       "in_seconds": 0.0,
-      "out_seconds": 24.3,
+      "out_seconds": 12.948,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_04 — seal — red-header joint-training notice stamps over the '公开透"
+      "reason": "scene_04a — public transparent notice seal — 公开透明"
+    },
+    {
+      "id": "cut_scene_04b",
+      "source": "anim_scene_04b",
+      "in_seconds": 0.0,
+      "out_seconds": 8.436,
+      "layer": "primary",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "scene_04b — strategic-cost warning card — 莫伸手"
     },
     {
       "id": "cut_scene_05",
       "source": "anim_scene_05",
       "in_seconds": 0.0,
-      "out_seconds": 12.2,
+      "out_seconds": 11.136,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "cut",
-      "reason": "scene_05 — timeline — joint drill frequency trend across years under th"
+      "reason": "scene_05 — timeline — drill frequency trend 只升不降"
     },
     {
       "id": "cut_scene_06",
       "source": "anim_scene_06",
       "in_seconds": 0.0,
-      "out_seconds": 14.9,
+      "out_seconds": 13.896,
       "layer": "primary",
       "transition_in": "cut",
       "transition_out": "fade_out",
       "transition_duration": 0.5,
-      "reason": "scene_06 — closing — keyword card with count-up (dual fronts) under the"
+      "reason": "scene_06 — closing — keyword card with count-up (dual fronts)"
     }
   ],
   "audio": {
@@ -103,32 +154,32 @@
         {
           "asset_id": "narration_section_01",
           "start_seconds": 3.0,
-          "end_seconds": 14.06
+          "end_seconds": 14.064
         },
         {
           "asset_id": "narration_section_02",
-          "start_seconds": 18.0,
-          "end_seconds": 49.01
+          "start_seconds": 16.564,
+          "end_seconds": 47.572
         },
         {
           "asset_id": "narration_section_03",
-          "start_seconds": 57.3,
-          "end_seconds": 92.8
+          "start_seconds": 47.572,
+          "end_seconds": 83.068
         },
         {
           "asset_id": "narration_section_04",
-          "start_seconds": 101.8,
-          "end_seconds": 123.18
+          "start_seconds": 85.568,
+          "end_seconds": 106.952
         },
         {
           "asset_id": "narration_section_05",
-          "start_seconds": 126.1,
-          "end_seconds": 137.24
+          "start_seconds": 106.952,
+          "end_seconds": 118.088
         },
         {
           "asset_id": "narration_section_06",
-          "start_seconds": 138.3,
-          "end_seconds": 152.2
+          "start_seconds": 118.088,
+          "end_seconds": 131.984
         }
       ]
     },
@@ -143,26 +194,31 @@
       }
     }
   },
-"subtitles": {
-      "enabled": true,
-      "source": "force_aligned",
-      "font_size": 56,
-      "color": "#FFFFFF",
-      "outline_color": "#000000",
-      "background": "#00000080",
-      "position": "bottom-center",
-      "max_words_per_line": 12
-    },
+  "subtitles": {
+    "enabled": true,
+    "source": "assets/subtitles.ass",
+    "style": {
+      "font": "MS YaHei",
+      "font_size": 68,
+      "bold": true,
+      "primary_color": "&H00FFFFFF",
+      "outline_color": "&H00000000",
+      "outline_width": 3,
+      "shadow": 0,
+      "margin_v": 55,
+      "alignment": 2
+    }
+  },
   "metadata": {
     "pipeline": "narration-synth",
-    "scene_count": 9,
+    "scene_count": 14,
     "hero_scenes": [
       "scene_opener",
       "scene_01",
       "scene_03"
     ],
-    "total_duration_seconds": 153.2,
-    "script_total_duration_seconds": 147.1,
+    "target_duration_seconds": 131.984,
+    "script_total_duration_seconds": 131.984,
     "adjacency_notes": [
       "No two adjacent cuts share the same military-* generation skill."
     ],

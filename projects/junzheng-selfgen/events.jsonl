@@ -46,3 +46,7 @@
 {"ts": "2026-08-15T00:00:22.800751+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4", "success": false, "cost_usd": 0.0, "duration_s": 0.05}
 {"ts": "2026-08-15T00:00:35.336584+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4"}
 {"ts": "2026-08-15T00:01:19.856269+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4", "success": true, "cost_usd": 0.0, "duration_s": 44.52}
+{"ts": "2026-08-15T07:11:07.606910+00:00", "tool": "video_compose", "event": "start", "output_path": "renders/final.mp4"}
+{"ts": "2026-08-15T07:11:07.678303+00:00", "tool": "video_compose", "event": "finish", "output_path": "renders/final.mp4", "success": false, "cost_usd": 0.0, "duration_s": 0.04}
+{"ts": "2026-08-15T07:11:17.731006+00:00", "tool": "video_compose", "event": "start", "output_path": "renders/final.mp4"}
+{"ts": "2026-08-15T07:12:04.441841+00:00", "tool": "video_compose", "event": "finish", "output_path": "renders/final.mp4", "success": true, "cost_usd": 0.0, "duration_s": 46.71}

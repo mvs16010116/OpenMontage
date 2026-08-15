@@ -11,8 +11,8 @@
   "artifacts": {
     "script": {
       "version": "1.0",
-      "title": "\u795e\u9e70-2026\uff1a\u7a7a\u964d\u5175\u7684\u5a01\u6151\u4fe1\u53f7",
-      "total_duration_seconds": 147.1,
+      "title": "神鹰-2026：空降兵的威慑信号",
+      "total_duration_seconds": 131.984,
       "voice_performance": {
         "performance_intent": "calm authoritative",
         "pacing_profile": "technical",
@@ -23,10 +23,10 @@
       "sections": [
         {
           "id": "section_01",
-          "label": "\u7b2c 1 \u6bb5",
-          "text": "\u5927\u5bb6\u597d\uff0c\u6211\u662f\u4faf\u54e5\u519b\u60c5\u3002\u522b\u4e0d\u4fe1\uff0c\u8fd9\u573a\u516c\u5f00\u7684\u7a7a\u964d\u5175\u8054\u5408\u8bad\u7ec3\uff0c\u521a\u597d\u649e\u4e0a\u4fc4\u7f57\u65af\u5bf9\u5317\u7ea6\u4e1c\u6269\u7684\u516c\u5f00\u8b66\u544a\uff0c\u8fd9\u6839\u672c\u4e0d\u662f\u5de7\u5408\u3002",
-          "start_seconds": 0.0,
-          "end_seconds": 12.0,
+          "label": "第 1 段",
+          "text": "大家好，我是侯哥军情。别不信，这场公开的空降兵联合训练，刚好撞上俄罗斯对北约东扩的公开警告，这根本不是巧合。",
+          "start_seconds": 3.0,
+          "end_seconds": 14.064,
           "delivery_cues": {
             "pace": "brisk",
             "energy": "steady",
@@ -35,10 +35,10 @@
         },
         {
           "id": "section_02",
-          "label": "\u7b2c 2 \u6bb5",
-          "text": "\u5148\u7ed9\u5927\u5bb6\u62c6\u900f\u8fd9\u6b21\u201c\u795e\u9e70-2026\u201d\u7684\u6838\u5fc3\uff0c\u5f88\u591a\u4eba\u53ea\u5f53\u8fd9\u662f\u573a\u5e38\u89c4\u4e24\u519b\u8054\u5408\u8bad\u7ec3\uff0c\u4f46\u4f60\u5f97\u76ef\u4f4f\u53c2\u8bad\u4e3b\u4f53\u662f\u7a7a\u964d\u5175\uff0c\u8fd9\u53ef\u662f\u5178\u578b\u7684\u9ad8\u673a\u52a8\u3001\u5feb\u54cd\u5e94\u7684\u6218\u7565\u6295\u5c04\u529b\u91cf\uff0c\u53cc\u65b9\u7ec3\u7684\u6839\u672c\u4e0d\u662f\u6b65\u5175\u6478\u54e8\u90a3\u79cd\u57fa\u7840\u79d1\u76ee\uff0c\u662f\u5b9e\u6253\u5b9e\u7684\u8de8\u4f53\u7cfb\u534f\u540c\uff0c\u8fd9\u79cd\u5c42\u7ea7\u7684\u5408\u7ec3\uff0c\u672c\u8d28\u4e0a\u5c31\u662f\u5728\u897f\u9646\u65b9\u5411\u6253\u51fa\u4e86\u4e00\u4e2a\u660e\u660e\u767d\u767d\u7684\u201c\u5feb\u901f\u54cd\u5e94\u534f\u4f5c\u6837\u677f\u201d\uff0c\u5c31\u50cf\u51b7\u6218\u65f6\u671f\u4e24\u5927\u9635\u8425\u5bf9\u5cd9\u65f6\uff0c\u524d\u6cbf\u8282\u70b9\u4eae\u51fa\u534f\u540c\u80fd\u529b\u5c31\u662f\u6700\u76f4\u63a5\u7684\u5a01\u6151\u4fe1\u53f7\u3002",
-          "start_seconds": 12.4,
-          "end_seconds": 51.7,
+          "label": "第 2 段",
+          "text": "先给大家拆透这次“神鹰-2026”的核心，很多人只当这是场常规两军联合训练，但你得盯住参训主体是空降兵，这可是典型的高机动、快响应的战略投射力量，双方练的根本不是步兵摸哨那种基础科目，是实打实的跨体系协同，这种层级的合练，本质上就是在西陆方向打出了一个明明白白的“快速响应协作样板”，就像冷战时期两大阵营对峙时，前沿节点亮出协同能力就是最直接的威慑信号。",
+          "start_seconds": 16.564,
+          "end_seconds": 47.572,
           "delivery_cues": {
             "pace": "measured",
             "energy": "steady",
@@ -47,10 +47,10 @@
         },
         {
           "id": "section_03",
-          "label": "\u7b2c 3 \u6bb5",
-          "text": "\u518d\u7ed3\u5408\u666e\u4eac\u540c\u65f6\u70b9\u51fa\u5317\u7ea6\u5411\u592a\u5e73\u6d0b\u6e17\u900f\u7684\u5b89\u5168\u5a01\u80c1\uff0c\u80cc\u540e\u7684\u6218\u7565\u903b\u8f91\u4e00\u4e0b\u5c31\u901a\u4e86\uff1a\u73b0\u5728\u5317\u7ea6\u7684\u89e6\u624b\u5df2\u7ecf\u540c\u65f6\u5f80\u6b27\u4e9a\u5927\u9646\u7684\u4e1c\u897f\u4e24\u7aef\u4f38\uff0c\u897f\u8fb9\u5728\u6ce2\u7f57\u7684\u6d77\u3001\u4e1c\u6b27\u538b\u4fc4\u7f57\u65af\uff0c\u4e1c\u8fb9\u5728\u897f\u592a\u641e\u5c9b\u94fe\u90e8\u7f72\uff0c\u8fd9\u79cd\u4e1c\u897f\u53cc\u7ebf\u7684\u6324\u538b\uff0c\u5bf9\u5e94\u7684\u81ea\u7136\u5c31\u662f\u4e2d\u4fc4\u5728\u4e24\u4e2a\u6218\u7565\u65b9\u5411\u4e0a\u7684\u534f\u4f5c\u8865\u4f4d\uff0c\u767d\u4fc4\u7f57\u65af\u5904\u5728\u5317\u7ea6\u897f\u7ebf\u6324\u538b\u4fc4\u7f57\u65af\u7684\u6838\u5fc3\u7f13\u51b2\u5e26\uff0c\u800c\u4e2d\u767d\u7684\u7a7a\u964d\u5175\u534f\u540c\uff0c\u672c\u8d28\u4e0a\u662f\u5728\u6574\u4e2a\u6b27\u4e9a\u5927\u9646\u7684\u4e2d\u95f4\u67a2\u7ebd\u4f4d\u7f6e\uff0c\u628a\u534f\u4f5c\u7684\u900f\u660e\u5ea6\u548c\u987a\u7545\u5ea6\u76f4\u63a5\u6446\u5728\u4e86\u53f0\u9762\u4e0a\u3002",
-          "start_seconds": 52.1,
-          "end_seconds": 94.1,
+          "label": "第 3 段",
+          "text": "再结合普京同时点出北约向太平洋渗透的安全威胁，背后的战略逻辑一下就通了：现在北约的触手已经同时往欧亚大陆的东西两端伸，西边在波罗的海、东欧压俄罗斯，东边在西太搞岛链部署，这种东西双线的挤压，对应的自然就是中俄在两个战略方向上的协作补位，白俄罗斯处在北约西线挤压俄罗斯的核心缓冲带，而中白的空降兵协同，本质上是在整个欧亚大陆的中间枢纽位置，把协作的透明度和顺畅度直接摆在了台面上。",
+          "start_seconds": 47.572,
+          "end_seconds": 83.068,
           "delivery_cues": {
             "pace": "measured",
             "energy": "steady",
@@ -59,10 +59,10 @@
         },
         {
           "id": "section_04",
-          "label": "\u7b2c 4 \u6bb5",
-          "text": "\u5bf9\u6bd4\u8fc7\u53bb\u7c7b\u4f3c\u7684\u8054\u5408\u8bad\u7ec3\uff0c\u4f60\u4f1a\u53d1\u73b0\u8fd9\u6b21\u7684\u4fe1\u53f7\u66f4\u76f4\u63a5\uff1a\u5168\u7a0b\u516c\u5f00\u900f\u660e\uff0c\u7279\u610f\u5f3a\u8c03\u4e0d\u9488\u5bf9\u7b2c\u4e09\u65b9\uff0c\u6f5c\u53f0\u8bcd\u53cd\u800c\u6e05\u695a\u5f97\u5f88\uff0c\u6211\u4eec\u7684\u534f\u4f5c\u4e0d\u9700\u8981\u85cf\u7740\u6396\u7740\uff0c\u4efb\u4f55\u60f3\u5728\u6b27\u4e9a\u5927\u9646\u4e24\u7aef\u641e\u9635\u8425\u5bf9\u6297\u7684\u52bf\u529b\uff0c\u90fd\u5f97\u5148\u7b97\u6e05\u695a\u8fd9\u7b14\u6218\u7565\u6210\u672c\uff0c\u522b\u62b1\u7740\u4fa5\u5e78\u5fc3\u7406\u4e71\u4f38\u624b\u3002",
-          "start_seconds": 94.5,
-          "end_seconds": 118.8,
+          "label": "第 4 段",
+          "text": "对比过去类似的联合训练，你会发现这次的信号更直接：全程公开透明，特意强调不针对第三方，潜台词反而清楚得很，我们的协作不需要藏着掖着，任何想在欧亚大陆两端搞阵营对抗的势力，都得先算清楚这笔战略成本，别抱着侥幸心理乱伸手。",
+          "start_seconds": 85.568,
+          "end_seconds": 106.952,
           "delivery_cues": {
             "pace": "measured",
             "energy": "steady",
@@ -71,10 +71,10 @@
         },
         {
           "id": "section_05",
-          "label": "\u7b2c 5 \u6bb5",
-          "text": "\u8fd9\u4e5f\u610f\u5473\u7740\uff0c\u63a5\u4e0b\u6765\u6b27\u4e9a\u5927\u9646\u6838\u5fc3\u533a\u57df\u7684\u4e2d\u8fdc\u7a0b\u673a\u52a8\u7c7b\u8054\u5408\u6f14\u8bad\uff0c\u9891\u7387\u53ea\u4f1a\u5347\u4e0d\u4f1a\u964d\uff0c\u5404\u65b9\u7684\u6218\u672f\u534f\u540c\u6807\u51c6\u4e5f\u4f1a\u8d8a\u6765\u8d8a\u5bf9\u9f50\u3002",
-          "start_seconds": 119.2,
-          "end_seconds": 131.4,
+          "label": "第 5 段",
+          "text": "这也意味着，接下来欧亚大陆核心区域的中远程机动类联合演训，频率只会升不会降，各方的战术协同标准也会越来越对齐。",
+          "start_seconds": 106.952,
+          "end_seconds": 118.088,
           "delivery_cues": {
             "pace": "measured",
             "energy": "steady",
@@ -83,10 +83,10 @@
         },
         {
           "id": "section_06",
-          "label": "\u7b2c 6 \u6bb5",
-          "text": "\u6700\u540e\u4faf\u54e5\u95ee\u5927\u4f19\u4e00\u53e5\uff0c\u5f53\u5317\u7ea6\u540c\u65f6\u5f80\u4e1c\u897f\u4e24\u7ebf\u6324\u7684\u65f6\u5019\uff0c\u8fd9\u79cd\u5173\u952e\u4e2d\u95f4\u8282\u70b9\u7684\u516c\u5f00\u534f\u4f5c\uff0c\u7b97\u4e0d\u7b97\u6210\u672c\u6700\u4f4e\u3001\u6548\u679c\u6700\u5b9e\u7684\u6218\u7565\u5a01\u6151\uff1f\u8bc4\u8bba\u533a\u804a\u804a\u4f60\u7684\u770b\u6cd5\u3002",
-          "start_seconds": 131.8,
-          "end_seconds": 146.7,
+          "label": "第 6 段",
+          "text": "最后侯哥问大伙一句，当北约同时往东西两线挤的时候，这种关键中间节点的公开协作，算不算成本最低、效果最实的战略威慑？评论区聊聊你的看法。",
+          "start_seconds": 118.088,
+          "end_seconds": 131.984,
           "delivery_cues": {
             "pace": "measured",
             "energy": "steady",
@@ -104,7 +104,7 @@
     "findings": [
       {
         "severity": "info",
-        "item": "\u7528\u6237\u6388\u6743\u81ea\u52a8\u6279\u51c6\uff1b651\u5b57\u9010\u5b57\u6309\u8bed\u4e49\u5207 6 \u6bb5\uff0c\u65e0\u5355\u6bb5\u8d85 90s\u3002"
+        "item": "用户授权自动批准；651字逐字按语义切 6 段，无单段超 90s。"
       }
     ],
     "conclusion": "approved"
