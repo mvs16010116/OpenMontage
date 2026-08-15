@@ -1,153 +1,155 @@
 {
-  "version": "1.0",
-  "project_id": "junzheng-commentary",
-  "pipeline_type": "narration-montage",
-  "stage": "compose",
-  "status": "completed",
-  "timestamp": "2026-08-12T05:33:22.823429+00:00",
-  "checkpoint_policy": "guided",
-  "human_approval_required": true,
-  "human_approved": true,
-  "artifacts": {
-    "render_report": {
-      "version": "1.0",
-      "outputs": [
-        {
-          "path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
-          "format": "mp4",
-          "codec": "h264",
-          "audio_codec": "aac",
-          "resolution": "1920x1080",
-          "fps": 30.0,
-          "duration_seconds": 134.26,
-          "file_size_bytes": 97655352,
-          "platform_target": "youtube"
-        }
-      ],
-      "verification_notes": [
-        "Subtitle burn verified: static whole-line ASS, 34 lines, font 56 (MS YaHei), bottom-center",
-        "Narration present; loudness-normalized mix (loudnorm I=-12 + alimiter 0.85) muxed",
-        "Duration 134.26s within +-1s of planned narration total 134.29s",
-        "runtime_swap_detected=false (proposal_packet.production_plan.render_runtime=ffmpeg, edit agrees)"
-      ],
-      "warnings": [
-        "narration loudness measured -14.4 LUFS (single-pass loudnorm, a touch under the -12 target)",
-        "audio_spotcheck.music_present set True by conservative mean-volume heuristic (no music exists in mix)",
-        "transcript_comparison skipped: narration_transcript artifact not provided"
-      ],
-      "render_grammar": "narration-montage",
-      "final_review_ref": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\artifacts\\final_review.json",
-      "metadata": {
-        "pipeline": "narration-montage",
-        "canvas": {
-          "width": 1920,
-          "height": 1080
-        },
-        "subtitles_force_aligned": true,
-        "subtitles_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\assets\\subtitles.ass",
-        "narration_present": true,
-        "music_present": false,
-        "audio_lufs": -14.39,
-        "audio_original_lufs": -24.43
-      }
-    },
-    "final_review": {
-      "version": "1.0",
-      "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
-      "status": "pass",
-      "checks": {
-        "technical_probe": {
-          "valid_container": true,
-          "duration_seconds": 134.26,
-          "resolution": "1920x1080",
-          "fps": 30.0,
-          "has_audio": true,
-          "codec": "h264",
-          "file_size_bytes": 97655352,
-          "issues": []
-        },
-        "visual_spotcheck": {
-          "frames_sampled": 4,
-          "frame_paths": [
-            "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_0.png",
-            "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_1.png",
-            "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_2.png",
-            "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_3.png"
-          ],
-          "black_frames_detected": false,
-          "broken_overlays": false,
-          "missing_assets": false,
-          "unreadable_text": false,
-          "issues": []
-        },
-        "audio_spotcheck": {
-          "narration_present": true,
-          "music_present": true,
-          "unexpected_silence": false,
-          "clipping_detected": false,
-          "mix_intelligible": true,
-          "issues": []
-        },
-        "promise_preservation": {
-          "delivery_promise_honored": true,
-          "silent_downgrade_detected": false,
-          "runtime_swap_detected": false,
-          "issues": [],
-          "renderer_family_used": "narration-montage",
-          "render_runtime_used": "ffmpeg",
-          "runtime_swap_check": "ok — proposal and edit agree (proposal_packet.production_plan.render_runtime)"
-        },
-        "subtitle_check": {
-          "subtitles_expected": true,
-          "subtitles_present": true,
-          "issues": [],
-          "coverage_ratio": 1.0
-        },
-        "transcript_comparison": {
-          "transcript_matches_script": false,
-          "word_accuracy": null,
-          "script_word_count": 0,
-          "transcript_word_count": 0,
-          "spurious_punctuation_words": [],
-          "issues": [
-            "transcript_comparison skipped: narration_transcript not provided"
-          ]
-        }
-      },
-      "issues_found": [
-        "transcript_comparison skipped: narration_transcript not provided"
-      ],
-      "recommended_action": "present_to_user",
-      "metadata": {
-        "pipeline": "narration-montage",
-        "subtitle_style_used": "static_whole_line"
-      }
+ "version": "1.0",
+ "project_id": "junzheng-commentary",
+ "pipeline_type": "narration-montage",
+ "stage": "compose",
+ "status": "completed",
+ "timestamp": "2026-08-13T02:31:38.471523+00:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "render_report": {
+   "version": "1.0",
+   "outputs": [
+    {
+     "path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
+     "format": "mp4",
+     "codec": "h264",
+     "audio_codec": "aac",
+     "resolution": "1920x1080",
+     "fps": 30.0,
+     "duration_seconds": 187.44,
+     "file_size_bytes": 82261146,
+     "platform_target": "youtube"
     }
+   ],
+   "render_time_seconds": 300.0,
+   "warnings": [
+    "narration loudness target -12 LUFS, single-pass loudnorm applied during mix build",
+    "transcript_comparison skipped: narration_transcript artifact not provided (script text passed instead)",
+    "re-rendered from raw cuts (operation=render, ffmpeg) with audio_path muxed (narration_mix.mp3, 12 sections); single clean 102px white-on-black subtitle layer"
+   ],
+   "verification_notes": [
+    "Full pipeline re-render from raw cuts: 67 cuts reassembled, single clean subtitle layer, font 102 (MS YaHei)",
+    "Subtitle burn verified: short-line ASS (sentence-per-event), 71 events, font 102 (MS YaHei), bottom-center",
+    "Narration muxed via audio_path (narration_mix.mp3, 12 sections); has_mixed_audio=true",
+    "Duration 187.44s within 1s of planned narration total 187.46s",
+    "runtime_swap_detected=false (edit_decisions.metadata.proposal_render_runtime=ffmpeg, edit agrees)",
+    "subtitle_check.subtitles_present=true, coverage_ratio=1.0"
+   ],
+   "render_grammar": "narration-montage",
+   "decision_log_ref": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\decision_log.json",
+   "final_review_ref": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\artifacts\\final_review.json",
+   "metadata": {
+    "pipeline": "narration-montage",
+    "canvas": {
+     "width": 1920,
+     "height": 1080
+    },
+    "subtitles_force_aligned": true,
+    "subtitles_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\assets\\subtitles.ass",
+    "narration_present": true,
+    "music_present": false,
+    "audio_lufs": -12.0,
+    "query_discipline": "ner-to-footage (military/shipping domain; no building-heavy queries)"
+   }
   },
-  "style_playbook": {},
-  "review": {
-    "findings": [
-      {
-        "severity": "info",
-        "item": "rendered final.mp4: 1920x1080 30.0fps 134.26s, audio present"
-      },
-      {
-        "severity": "info",
-        "item": "final_review status=pass, recommended_action=present_to_user"
-      },
-      {
-        "severity": "info",
-        "item": "runtime ffmpeg locked end-to-end; runtime_swap_detected=false"
-      },
-      {
-        "severity": "info",
-        "item": "loudness -14.39 LUFS vs raw -24.43 LUFS (user's 音量调大 requirement met; short of -12 by ~2.4dB)"
-      }
-    ]
-  },
-  "metadata": {
-    "render_runtime": "ffmpeg",
-    "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
-    "loudness_lufs_measured": -14.39
+  "final_review": {
+   "version": "1.0",
+   "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
+   "status": "pass",
+   "checks": {
+    "technical_probe": {
+     "valid_container": true,
+     "duration_seconds": 187.44,
+     "resolution": "1920x1080",
+     "fps": 30.0,
+     "has_audio": true,
+     "codec": "h264",
+     "file_size_bytes": 82261146,
+     "issues": []
+    },
+    "visual_spotcheck": {
+     "frames_sampled": 4,
+     "frame_paths": [
+      "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_0.png",
+      "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_1.png",
+      "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_2.png",
+      "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_3.png"
+     ],
+     "black_frames_detected": false,
+     "broken_overlays": false,
+     "missing_assets": false,
+     "unreadable_text": false,
+     "issues": []
+    },
+    "audio_spotcheck": {
+     "narration_present": true,
+     "music_present": true,
+     "unexpected_silence": false,
+     "clipping_detected": false,
+     "mix_intelligible": true,
+     "issues": []
+    },
+    "promise_preservation": {
+     "delivery_promise_honored": true,
+     "silent_downgrade_detected": false,
+     "runtime_swap_detected": false,
+     "issues": [],
+     "renderer_family_used": "narration-montage",
+     "render_runtime_used": "ffmpeg",
+     "runtime_swap_check": "ok — proposal and edit agree (edit_decisions.metadata.proposal_render_runtime)"
+    },
+    "subtitle_check": {
+     "subtitles_expected": true,
+     "subtitles_present": true,
+     "issues": [],
+     "coverage_ratio": 1.0
+    },
+    "transcript_comparison": {
+     "transcript_matches_script": false,
+     "word_accuracy": null,
+     "script_word_count": 0,
+     "transcript_word_count": 0,
+     "spurious_punctuation_words": [],
+     "issues": [
+      "transcript_comparison skipped: narration_transcript not provided"
+     ]
+    }
+   },
+   "issues_found": [
+    "transcript_comparison skipped: narration_transcript not provided"
+   ],
+   "recommended_action": "present_to_user"
   }
+ },
+ "style_playbook": "clean-professional",
+ "review": {
+  "findings": [
+   {
+    "severity": "info",
+    "item": "render via video_compose ffmpeg path; 67 cuts, 12 scenes, 187.44s"
+   },
+   {
+    "severity": "info",
+    "item": "final_review status=pass; subtitle_check present, coverage 1.0"
+   },
+   {
+    "severity": "info",
+    "item": "runtime_swap_detected=false (ffmpeg locked end-to-end)"
+   },
+   {
+    "severity": "info",
+    "item": "no building/building-heavy footage in query discipline or selected clips"
+   }
+  ],
+  "conclusion": "pass"
+ },
+ "metadata": {
+  "render_time_seconds": 281.1,
+  "timeline_duration_seconds": 187.464,
+  "n_cuts": 67,
+  "output": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4"
+ }
 }

@@ -1,0 +1,696 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 4.68,
+      "text": "最後,侯哥問大火一句,當北約同時往東西兩線級的時候",
+      "words": [
+        {
+          "word": "最後,",
+          "start": 0.0,
+          "end": 0.5,
+          "probability": 0.901
+        },
+        {
+          "word": "侯",
+          "start": 0.92,
+          "end": 1.02,
+          "probability": 0.654
+        },
+        {
+          "word": "哥",
+          "start": 1.02,
+          "end": 1.14,
+          "probability": 0.881
+        },
+        {
+          "word": "問",
+          "start": 1.14,
+          "end": 1.28,
+          "probability": 0.888
+        },
+        {
+          "word": "大",
+          "start": 1.28,
+          "end": 1.44,
+          "probability": 0.974
+        },
+        {
+          "word": "火",
+          "start": 1.44,
+          "end": 1.62,
+          "probability": 0.776
+        },
+        {
+          "word": "一",
+          "start": 1.62,
+          "end": 1.78,
+          "probability": 0.983
+        },
+        {
+          "word": "句,",
+          "start": 1.78,
+          "end": 1.94,
+          "probability": 0.992
+        },
+        {
+          "word": "當",
+          "start": 2.36,
+          "end": 2.58,
+          "probability": 0.985
+        },
+        {
+          "word": "北",
+          "start": 2.58,
+          "end": 2.74,
+          "probability": 0.953
+        },
+        {
+          "word": "約",
+          "start": 2.74,
+          "end": 2.94,
+          "probability": 0.997
+        },
+        {
+          "word": "同",
+          "start": 2.94,
+          "end": 3.14,
+          "probability": 0.998
+        },
+        {
+          "word": "時",
+          "start": 3.14,
+          "end": 3.3,
+          "probability": 0.916
+        },
+        {
+          "word": "往",
+          "start": 3.3,
+          "end": 3.44,
+          "probability": 0.973
+        },
+        {
+          "word": "東西",
+          "start": 3.44,
+          "end": 3.74,
+          "probability": 0.861
+        },
+        {
+          "word": "兩",
+          "start": 3.74,
+          "end": 3.96,
+          "probability": 0.896
+        },
+        {
+          "word": "線",
+          "start": 3.96,
+          "end": 4.16,
+          "probability": 0.858
+        },
+        {
+          "word": "級",
+          "start": 4.16,
+          "end": 4.3,
+          "probability": 0.943
+        },
+        {
+          "word": "的時候",
+          "start": 4.3,
+          "end": 4.68,
+          "probability": 0.973
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 5.2,
+      "end": 10.72,
+      "text": "這種關鍵中間節點的公開協作,算不算成本最低,效果最實的戰略威懾",
+      "words": [
+        {
+          "word": "這種",
+          "start": 5.2,
+          "end": 5.56,
+          "probability": 0.819
+        },
+        {
+          "word": "關",
+          "start": 5.56,
+          "end": 5.76,
+          "probability": 0.979
+        },
+        {
+          "word": "鍵",
+          "start": 5.76,
+          "end": 5.92,
+          "probability": 0.998
+        },
+        {
+          "word": "中",
+          "start": 5.92,
+          "end": 6.08,
+          "probability": 0.996
+        },
+        {
+          "word": "間",
+          "start": 6.08,
+          "end": 6.24,
+          "probability": 0.992
+        },
+        {
+          "word": "節",
+          "start": 6.24,
+          "end": 6.4,
+          "probability": 0.595
+        },
+        {
+          "word": "點",
+          "start": 6.4,
+          "end": 6.56,
+          "probability": 0.992
+        },
+        {
+          "word": "的",
+          "start": 6.56,
+          "end": 6.7,
+          "probability": 0.87
+        },
+        {
+          "word": "公",
+          "start": 6.7,
+          "end": 6.84,
+          "probability": 0.956
+        },
+        {
+          "word": "開",
+          "start": 6.84,
+          "end": 7.04,
+          "probability": 0.993
+        },
+        {
+          "word": "協",
+          "start": 7.04,
+          "end": 7.22,
+          "probability": 0.745
+        },
+        {
+          "word": "作,",
+          "start": 7.22,
+          "end": 7.42,
+          "probability": 0.758
+        },
+        {
+          "word": "算",
+          "start": 7.86,
+          "end": 7.98,
+          "probability": 0.992
+        },
+        {
+          "word": "不",
+          "start": 7.98,
+          "end": 8.1,
+          "probability": 0.997
+        },
+        {
+          "word": "算",
+          "start": 8.1,
+          "end": 8.24,
+          "probability": 1.0
+        },
+        {
+          "word": "成",
+          "start": 8.24,
+          "end": 8.4,
+          "probability": 0.978
+        },
+        {
+          "word": "本",
+          "start": 8.4,
+          "end": 8.52,
+          "probability": 0.999
+        },
+        {
+          "word": "最",
+          "start": 8.52,
+          "end": 8.7,
+          "probability": 0.994
+        },
+        {
+          "word": "低,",
+          "start": 8.7,
+          "end": 8.9,
+          "probability": 0.999
+        },
+        {
+          "word": "效",
+          "start": 9.36,
+          "end": 9.46,
+          "probability": 0.812
+        },
+        {
+          "word": "果",
+          "start": 9.46,
+          "end": 9.6,
+          "probability": 0.995
+        },
+        {
+          "word": "最",
+          "start": 9.6,
+          "end": 9.78,
+          "probability": 0.968
+        },
+        {
+          "word": "實",
+          "start": 9.78,
+          "end": 9.98,
+          "probability": 0.738
+        },
+        {
+          "word": "的",
+          "start": 9.98,
+          "end": 10.1,
+          "probability": 0.968
+        },
+        {
+          "word": "戰",
+          "start": 10.1,
+          "end": 10.24,
+          "probability": 0.973
+        },
+        {
+          "word": "略",
+          "start": 10.24,
+          "end": 10.36,
+          "probability": 0.995
+        },
+        {
+          "word": "威",
+          "start": 10.36,
+          "end": 10.54,
+          "probability": 0.855
+        },
+        {
+          "word": "懾",
+          "start": 10.54,
+          "end": 10.72,
+          "probability": 0.792
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 11.2,
+      "end": 12.94,
+      "text": "評論區聊聊你的看法",
+      "words": [
+        {
+          "word": "評",
+          "start": 11.2,
+          "end": 11.56,
+          "probability": 0.314
+        },
+        {
+          "word": "論",
+          "start": 11.56,
+          "end": 11.7,
+          "probability": 0.995
+        },
+        {
+          "word": "區",
+          "start": 11.7,
+          "end": 11.96,
+          "probability": 0.987
+        },
+        {
+          "word": "聊",
+          "start": 11.96,
+          "end": 12.2,
+          "probability": 0.552
+        },
+        {
+          "word": "聊",
+          "start": 12.2,
+          "end": 12.36,
+          "probability": 0.517
+        },
+        {
+          "word": "你的",
+          "start": 12.36,
+          "end": 12.54,
+          "probability": 0.961
+        },
+        {
+          "word": "看",
+          "start": 12.54,
+          "end": 12.74,
+          "probability": 0.991
+        },
+        {
+          "word": "法",
+          "start": 12.74,
+          "end": 12.94,
+          "probability": 0.999
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": "最後,",
+      "start": 0.0,
+      "end": 0.5,
+      "probability": 0.901
+    },
+    {
+      "word": "侯",
+      "start": 0.92,
+      "end": 1.02,
+      "probability": 0.654
+    },
+    {
+      "word": "哥",
+      "start": 1.02,
+      "end": 1.14,
+      "probability": 0.881
+    },
+    {
+      "word": "問",
+      "start": 1.14,
+      "end": 1.28,
+      "probability": 0.888
+    },
+    {
+      "word": "大",
+      "start": 1.28,
+      "end": 1.44,
+      "probability": 0.974
+    },
+    {
+      "word": "火",
+      "start": 1.44,
+      "end": 1.62,
+      "probability": 0.776
+    },
+    {
+      "word": "一",
+      "start": 1.62,
+      "end": 1.78,
+      "probability": 0.983
+    },
+    {
+      "word": "句,",
+      "start": 1.78,
+      "end": 1.94,
+      "probability": 0.992
+    },
+    {
+      "word": "當",
+      "start": 2.36,
+      "end": 2.58,
+      "probability": 0.985
+    },
+    {
+      "word": "北",
+      "start": 2.58,
+      "end": 2.74,
+      "probability": 0.953
+    },
+    {
+      "word": "約",
+      "start": 2.74,
+      "end": 2.94,
+      "probability": 0.997
+    },
+    {
+      "word": "同",
+      "start": 2.94,
+      "end": 3.14,
+      "probability": 0.998
+    },
+    {
+      "word": "時",
+      "start": 3.14,
+      "end": 3.3,
+      "probability": 0.916
+    },
+    {
+      "word": "往",
+      "start": 3.3,
+      "end": 3.44,
+      "probability": 0.973
+    },
+    {
+      "word": "東西",
+      "start": 3.44,
+      "end": 3.74,
+      "probability": 0.861
+    },
+    {
+      "word": "兩",
+      "start": 3.74,
+      "end": 3.96,
+      "probability": 0.896
+    },
+    {
+      "word": "線",
+      "start": 3.96,
+      "end": 4.16,
+      "probability": 0.858
+    },
+    {
+      "word": "級",
+      "start": 4.16,
+      "end": 4.3,
+      "probability": 0.943
+    },
+    {
+      "word": "的時候",
+      "start": 4.3,
+      "end": 4.68,
+      "probability": 0.973
+    },
+    {
+      "word": "這種",
+      "start": 5.2,
+      "end": 5.56,
+      "probability": 0.819
+    },
+    {
+      "word": "關",
+      "start": 5.56,
+      "end": 5.76,
+      "probability": 0.979
+    },
+    {
+      "word": "鍵",
+      "start": 5.76,
+      "end": 5.92,
+      "probability": 0.998
+    },
+    {
+      "word": "中",
+      "start": 5.92,
+      "end": 6.08,
+      "probability": 0.996
+    },
+    {
+      "word": "間",
+      "start": 6.08,
+      "end": 6.24,
+      "probability": 0.992
+    },
+    {
+      "word": "節",
+      "start": 6.24,
+      "end": 6.4,
+      "probability": 0.595
+    },
+    {
+      "word": "點",
+      "start": 6.4,
+      "end": 6.56,
+      "probability": 0.992
+    },
+    {
+      "word": "的",
+      "start": 6.56,
+      "end": 6.7,
+      "probability": 0.87
+    },
+    {
+      "word": "公",
+      "start": 6.7,
+      "end": 6.84,
+      "probability": 0.956
+    },
+    {
+      "word": "開",
+      "start": 6.84,
+      "end": 7.04,
+      "probability": 0.993
+    },
+    {
+      "word": "協",
+      "start": 7.04,
+      "end": 7.22,
+      "probability": 0.745
+    },
+    {
+      "word": "作,",
+      "start": 7.22,
+      "end": 7.42,
+      "probability": 0.758
+    },
+    {
+      "word": "算",
+      "start": 7.86,
+      "end": 7.98,
+      "probability": 0.992
+    },
+    {
+      "word": "不",
+      "start": 7.98,
+      "end": 8.1,
+      "probability": 0.997
+    },
+    {
+      "word": "算",
+      "start": 8.1,
+      "end": 8.24,
+      "probability": 1.0
+    },
+    {
+      "word": "成",
+      "start": 8.24,
+      "end": 8.4,
+      "probability": 0.978
+    },
+    {
+      "word": "本",
+      "start": 8.4,
+      "end": 8.52,
+      "probability": 0.999
+    },
+    {
+      "word": "最",
+      "start": 8.52,
+      "end": 8.7,
+      "probability": 0.994
+    },
+    {
+      "word": "低,",
+      "start": 8.7,
+      "end": 8.9,
+      "probability": 0.999
+    },
+    {
+      "word": "效",
+      "start": 9.36,
+      "end": 9.46,
+      "probability": 0.812
+    },
+    {
+      "word": "果",
+      "start": 9.46,
+      "end": 9.6,
+      "probability": 0.995
+    },
+    {
+      "word": "最",
+      "start": 9.6,
+      "end": 9.78,
+      "probability": 0.968
+    },
+    {
+      "word": "實",
+      "start": 9.78,
+      "end": 9.98,
+      "probability": 0.738
+    },
+    {
+      "word": "的",
+      "start": 9.98,
+      "end": 10.1,
+      "probability": 0.968
+    },
+    {
+      "word": "戰",
+      "start": 10.1,
+      "end": 10.24,
+      "probability": 0.973
+    },
+    {
+      "word": "略",
+      "start": 10.24,
+      "end": 10.36,
+      "probability": 0.995
+    },
+    {
+      "word": "威",
+      "start": 10.36,
+      "end": 10.54,
+      "probability": 0.855
+    },
+    {
+      "word": "懾",
+      "start": 10.54,
+      "end": 10.72,
+      "probability": 0.792
+    },
+    {
+      "word": "評",
+      "start": 11.2,
+      "end": 11.56,
+      "probability": 0.314
+    },
+    {
+      "word": "論",
+      "start": 11.56,
+      "end": 11.7,
+      "probability": 0.995
+    },
+    {
+      "word": "區",
+      "start": 11.7,
+      "end": 11.96,
+      "probability": 0.987
+    },
+    {
+      "word": "聊",
+      "start": 11.96,
+      "end": 12.2,
+      "probability": 0.552
+    },
+    {
+      "word": "聊",
+      "start": 12.2,
+      "end": 12.36,
+      "probability": 0.517
+    },
+    {
+      "word": "你的",
+      "start": 12.36,
+      "end": 12.54,
+      "probability": 0.961
+    },
+    {
+      "word": "看",
+      "start": 12.54,
+      "end": 12.74,
+      "probability": 0.991
+    },
+    {
+      "word": "法",
+      "start": 12.74,
+      "end": 12.94,
+      "probability": 0.999
+    }
+  ],
+  "language": "zh",
+  "duration_seconds": 13.896,
+  "model_size": "D:\\Danny\\projects\\animation\\my_open_montage\\.models\\whisper\\faster-whisper-base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

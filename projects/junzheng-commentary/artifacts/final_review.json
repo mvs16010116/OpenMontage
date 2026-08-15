@@ -1,72 +1,68 @@
 {
-  "version": "1.0",
-  "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
-  "status": "pass",
-  "checks": {
-    "technical_probe": {
-      "valid_container": true,
-      "duration_seconds": 134.26,
-      "resolution": "1920x1080",
-      "fps": 30.0,
-      "has_audio": true,
-      "codec": "h264",
-      "file_size_bytes": 97655352,
-      "issues": []
-    },
-    "visual_spotcheck": {
-      "frames_sampled": 4,
-      "frame_paths": [
-        "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_0.png",
-        "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_1.png",
-        "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_2.png",
-        "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_3.png"
-      ],
-      "black_frames_detected": false,
-      "broken_overlays": false,
-      "missing_assets": false,
-      "unreadable_text": false,
-      "issues": []
-    },
-    "audio_spotcheck": {
-      "narration_present": true,
-      "music_present": true,
-      "unexpected_silence": false,
-      "clipping_detected": false,
-      "mix_intelligible": true,
-      "issues": []
-    },
-    "promise_preservation": {
-      "delivery_promise_honored": true,
-      "silent_downgrade_detected": false,
-      "runtime_swap_detected": false,
-      "issues": [],
-      "renderer_family_used": "narration-montage",
-      "render_runtime_used": "ffmpeg",
-      "runtime_swap_check": "ok — proposal and edit agree (proposal_packet.production_plan.render_runtime)"
-    },
-    "subtitle_check": {
-      "subtitles_expected": true,
-      "subtitles_present": true,
-      "issues": [],
-      "coverage_ratio": 1.0
-    },
-    "transcript_comparison": {
-      "transcript_matches_script": false,
-      "word_accuracy": null,
-      "script_word_count": 0,
-      "transcript_word_count": 0,
-      "spurious_punctuation_words": [],
-      "issues": [
-        "transcript_comparison skipped: narration_transcript not provided"
-      ]
-    }
+ "version": "1.0",
+ "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\final.mp4",
+ "status": "pass",
+ "checks": {
+  "technical_probe": {
+   "valid_container": true,
+   "duration_seconds": 187.44,
+   "resolution": "1920x1080",
+   "fps": 30.0,
+   "has_audio": true,
+   "codec": "h264",
+   "file_size_bytes": 82261146,
+   "issues": []
   },
-  "issues_found": [
+  "visual_spotcheck": {
+   "frames_sampled": 4,
+   "frame_paths": [
+    "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_0.png",
+    "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_1.png",
+    "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_2.png",
+    "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-commentary\\renders\\.final_review_frames\\review_frame_3.png"
+   ],
+   "black_frames_detected": false,
+   "broken_overlays": false,
+   "missing_assets": false,
+   "unreadable_text": false,
+   "issues": []
+  },
+  "audio_spotcheck": {
+   "narration_present": true,
+   "music_present": true,
+   "unexpected_silence": false,
+   "clipping_detected": false,
+   "mix_intelligible": true,
+   "issues": []
+  },
+  "promise_preservation": {
+   "delivery_promise_honored": true,
+   "silent_downgrade_detected": false,
+   "runtime_swap_detected": false,
+   "issues": [],
+   "renderer_family_used": "narration-montage",
+   "render_runtime_used": "ffmpeg",
+   "runtime_swap_check": "ok — proposal and edit agree (edit_decisions.metadata.proposal_render_runtime)"
+  },
+  "subtitle_check": {
+   "subtitles_expected": true,
+   "subtitles_present": true,
+   "issues": [],
+   "coverage_ratio": 1.0
+  },
+  "transcript_comparison": {
+   "transcript_matches_script": false,
+   "word_accuracy": null,
+   "script_word_count": 0,
+   "transcript_word_count": 0,
+   "spurious_punctuation_words": [],
+   "issues": [
     "transcript_comparison skipped: narration_transcript not provided"
-  ],
-  "recommended_action": "present_to_user",
-  "metadata": {
-    "pipeline": "narration-montage",
-    "subtitle_style_used": "static_whole_line"
+   ]
   }
+ },
+ "issues_found": [
+  "transcript_comparison skipped: narration_transcript not provided"
+ ],
+ "recommended_action": "present_to_user"
 }

@@ -1,0 +1,1120 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 9.9,
+      "text": "對比過去類似的聯合訓練,你會發現這次的信標更直接,全程公開透明,特意強調不針對第三方,前臺詞反而清楚的狠。",
+      "words": [
+        {
+          "word": "對",
+          "start": 0.0,
+          "end": 0.24,
+          "probability": 0.773
+        },
+        {
+          "word": "比",
+          "start": 0.24,
+          "end": 0.38,
+          "probability": 0.998
+        },
+        {
+          "word": "過去",
+          "start": 0.38,
+          "end": 0.62,
+          "probability": 0.998
+        },
+        {
+          "word": "類",
+          "start": 0.62,
+          "end": 0.8,
+          "probability": 0.983
+        },
+        {
+          "word": "似",
+          "start": 0.8,
+          "end": 0.96,
+          "probability": 0.999
+        },
+        {
+          "word": "的",
+          "start": 0.96,
+          "end": 1.08,
+          "probability": 0.99
+        },
+        {
+          "word": "聯",
+          "start": 1.08,
+          "end": 1.18,
+          "probability": 0.976
+        },
+        {
+          "word": "合",
+          "start": 1.18,
+          "end": 1.36,
+          "probability": 0.996
+        },
+        {
+          "word": "訓",
+          "start": 1.36,
+          "end": 1.54,
+          "probability": 0.984
+        },
+        {
+          "word": "練,",
+          "start": 1.54,
+          "end": 1.7,
+          "probability": 0.999
+        },
+        {
+          "word": "你",
+          "start": 2.02,
+          "end": 2.28,
+          "probability": 0.931
+        },
+        {
+          "word": "會",
+          "start": 2.28,
+          "end": 2.38,
+          "probability": 0.997
+        },
+        {
+          "word": "發現",
+          "start": 2.38,
+          "end": 2.7,
+          "probability": 0.998
+        },
+        {
+          "word": "這",
+          "start": 2.7,
+          "end": 3.2,
+          "probability": 0.881
+        },
+        {
+          "word": "次",
+          "start": 3.2,
+          "end": 3.34,
+          "probability": 0.994
+        },
+        {
+          "word": "的",
+          "start": 3.34,
+          "end": 3.44,
+          "probability": 0.99
+        },
+        {
+          "word": "信",
+          "start": 3.44,
+          "end": 3.58,
+          "probability": 0.352
+        },
+        {
+          "word": "標",
+          "start": 3.58,
+          "end": 3.7,
+          "probability": 0.724
+        },
+        {
+          "word": "更",
+          "start": 3.7,
+          "end": 3.92,
+          "probability": 0.994
+        },
+        {
+          "word": "直接,",
+          "start": 3.92,
+          "end": 4.28,
+          "probability": 0.992
+        },
+        {
+          "word": "全",
+          "start": 4.7,
+          "end": 4.86,
+          "probability": 0.922
+        },
+        {
+          "word": "程",
+          "start": 4.86,
+          "end": 5.06,
+          "probability": 0.793
+        },
+        {
+          "word": "公",
+          "start": 5.06,
+          "end": 5.2,
+          "probability": 0.976
+        },
+        {
+          "word": "開",
+          "start": 5.2,
+          "end": 5.38,
+          "probability": 0.998
+        },
+        {
+          "word": "透",
+          "start": 5.38,
+          "end": 5.56,
+          "probability": 0.997
+        },
+        {
+          "word": "明,",
+          "start": 5.56,
+          "end": 5.76,
+          "probability": 0.998
+        },
+        {
+          "word": "特",
+          "start": 6.3,
+          "end": 6.44,
+          "probability": 0.877
+        },
+        {
+          "word": "意",
+          "start": 6.44,
+          "end": 6.56,
+          "probability": 0.907
+        },
+        {
+          "word": "強",
+          "start": 6.56,
+          "end": 6.74,
+          "probability": 0.982
+        },
+        {
+          "word": "調",
+          "start": 6.74,
+          "end": 6.94,
+          "probability": 0.996
+        },
+        {
+          "word": "不",
+          "start": 6.94,
+          "end": 7.28,
+          "probability": 0.758
+        },
+        {
+          "word": "針",
+          "start": 7.28,
+          "end": 7.42,
+          "probability": 0.905
+        },
+        {
+          "word": "對",
+          "start": 7.42,
+          "end": 7.58,
+          "probability": 0.998
+        },
+        {
+          "word": "第三",
+          "start": 7.58,
+          "end": 7.86,
+          "probability": 0.984
+        },
+        {
+          "word": "方,",
+          "start": 7.86,
+          "end": 8.12,
+          "probability": 0.995
+        },
+        {
+          "word": "前",
+          "start": 8.56,
+          "end": 8.66,
+          "probability": 0.917
+        },
+        {
+          "word": "臺",
+          "start": 8.66,
+          "end": 8.82,
+          "probability": 0.688
+        },
+        {
+          "word": "詞",
+          "start": 8.82,
+          "end": 9.02,
+          "probability": 0.93
+        },
+        {
+          "word": "反",
+          "start": 9.02,
+          "end": 9.24,
+          "probability": 0.723
+        },
+        {
+          "word": "而",
+          "start": 9.24,
+          "end": 9.34,
+          "probability": 0.999
+        },
+        {
+          "word": "清楚",
+          "start": 9.34,
+          "end": 9.58,
+          "probability": 0.604
+        },
+        {
+          "word": "的",
+          "start": 9.58,
+          "end": 9.76,
+          "probability": 0.742
+        },
+        {
+          "word": "狠。",
+          "start": 9.76,
+          "end": 9.9,
+          "probability": 0.604
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 10.36,
+      "end": 20.48,
+      "text": "我們的協作不需要藏著耶穌,任何想在歐亞大陸兩端搞陣營對抗的勢力,都得先算清楚,這比戰略成本,別抱著腳性心裡亂伸手。",
+      "words": [
+        {
+          "word": "我們的",
+          "start": 10.36,
+          "end": 10.72,
+          "probability": 0.949
+        },
+        {
+          "word": "協",
+          "start": 10.72,
+          "end": 10.9,
+          "probability": 0.835
+        },
+        {
+          "word": "作",
+          "start": 10.9,
+          "end": 11.08,
+          "probability": 0.938
+        },
+        {
+          "word": "不",
+          "start": 11.08,
+          "end": 11.4,
+          "probability": 0.567
+        },
+        {
+          "word": "需要",
+          "start": 11.4,
+          "end": 11.62,
+          "probability": 0.983
+        },
+        {
+          "word": "藏",
+          "start": 11.62,
+          "end": 11.84,
+          "probability": 0.996
+        },
+        {
+          "word": "著",
+          "start": 11.84,
+          "end": 12.0,
+          "probability": 0.973
+        },
+        {
+          "word": "耶",
+          "start": 12.0,
+          "end": 12.14,
+          "probability": 0.184
+        },
+        {
+          "word": "穌,",
+          "start": 12.14,
+          "end": 12.26,
+          "probability": 0.516
+        },
+        {
+          "word": "任",
+          "start": 12.44,
+          "end": 12.54,
+          "probability": 0.997
+        },
+        {
+          "word": "何",
+          "start": 12.54,
+          "end": 12.72,
+          "probability": 0.996
+        },
+        {
+          "word": "想",
+          "start": 12.72,
+          "end": 12.88,
+          "probability": 0.972
+        },
+        {
+          "word": "在",
+          "start": 12.88,
+          "end": 13.04,
+          "probability": 0.991
+        },
+        {
+          "word": "歐",
+          "start": 13.04,
+          "end": 13.2,
+          "probability": 0.977
+        },
+        {
+          "word": "亞",
+          "start": 13.2,
+          "end": 13.32,
+          "probability": 0.921
+        },
+        {
+          "word": "大",
+          "start": 13.32,
+          "end": 13.52,
+          "probability": 0.997
+        },
+        {
+          "word": "陸",
+          "start": 13.52,
+          "end": 13.66,
+          "probability": 0.998
+        },
+        {
+          "word": "兩",
+          "start": 13.66,
+          "end": 13.84,
+          "probability": 0.976
+        },
+        {
+          "word": "端",
+          "start": 13.84,
+          "end": 14.1,
+          "probability": 0.997
+        },
+        {
+          "word": "搞",
+          "start": 14.1,
+          "end": 14.46,
+          "probability": 0.906
+        },
+        {
+          "word": "陣",
+          "start": 14.46,
+          "end": 14.7,
+          "probability": 0.873
+        },
+        {
+          "word": "營",
+          "start": 14.7,
+          "end": 14.8,
+          "probability": 0.992
+        },
+        {
+          "word": "對",
+          "start": 14.8,
+          "end": 14.98,
+          "probability": 0.996
+        },
+        {
+          "word": "抗",
+          "start": 14.98,
+          "end": 15.16,
+          "probability": 0.998
+        },
+        {
+          "word": "的",
+          "start": 15.16,
+          "end": 15.3,
+          "probability": 0.995
+        },
+        {
+          "word": "勢",
+          "start": 15.3,
+          "end": 15.46,
+          "probability": 0.899
+        },
+        {
+          "word": "力,",
+          "start": 15.46,
+          "end": 15.62,
+          "probability": 0.991
+        },
+        {
+          "word": "都",
+          "start": 15.96,
+          "end": 16.12,
+          "probability": 0.991
+        },
+        {
+          "word": "得",
+          "start": 16.12,
+          "end": 16.26,
+          "probability": 0.996
+        },
+        {
+          "word": "先",
+          "start": 16.26,
+          "end": 16.42,
+          "probability": 0.975
+        },
+        {
+          "word": "算",
+          "start": 16.42,
+          "end": 16.6,
+          "probability": 0.989
+        },
+        {
+          "word": "清楚,",
+          "start": 16.6,
+          "end": 17.0,
+          "probability": 0.984
+        },
+        {
+          "word": "這",
+          "start": 17.4,
+          "end": 17.5,
+          "probability": 0.99
+        },
+        {
+          "word": "比",
+          "start": 17.5,
+          "end": 17.62,
+          "probability": 0.602
+        },
+        {
+          "word": "戰",
+          "start": 17.62,
+          "end": 17.8,
+          "probability": 0.986
+        },
+        {
+          "word": "略",
+          "start": 17.8,
+          "end": 17.96,
+          "probability": 0.999
+        },
+        {
+          "word": "成",
+          "start": 17.96,
+          "end": 18.16,
+          "probability": 0.992
+        },
+        {
+          "word": "本,",
+          "start": 18.16,
+          "end": 18.34,
+          "probability": 1.0
+        },
+        {
+          "word": "別",
+          "start": 18.66,
+          "end": 18.78,
+          "probability": 0.864
+        },
+        {
+          "word": "抱",
+          "start": 18.78,
+          "end": 18.94,
+          "probability": 0.985
+        },
+        {
+          "word": "著",
+          "start": 18.94,
+          "end": 19.08,
+          "probability": 0.963
+        },
+        {
+          "word": "腳",
+          "start": 19.08,
+          "end": 19.24,
+          "probability": 0.434
+        },
+        {
+          "word": "性",
+          "start": 19.24,
+          "end": 19.44,
+          "probability": 0.902
+        },
+        {
+          "word": "心",
+          "start": 19.44,
+          "end": 19.66,
+          "probability": 0.997
+        },
+        {
+          "word": "裡",
+          "start": 19.66,
+          "end": 19.84,
+          "probability": 0.475
+        },
+        {
+          "word": "亂",
+          "start": 19.84,
+          "end": 20.06,
+          "probability": 0.99
+        },
+        {
+          "word": "伸",
+          "start": 20.06,
+          "end": 20.28,
+          "probability": 0.856
+        },
+        {
+          "word": "手。",
+          "start": 20.28,
+          "end": 20.48,
+          "probability": 0.993
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": "對",
+      "start": 0.0,
+      "end": 0.24,
+      "probability": 0.773
+    },
+    {
+      "word": "比",
+      "start": 0.24,
+      "end": 0.38,
+      "probability": 0.998
+    },
+    {
+      "word": "過去",
+      "start": 0.38,
+      "end": 0.62,
+      "probability": 0.998
+    },
+    {
+      "word": "類",
+      "start": 0.62,
+      "end": 0.8,
+      "probability": 0.983
+    },
+    {
+      "word": "似",
+      "start": 0.8,
+      "end": 0.96,
+      "probability": 0.999
+    },
+    {
+      "word": "的",
+      "start": 0.96,
+      "end": 1.08,
+      "probability": 0.99
+    },
+    {
+      "word": "聯",
+      "start": 1.08,
+      "end": 1.18,
+      "probability": 0.976
+    },
+    {
+      "word": "合",
+      "start": 1.18,
+      "end": 1.36,
+      "probability": 0.996
+    },
+    {
+      "word": "訓",
+      "start": 1.36,
+      "end": 1.54,
+      "probability": 0.984
+    },
+    {
+      "word": "練,",
+      "start": 1.54,
+      "end": 1.7,
+      "probability": 0.999
+    },
+    {
+      "word": "你",
+      "start": 2.02,
+      "end": 2.28,
+      "probability": 0.931
+    },
+    {
+      "word": "會",
+      "start": 2.28,
+      "end": 2.38,
+      "probability": 0.997
+    },
+    {
+      "word": "發現",
+      "start": 2.38,
+      "end": 2.7,
+      "probability": 0.998
+    },
+    {
+      "word": "這",
+      "start": 2.7,
+      "end": 3.2,
+      "probability": 0.881
+    },
+    {
+      "word": "次",
+      "start": 3.2,
+      "end": 3.34,
+      "probability": 0.994
+    },
+    {
+      "word": "的",
+      "start": 3.34,
+      "end": 3.44,
+      "probability": 0.99
+    },
+    {
+      "word": "信",
+      "start": 3.44,
+      "end": 3.58,
+      "probability": 0.352
+    },
+    {
+      "word": "標",
+      "start": 3.58,
+      "end": 3.7,
+      "probability": 0.724
+    },
+    {
+      "word": "更",
+      "start": 3.7,
+      "end": 3.92,
+      "probability": 0.994
+    },
+    {
+      "word": "直接,",
+      "start": 3.92,
+      "end": 4.28,
+      "probability": 0.992
+    },
+    {
+      "word": "全",
+      "start": 4.7,
+      "end": 4.86,
+      "probability": 0.922
+    },
+    {
+      "word": "程",
+      "start": 4.86,
+      "end": 5.06,
+      "probability": 0.793
+    },
+    {
+      "word": "公",
+      "start": 5.06,
+      "end": 5.2,
+      "probability": 0.976
+    },
+    {
+      "word": "開",
+      "start": 5.2,
+      "end": 5.38,
+      "probability": 0.998
+    },
+    {
+      "word": "透",
+      "start": 5.38,
+      "end": 5.56,
+      "probability": 0.997
+    },
+    {
+      "word": "明,",
+      "start": 5.56,
+      "end": 5.76,
+      "probability": 0.998
+    },
+    {
+      "word": "特",
+      "start": 6.3,
+      "end": 6.44,
+      "probability": 0.877
+    },
+    {
+      "word": "意",
+      "start": 6.44,
+      "end": 6.56,
+      "probability": 0.907
+    },
+    {
+      "word": "強",
+      "start": 6.56,
+      "end": 6.74,
+      "probability": 0.982
+    },
+    {
+      "word": "調",
+      "start": 6.74,
+      "end": 6.94,
+      "probability": 0.996
+    },
+    {
+      "word": "不",
+      "start": 6.94,
+      "end": 7.28,
+      "probability": 0.758
+    },
+    {
+      "word": "針",
+      "start": 7.28,
+      "end": 7.42,
+      "probability": 0.905
+    },
+    {
+      "word": "對",
+      "start": 7.42,
+      "end": 7.58,
+      "probability": 0.998
+    },
+    {
+      "word": "第三",
+      "start": 7.58,
+      "end": 7.86,
+      "probability": 0.984
+    },
+    {
+      "word": "方,",
+      "start": 7.86,
+      "end": 8.12,
+      "probability": 0.995
+    },
+    {
+      "word": "前",
+      "start": 8.56,
+      "end": 8.66,
+      "probability": 0.917
+    },
+    {
+      "word": "臺",
+      "start": 8.66,
+      "end": 8.82,
+      "probability": 0.688
+    },
+    {
+      "word": "詞",
+      "start": 8.82,
+      "end": 9.02,
+      "probability": 0.93
+    },
+    {
+      "word": "反",
+      "start": 9.02,
+      "end": 9.24,
+      "probability": 0.723
+    },
+    {
+      "word": "而",
+      "start": 9.24,
+      "end": 9.34,
+      "probability": 0.999
+    },
+    {
+      "word": "清楚",
+      "start": 9.34,
+      "end": 9.58,
+      "probability": 0.604
+    },
+    {
+      "word": "的",
+      "start": 9.58,
+      "end": 9.76,
+      "probability": 0.742
+    },
+    {
+      "word": "狠。",
+      "start": 9.76,
+      "end": 9.9,
+      "probability": 0.604
+    },
+    {
+      "word": "我們的",
+      "start": 10.36,
+      "end": 10.72,
+      "probability": 0.949
+    },
+    {
+      "word": "協",
+      "start": 10.72,
+      "end": 10.9,
+      "probability": 0.835
+    },
+    {
+      "word": "作",
+      "start": 10.9,
+      "end": 11.08,
+      "probability": 0.938
+    },
+    {
+      "word": "不",
+      "start": 11.08,
+      "end": 11.4,
+      "probability": 0.567
+    },
+    {
+      "word": "需要",
+      "start": 11.4,
+      "end": 11.62,
+      "probability": 0.983
+    },
+    {
+      "word": "藏",
+      "start": 11.62,
+      "end": 11.84,
+      "probability": 0.996
+    },
+    {
+      "word": "著",
+      "start": 11.84,
+      "end": 12.0,
+      "probability": 0.973
+    },
+    {
+      "word": "耶",
+      "start": 12.0,
+      "end": 12.14,
+      "probability": 0.184
+    },
+    {
+      "word": "穌,",
+      "start": 12.14,
+      "end": 12.26,
+      "probability": 0.516
+    },
+    {
+      "word": "任",
+      "start": 12.44,
+      "end": 12.54,
+      "probability": 0.997
+    },
+    {
+      "word": "何",
+      "start": 12.54,
+      "end": 12.72,
+      "probability": 0.996
+    },
+    {
+      "word": "想",
+      "start": 12.72,
+      "end": 12.88,
+      "probability": 0.972
+    },
+    {
+      "word": "在",
+      "start": 12.88,
+      "end": 13.04,
+      "probability": 0.991
+    },
+    {
+      "word": "歐",
+      "start": 13.04,
+      "end": 13.2,
+      "probability": 0.977
+    },
+    {
+      "word": "亞",
+      "start": 13.2,
+      "end": 13.32,
+      "probability": 0.921
+    },
+    {
+      "word": "大",
+      "start": 13.32,
+      "end": 13.52,
+      "probability": 0.997
+    },
+    {
+      "word": "陸",
+      "start": 13.52,
+      "end": 13.66,
+      "probability": 0.998
+    },
+    {
+      "word": "兩",
+      "start": 13.66,
+      "end": 13.84,
+      "probability": 0.976
+    },
+    {
+      "word": "端",
+      "start": 13.84,
+      "end": 14.1,
+      "probability": 0.997
+    },
+    {
+      "word": "搞",
+      "start": 14.1,
+      "end": 14.46,
+      "probability": 0.906
+    },
+    {
+      "word": "陣",
+      "start": 14.46,
+      "end": 14.7,
+      "probability": 0.873
+    },
+    {
+      "word": "營",
+      "start": 14.7,
+      "end": 14.8,
+      "probability": 0.992
+    },
+    {
+      "word": "對",
+      "start": 14.8,
+      "end": 14.98,
+      "probability": 0.996
+    },
+    {
+      "word": "抗",
+      "start": 14.98,
+      "end": 15.16,
+      "probability": 0.998
+    },
+    {
+      "word": "的",
+      "start": 15.16,
+      "end": 15.3,
+      "probability": 0.995
+    },
+    {
+      "word": "勢",
+      "start": 15.3,
+      "end": 15.46,
+      "probability": 0.899
+    },
+    {
+      "word": "力,",
+      "start": 15.46,
+      "end": 15.62,
+      "probability": 0.991
+    },
+    {
+      "word": "都",
+      "start": 15.96,
+      "end": 16.12,
+      "probability": 0.991
+    },
+    {
+      "word": "得",
+      "start": 16.12,
+      "end": 16.26,
+      "probability": 0.996
+    },
+    {
+      "word": "先",
+      "start": 16.26,
+      "end": 16.42,
+      "probability": 0.975
+    },
+    {
+      "word": "算",
+      "start": 16.42,
+      "end": 16.6,
+      "probability": 0.989
+    },
+    {
+      "word": "清楚,",
+      "start": 16.6,
+      "end": 17.0,
+      "probability": 0.984
+    },
+    {
+      "word": "這",
+      "start": 17.4,
+      "end": 17.5,
+      "probability": 0.99
+    },
+    {
+      "word": "比",
+      "start": 17.5,
+      "end": 17.62,
+      "probability": 0.602
+    },
+    {
+      "word": "戰",
+      "start": 17.62,
+      "end": 17.8,
+      "probability": 0.986
+    },
+    {
+      "word": "略",
+      "start": 17.8,
+      "end": 17.96,
+      "probability": 0.999
+    },
+    {
+      "word": "成",
+      "start": 17.96,
+      "end": 18.16,
+      "probability": 0.992
+    },
+    {
+      "word": "本,",
+      "start": 18.16,
+      "end": 18.34,
+      "probability": 1.0
+    },
+    {
+      "word": "別",
+      "start": 18.66,
+      "end": 18.78,
+      "probability": 0.864
+    },
+    {
+      "word": "抱",
+      "start": 18.78,
+      "end": 18.94,
+      "probability": 0.985
+    },
+    {
+      "word": "著",
+      "start": 18.94,
+      "end": 19.08,
+      "probability": 0.963
+    },
+    {
+      "word": "腳",
+      "start": 19.08,
+      "end": 19.24,
+      "probability": 0.434
+    },
+    {
+      "word": "性",
+      "start": 19.24,
+      "end": 19.44,
+      "probability": 0.902
+    },
+    {
+      "word": "心",
+      "start": 19.44,
+      "end": 19.66,
+      "probability": 0.997
+    },
+    {
+      "word": "裡",
+      "start": 19.66,
+      "end": 19.84,
+      "probability": 0.475
+    },
+    {
+      "word": "亂",
+      "start": 19.84,
+      "end": 20.06,
+      "probability": 0.99
+    },
+    {
+      "word": "伸",
+      "start": 20.06,
+      "end": 20.28,
+      "probability": 0.856
+    },
+    {
+      "word": "手。",
+      "start": 20.28,
+      "end": 20.48,
+      "probability": 0.993
+    }
+  ],
+  "language": "zh",
+  "duration_seconds": 21.384,
+  "model_size": "D:\\Danny\\projects\\animation\\my_open_montage\\.models\\whisper\\faster-whisper-base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

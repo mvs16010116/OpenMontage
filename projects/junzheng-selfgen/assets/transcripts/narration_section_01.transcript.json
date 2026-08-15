@@ -1,0 +1,536 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 10.12,
+      "text": "大家好,我是侯格军情,别不信,这场公开的散兵联合训练,刚好撞上俄罗斯对北约东阔的公开警告,这根本不是巧合。",
+      "words": [
+        {
+          "word": "大家好,",
+          "start": 0.0,
+          "end": 0.5,
+          "probability": 0.973
+        },
+        {
+          "word": "我是",
+          "start": 0.96,
+          "end": 1.24,
+          "probability": 0.97
+        },
+        {
+          "word": "侯",
+          "start": 1.24,
+          "end": 1.38,
+          "probability": 0.764
+        },
+        {
+          "word": "格",
+          "start": 1.38,
+          "end": 1.46,
+          "probability": 0.294
+        },
+        {
+          "word": "军",
+          "start": 1.46,
+          "end": 1.62,
+          "probability": 0.622
+        },
+        {
+          "word": "情,",
+          "start": 1.62,
+          "end": 1.84,
+          "probability": 0.735
+        },
+        {
+          "word": "别",
+          "start": 2.4,
+          "end": 2.68,
+          "probability": 0.338
+        },
+        {
+          "word": "不",
+          "start": 2.68,
+          "end": 2.84,
+          "probability": 0.958
+        },
+        {
+          "word": "信,",
+          "start": 2.84,
+          "end": 3.0,
+          "probability": 0.587
+        },
+        {
+          "word": "这",
+          "start": 3.52,
+          "end": 3.72,
+          "probability": 0.927
+        },
+        {
+          "word": "场",
+          "start": 3.72,
+          "end": 3.9,
+          "probability": 0.992
+        },
+        {
+          "word": "公",
+          "start": 3.9,
+          "end": 4.04,
+          "probability": 0.981
+        },
+        {
+          "word": "开",
+          "start": 4.04,
+          "end": 4.18,
+          "probability": 0.995
+        },
+        {
+          "word": "的",
+          "start": 4.18,
+          "end": 4.32,
+          "probability": 0.919
+        },
+        {
+          "word": "散",
+          "start": 4.32,
+          "end": 4.48,
+          "probability": 0.814
+        },
+        {
+          "word": "兵",
+          "start": 4.48,
+          "end": 4.68,
+          "probability": 0.99
+        },
+        {
+          "word": "联",
+          "start": 4.68,
+          "end": 4.92,
+          "probability": 0.951
+        },
+        {
+          "word": "合",
+          "start": 4.92,
+          "end": 5.1,
+          "probability": 0.996
+        },
+        {
+          "word": "训",
+          "start": 5.1,
+          "end": 5.28,
+          "probability": 0.976
+        },
+        {
+          "word": "练,",
+          "start": 5.28,
+          "end": 5.46,
+          "probability": 0.995
+        },
+        {
+          "word": "刚",
+          "start": 5.8,
+          "end": 6.0,
+          "probability": 0.928
+        },
+        {
+          "word": "好",
+          "start": 6.0,
+          "end": 6.28,
+          "probability": 0.993
+        },
+        {
+          "word": "撞",
+          "start": 6.28,
+          "end": 6.4,
+          "probability": 0.872
+        },
+        {
+          "word": "上",
+          "start": 6.4,
+          "end": 6.6,
+          "probability": 0.993
+        },
+        {
+          "word": "俄",
+          "start": 6.6,
+          "end": 6.74,
+          "probability": 0.982
+        },
+        {
+          "word": "罗",
+          "start": 6.74,
+          "end": 6.84,
+          "probability": 0.996
+        },
+        {
+          "word": "斯",
+          "start": 6.84,
+          "end": 7.04,
+          "probability": 0.99
+        },
+        {
+          "word": "对",
+          "start": 7.04,
+          "end": 7.3,
+          "probability": 0.955
+        },
+        {
+          "word": "北",
+          "start": 7.3,
+          "end": 7.46,
+          "probability": 0.985
+        },
+        {
+          "word": "约",
+          "start": 7.46,
+          "end": 7.62,
+          "probability": 0.974
+        },
+        {
+          "word": "东",
+          "start": 7.62,
+          "end": 7.8,
+          "probability": 0.769
+        },
+        {
+          "word": "阔",
+          "start": 7.8,
+          "end": 7.92,
+          "probability": 0.548
+        },
+        {
+          "word": "的",
+          "start": 7.92,
+          "end": 8.04,
+          "probability": 0.983
+        },
+        {
+          "word": "公",
+          "start": 8.04,
+          "end": 8.18,
+          "probability": 0.997
+        },
+        {
+          "word": "开",
+          "start": 8.18,
+          "end": 8.36,
+          "probability": 0.997
+        },
+        {
+          "word": "警",
+          "start": 8.36,
+          "end": 8.52,
+          "probability": 0.985
+        },
+        {
+          "word": "告,",
+          "start": 8.52,
+          "end": 8.72,
+          "probability": 0.999
+        },
+        {
+          "word": "这",
+          "start": 9.04,
+          "end": 9.16,
+          "probability": 0.991
+        },
+        {
+          "word": "根",
+          "start": 9.16,
+          "end": 9.3,
+          "probability": 0.996
+        },
+        {
+          "word": "本",
+          "start": 9.3,
+          "end": 9.46,
+          "probability": 1.0
+        },
+        {
+          "word": "不是",
+          "start": 9.46,
+          "end": 9.74,
+          "probability": 0.972
+        },
+        {
+          "word": "巧",
+          "start": 9.74,
+          "end": 9.92,
+          "probability": 0.987
+        },
+        {
+          "word": "合。",
+          "start": 9.92,
+          "end": 10.12,
+          "probability": 0.983
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": "大家好,",
+      "start": 0.0,
+      "end": 0.5,
+      "probability": 0.973
+    },
+    {
+      "word": "我是",
+      "start": 0.96,
+      "end": 1.24,
+      "probability": 0.97
+    },
+    {
+      "word": "侯",
+      "start": 1.24,
+      "end": 1.38,
+      "probability": 0.764
+    },
+    {
+      "word": "格",
+      "start": 1.38,
+      "end": 1.46,
+      "probability": 0.294
+    },
+    {
+      "word": "军",
+      "start": 1.46,
+      "end": 1.62,
+      "probability": 0.622
+    },
+    {
+      "word": "情,",
+      "start": 1.62,
+      "end": 1.84,
+      "probability": 0.735
+    },
+    {
+      "word": "别",
+      "start": 2.4,
+      "end": 2.68,
+      "probability": 0.338
+    },
+    {
+      "word": "不",
+      "start": 2.68,
+      "end": 2.84,
+      "probability": 0.958
+    },
+    {
+      "word": "信,",
+      "start": 2.84,
+      "end": 3.0,
+      "probability": 0.587
+    },
+    {
+      "word": "这",
+      "start": 3.52,
+      "end": 3.72,
+      "probability": 0.927
+    },
+    {
+      "word": "场",
+      "start": 3.72,
+      "end": 3.9,
+      "probability": 0.992
+    },
+    {
+      "word": "公",
+      "start": 3.9,
+      "end": 4.04,
+      "probability": 0.981
+    },
+    {
+      "word": "开",
+      "start": 4.04,
+      "end": 4.18,
+      "probability": 0.995
+    },
+    {
+      "word": "的",
+      "start": 4.18,
+      "end": 4.32,
+      "probability": 0.919
+    },
+    {
+      "word": "散",
+      "start": 4.32,
+      "end": 4.48,
+      "probability": 0.814
+    },
+    {
+      "word": "兵",
+      "start": 4.48,
+      "end": 4.68,
+      "probability": 0.99
+    },
+    {
+      "word": "联",
+      "start": 4.68,
+      "end": 4.92,
+      "probability": 0.951
+    },
+    {
+      "word": "合",
+      "start": 4.92,
+      "end": 5.1,
+      "probability": 0.996
+    },
+    {
+      "word": "训",
+      "start": 5.1,
+      "end": 5.28,
+      "probability": 0.976
+    },
+    {
+      "word": "练,",
+      "start": 5.28,
+      "end": 5.46,
+      "probability": 0.995
+    },
+    {
+      "word": "刚",
+      "start": 5.8,
+      "end": 6.0,
+      "probability": 0.928
+    },
+    {
+      "word": "好",
+      "start": 6.0,
+      "end": 6.28,
+      "probability": 0.993
+    },
+    {
+      "word": "撞",
+      "start": 6.28,
+      "end": 6.4,
+      "probability": 0.872
+    },
+    {
+      "word": "上",
+      "start": 6.4,
+      "end": 6.6,
+      "probability": 0.993
+    },
+    {
+      "word": "俄",
+      "start": 6.6,
+      "end": 6.74,
+      "probability": 0.982
+    },
+    {
+      "word": "罗",
+      "start": 6.74,
+      "end": 6.84,
+      "probability": 0.996
+    },
+    {
+      "word": "斯",
+      "start": 6.84,
+      "end": 7.04,
+      "probability": 0.99
+    },
+    {
+      "word": "对",
+      "start": 7.04,
+      "end": 7.3,
+      "probability": 0.955
+    },
+    {
+      "word": "北",
+      "start": 7.3,
+      "end": 7.46,
+      "probability": 0.985
+    },
+    {
+      "word": "约",
+      "start": 7.46,
+      "end": 7.62,
+      "probability": 0.974
+    },
+    {
+      "word": "东",
+      "start": 7.62,
+      "end": 7.8,
+      "probability": 0.769
+    },
+    {
+      "word": "阔",
+      "start": 7.8,
+      "end": 7.92,
+      "probability": 0.548
+    },
+    {
+      "word": "的",
+      "start": 7.92,
+      "end": 8.04,
+      "probability": 0.983
+    },
+    {
+      "word": "公",
+      "start": 8.04,
+      "end": 8.18,
+      "probability": 0.997
+    },
+    {
+      "word": "开",
+      "start": 8.18,
+      "end": 8.36,
+      "probability": 0.997
+    },
+    {
+      "word": "警",
+      "start": 8.36,
+      "end": 8.52,
+      "probability": 0.985
+    },
+    {
+      "word": "告,",
+      "start": 8.52,
+      "end": 8.72,
+      "probability": 0.999
+    },
+    {
+      "word": "这",
+      "start": 9.04,
+      "end": 9.16,
+      "probability": 0.991
+    },
+    {
+      "word": "根",
+      "start": 9.16,
+      "end": 9.3,
+      "probability": 0.996
+    },
+    {
+      "word": "本",
+      "start": 9.3,
+      "end": 9.46,
+      "probability": 1.0
+    },
+    {
+      "word": "不是",
+      "start": 9.46,
+      "end": 9.74,
+      "probability": 0.972
+    },
+    {
+      "word": "巧",
+      "start": 9.74,
+      "end": 9.92,
+      "probability": 0.987
+    },
+    {
+      "word": "合。",
+      "start": 9.92,
+      "end": 10.12,
+      "probability": 0.983
+    }
+  ],
+  "language": "zh",
+  "duration_seconds": 11.064,
+  "model_size": "D:\\Danny\\projects\\animation\\my_open_montage\\.models\\whisper\\faster-whisper-base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

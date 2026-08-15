@@ -1,0 +1,604 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 6.98,
+      "text": "這也意味著 接下來歐亞大陸核心區域的中遠程激動了聯合演練 頻率只會升不會降",
+      "words": [
+        {
+          "word": "這",
+          "start": 0.0,
+          "end": 0.32,
+          "probability": 0.784
+        },
+        {
+          "word": "也",
+          "start": 0.32,
+          "end": 0.42,
+          "probability": 0.922
+        },
+        {
+          "word": "意",
+          "start": 0.42,
+          "end": 0.56,
+          "probability": 0.9
+        },
+        {
+          "word": "味",
+          "start": 0.56,
+          "end": 0.62,
+          "probability": 0.966
+        },
+        {
+          "word": "著",
+          "start": 0.62,
+          "end": 0.82,
+          "probability": 0.983
+        },
+        {
+          "word": " 接下來",
+          "start": 1.3,
+          "end": 1.62,
+          "probability": 0.982
+        },
+        {
+          "word": "歐",
+          "start": 1.62,
+          "end": 1.94,
+          "probability": 0.953
+        },
+        {
+          "word": "亞",
+          "start": 1.94,
+          "end": 2.04,
+          "probability": 0.918
+        },
+        {
+          "word": "大",
+          "start": 2.04,
+          "end": 2.24,
+          "probability": 0.994
+        },
+        {
+          "word": "陸",
+          "start": 2.24,
+          "end": 2.42,
+          "probability": 0.998
+        },
+        {
+          "word": "核",
+          "start": 2.42,
+          "end": 2.68,
+          "probability": 0.915
+        },
+        {
+          "word": "心",
+          "start": 2.68,
+          "end": 2.8,
+          "probability": 0.996
+        },
+        {
+          "word": "區",
+          "start": 2.8,
+          "end": 3.04,
+          "probability": 0.994
+        },
+        {
+          "word": "域",
+          "start": 3.04,
+          "end": 3.14,
+          "probability": 0.998
+        },
+        {
+          "word": "的",
+          "start": 3.14,
+          "end": 3.28,
+          "probability": 0.973
+        },
+        {
+          "word": "中",
+          "start": 3.28,
+          "end": 3.48,
+          "probability": 0.883
+        },
+        {
+          "word": "遠",
+          "start": 3.48,
+          "end": 3.62,
+          "probability": 0.784
+        },
+        {
+          "word": "程",
+          "start": 3.62,
+          "end": 3.86,
+          "probability": 0.533
+        },
+        {
+          "word": "激",
+          "start": 3.86,
+          "end": 4.22,
+          "probability": 0.938
+        },
+        {
+          "word": "動",
+          "start": 4.22,
+          "end": 4.36,
+          "probability": 0.988
+        },
+        {
+          "word": "了",
+          "start": 4.36,
+          "end": 4.48,
+          "probability": 0.721
+        },
+        {
+          "word": "聯",
+          "start": 4.48,
+          "end": 4.72,
+          "probability": 0.927
+        },
+        {
+          "word": "合",
+          "start": 4.72,
+          "end": 4.92,
+          "probability": 0.995
+        },
+        {
+          "word": "演",
+          "start": 4.92,
+          "end": 5.1,
+          "probability": 0.682
+        },
+        {
+          "word": "練",
+          "start": 5.1,
+          "end": 5.26,
+          "probability": 0.932
+        },
+        {
+          "word": " 頻",
+          "start": 5.72,
+          "end": 5.8,
+          "probability": 0.864
+        },
+        {
+          "word": "率",
+          "start": 5.8,
+          "end": 6.0,
+          "probability": 0.998
+        },
+        {
+          "word": "只",
+          "start": 6.0,
+          "end": 6.22,
+          "probability": 0.943
+        },
+        {
+          "word": "會",
+          "start": 6.22,
+          "end": 6.36,
+          "probability": 0.959
+        },
+        {
+          "word": "升",
+          "start": 6.36,
+          "end": 6.52,
+          "probability": 0.796
+        },
+        {
+          "word": "不會",
+          "start": 6.52,
+          "end": 6.78,
+          "probability": 0.729
+        },
+        {
+          "word": "降",
+          "start": 6.78,
+          "end": 6.98,
+          "probability": 0.978
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 6.98,
+      "end": 10.18,
+      "text": "各方的戰術協同標準也會越來越對齊",
+      "words": [
+        {
+          "word": "各",
+          "start": 6.98,
+          "end": 7.58,
+          "probability": 0.49
+        },
+        {
+          "word": "方",
+          "start": 7.58,
+          "end": 7.76,
+          "probability": 0.893
+        },
+        {
+          "word": "的",
+          "start": 7.76,
+          "end": 7.9,
+          "probability": 0.99
+        },
+        {
+          "word": "戰",
+          "start": 7.9,
+          "end": 8.04,
+          "probability": 0.921
+        },
+        {
+          "word": "術",
+          "start": 8.04,
+          "end": 8.22,
+          "probability": 0.994
+        },
+        {
+          "word": "協",
+          "start": 8.22,
+          "end": 8.38,
+          "probability": 0.795
+        },
+        {
+          "word": "同",
+          "start": 8.38,
+          "end": 8.52,
+          "probability": 0.756
+        },
+        {
+          "word": "標",
+          "start": 8.52,
+          "end": 8.68,
+          "probability": 0.991
+        },
+        {
+          "word": "準",
+          "start": 8.68,
+          "end": 8.88,
+          "probability": 0.984
+        },
+        {
+          "word": "也",
+          "start": 8.88,
+          "end": 9.24,
+          "probability": 0.677
+        },
+        {
+          "word": "會",
+          "start": 9.24,
+          "end": 9.38,
+          "probability": 0.995
+        },
+        {
+          "word": "越",
+          "start": 9.38,
+          "end": 9.56,
+          "probability": 0.998
+        },
+        {
+          "word": "來",
+          "start": 9.56,
+          "end": 9.68,
+          "probability": 0.998
+        },
+        {
+          "word": "越",
+          "start": 9.68,
+          "end": 9.82,
+          "probability": 1.0
+        },
+        {
+          "word": "對",
+          "start": 9.82,
+          "end": 9.92,
+          "probability": 0.964
+        },
+        {
+          "word": "齊",
+          "start": 9.92,
+          "end": 10.18,
+          "probability": 0.928
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": "這",
+      "start": 0.0,
+      "end": 0.32,
+      "probability": 0.784
+    },
+    {
+      "word": "也",
+      "start": 0.32,
+      "end": 0.42,
+      "probability": 0.922
+    },
+    {
+      "word": "意",
+      "start": 0.42,
+      "end": 0.56,
+      "probability": 0.9
+    },
+    {
+      "word": "味",
+      "start": 0.56,
+      "end": 0.62,
+      "probability": 0.966
+    },
+    {
+      "word": "著",
+      "start": 0.62,
+      "end": 0.82,
+      "probability": 0.983
+    },
+    {
+      "word": " 接下來",
+      "start": 1.3,
+      "end": 1.62,
+      "probability": 0.982
+    },
+    {
+      "word": "歐",
+      "start": 1.62,
+      "end": 1.94,
+      "probability": 0.953
+    },
+    {
+      "word": "亞",
+      "start": 1.94,
+      "end": 2.04,
+      "probability": 0.918
+    },
+    {
+      "word": "大",
+      "start": 2.04,
+      "end": 2.24,
+      "probability": 0.994
+    },
+    {
+      "word": "陸",
+      "start": 2.24,
+      "end": 2.42,
+      "probability": 0.998
+    },
+    {
+      "word": "核",
+      "start": 2.42,
+      "end": 2.68,
+      "probability": 0.915
+    },
+    {
+      "word": "心",
+      "start": 2.68,
+      "end": 2.8,
+      "probability": 0.996
+    },
+    {
+      "word": "區",
+      "start": 2.8,
+      "end": 3.04,
+      "probability": 0.994
+    },
+    {
+      "word": "域",
+      "start": 3.04,
+      "end": 3.14,
+      "probability": 0.998
+    },
+    {
+      "word": "的",
+      "start": 3.14,
+      "end": 3.28,
+      "probability": 0.973
+    },
+    {
+      "word": "中",
+      "start": 3.28,
+      "end": 3.48,
+      "probability": 0.883
+    },
+    {
+      "word": "遠",
+      "start": 3.48,
+      "end": 3.62,
+      "probability": 0.784
+    },
+    {
+      "word": "程",
+      "start": 3.62,
+      "end": 3.86,
+      "probability": 0.533
+    },
+    {
+      "word": "激",
+      "start": 3.86,
+      "end": 4.22,
+      "probability": 0.938
+    },
+    {
+      "word": "動",
+      "start": 4.22,
+      "end": 4.36,
+      "probability": 0.988
+    },
+    {
+      "word": "了",
+      "start": 4.36,
+      "end": 4.48,
+      "probability": 0.721
+    },
+    {
+      "word": "聯",
+      "start": 4.48,
+      "end": 4.72,
+      "probability": 0.927
+    },
+    {
+      "word": "合",
+      "start": 4.72,
+      "end": 4.92,
+      "probability": 0.995
+    },
+    {
+      "word": "演",
+      "start": 4.92,
+      "end": 5.1,
+      "probability": 0.682
+    },
+    {
+      "word": "練",
+      "start": 5.1,
+      "end": 5.26,
+      "probability": 0.932
+    },
+    {
+      "word": " 頻",
+      "start": 5.72,
+      "end": 5.8,
+      "probability": 0.864
+    },
+    {
+      "word": "率",
+      "start": 5.8,
+      "end": 6.0,
+      "probability": 0.998
+    },
+    {
+      "word": "只",
+      "start": 6.0,
+      "end": 6.22,
+      "probability": 0.943
+    },
+    {
+      "word": "會",
+      "start": 6.22,
+      "end": 6.36,
+      "probability": 0.959
+    },
+    {
+      "word": "升",
+      "start": 6.36,
+      "end": 6.52,
+      "probability": 0.796
+    },
+    {
+      "word": "不會",
+      "start": 6.52,
+      "end": 6.78,
+      "probability": 0.729
+    },
+    {
+      "word": "降",
+      "start": 6.78,
+      "end": 6.98,
+      "probability": 0.978
+    },
+    {
+      "word": "各",
+      "start": 6.98,
+      "end": 7.58,
+      "probability": 0.49
+    },
+    {
+      "word": "方",
+      "start": 7.58,
+      "end": 7.76,
+      "probability": 0.893
+    },
+    {
+      "word": "的",
+      "start": 7.76,
+      "end": 7.9,
+      "probability": 0.99
+    },
+    {
+      "word": "戰",
+      "start": 7.9,
+      "end": 8.04,
+      "probability": 0.921
+    },
+    {
+      "word": "術",
+      "start": 8.04,
+      "end": 8.22,
+      "probability": 0.994
+    },
+    {
+      "word": "協",
+      "start": 8.22,
+      "end": 8.38,
+      "probability": 0.795
+    },
+    {
+      "word": "同",
+      "start": 8.38,
+      "end": 8.52,
+      "probability": 0.756
+    },
+    {
+      "word": "標",
+      "start": 8.52,
+      "end": 8.68,
+      "probability": 0.991
+    },
+    {
+      "word": "準",
+      "start": 8.68,
+      "end": 8.88,
+      "probability": 0.984
+    },
+    {
+      "word": "也",
+      "start": 8.88,
+      "end": 9.24,
+      "probability": 0.677
+    },
+    {
+      "word": "會",
+      "start": 9.24,
+      "end": 9.38,
+      "probability": 0.995
+    },
+    {
+      "word": "越",
+      "start": 9.38,
+      "end": 9.56,
+      "probability": 0.998
+    },
+    {
+      "word": "來",
+      "start": 9.56,
+      "end": 9.68,
+      "probability": 0.998
+    },
+    {
+      "word": "越",
+      "start": 9.68,
+      "end": 9.82,
+      "probability": 1.0
+    },
+    {
+      "word": "對",
+      "start": 9.82,
+      "end": 9.92,
+      "probability": 0.964
+    },
+    {
+      "word": "齊",
+      "start": 9.92,
+      "end": 10.18,
+      "probability": 0.928
+    }
+  ],
+  "language": "zh",
+  "duration_seconds": 11.136,
+  "model_size": "D:\\Danny\\projects\\animation\\my_open_montage\\.models\\whisper\\faster-whisper-base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

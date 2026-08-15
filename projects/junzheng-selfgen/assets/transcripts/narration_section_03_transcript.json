@@ -1,0 +1,2076 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 4.36,
+      "text": "\u5728\u7d50\u5408\u666e\u4eac,\u540c\u6642\u9ede\u51fa\u5317\u7d04\u5411\u592a\u5e73\u6d0b\u6ef2\u900f\u7684\u5b89\u5168\u5a01\u8105",
+      "words": [
+        {
+          "word": "\u5728",
+          "start": 0.0,
+          "end": 0.28,
+          "probability": 0.923
+        },
+        {
+          "word": "\u7d50",
+          "start": 0.28,
+          "end": 0.46,
+          "probability": 0.332
+        },
+        {
+          "word": "\u5408",
+          "start": 0.46,
+          "end": 0.62,
+          "probability": 0.996
+        },
+        {
+          "word": "\u666e",
+          "start": 0.62,
+          "end": 0.78,
+          "probability": 0.971
+        },
+        {
+          "word": "\u4eac,",
+          "start": 0.78,
+          "end": 0.96,
+          "probability": 0.945
+        },
+        {
+          "word": "\u540c",
+          "start": 1.28,
+          "end": 1.42,
+          "probability": 0.963
+        },
+        {
+          "word": "\u6642",
+          "start": 1.42,
+          "end": 1.58,
+          "probability": 0.995
+        },
+        {
+          "word": "\u9ede",
+          "start": 1.58,
+          "end": 1.72,
+          "probability": 0.967
+        },
+        {
+          "word": "\u51fa",
+          "start": 1.72,
+          "end": 1.98,
+          "probability": 0.979
+        },
+        {
+          "word": "\u5317",
+          "start": 1.98,
+          "end": 2.3,
+          "probability": 0.725
+        },
+        {
+          "word": "\u7d04",
+          "start": 2.3,
+          "end": 2.48,
+          "probability": 0.994
+        },
+        {
+          "word": "\u5411",
+          "start": 2.48,
+          "end": 2.72,
+          "probability": 0.975
+        },
+        {
+          "word": "\u592a",
+          "start": 2.72,
+          "end": 2.88,
+          "probability": 0.937
+        },
+        {
+          "word": "\u5e73",
+          "start": 2.88,
+          "end": 3.06,
+          "probability": 0.992
+        },
+        {
+          "word": "\u6d0b",
+          "start": 3.06,
+          "end": 3.16,
+          "probability": 0.993
+        },
+        {
+          "word": "\u6ef2",
+          "start": 3.16,
+          "end": 3.38,
+          "probability": 0.963
+        },
+        {
+          "word": "\u900f",
+          "start": 3.38,
+          "end": 3.52,
+          "probability": 0.995
+        },
+        {
+          "word": "\u7684",
+          "start": 3.52,
+          "end": 3.64,
+          "probability": 0.978
+        },
+        {
+          "word": "\u5b89\u5168",
+          "start": 3.64,
+          "end": 3.88,
+          "probability": 0.963
+        },
+        {
+          "word": "\u5a01",
+          "start": 3.88,
+          "end": 4.08,
+          "probability": 0.998
+        },
+        {
+          "word": "\u8105",
+          "start": 4.08,
+          "end": 4.36,
+          "probability": 0.984
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.36,
+      "end": 6.96,
+      "text": "\u80cc\u5f8c\u7684\u6230\u7565\u908f\u8f2f\u4e00\u4e0b\u5c31\u901a\u4e86",
+      "words": [
+        {
+          "word": "\u80cc",
+          "start": 4.36,
+          "end": 4.98,
+          "probability": 0.769
+        },
+        {
+          "word": "\u5f8c",
+          "start": 4.98,
+          "end": 5.14,
+          "probability": 0.997
+        },
+        {
+          "word": "\u7684",
+          "start": 5.14,
+          "end": 5.28,
+          "probability": 0.986
+        },
+        {
+          "word": "\u6230",
+          "start": 5.28,
+          "end": 5.4,
+          "probability": 0.986
+        },
+        {
+          "word": "\u7565",
+          "start": 5.4,
+          "end": 5.54,
+          "probability": 1.0
+        },
+        {
+          "word": "\u908f",
+          "start": 5.54,
+          "end": 5.74,
+          "probability": 0.955
+        },
+        {
+          "word": "\u8f2f",
+          "start": 5.74,
+          "end": 5.92,
+          "probability": 0.998
+        },
+        {
+          "word": "\u4e00\u4e0b",
+          "start": 5.92,
+          "end": 6.38,
+          "probability": 0.718
+        },
+        {
+          "word": "\u5c31",
+          "start": 6.38,
+          "end": 6.58,
+          "probability": 0.993
+        },
+        {
+          "word": "\u901a",
+          "start": 6.58,
+          "end": 6.74,
+          "probability": 0.993
+        },
+        {
+          "word": "\u4e86",
+          "start": 6.74,
+          "end": 6.96,
+          "probability": 0.996
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 6.96,
+      "end": 11.18,
+      "text": "\u73fe\u5728\u5317\u7d04\u7684\u89f8\u624b\u5df2\u7d93\u540c\u6642\u5f80\u6b50\u4e9e\u5927\u9678\u7684\u6771\u897f\u5169\u7aef\u751f",
+      "words": [
+        {
+          "word": "\u73fe\u5728",
+          "start": 6.96,
+          "end": 7.56,
+          "probability": 0.901
+        },
+        {
+          "word": "\u5317",
+          "start": 7.56,
+          "end": 7.86,
+          "probability": 0.933
+        },
+        {
+          "word": "\u7d04",
+          "start": 7.86,
+          "end": 8.02,
+          "probability": 0.998
+        },
+        {
+          "word": "\u7684",
+          "start": 8.02,
+          "end": 8.14,
+          "probability": 0.991
+        },
+        {
+          "word": "\u89f8",
+          "start": 8.14,
+          "end": 8.26,
+          "probability": 0.671
+        },
+        {
+          "word": "\u624b",
+          "start": 8.26,
+          "end": 8.46,
+          "probability": 0.733
+        },
+        {
+          "word": "\u5df2\u7d93",
+          "start": 8.46,
+          "end": 8.86,
+          "probability": 0.916
+        },
+        {
+          "word": "\u540c",
+          "start": 8.86,
+          "end": 9.06,
+          "probability": 0.999
+        },
+        {
+          "word": "\u6642",
+          "start": 9.06,
+          "end": 9.28,
+          "probability": 0.996
+        },
+        {
+          "word": "\u5f80",
+          "start": 9.28,
+          "end": 9.44,
+          "probability": 0.984
+        },
+        {
+          "word": "\u6b50",
+          "start": 9.44,
+          "end": 9.68,
+          "probability": 0.97
+        },
+        {
+          "word": "\u4e9e",
+          "start": 9.68,
+          "end": 9.76,
+          "probability": 0.9
+        },
+        {
+          "word": "\u5927",
+          "start": 9.76,
+          "end": 9.96,
+          "probability": 0.996
+        },
+        {
+          "word": "\u9678",
+          "start": 9.96,
+          "end": 10.08,
+          "probability": 0.996
+        },
+        {
+          "word": "\u7684",
+          "start": 10.08,
+          "end": 10.22,
+          "probability": 0.991
+        },
+        {
+          "word": "\u6771\u897f",
+          "start": 10.22,
+          "end": 10.54,
+          "probability": 0.932
+        },
+        {
+          "word": "\u5169",
+          "start": 10.54,
+          "end": 10.8,
+          "probability": 0.965
+        },
+        {
+          "word": "\u7aef",
+          "start": 10.8,
+          "end": 11.0,
+          "probability": 0.941
+        },
+        {
+          "word": "\u751f",
+          "start": 11.0,
+          "end": 11.18,
+          "probability": 0.284
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 11.18,
+      "end": 16.02,
+      "text": "\u897f\u908a\u5728\u6ce2\u7f85\u5730\u6d77\u3001\u6771\u6b50\u4e9e\u4fc4\u7f85\u65af\u3001\u6771\u908a\u5728\u897f\u592a\u641e\u5cf6\u93c8\u90e8\u7f72",
+      "words": [
+        {
+          "word": "\u897f",
+          "start": 11.18,
+          "end": 11.86,
+          "probability": 0.359
+        },
+        {
+          "word": "\u908a",
+          "start": 11.86,
+          "end": 11.98,
+          "probability": 0.979
+        },
+        {
+          "word": "\u5728",
+          "start": 11.98,
+          "end": 12.2,
+          "probability": 0.987
+        },
+        {
+          "word": "\u6ce2",
+          "start": 12.2,
+          "end": 12.36,
+          "probability": 0.946
+        },
+        {
+          "word": "\u7f85",
+          "start": 12.36,
+          "end": 12.46,
+          "probability": 0.978
+        },
+        {
+          "word": "\u5730",
+          "start": 12.46,
+          "end": 12.66,
+          "probability": 0.759
+        },
+        {
+          "word": "\u6d77\u3001",
+          "start": 12.66,
+          "end": 12.9,
+          "probability": 0.991
+        },
+        {
+          "word": "\u6771",
+          "start": 13.28,
+          "end": 13.36,
+          "probability": 0.97
+        },
+        {
+          "word": "\u6b50",
+          "start": 13.36,
+          "end": 13.5,
+          "probability": 0.997
+        },
+        {
+          "word": "\u4e9e",
+          "start": 13.5,
+          "end": 13.7,
+          "probability": 0.538
+        },
+        {
+          "word": "\u4fc4",
+          "start": 13.7,
+          "end": 13.86,
+          "probability": 0.942
+        },
+        {
+          "word": "\u7f85",
+          "start": 13.86,
+          "end": 13.96,
+          "probability": 0.996
+        },
+        {
+          "word": "\u65af\u3001",
+          "start": 13.96,
+          "end": 14.16,
+          "probability": 0.996
+        },
+        {
+          "word": "\u6771",
+          "start": 14.38,
+          "end": 14.48,
+          "probability": 0.989
+        },
+        {
+          "word": "\u908a",
+          "start": 14.48,
+          "end": 14.62,
+          "probability": 0.981
+        },
+        {
+          "word": "\u5728",
+          "start": 14.62,
+          "end": 14.86,
+          "probability": 0.986
+        },
+        {
+          "word": "\u897f",
+          "start": 14.86,
+          "end": 15.04,
+          "probability": 0.953
+        },
+        {
+          "word": "\u592a",
+          "start": 15.04,
+          "end": 15.18,
+          "probability": 0.888
+        },
+        {
+          "word": "\u641e",
+          "start": 15.18,
+          "end": 15.3,
+          "probability": 0.614
+        },
+        {
+          "word": "\u5cf6",
+          "start": 15.3,
+          "end": 15.44,
+          "probability": 0.48
+        },
+        {
+          "word": "\u93c8",
+          "start": 15.44,
+          "end": 15.58,
+          "probability": 0.726
+        },
+        {
+          "word": "\u90e8",
+          "start": 15.58,
+          "end": 15.76,
+          "probability": 0.964
+        },
+        {
+          "word": "\u7f72",
+          "start": 15.76,
+          "end": 16.02,
+          "probability": 0.972
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 16.02,
+      "end": 19.1,
+      "text": "\u9019\u7a2e\u6771\u897f\u96d9\u7dda\u7684\u64e0\u58d3,\u5c0d\u61c9\u7684\u81ea\u7136\u5c31\u662f",
+      "words": [
+        {
+          "word": "\u9019\u7a2e",
+          "start": 16.02,
+          "end": 16.66,
+          "probability": 0.965
+        },
+        {
+          "word": "\u6771\u897f",
+          "start": 16.66,
+          "end": 17.0,
+          "probability": 0.996
+        },
+        {
+          "word": "\u96d9",
+          "start": 17.0,
+          "end": 17.2,
+          "probability": 0.989
+        },
+        {
+          "word": "\u7dda",
+          "start": 17.2,
+          "end": 17.36,
+          "probability": 0.748
+        },
+        {
+          "word": "\u7684",
+          "start": 17.36,
+          "end": 17.48,
+          "probability": 0.971
+        },
+        {
+          "word": "\u64e0",
+          "start": 17.48,
+          "end": 17.6,
+          "probability": 0.953
+        },
+        {
+          "word": "\u58d3,",
+          "start": 17.6,
+          "end": 17.8,
+          "probability": 0.979
+        },
+        {
+          "word": "\u5c0d",
+          "start": 18.04,
+          "end": 18.28,
+          "probability": 0.882
+        },
+        {
+          "word": "\u61c9",
+          "start": 18.28,
+          "end": 18.38,
+          "probability": 0.988
+        },
+        {
+          "word": "\u7684",
+          "start": 18.38,
+          "end": 18.48,
+          "probability": 0.921
+        },
+        {
+          "word": "\u81ea",
+          "start": 18.48,
+          "end": 18.64,
+          "probability": 0.982
+        },
+        {
+          "word": "\u7136",
+          "start": 18.64,
+          "end": 18.74,
+          "probability": 0.999
+        },
+        {
+          "word": "\u5c31\u662f",
+          "start": 18.74,
+          "end": 19.1,
+          "probability": 0.97
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 19.1,
+      "end": 21.82,
+      "text": "\u4e2d\u4fc4\u5728\u5169\u500b\u6230\u7565\u65b9\u5411\u4e0a\u7684\u5354\u52a9\u90e8\u4f4d",
+      "words": [
+        {
+          "word": "\u4e2d",
+          "start": 19.1,
+          "end": 19.58,
+          "probability": 0.634
+        },
+        {
+          "word": "\u4fc4",
+          "start": 19.58,
+          "end": 19.8,
+          "probability": 0.962
+        },
+        {
+          "word": "\u5728",
+          "start": 19.8,
+          "end": 19.98,
+          "probability": 0.993
+        },
+        {
+          "word": "\u5169\u500b",
+          "start": 19.98,
+          "end": 20.16,
+          "probability": 0.834
+        },
+        {
+          "word": "\u6230",
+          "start": 20.16,
+          "end": 20.38,
+          "probability": 0.998
+        },
+        {
+          "word": "\u7565",
+          "start": 20.38,
+          "end": 20.5,
+          "probability": 1.0
+        },
+        {
+          "word": "\u65b9",
+          "start": 20.5,
+          "end": 20.66,
+          "probability": 0.995
+        },
+        {
+          "word": "\u5411",
+          "start": 20.66,
+          "end": 20.78,
+          "probability": 1.0
+        },
+        {
+          "word": "\u4e0a",
+          "start": 20.78,
+          "end": 20.98,
+          "probability": 0.996
+        },
+        {
+          "word": "\u7684",
+          "start": 20.98,
+          "end": 21.08,
+          "probability": 0.993
+        },
+        {
+          "word": "\u5354",
+          "start": 21.08,
+          "end": 21.28,
+          "probability": 0.785
+        },
+        {
+          "word": "\u52a9",
+          "start": 21.28,
+          "end": 21.42,
+          "probability": 0.541
+        },
+        {
+          "word": "\u90e8",
+          "start": 21.42,
+          "end": 21.58,
+          "probability": 0.531
+        },
+        {
+          "word": "\u4f4d",
+          "start": 21.58,
+          "end": 21.82,
+          "probability": 0.998
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 21.82,
+      "end": 25.88,
+      "text": "\u767d\u4fc4\u7f85\u65af\u8655\u5728\u5317\u7d04\u897f\u7dda\u3001\u64e0\u58d3\u4fc4\u7f85\u65af\u7684\u6838\u5fc3\u7de9\u885d\u5e36",
+      "words": [
+        {
+          "word": "\u767d",
+          "start": 21.82,
+          "end": 22.34,
+          "probability": 0.891
+        },
+        {
+          "word": "\u4fc4",
+          "start": 22.34,
+          "end": 22.46,
+          "probability": 0.999
+        },
+        {
+          "word": "\u7f85",
+          "start": 22.46,
+          "end": 22.6,
+          "probability": 0.999
+        },
+        {
+          "word": "\u65af",
+          "start": 22.6,
+          "end": 22.82,
+          "probability": 1.0
+        },
+        {
+          "word": "\u8655",
+          "start": 22.82,
+          "end": 23.12,
+          "probability": 0.896
+        },
+        {
+          "word": "\u5728",
+          "start": 23.12,
+          "end": 23.24,
+          "probability": 0.998
+        },
+        {
+          "word": "\u5317",
+          "start": 23.24,
+          "end": 23.4,
+          "probability": 0.996
+        },
+        {
+          "word": "\u7d04",
+          "start": 23.4,
+          "end": 23.56,
+          "probability": 0.996
+        },
+        {
+          "word": "\u897f",
+          "start": 23.56,
+          "end": 23.76,
+          "probability": 0.708
+        },
+        {
+          "word": "\u7dda\u3001",
+          "start": 23.76,
+          "end": 24.0,
+          "probability": 0.932
+        },
+        {
+          "word": "\u64e0",
+          "start": 24.28,
+          "end": 24.38,
+          "probability": 0.997
+        },
+        {
+          "word": "\u58d3",
+          "start": 24.38,
+          "end": 24.52,
+          "probability": 0.813
+        },
+        {
+          "word": "\u4fc4",
+          "start": 24.52,
+          "end": 24.64,
+          "probability": 0.998
+        },
+        {
+          "word": "\u7f85",
+          "start": 24.64,
+          "end": 24.76,
+          "probability": 1.0
+        },
+        {
+          "word": "\u65af",
+          "start": 24.76,
+          "end": 24.88,
+          "probability": 1.0
+        },
+        {
+          "word": "\u7684",
+          "start": 24.88,
+          "end": 25.0,
+          "probability": 0.996
+        },
+        {
+          "word": "\u6838",
+          "start": 25.0,
+          "end": 25.18,
+          "probability": 0.993
+        },
+        {
+          "word": "\u5fc3",
+          "start": 25.18,
+          "end": 25.34,
+          "probability": 0.995
+        },
+        {
+          "word": "\u7de9",
+          "start": 25.34,
+          "end": 25.54,
+          "probability": 0.973
+        },
+        {
+          "word": "\u885d",
+          "start": 25.54,
+          "end": 25.74,
+          "probability": 0.94
+        },
+        {
+          "word": "\u5e36",
+          "start": 25.74,
+          "end": 25.88,
+          "probability": 0.57
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 25.88,
+      "end": 30.66,
+      "text": "\u800c\u4e2d\u767d\u7684\u6563\u5175\u5354\u540c,\u672c\u8cea\u4e0a\u662f\u5728\u6574\u500b\u6b50\u4e9e\u5927\u9678\u7684\u4e2d\u9593\u8f38\u7d10\u4f4d\u7f6e",
+      "words": [
+        {
+          "word": "\u800c",
+          "start": 25.88,
+          "end": 26.36,
+          "probability": 0.978
+        },
+        {
+          "word": "\u4e2d",
+          "start": 26.36,
+          "end": 26.52,
+          "probability": 0.96
+        },
+        {
+          "word": "\u767d",
+          "start": 26.52,
+          "end": 26.66,
+          "probability": 0.963
+        },
+        {
+          "word": "\u7684",
+          "start": 26.66,
+          "end": 26.78,
+          "probability": 0.978
+        },
+        {
+          "word": "\u6563",
+          "start": 26.78,
+          "end": 26.96,
+          "probability": 0.747
+        },
+        {
+          "word": "\u5175",
+          "start": 26.96,
+          "end": 27.08,
+          "probability": 0.802
+        },
+        {
+          "word": "\u5354",
+          "start": 27.08,
+          "end": 27.26,
+          "probability": 0.127
+        },
+        {
+          "word": "\u540c,",
+          "start": 27.26,
+          "end": 27.46,
+          "probability": 0.953
+        },
+        {
+          "word": "\u672c",
+          "start": 27.68,
+          "end": 27.8,
+          "probability": 0.992
+        },
+        {
+          "word": "\u8cea",
+          "start": 27.8,
+          "end": 27.98,
+          "probability": 0.399
+        },
+        {
+          "word": "\u4e0a",
+          "start": 27.98,
+          "end": 28.2,
+          "probability": 0.948
+        },
+        {
+          "word": "\u662f",
+          "start": 28.2,
+          "end": 28.44,
+          "probability": 0.978
+        },
+        {
+          "word": "\u5728",
+          "start": 28.44,
+          "end": 28.56,
+          "probability": 0.981
+        },
+        {
+          "word": "\u6574",
+          "start": 28.56,
+          "end": 28.72,
+          "probability": 0.992
+        },
+        {
+          "word": "\u500b",
+          "start": 28.72,
+          "end": 28.88,
+          "probability": 0.978
+        },
+        {
+          "word": "\u6b50",
+          "start": 28.88,
+          "end": 29.04,
+          "probability": 0.961
+        },
+        {
+          "word": "\u4e9e",
+          "start": 29.04,
+          "end": 29.14,
+          "probability": 0.937
+        },
+        {
+          "word": "\u5927",
+          "start": 29.14,
+          "end": 29.32,
+          "probability": 0.996
+        },
+        {
+          "word": "\u9678",
+          "start": 29.32,
+          "end": 29.46,
+          "probability": 0.996
+        },
+        {
+          "word": "\u7684",
+          "start": 29.46,
+          "end": 29.6,
+          "probability": 0.977
+        },
+        {
+          "word": "\u4e2d",
+          "start": 29.6,
+          "end": 29.76,
+          "probability": 0.996
+        },
+        {
+          "word": "\u9593",
+          "start": 29.76,
+          "end": 29.94,
+          "probability": 0.976
+        },
+        {
+          "word": "\u8f38",
+          "start": 29.94,
+          "end": 30.12,
+          "probability": 0.547
+        },
+        {
+          "word": "\u7d10",
+          "start": 30.12,
+          "end": 30.28,
+          "probability": 0.565
+        },
+        {
+          "word": "\u4f4d",
+          "start": 30.28,
+          "end": 30.48,
+          "probability": 0.979
+        },
+        {
+          "word": "\u7f6e",
+          "start": 30.48,
+          "end": 30.66,
+          "probability": 0.999
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 30.66,
+      "end": 34.62,
+      "text": "\u628a\u5354\u52a9\u7684\u900f\u660e\u5ea6\u548c\u9806\u66a2\u5ea6\u76f4\u63a5\u64fa\u5728\u4e86\u6aaf\u9762\u4e0a",
+      "words": [
+        {
+          "word": "\u628a",
+          "start": 30.66,
+          "end": 31.22,
+          "probability": 0.707
+        },
+        {
+          "word": "\u5354",
+          "start": 31.22,
+          "end": 31.46,
+          "probability": 0.974
+        },
+        {
+          "word": "\u52a9",
+          "start": 31.46,
+          "end": 31.56,
+          "probability": 0.056
+        },
+        {
+          "word": "\u7684",
+          "start": 31.56,
+          "end": 31.7,
+          "probability": 0.928
+        },
+        {
+          "word": "\u900f",
+          "start": 31.7,
+          "end": 31.84,
+          "probability": 0.998
+        },
+        {
+          "word": "\u660e",
+          "start": 31.84,
+          "end": 32.0,
+          "probability": 0.998
+        },
+        {
+          "word": "\u5ea6",
+          "start": 32.0,
+          "end": 32.2,
+          "probability": 0.999
+        },
+        {
+          "word": "\u548c",
+          "start": 32.2,
+          "end": 32.44,
+          "probability": 0.971
+        },
+        {
+          "word": "\u9806",
+          "start": 32.44,
+          "end": 32.6,
+          "probability": 0.943
+        },
+        {
+          "word": "\u66a2",
+          "start": 32.6,
+          "end": 32.78,
+          "probability": 0.988
+        },
+        {
+          "word": "\u5ea6",
+          "start": 32.78,
+          "end": 32.98,
+          "probability": 1.0
+        },
+        {
+          "word": "\u76f4\u63a5",
+          "start": 32.98,
+          "end": 33.54,
+          "probability": 0.87
+        },
+        {
+          "word": "\u64fa",
+          "start": 33.54,
+          "end": 33.76,
+          "probability": 0.99
+        },
+        {
+          "word": "\u5728",
+          "start": 33.76,
+          "end": 33.9,
+          "probability": 0.997
+        },
+        {
+          "word": "\u4e86",
+          "start": 33.9,
+          "end": 34.02,
+          "probability": 0.291
+        },
+        {
+          "word": "\u6aaf",
+          "start": 34.02,
+          "end": 34.2,
+          "probability": 0.873
+        },
+        {
+          "word": "\u9762",
+          "start": 34.2,
+          "end": 34.36,
+          "probability": 0.999
+        },
+        {
+          "word": "\u4e0a",
+          "start": 34.36,
+          "end": 34.62,
+          "probability": 0.996
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": "\u5728",
+      "start": 0.0,
+      "end": 0.28,
+      "probability": 0.923
+    },
+    {
+      "word": "\u7d50",
+      "start": 0.28,
+      "end": 0.46,
+      "probability": 0.332
+    },
+    {
+      "word": "\u5408",
+      "start": 0.46,
+      "end": 0.62,
+      "probability": 0.996
+    },
+    {
+      "word": "\u666e",
+      "start": 0.62,
+      "end": 0.78,
+      "probability": 0.971
+    },
+    {
+      "word": "\u4eac,",
+      "start": 0.78,
+      "end": 0.96,
+      "probability": 0.945
+    },
+    {
+      "word": "\u540c",
+      "start": 1.28,
+      "end": 1.42,
+      "probability": 0.963
+    },
+    {
+      "word": "\u6642",
+      "start": 1.42,
+      "end": 1.58,
+      "probability": 0.995
+    },
+    {
+      "word": "\u9ede",
+      "start": 1.58,
+      "end": 1.72,
+      "probability": 0.967
+    },
+    {
+      "word": "\u51fa",
+      "start": 1.72,
+      "end": 1.98,
+      "probability": 0.979
+    },
+    {
+      "word": "\u5317",
+      "start": 1.98,
+      "end": 2.3,
+      "probability": 0.725
+    },
+    {
+      "word": "\u7d04",
+      "start": 2.3,
+      "end": 2.48,
+      "probability": 0.994
+    },
+    {
+      "word": "\u5411",
+      "start": 2.48,
+      "end": 2.72,
+      "probability": 0.975
+    },
+    {
+      "word": "\u592a",
+      "start": 2.72,
+      "end": 2.88,
+      "probability": 0.937
+    },
+    {
+      "word": "\u5e73",
+      "start": 2.88,
+      "end": 3.06,
+      "probability": 0.992
+    },
+    {
+      "word": "\u6d0b",
+      "start": 3.06,
+      "end": 3.16,
+      "probability": 0.993
+    },
+    {
+      "word": "\u6ef2",
+      "start": 3.16,
+      "end": 3.38,
+      "probability": 0.963
+    },
+    {
+      "word": "\u900f",
+      "start": 3.38,
+      "end": 3.52,
+      "probability": 0.995
+    },
+    {
+      "word": "\u7684",
+      "start": 3.52,
+      "end": 3.64,
+      "probability": 0.978
+    },
+    {
+      "word": "\u5b89\u5168",
+      "start": 3.64,
+      "end": 3.88,
+      "probability": 0.963
+    },
+    {
+      "word": "\u5a01",
+      "start": 3.88,
+      "end": 4.08,
+      "probability": 0.998
+    },
+    {
+      "word": "\u8105",
+      "start": 4.08,
+      "end": 4.36,
+      "probability": 0.984
+    },
+    {
+      "word": "\u80cc",
+      "start": 4.36,
+      "end": 4.98,
+      "probability": 0.769
+    },
+    {
+      "word": "\u5f8c",
+      "start": 4.98,
+      "end": 5.14,
+      "probability": 0.997
+    },
+    {
+      "word": "\u7684",
+      "start": 5.14,
+      "end": 5.28,
+      "probability": 0.986
+    },
+    {
+      "word": "\u6230",
+      "start": 5.28,
+      "end": 5.4,
+      "probability": 0.986
+    },
+    {
+      "word": "\u7565",
+      "start": 5.4,
+      "end": 5.54,
+      "probability": 1.0
+    },
+    {
+      "word": "\u908f",
+      "start": 5.54,
+      "end": 5.74,
+      "probability": 0.955
+    },
+    {
+      "word": "\u8f2f",
+      "start": 5.74,
+      "end": 5.92,
+      "probability": 0.998
+    },
+    {
+      "word": "\u4e00\u4e0b",
+      "start": 5.92,
+      "end": 6.38,
+      "probability": 0.718
+    },
+    {
+      "word": "\u5c31",
+      "start": 6.38,
+      "end": 6.58,
+      "probability": 0.993
+    },
+    {
+      "word": "\u901a",
+      "start": 6.58,
+      "end": 6.74,
+      "probability": 0.993
+    },
+    {
+      "word": "\u4e86",
+      "start": 6.74,
+      "end": 6.96,
+      "probability": 0.996
+    },
+    {
+      "word": "\u73fe\u5728",
+      "start": 6.96,
+      "end": 7.56,
+      "probability": 0.901
+    },
+    {
+      "word": "\u5317",
+      "start": 7.56,
+      "end": 7.86,
+      "probability": 0.933
+    },
+    {
+      "word": "\u7d04",
+      "start": 7.86,
+      "end": 8.02,
+      "probability": 0.998
+    },
+    {
+      "word": "\u7684",
+      "start": 8.02,
+      "end": 8.14,
+      "probability": 0.991
+    },
+    {
+      "word": "\u89f8",
+      "start": 8.14,
+      "end": 8.26,
+      "probability": 0.671
+    },
+    {
+      "word": "\u624b",
+      "start": 8.26,
+      "end": 8.46,
+      "probability": 0.733
+    },
+    {
+      "word": "\u5df2\u7d93",
+      "start": 8.46,
+      "end": 8.86,
+      "probability": 0.916
+    },
+    {
+      "word": "\u540c",
+      "start": 8.86,
+      "end": 9.06,
+      "probability": 0.999
+    },
+    {
+      "word": "\u6642",
+      "start": 9.06,
+      "end": 9.28,
+      "probability": 0.996
+    },
+    {
+      "word": "\u5f80",
+      "start": 9.28,
+      "end": 9.44,
+      "probability": 0.984
+    },
+    {
+      "word": "\u6b50",
+      "start": 9.44,
+      "end": 9.68,
+      "probability": 0.97
+    },
+    {
+      "word": "\u4e9e",
+      "start": 9.68,
+      "end": 9.76,
+      "probability": 0.9
+    },
+    {
+      "word": "\u5927",
+      "start": 9.76,
+      "end": 9.96,
+      "probability": 0.996
+    },
+    {
+      "word": "\u9678",
+      "start": 9.96,
+      "end": 10.08,
+      "probability": 0.996
+    },
+    {
+      "word": "\u7684",
+      "start": 10.08,
+      "end": 10.22,
+      "probability": 0.991
+    },
+    {
+      "word": "\u6771\u897f",
+      "start": 10.22,
+      "end": 10.54,
+      "probability": 0.932
+    },
+    {
+      "word": "\u5169",
+      "start": 10.54,
+      "end": 10.8,
+      "probability": 0.965
+    },
+    {
+      "word": "\u7aef",
+      "start": 10.8,
+      "end": 11.0,
+      "probability": 0.941
+    },
+    {
+      "word": "\u751f",
+      "start": 11.0,
+      "end": 11.18,
+      "probability": 0.284
+    },
+    {
+      "word": "\u897f",
+      "start": 11.18,
+      "end": 11.86,
+      "probability": 0.359
+    },
+    {
+      "word": "\u908a",
+      "start": 11.86,
+      "end": 11.98,
+      "probability": 0.979
+    },
+    {
+      "word": "\u5728",
+      "start": 11.98,
+      "end": 12.2,
+      "probability": 0.987
+    },
+    {
+      "word": "\u6ce2",
+      "start": 12.2,
+      "end": 12.36,
+      "probability": 0.946
+    },
+    {
+      "word": "\u7f85",
+      "start": 12.36,
+      "end": 12.46,
+      "probability": 0.978
+    },
+    {
+      "word": "\u5730",
+      "start": 12.46,
+      "end": 12.66,
+      "probability": 0.759
+    },
+    {
+      "word": "\u6d77\u3001",
+      "start": 12.66,
+      "end": 12.9,
+      "probability": 0.991
+    },
+    {
+      "word": "\u6771",
+      "start": 13.28,
+      "end": 13.36,
+      "probability": 0.97
+    },
+    {
+      "word": "\u6b50",
+      "start": 13.36,
+      "end": 13.5,
+      "probability": 0.997
+    },
+    {
+      "word": "\u4e9e",
+      "start": 13.5,
+      "end": 13.7,
+      "probability": 0.538
+    },
+    {
+      "word": "\u4fc4",
+      "start": 13.7,
+      "end": 13.86,
+      "probability": 0.942
+    },
+    {
+      "word": "\u7f85",
+      "start": 13.86,
+      "end": 13.96,
+      "probability": 0.996
+    },
+    {
+      "word": "\u65af\u3001",
+      "start": 13.96,
+      "end": 14.16,
+      "probability": 0.996
+    },
+    {
+      "word": "\u6771",
+      "start": 14.38,
+      "end": 14.48,
+      "probability": 0.989
+    },
+    {
+      "word": "\u908a",
+      "start": 14.48,
+      "end": 14.62,
+      "probability": 0.981
+    },
+    {
+      "word": "\u5728",
+      "start": 14.62,
+      "end": 14.86,
+      "probability": 0.986
+    },
+    {
+      "word": "\u897f",
+      "start": 14.86,
+      "end": 15.04,
+      "probability": 0.953
+    },
+    {
+      "word": "\u592a",
+      "start": 15.04,
+      "end": 15.18,
+      "probability": 0.888
+    },
+    {
+      "word": "\u641e",
+      "start": 15.18,
+      "end": 15.3,
+      "probability": 0.614
+    },
+    {
+      "word": "\u5cf6",
+      "start": 15.3,
+      "end": 15.44,
+      "probability": 0.48
+    },
+    {
+      "word": "\u93c8",
+      "start": 15.44,
+      "end": 15.58,
+      "probability": 0.726
+    },
+    {
+      "word": "\u90e8",
+      "start": 15.58,
+      "end": 15.76,
+      "probability": 0.964
+    },
+    {
+      "word": "\u7f72",
+      "start": 15.76,
+      "end": 16.02,
+      "probability": 0.972
+    },
+    {
+      "word": "\u9019\u7a2e",
+      "start": 16.02,
+      "end": 16.66,
+      "probability": 0.965
+    },
+    {
+      "word": "\u6771\u897f",
+      "start": 16.66,
+      "end": 17.0,
+      "probability": 0.996
+    },
+    {
+      "word": "\u96d9",
+      "start": 17.0,
+      "end": 17.2,
+      "probability": 0.989
+    },
+    {
+      "word": "\u7dda",
+      "start": 17.2,
+      "end": 17.36,
+      "probability": 0.748
+    },
+    {
+      "word": "\u7684",
+      "start": 17.36,
+      "end": 17.48,
+      "probability": 0.971
+    },
+    {
+      "word": "\u64e0",
+      "start": 17.48,
+      "end": 17.6,
+      "probability": 0.953
+    },
+    {
+      "word": "\u58d3,",
+      "start": 17.6,
+      "end": 17.8,
+      "probability": 0.979
+    },
+    {
+      "word": "\u5c0d",
+      "start": 18.04,
+      "end": 18.28,
+      "probability": 0.882
+    },
+    {
+      "word": "\u61c9",
+      "start": 18.28,
+      "end": 18.38,
+      "probability": 0.988
+    },
+    {
+      "word": "\u7684",
+      "start": 18.38,
+      "end": 18.48,
+      "probability": 0.921
+    },
+    {
+      "word": "\u81ea",
+      "start": 18.48,
+      "end": 18.64,
+      "probability": 0.982
+    },
+    {
+      "word": "\u7136",
+      "start": 18.64,
+      "end": 18.74,
+      "probability": 0.999
+    },
+    {
+      "word": "\u5c31\u662f",
+      "start": 18.74,
+      "end": 19.1,
+      "probability": 0.97
+    },
+    {
+      "word": "\u4e2d",
+      "start": 19.1,
+      "end": 19.58,
+      "probability": 0.634
+    },
+    {
+      "word": "\u4fc4",
+      "start": 19.58,
+      "end": 19.8,
+      "probability": 0.962
+    },
+    {
+      "word": "\u5728",
+      "start": 19.8,
+      "end": 19.98,
+      "probability": 0.993
+    },
+    {
+      "word": "\u5169\u500b",
+      "start": 19.98,
+      "end": 20.16,
+      "probability": 0.834
+    },
+    {
+      "word": "\u6230",
+      "start": 20.16,
+      "end": 20.38,
+      "probability": 0.998
+    },
+    {
+      "word": "\u7565",
+      "start": 20.38,
+      "end": 20.5,
+      "probability": 1.0
+    },
+    {
+      "word": "\u65b9",
+      "start": 20.5,
+      "end": 20.66,
+      "probability": 0.995
+    },
+    {
+      "word": "\u5411",
+      "start": 20.66,
+      "end": 20.78,
+      "probability": 1.0
+    },
+    {
+      "word": "\u4e0a",
+      "start": 20.78,
+      "end": 20.98,
+      "probability": 0.996
+    },
+    {
+      "word": "\u7684",
+      "start": 20.98,
+      "end": 21.08,
+      "probability": 0.993
+    },
+    {
+      "word": "\u5354",
+      "start": 21.08,
+      "end": 21.28,
+      "probability": 0.785
+    },
+    {
+      "word": "\u52a9",
+      "start": 21.28,
+      "end": 21.42,
+      "probability": 0.541
+    },
+    {
+      "word": "\u90e8",
+      "start": 21.42,
+      "end": 21.58,
+      "probability": 0.531
+    },
+    {
+      "word": "\u4f4d",
+      "start": 21.58,
+      "end": 21.82,
+      "probability": 0.998
+    },
+    {
+      "word": "\u767d",
+      "start": 21.82,
+      "end": 22.34,
+      "probability": 0.891
+    },
+    {
+      "word": "\u4fc4",
+      "start": 22.34,
+      "end": 22.46,
+      "probability": 0.999
+    },
+    {
+      "word": "\u7f85",
+      "start": 22.46,
+      "end": 22.6,
+      "probability": 0.999
+    },
+    {
+      "word": "\u65af",
+      "start": 22.6,
+      "end": 22.82,
+      "probability": 1.0
+    },
+    {
+      "word": "\u8655",
+      "start": 22.82,
+      "end": 23.12,
+      "probability": 0.896
+    },
+    {
+      "word": "\u5728",
+      "start": 23.12,
+      "end": 23.24,
+      "probability": 0.998
+    },
+    {
+      "word": "\u5317",
+      "start": 23.24,
+      "end": 23.4,
+      "probability": 0.996
+    },
+    {
+      "word": "\u7d04",
+      "start": 23.4,
+      "end": 23.56,
+      "probability": 0.996
+    },
+    {
+      "word": "\u897f",
+      "start": 23.56,
+      "end": 23.76,
+      "probability": 0.708
+    },
+    {
+      "word": "\u7dda\u3001",
+      "start": 23.76,
+      "end": 24.0,
+      "probability": 0.932
+    },
+    {
+      "word": "\u64e0",
+      "start": 24.28,
+      "end": 24.38,
+      "probability": 0.997
+    },
+    {
+      "word": "\u58d3",
+      "start": 24.38,
+      "end": 24.52,
+      "probability": 0.813
+    },
+    {
+      "word": "\u4fc4",
+      "start": 24.52,
+      "end": 24.64,
+      "probability": 0.998
+    },
+    {
+      "word": "\u7f85",
+      "start": 24.64,
+      "end": 24.76,
+      "probability": 1.0
+    },
+    {
+      "word": "\u65af",
+      "start": 24.76,
+      "end": 24.88,
+      "probability": 1.0
+    },
+    {
+      "word": "\u7684",
+      "start": 24.88,
+      "end": 25.0,
+      "probability": 0.996
+    },
+    {
+      "word": "\u6838",
+      "start": 25.0,
+      "end": 25.18,
+      "probability": 0.993
+    },
+    {
+      "word": "\u5fc3",
+      "start": 25.18,
+      "end": 25.34,
+      "probability": 0.995
+    },
+    {
+      "word": "\u7de9",
+      "start": 25.34,
+      "end": 25.54,
+      "probability": 0.973
+    },
+    {
+      "word": "\u885d",
+      "start": 25.54,
+      "end": 25.74,
+      "probability": 0.94
+    },
+    {
+      "word": "\u5e36",
+      "start": 25.74,
+      "end": 25.88,
+      "probability": 0.57
+    },
+    {
+      "word": "\u800c",
+      "start": 25.88,
+      "end": 26.36,
+      "probability": 0.978
+    },
+    {
+      "word": "\u4e2d",
+      "start": 26.36,
+      "end": 26.52,
+      "probability": 0.96
+    },
+    {
+      "word": "\u767d",
+      "start": 26.52,
+      "end": 26.66,
+      "probability": 0.963
+    },
+    {
+      "word": "\u7684",
+      "start": 26.66,
+      "end": 26.78,
+      "probability": 0.978
+    },
+    {
+      "word": "\u6563",
+      "start": 26.78,
+      "end": 26.96,
+      "probability": 0.747
+    },
+    {
+      "word": "\u5175",
+      "start": 26.96,
+      "end": 27.08,
+      "probability": 0.802
+    },
+    {
+      "word": "\u5354",
+      "start": 27.08,
+      "end": 27.26,
+      "probability": 0.127
+    },
+    {
+      "word": "\u540c,",
+      "start": 27.26,
+      "end": 27.46,
+      "probability": 0.953
+    },
+    {
+      "word": "\u672c",
+      "start": 27.68,
+      "end": 27.8,
+      "probability": 0.992
+    },
+    {
+      "word": "\u8cea",
+      "start": 27.8,
+      "end": 27.98,
+      "probability": 0.399
+    },
+    {
+      "word": "\u4e0a",
+      "start": 27.98,
+      "end": 28.2,
+      "probability": 0.948
+    },
+    {
+      "word": "\u662f",
+      "start": 28.2,
+      "end": 28.44,
+      "probability": 0.978
+    },
+    {
+      "word": "\u5728",
+      "start": 28.44,
+      "end": 28.56,
+      "probability": 0.981
+    },
+    {
+      "word": "\u6574",
+      "start": 28.56,
+      "end": 28.72,
+      "probability": 0.992
+    },
+    {
+      "word": "\u500b",
+      "start": 28.72,
+      "end": 28.88,
+      "probability": 0.978
+    },
+    {
+      "word": "\u6b50",
+      "start": 28.88,
+      "end": 29.04,
+      "probability": 0.961
+    },
+    {
+      "word": "\u4e9e",
+      "start": 29.04,
+      "end": 29.14,
+      "probability": 0.937
+    },
+    {
+      "word": "\u5927",
+      "start": 29.14,
+      "end": 29.32,
+      "probability": 0.996
+    },
+    {
+      "word": "\u9678",
+      "start": 29.32,
+      "end": 29.46,
+      "probability": 0.996
+    },
+    {
+      "word": "\u7684",
+      "start": 29.46,
+      "end": 29.6,
+      "probability": 0.977
+    },
+    {
+      "word": "\u4e2d",
+      "start": 29.6,
+      "end": 29.76,
+      "probability": 0.996
+    },
+    {
+      "word": "\u9593",
+      "start": 29.76,
+      "end": 29.94,
+      "probability": 0.976
+    },
+    {
+      "word": "\u8f38",
+      "start": 29.94,
+      "end": 30.12,
+      "probability": 0.547
+    },
+    {
+      "word": "\u7d10",
+      "start": 30.12,
+      "end": 30.28,
+      "probability": 0.565
+    },
+    {
+      "word": "\u4f4d",
+      "start": 30.28,
+      "end": 30.48,
+      "probability": 0.979
+    },
+    {
+      "word": "\u7f6e",
+      "start": 30.48,
+      "end": 30.66,
+      "probability": 0.999
+    },
+    {
+      "word": "\u628a",
+      "start": 30.66,
+      "end": 31.22,
+      "probability": 0.707
+    },
+    {
+      "word": "\u5354",
+      "start": 31.22,
+      "end": 31.46,
+      "probability": 0.974
+    },
+    {
+      "word": "\u52a9",
+      "start": 31.46,
+      "end": 31.56,
+      "probability": 0.056
+    },
+    {
+      "word": "\u7684",
+      "start": 31.56,
+      "end": 31.7,
+      "probability": 0.928
+    },
+    {
+      "word": "\u900f",
+      "start": 31.7,
+      "end": 31.84,
+      "probability": 0.998
+    },
+    {
+      "word": "\u660e",
+      "start": 31.84,
+      "end": 32.0,
+      "probability": 0.998
+    },
+    {
+      "word": "\u5ea6",
+      "start": 32.0,
+      "end": 32.2,
+      "probability": 0.999
+    },
+    {
+      "word": "\u548c",
+      "start": 32.2,
+      "end": 32.44,
+      "probability": 0.971
+    },
+    {
+      "word": "\u9806",
+      "start": 32.44,
+      "end": 32.6,
+      "probability": 0.943
+    },
+    {
+      "word": "\u66a2",
+      "start": 32.6,
+      "end": 32.78,
+      "probability": 0.988
+    },
+    {
+      "word": "\u5ea6",
+      "start": 32.78,
+      "end": 32.98,
+      "probability": 1.0
+    },
+    {
+      "word": "\u76f4\u63a5",
+      "start": 32.98,
+      "end": 33.54,
+      "probability": 0.87
+    },
+    {
+      "word": "\u64fa",
+      "start": 33.54,
+      "end": 33.76,
+      "probability": 0.99
+    },
+    {
+      "word": "\u5728",
+      "start": 33.76,
+      "end": 33.9,
+      "probability": 0.997
+    },
+    {
+      "word": "\u4e86",
+      "start": 33.9,
+      "end": 34.02,
+      "probability": 0.291
+    },
+    {
+      "word": "\u6aaf",
+      "start": 34.02,
+      "end": 34.2,
+      "probability": 0.873
+    },
+    {
+      "word": "\u9762",
+      "start": 34.2,
+      "end": 34.36,
+      "probability": 0.999
+    },
+    {
+      "word": "\u4e0a",
+      "start": 34.36,
+      "end": 34.62,
+      "probability": 0.996
+    }
+  ],
+  "language": "zh",
+  "duration_seconds": 35.496,
+  "model_size": "D:\\Danny\\projects\\animation\\my_open_montage\\.models\\whisper\\faster-whisper-base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

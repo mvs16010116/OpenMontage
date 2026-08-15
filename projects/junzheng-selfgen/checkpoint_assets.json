@@ -1,0 +1,414 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-selfgen",
+  "pipeline_type": "narration-synth",
+  "stage": "assets",
+  "status": "completed",
+  "timestamp": "2026-08-14T02:28:31.028727+00:00",
+  "checkpoint_policy": "human_checkpoint",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "anim_scene_opener",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_opener.mp4",
+          "source_tool": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "scene_id": "scene_opener",
+          "duration_seconds": 3,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "opener — center title card with video title under the hook",
+          "prompt": "military-title-card :: --title 神鹰-2026：空降兵的威慑信号 --keyword 空降兵 · 联合演习 --accent #fbbf24 --duration 3",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_01",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_01.mp4",
+          "source_tool": ".agents/skills/military-map-deduction/scripts/build_map_deduction.mjs",
+          "scene_id": "scene_01",
+          "duration_seconds": 12,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "hook — NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands",
+          "prompt": "military-map-deduction :: --theatre 欧洲方向 --regions 白俄罗斯:重点 波罗的海:高亮 东欧:高亮 --arrows 西→东:北约东扩 --phase 北约东扩 · 战略警告 --accent #fbbf24 --duration 12",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_chapter_1",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_chapter_1.mp4",
+          "source_tool": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "scene_id": "scene_chapter_1",
+          "duration_seconds": 3,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "chapter 1 break — lower-mode title card into the airborne-forces analysis",
+          "prompt": "military-title-card :: --title 第一章 · 空降兵拆解 --keyword 跨体系协同 --lower 神鹰-2026 · 核心拆解 --accent #fbbf24 --duration 3",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_02",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_02.mp4",
+          "source_tool": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "scene_id": "scene_02",
+          "duration_seconds": 39.3,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "bars — airborne rapid-projection response time (hours) vs conventional forces under the 跨体系协同 line",
+          "prompt": "military-data-viz :: --title 快速响应 · 投射能力 --type bars --bars 空降兵:24 常规部队:168 --kpi 高机动 · 快响应 · 战略投射 --accent #fbbf24 --duration 12",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_03",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_03.mp4",
+          "source_tool": ".agents/skills/military-map-deduction/scripts/build_map_deduction.mjs",
+          "scene_id": "scene_03",
+          "duration_seconds": 42,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "hero — dual-front squeeze map (Baltic/E. Europe press Russia, island-chain in W. Pacific) with Belarus/airborne cooperation fill",
+          "prompt": "military-map-deduction :: --theatre 欧亚大陆 --regions 西太:高亮 波罗的海:重点 东欧:高亮 白俄罗斯:重点 --arrows 西→东:北约挤压 东→西:岛链部署 --phase 东西双线 · 挤压与补位 --accent #fbbf24 --duration 18",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_chapter_2",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_chapter_2.mp4",
+          "source_tool": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "scene_id": "scene_chapter_2",
+          "duration_seconds": 2.5,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "chapter 2 break — lower-mode title card into the signal analysis",
+          "prompt": "military-title-card :: --title 第二章 · 信号解读 --keyword 公开透明 --lower 神鹰-2026 · 信号解读 --accent #fbbf24 --duration 3",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_04",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_04.mp4",
+          "source_tool": ".agents/skills/military-seal/scripts/build_seal.mjs",
+          "scene_id": "scene_04",
+          "duration_seconds": 24.3,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "seal — red-header joint-training notice stamps over the '公开透明不针对第三方' line",
+          "prompt": "military-seal :: --title 中白 · 神鹰-2026 联合训练 --org 国防部 --seal-text 中国人民解放军联合训练公告 --accent #d33 --duration 8",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_05",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_05.mp4",
+          "source_tool": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "scene_id": "scene_05",
+          "duration_seconds": 12.2,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "timeline — joint drill frequency trend across years under the 'only up, never down' line",
+          "prompt": "military-data-viz :: --title 中远程机动类联合演训 · 频次 --type timeline --timeline 2022:启动 2024:常态 2025:加码 2026:频次上升 --kpi 频率只升不降 · 战术协同对齐 --accent #fbbf24 --duration 12",
+          "quality_score": 0.9
+        },
+        {
+          "id": "anim_scene_06",
+          "type": "animation",
+          "subtype": "generated",
+          "path": "assets/video/scene_06.mp4",
+          "source_tool": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "scene_id": "scene_06",
+          "duration_seconds": 14.9,
+          "resolution": "1920x1080",
+          "format": "mp4",
+          "generation_summary": "closing — keyword card with count-up (dual fronts) under the CTA question",
+          "prompt": "military-title-card :: --title 关键中间节点的公开协作 --keyword 成本最低 · 效果最实 --number 2:战线 --accent #fbbf24 --duration 8",
+          "quality_score": 0.9
+        },
+        {
+          "id": "narration_section_01",
+          "type": "narration",
+          "subtype": "generated",
+          "path": "assets/audio/narration_section_01.mp3",
+          "source_tool": "edge-tts",
+          "scene_id": "scene_01",
+          "duration_seconds": 11.064,
+          "format": "mp3",
+          "provider": "edge-tts",
+          "model": "zh-CN-YunxiNeural",
+          "generation_summary": "edge-tts Yunxi, rate +0%, pitch +0%",
+          "voice_performance": {
+            "source_section_id": "section_01",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice": "zh-CN-YunxiNeural",
+              "rate": "0%",
+              "pitch": "0%",
+              "chinese_speaking_rate": "4.5"
+            },
+            "sample_approved": true
+          },
+          "quality_score": 0.9
+        },
+        {
+          "id": "narration_section_02",
+          "type": "narration",
+          "subtype": "generated",
+          "path": "assets/audio/narration_section_02.mp3",
+          "source_tool": "edge-tts",
+          "scene_id": "scene_02",
+          "duration_seconds": 31.008,
+          "format": "mp3",
+          "provider": "edge-tts",
+          "model": "zh-CN-YunxiNeural",
+          "generation_summary": "edge-tts Yunxi, rate +0%, pitch +0%",
+          "voice_performance": {
+            "source_section_id": "section_02",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice": "zh-CN-YunxiNeural",
+              "rate": "0%",
+              "pitch": "0%",
+              "chinese_speaking_rate": "4.5"
+            },
+            "sample_approved": true
+          },
+          "quality_score": 0.9
+        },
+        {
+          "id": "narration_section_03",
+          "type": "narration",
+          "subtype": "generated",
+          "path": "assets/audio/narration_section_03.mp3",
+          "source_tool": "edge-tts",
+          "scene_id": "scene_03",
+          "duration_seconds": 35.496,
+          "format": "mp3",
+          "provider": "edge-tts",
+          "model": "zh-CN-YunxiNeural",
+          "generation_summary": "edge-tts Yunxi, rate +0%, pitch +0%",
+          "voice_performance": {
+            "source_section_id": "section_03",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice": "zh-CN-YunxiNeural",
+              "rate": "0%",
+              "pitch": "0%",
+              "chinese_speaking_rate": "4.5"
+            },
+            "sample_approved": true
+          },
+          "quality_score": 0.9
+        },
+        {
+          "id": "narration_section_04",
+          "type": "narration",
+          "subtype": "generated",
+          "path": "assets/audio/narration_section_04.mp3",
+          "source_tool": "edge-tts",
+          "scene_id": "scene_04",
+          "duration_seconds": 21.384,
+          "format": "mp3",
+          "provider": "edge-tts",
+          "model": "zh-CN-YunxiNeural",
+          "generation_summary": "edge-tts Yunxi, rate +0%, pitch +0%",
+          "voice_performance": {
+            "source_section_id": "section_04",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice": "zh-CN-YunxiNeural",
+              "rate": "0%",
+              "pitch": "0%",
+              "chinese_speaking_rate": "4.5"
+            },
+            "sample_approved": true
+          },
+          "quality_score": 0.9
+        },
+        {
+          "id": "narration_section_05",
+          "type": "narration",
+          "subtype": "generated",
+          "path": "assets/audio/narration_section_05.mp3",
+          "source_tool": "edge-tts",
+          "scene_id": "scene_05",
+          "duration_seconds": 11.136,
+          "format": "mp3",
+          "provider": "edge-tts",
+          "model": "zh-CN-YunxiNeural",
+          "generation_summary": "edge-tts Yunxi, rate +0%, pitch +0%",
+          "voice_performance": {
+            "source_section_id": "section_05",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice": "zh-CN-YunxiNeural",
+              "rate": "0%",
+              "pitch": "0%",
+              "chinese_speaking_rate": "4.5"
+            },
+            "sample_approved": true
+          },
+          "quality_score": 0.9
+        },
+        {
+          "id": "narration_section_06",
+          "type": "narration",
+          "subtype": "generated",
+          "path": "assets/audio/narration_section_06.mp3",
+          "source_tool": "edge-tts",
+          "scene_id": "scene_06",
+          "duration_seconds": 13.896,
+          "format": "mp3",
+          "provider": "edge-tts",
+          "model": "zh-CN-YunxiNeural",
+          "generation_summary": "edge-tts Yunxi, rate +0%, pitch +0%",
+          "voice_performance": {
+            "source_section_id": "section_06",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice": "zh-CN-YunxiNeural",
+              "rate": "0%",
+              "pitch": "0%",
+              "chinese_speaking_rate": "4.5"
+            },
+            "sample_approved": true
+          },
+          "quality_score": 0.9
+        }
+      ],
+      "total_cost_usd": 0,
+      "metadata": {
+        "project_id": "junzheng-selfgen",
+        "pipeline": "narration-synth",
+        "music_opt_out": true,
+        "music_note": "No BGM — authoritative tone; silence between narration segments kept deliberate.",
+        "generated_assets_only": true
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "junzheng-selfgen",
+      "decisions": [
+        {
+          "decision_id": "selfgen-assets-001",
+          "stage": "assets",
+          "category": "provider_selection",
+          "subject": "TTS provider for narration",
+          "options_considered": [
+            {
+              "option_id": "registry",
+              "label": "Registry tts_selector providers",
+              "score": 0.0,
+              "reason": "All registered tts tools report UNAVAILABLE in this environment (no keys / no local install)."
+            },
+            {
+              "option_id": "edge_tts_cli",
+              "label": "edge-tts CLI via hermes venv",
+              "score": 1.0,
+              "reason": "Available at hermes venv path; voice zh-CN-YunxiNeural; zero-cost local synthesis."
+            }
+          ],
+          "selected": "edge_tts_cli",
+          "reason": "Only viable path in current environment; matches commentary project precedent.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "selfgen-assets-002",
+          "stage": "assets",
+          "category": "music_source",
+          "subject": "Background music for the piece",
+          "options_considered": [
+            {
+              "option_id": "suno",
+              "label": "Suno generated BGM",
+              "score": 0.0,
+              "reason": "tools/audio/suno_music.py unavailable (no key configured)."
+            },
+            {
+              "option_id": "none",
+              "label": "No BGM",
+              "score": 1.0,
+              "reason": "Authoritative tone; silence keeps the official-announcement feel; matches user preference pattern."
+            }
+          ],
+          "selected": "none",
+          "reason": "Deliberate silence supports the low-key authoritative treatment; recorded as music_opt_out.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "selfgen-assets-003",
+          "stage": "assets",
+          "category": "renderer_family_selection",
+          "subject": "Scene render durations",
+          "options_considered": [
+            {
+              "option_id": "skill_default",
+              "label": "Use build-script default duration",
+              "score": 0.2,
+              "reason": "CLI default durations (8-18s) do not match scene_plan windows; would desync edit/compose."
+            },
+            {
+              "option_id": "scene_window",
+              "label": "Render each scene at its scene_plan window length",
+              "score": 1.0,
+              "reason": "9/9 videos match scene_plan windows exactly; edit lays scenes end-to-end with no gaps."
+            }
+          ],
+          "selected": "scene_window",
+          "reason": "Deterministic, schema-consistent, and verified by ffprobe (1920x1080@30, exact durations).",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.98
+        }
+      ]
+    }
+  },
+  "review": {
+    "findings": [
+      {
+        "severity": "info",
+        "item": "9 animation assets rendered from scene_plan generation_specs (title-card x3, map-deduction x2, data-viz x2, seal x1); all 1920x1080@30fps, durations == scene windows."
+      },
+      {
+        "severity": "info",
+        "item": "6 narration assets (edge-tts zh-CN-YunxiNeural) with real durations probed; total narration audio."
+      },
+      {
+        "severity": "info",
+        "item": "Music source = none (music_opt_out)."
+      },
+      {
+        "severity": "info",
+        "item": "Shared skill build_map_deduction.mjs had a paint-order fix (region fills before labels, pill backdrops, marker overflow) applied during asset stage; contrast checks 21/21 pass; scene_03/scene_01 rendered cleanly."
+      }
+    ],
+    "conclusion": "pass"
+  },
+  "metadata": {
+    "scene_plan_stage": "2026-08-14T01:50:30.764844+00:00",
+    "script_stage": "2026-08-14T01:39:34.474901+00:00"
+  }
+}

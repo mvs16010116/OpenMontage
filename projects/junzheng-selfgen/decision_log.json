@@ -1,0 +1,131 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-selfgen",
+  "decisions": [
+    {
+      "decision_id": "n synth-idea-001",
+      "stage": "idea",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames\uff08\u7d20\u6750\u751f\u6210\u5668\uff09",
+          "score": 1.0,
+          "reason": "\u6bcf\u4e2a\u573a\u666f\u662f military-* \u6280\u80fd\u4ea7\u51fa\u7684\u786e\u5b9a\u6027 HTML/GSAP \u5408\u6210\uff0cassets \u9636\u6bb5\u6e32\u67d3\u6210 MP4"
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion\uff08React \u573a\u666f\u6808\uff09",
+          "score": 0.2,
+          "reason": "\u65e0 military \u573a\u666f\u6808\uff0c\u989d\u5916 authoring tokens \u65e0\u89c6\u89c9\u589e\u76ca"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg\uff08\u7ec8\u88c1\u8fd0\u884c\u65f6\uff09",
+          "score": 1.0,
+          "reason": "\u573a\u666f MP4 \u62fc\u63a5 + ASS \u5b57\u5e55\u70e7\u5f55 + \u914d\u97f3/\u97f3\u4e50 mux \u7684\u539f\u751f\u8def\u5f84"
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "HyperFrames \u4ea7\u573a\u666f\u7d20\u6750\uff0cffmpeg \u505a\u6700\u7ec8\u5408\u6210\uff1brender_runtime \u8bb0\u5f55\u4e3a ffmpeg",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "n synth-idea-002",
+      "stage": "idea",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "edge_tts_yunxi",
+          "label": "edge-tts zh-CN-YunxiNeural\uff08\u4e2d\u6587\u7537\u58f0\uff09",
+          "score": 0.95,
+          "reason": "\u672c\u5730\u514d\u8d39\uff0c\u4e2d\u6587\u7537\u58f0\uff0c\u7b26\u5408\u519b\u653f\u89e3\u8bf4\u8bed\u6c14\uff0cjunzheng-commentary \u5df2\u9a8c\u8bc1\u53ef\u7528"
+        },
+        {
+          "option_id": "openai_tts",
+          "label": "OpenAI gpt-4o-mini-tts",
+          "score": 0.3,
+          "reason": "\u9700 API key\uff0c\u5f53\u524d\u672a\u914d\u7f6e"
+        }
+      ],
+      "selected": "edge_tts_yunxi",
+      "reason": "\u672c\u5730\u53ef\u7528\u4e2d\u6587\u7537\u58f0\uff0c\u519b\u653f register \u5339\u914d",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "n synth-idea-003",
+      "stage": "idea",
+      "category": "music_source",
+      "subject": "Background music plan",
+      "options_considered": [
+        {
+          "option_id": "generated",
+          "label": "API \u751f\u6210\uff08suno_music\uff09",
+          "score": 0.7,
+          "reason": "\u4f4e\u97f3\u94dc\u7ba1 pulse \u80fd\u6258\u4f4f\u519b\u653f tension register"
+        }
+      ],
+      "selected": "generated",
+      "reason": "\u519b\u653f tension underbed\uff0c\u65e0 vocals\uff1b\u82e5\u751f\u6210\u4e0d\u53ef\u7528\u5219\u964d\u7ea7\u4e3a\u65e0\u97f3\u4e50",
+      "user_visible": true,
+      "user_approved": false,
+      "confidence": 0.6
+    },
+    {
+      "decision_id": "nono-idea-004",
+      "stage": "scene_plan",
+      "category": "generation_spec_storage",
+      "subject": "Where generation_spec lives in scene_plan",
+      "options_considered": [
+        {
+          "option_id": "on_scene",
+          "label": "On each scene item (scene-director doc example)",
+          "score": 0.1,
+          "reason": "scene_plan.schema.json sets additionalProperties:false on scene items and does not declare generation_spec \u2014 fails artifact validation"
+        },
+        {
+          "option_id": "metadata_map",
+          "label": "metadata.generation_specs keyed by scene id",
+          "score": 1.0,
+          "reason": "scene_plan.metadata is a free-form object; keeps artifact schema-valid while preserving the exact per-scene spec the asset stage consumes"
+        }
+      ],
+      "selected": "metadata_map",
+      "reason": "Schema-legal placement; asset-director reads the spec via scene id from the same artifact",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "nono-idea-005",
+      "stage": "scene_plan",
+      "category": "bookend_layout",
+      "subject": "Opener + chapter card windows on a linear timeline",
+      "options_considered": [
+        {
+          "option_id": "negative_offset",
+          "label": "Negative opener start (scene-director -1.0 example)",
+          "score": 0.1,
+          "reason": "scene_plan.schema.json enforces start_seconds >= 0 \u2014 invalid"
+        },
+        {
+          "option_id": "linear_cursor",
+          "label": "Cursor-accumulated linear timeline; opener/chapter cards hold real seconds",
+          "score": 1.0,
+          "reason": "Schema-valid; section scene durations match script; total 155.2s is +5.5% of 147.1s \u2014 inside the \u00b110% gate"
+        }
+      ],
+      "selected": "linear_cursor",
+      "reason": "Schema-valid, deterministic, and edit/compose can lay scenes end-to-end without gaps",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    }
+  ]
+}

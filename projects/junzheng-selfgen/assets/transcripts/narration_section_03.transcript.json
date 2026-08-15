@@ -1,0 +1,2076 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 4.36,
+      "text": "在結合普京,同時點出北約向太平洋滲透的安全威脅",
+      "words": [
+        {
+          "word": "在",
+          "start": 0.0,
+          "end": 0.28,
+          "probability": 0.923
+        },
+        {
+          "word": "結",
+          "start": 0.28,
+          "end": 0.46,
+          "probability": 0.332
+        },
+        {
+          "word": "合",
+          "start": 0.46,
+          "end": 0.62,
+          "probability": 0.996
+        },
+        {
+          "word": "普",
+          "start": 0.62,
+          "end": 0.78,
+          "probability": 0.971
+        },
+        {
+          "word": "京,",
+          "start": 0.78,
+          "end": 0.96,
+          "probability": 0.945
+        },
+        {
+          "word": "同",
+          "start": 1.28,
+          "end": 1.42,
+          "probability": 0.963
+        },
+        {
+          "word": "時",
+          "start": 1.42,
+          "end": 1.58,
+          "probability": 0.995
+        },
+        {
+          "word": "點",
+          "start": 1.58,
+          "end": 1.72,
+          "probability": 0.967
+        },
+        {
+          "word": "出",
+          "start": 1.72,
+          "end": 1.98,
+          "probability": 0.979
+        },
+        {
+          "word": "北",
+          "start": 1.98,
+          "end": 2.3,
+          "probability": 0.725
+        },
+        {
+          "word": "約",
+          "start": 2.3,
+          "end": 2.48,
+          "probability": 0.994
+        },
+        {
+          "word": "向",
+          "start": 2.48,
+          "end": 2.72,
+          "probability": 0.975
+        },
+        {
+          "word": "太",
+          "start": 2.72,
+          "end": 2.88,
+          "probability": 0.937
+        },
+        {
+          "word": "平",
+          "start": 2.88,
+          "end": 3.06,
+          "probability": 0.992
+        },
+        {
+          "word": "洋",
+          "start": 3.06,
+          "end": 3.16,
+          "probability": 0.993
+        },
+        {
+          "word": "滲",
+          "start": 3.16,
+          "end": 3.38,
+          "probability": 0.963
+        },
+        {
+          "word": "透",
+          "start": 3.38,
+          "end": 3.52,
+          "probability": 0.995
+        },
+        {
+          "word": "的",
+          "start": 3.52,
+          "end": 3.64,
+          "probability": 0.978
+        },
+        {
+          "word": "安全",
+          "start": 3.64,
+          "end": 3.88,
+          "probability": 0.963
+        },
+        {
+          "word": "威",
+          "start": 3.88,
+          "end": 4.08,
+          "probability": 0.998
+        },
+        {
+          "word": "脅",
+          "start": 4.08,
+          "end": 4.36,
+          "probability": 0.984
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.36,
+      "end": 6.96,
+      "text": "背後的戰略邏輯一下就通了",
+      "words": [
+        {
+          "word": "背",
+          "start": 4.36,
+          "end": 4.98,
+          "probability": 0.769
+        },
+        {
+          "word": "後",
+          "start": 4.98,
+          "end": 5.14,
+          "probability": 0.997
+        },
+        {
+          "word": "的",
+          "start": 5.14,
+          "end": 5.28,
+          "probability": 0.986
+        },
+        {
+          "word": "戰",
+          "start": 5.28,
+          "end": 5.4,
+          "probability": 0.986
+        },
+        {
+          "word": "略",
+          "start": 5.4,
+          "end": 5.54,
+          "probability": 1.0
+        },
+        {
+          "word": "邏",
+          "start": 5.54,
+          "end": 5.74,
+          "probability": 0.955
+        },
+        {
+          "word": "輯",
+          "start": 5.74,
+          "end": 5.92,
+          "probability": 0.998
+        },
+        {
+          "word": "一下",
+          "start": 5.92,
+          "end": 6.38,
+          "probability": 0.718
+        },
+        {
+          "word": "就",
+          "start": 6.38,
+          "end": 6.58,
+          "probability": 0.993
+        },
+        {
+          "word": "通",
+          "start": 6.58,
+          "end": 6.74,
+          "probability": 0.993
+        },
+        {
+          "word": "了",
+          "start": 6.74,
+          "end": 6.96,
+          "probability": 0.996
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 6.96,
+      "end": 11.18,
+      "text": "現在北約的觸手已經同時往歐亞大陸的東西兩端生",
+      "words": [
+        {
+          "word": "現在",
+          "start": 6.96,
+          "end": 7.56,
+          "probability": 0.901
+        },
+        {
+          "word": "北",
+          "start": 7.56,
+          "end": 7.86,
+          "probability": 0.933
+        },
+        {
+          "word": "約",
+          "start": 7.86,
+          "end": 8.02,
+          "probability": 0.998
+        },
+        {
+          "word": "的",
+          "start": 8.02,
+          "end": 8.14,
+          "probability": 0.991
+        },
+        {
+          "word": "觸",
+          "start": 8.14,
+          "end": 8.26,
+          "probability": 0.671
+        },
+        {
+          "word": "手",
+          "start": 8.26,
+          "end": 8.46,
+          "probability": 0.733
+        },
+        {
+          "word": "已經",
+          "start": 8.46,
+          "end": 8.86,
+          "probability": 0.916
+        },
+        {
+          "word": "同",
+          "start": 8.86,
+          "end": 9.06,
+          "probability": 0.999
+        },
+        {
+          "word": "時",
+          "start": 9.06,
+          "end": 9.28,
+          "probability": 0.996
+        },
+        {
+          "word": "往",
+          "start": 9.28,
+          "end": 9.44,
+          "probability": 0.984
+        },
+        {
+          "word": "歐",
+          "start": 9.44,
+          "end": 9.68,
+          "probability": 0.97
+        },
+        {
+          "word": "亞",
+          "start": 9.68,
+          "end": 9.76,
+          "probability": 0.9
+        },
+        {
+          "word": "大",
+          "start": 9.76,
+          "end": 9.96,
+          "probability": 0.996
+        },
+        {
+          "word": "陸",
+          "start": 9.96,
+          "end": 10.08,
+          "probability": 0.996
+        },
+        {
+          "word": "的",
+          "start": 10.08,
+          "end": 10.22,
+          "probability": 0.991
+        },
+        {
+          "word": "東西",
+          "start": 10.22,
+          "end": 10.54,
+          "probability": 0.932
+        },
+        {
+          "word": "兩",
+          "start": 10.54,
+          "end": 10.8,
+          "probability": 0.965
+        },
+        {
+          "word": "端",
+          "start": 10.8,
+          "end": 11.0,
+          "probability": 0.941
+        },
+        {
+          "word": "生",
+          "start": 11.0,
+          "end": 11.18,
+          "probability": 0.284
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 11.18,
+      "end": 16.02,
+      "text": "西邊在波羅地海、東歐亞俄羅斯、東邊在西太搞島鏈部署",
+      "words": [
+        {
+          "word": "西",
+          "start": 11.18,
+          "end": 11.86,
+          "probability": 0.359
+        },
+        {
+          "word": "邊",
+          "start": 11.86,
+          "end": 11.98,
+          "probability": 0.979
+        },
+        {
+          "word": "在",
+          "start": 11.98,
+          "end": 12.2,
+          "probability": 0.987
+        },
+        {
+          "word": "波",
+          "start": 12.2,
+          "end": 12.36,
+          "probability": 0.946
+        },
+        {
+          "word": "羅",
+          "start": 12.36,
+          "end": 12.46,
+          "probability": 0.978
+        },
+        {
+          "word": "地",
+          "start": 12.46,
+          "end": 12.66,
+          "probability": 0.759
+        },
+        {
+          "word": "海、",
+          "start": 12.66,
+          "end": 12.9,
+          "probability": 0.991
+        },
+        {
+          "word": "東",
+          "start": 13.28,
+          "end": 13.36,
+          "probability": 0.97
+        },
+        {
+          "word": "歐",
+          "start": 13.36,
+          "end": 13.5,
+          "probability": 0.997
+        },
+        {
+          "word": "亞",
+          "start": 13.5,
+          "end": 13.7,
+          "probability": 0.538
+        },
+        {
+          "word": "俄",
+          "start": 13.7,
+          "end": 13.86,
+          "probability": 0.942
+        },
+        {
+          "word": "羅",
+          "start": 13.86,
+          "end": 13.96,
+          "probability": 0.996
+        },
+        {
+          "word": "斯、",
+          "start": 13.96,
+          "end": 14.16,
+          "probability": 0.996
+        },
+        {
+          "word": "東",
+          "start": 14.38,
+          "end": 14.48,
+          "probability": 0.989
+        },
+        {
+          "word": "邊",
+          "start": 14.48,
+          "end": 14.62,
+          "probability": 0.981
+        },
+        {
+          "word": "在",
+          "start": 14.62,
+          "end": 14.86,
+          "probability": 0.986
+        },
+        {
+          "word": "西",
+          "start": 14.86,
+          "end": 15.04,
+          "probability": 0.953
+        },
+        {
+          "word": "太",
+          "start": 15.04,
+          "end": 15.18,
+          "probability": 0.888
+        },
+        {
+          "word": "搞",
+          "start": 15.18,
+          "end": 15.3,
+          "probability": 0.614
+        },
+        {
+          "word": "島",
+          "start": 15.3,
+          "end": 15.44,
+          "probability": 0.48
+        },
+        {
+          "word": "鏈",
+          "start": 15.44,
+          "end": 15.58,
+          "probability": 0.726
+        },
+        {
+          "word": "部",
+          "start": 15.58,
+          "end": 15.76,
+          "probability": 0.964
+        },
+        {
+          "word": "署",
+          "start": 15.76,
+          "end": 16.02,
+          "probability": 0.972
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 16.02,
+      "end": 19.1,
+      "text": "這種東西雙線的擠壓,對應的自然就是",
+      "words": [
+        {
+          "word": "這種",
+          "start": 16.02,
+          "end": 16.66,
+          "probability": 0.965
+        },
+        {
+          "word": "東西",
+          "start": 16.66,
+          "end": 17.0,
+          "probability": 0.996
+        },
+        {
+          "word": "雙",
+          "start": 17.0,
+          "end": 17.2,
+          "probability": 0.989
+        },
+        {
+          "word": "線",
+          "start": 17.2,
+          "end": 17.36,
+          "probability": 0.748
+        },
+        {
+          "word": "的",
+          "start": 17.36,
+          "end": 17.48,
+          "probability": 0.971
+        },
+        {
+          "word": "擠",
+          "start": 17.48,
+          "end": 17.6,
+          "probability": 0.953
+        },
+        {
+          "word": "壓,",
+          "start": 17.6,
+          "end": 17.8,
+          "probability": 0.979
+        },
+        {
+          "word": "對",
+          "start": 18.04,
+          "end": 18.28,
+          "probability": 0.882
+        },
+        {
+          "word": "應",
+          "start": 18.28,
+          "end": 18.38,
+          "probability": 0.988
+        },
+        {
+          "word": "的",
+          "start": 18.38,
+          "end": 18.48,
+          "probability": 0.921
+        },
+        {
+          "word": "自",
+          "start": 18.48,
+          "end": 18.64,
+          "probability": 0.982
+        },
+        {
+          "word": "然",
+          "start": 18.64,
+          "end": 18.74,
+          "probability": 0.999
+        },
+        {
+          "word": "就是",
+          "start": 18.74,
+          "end": 19.1,
+          "probability": 0.97
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 19.1,
+      "end": 21.82,
+      "text": "中俄在兩個戰略方向上的協助部位",
+      "words": [
+        {
+          "word": "中",
+          "start": 19.1,
+          "end": 19.58,
+          "probability": 0.634
+        },
+        {
+          "word": "俄",
+          "start": 19.58,
+          "end": 19.8,
+          "probability": 0.962
+        },
+        {
+          "word": "在",
+          "start": 19.8,
+          "end": 19.98,
+          "probability": 0.993
+        },
+        {
+          "word": "兩個",
+          "start": 19.98,
+          "end": 20.16,
+          "probability": 0.834
+        },
+        {
+          "word": "戰",
+          "start": 20.16,
+          "end": 20.38,
+          "probability": 0.998
+        },
+        {
+          "word": "略",
+          "start": 20.38,
+          "end": 20.5,
+          "probability": 1.0
+        },
+        {
+          "word": "方",
+          "start": 20.5,
+          "end": 20.66,
+          "probability": 0.995
+        },
+        {
+          "word": "向",
+          "start": 20.66,
+          "end": 20.78,
+          "probability": 1.0
+        },
+        {
+          "word": "上",
+          "start": 20.78,
+          "end": 20.98,
+          "probability": 0.996
+        },
+        {
+          "word": "的",
+          "start": 20.98,
+          "end": 21.08,
+          "probability": 0.993
+        },
+        {
+          "word": "協",
+          "start": 21.08,
+          "end": 21.28,
+          "probability": 0.785
+        },
+        {
+          "word": "助",
+          "start": 21.28,
+          "end": 21.42,
+          "probability": 0.541
+        },
+        {
+          "word": "部",
+          "start": 21.42,
+          "end": 21.58,
+          "probability": 0.531
+        },
+        {
+          "word": "位",
+          "start": 21.58,
+          "end": 21.82,
+          "probability": 0.998
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 21.82,
+      "end": 25.88,
+      "text": "白俄羅斯處在北約西線、擠壓俄羅斯的核心緩衝帶",
+      "words": [
+        {
+          "word": "白",
+          "start": 21.82,
+          "end": 22.34,
+          "probability": 0.891
+        },
+        {
+          "word": "俄",
+          "start": 22.34,
+          "end": 22.46,
+          "probability": 0.999
+        },
+        {
+          "word": "羅",
+          "start": 22.46,
+          "end": 22.6,
+          "probability": 0.999
+        },
+        {
+          "word": "斯",
+          "start": 22.6,
+          "end": 22.82,
+          "probability": 1.0
+        },
+        {
+          "word": "處",
+          "start": 22.82,
+          "end": 23.12,
+          "probability": 0.896
+        },
+        {
+          "word": "在",
+          "start": 23.12,
+          "end": 23.24,
+          "probability": 0.998
+        },
+        {
+          "word": "北",
+          "start": 23.24,
+          "end": 23.4,
+          "probability": 0.996
+        },
+        {
+          "word": "約",
+          "start": 23.4,
+          "end": 23.56,
+          "probability": 0.996
+        },
+        {
+          "word": "西",
+          "start": 23.56,
+          "end": 23.76,
+          "probability": 0.708
+        },
+        {
+          "word": "線、",
+          "start": 23.76,
+          "end": 24.0,
+          "probability": 0.932
+        },
+        {
+          "word": "擠",
+          "start": 24.28,
+          "end": 24.38,
+          "probability": 0.997
+        },
+        {
+          "word": "壓",
+          "start": 24.38,
+          "end": 24.52,
+          "probability": 0.813
+        },
+        {
+          "word": "俄",
+          "start": 24.52,
+          "end": 24.64,
+          "probability": 0.998
+        },
+        {
+          "word": "羅",
+          "start": 24.64,
+          "end": 24.76,
+          "probability": 1.0
+        },
+        {
+          "word": "斯",
+          "start": 24.76,
+          "end": 24.88,
+          "probability": 1.0
+        },
+        {
+          "word": "的",
+          "start": 24.88,
+          "end": 25.0,
+          "probability": 0.996
+        },
+        {
+          "word": "核",
+          "start": 25.0,
+          "end": 25.18,
+          "probability": 0.993
+        },
+        {
+          "word": "心",
+          "start": 25.18,
+          "end": 25.34,
+          "probability": 0.995
+        },
+        {
+          "word": "緩",
+          "start": 25.34,
+          "end": 25.54,
+          "probability": 0.973
+        },
+        {
+          "word": "衝",
+          "start": 25.54,
+          "end": 25.74,
+          "probability": 0.94
+        },
+        {
+          "word": "帶",
+          "start": 25.74,
+          "end": 25.88,
+          "probability": 0.57
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 25.88,
+      "end": 30.66,
+      "text": "而中白的散兵協同,本質上是在整個歐亞大陸的中間輸紐位置",
+      "words": [
+        {
+          "word": "而",
+          "start": 25.88,
+          "end": 26.36,
+          "probability": 0.978
+        },
+        {
+          "word": "中",
+          "start": 26.36,
+          "end": 26.52,
+          "probability": 0.96
+        },
+        {
+          "word": "白",
+          "start": 26.52,
+          "end": 26.66,
+          "probability": 0.963
+        },
+        {
+          "word": "的",
+          "start": 26.66,
+          "end": 26.78,
+          "probability": 0.978
+        },
+        {
+          "word": "散",
+          "start": 26.78,
+          "end": 26.96,
+          "probability": 0.747
+        },
+        {
+          "word": "兵",
+          "start": 26.96,
+          "end": 27.08,
+          "probability": 0.802
+        },
+        {
+          "word": "協",
+          "start": 27.08,
+          "end": 27.26,
+          "probability": 0.127
+        },
+        {
+          "word": "同,",
+          "start": 27.26,
+          "end": 27.46,
+          "probability": 0.953
+        },
+        {
+          "word": "本",
+          "start": 27.68,
+          "end": 27.8,
+          "probability": 0.992
+        },
+        {
+          "word": "質",
+          "start": 27.8,
+          "end": 27.98,
+          "probability": 0.399
+        },
+        {
+          "word": "上",
+          "start": 27.98,
+          "end": 28.2,
+          "probability": 0.948
+        },
+        {
+          "word": "是",
+          "start": 28.2,
+          "end": 28.44,
+          "probability": 0.978
+        },
+        {
+          "word": "在",
+          "start": 28.44,
+          "end": 28.56,
+          "probability": 0.981
+        },
+        {
+          "word": "整",
+          "start": 28.56,
+          "end": 28.72,
+          "probability": 0.992
+        },
+        {
+          "word": "個",
+          "start": 28.72,
+          "end": 28.88,
+          "probability": 0.978
+        },
+        {
+          "word": "歐",
+          "start": 28.88,
+          "end": 29.04,
+          "probability": 0.961
+        },
+        {
+          "word": "亞",
+          "start": 29.04,
+          "end": 29.14,
+          "probability": 0.937
+        },
+        {
+          "word": "大",
+          "start": 29.14,
+          "end": 29.32,
+          "probability": 0.996
+        },
+        {
+          "word": "陸",
+          "start": 29.32,
+          "end": 29.46,
+          "probability": 0.996
+        },
+        {
+          "word": "的",
+          "start": 29.46,
+          "end": 29.6,
+          "probability": 0.977
+        },
+        {
+          "word": "中",
+          "start": 29.6,
+          "end": 29.76,
+          "probability": 0.996
+        },
+        {
+          "word": "間",
+          "start": 29.76,
+          "end": 29.94,
+          "probability": 0.976
+        },
+        {
+          "word": "輸",
+          "start": 29.94,
+          "end": 30.12,
+          "probability": 0.547
+        },
+        {
+          "word": "紐",
+          "start": 30.12,
+          "end": 30.28,
+          "probability": 0.565
+        },
+        {
+          "word": "位",
+          "start": 30.28,
+          "end": 30.48,
+          "probability": 0.979
+        },
+        {
+          "word": "置",
+          "start": 30.48,
+          "end": 30.66,
+          "probability": 0.999
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 30.66,
+      "end": 34.62,
+      "text": "把協助的透明度和順暢度直接擺在了檯面上",
+      "words": [
+        {
+          "word": "把",
+          "start": 30.66,
+          "end": 31.22,
+          "probability": 0.707
+        },
+        {
+          "word": "協",
+          "start": 31.22,
+          "end": 31.46,
+          "probability": 0.974
+        },
+        {
+          "word": "助",
+          "start": 31.46,
+          "end": 31.56,
+          "probability": 0.056
+        },
+        {
+          "word": "的",
+          "start": 31.56,
+          "end": 31.7,
+          "probability": 0.928
+        },
+        {
+          "word": "透",
+          "start": 31.7,
+          "end": 31.84,
+          "probability": 0.998
+        },
+        {
+          "word": "明",
+          "start": 31.84,
+          "end": 32.0,
+          "probability": 0.998
+        },
+        {
+          "word": "度",
+          "start": 32.0,
+          "end": 32.2,
+          "probability": 0.999
+        },
+        {
+          "word": "和",
+          "start": 32.2,
+          "end": 32.44,
+          "probability": 0.971
+        },
+        {
+          "word": "順",
+          "start": 32.44,
+          "end": 32.6,
+          "probability": 0.943
+        },
+        {
+          "word": "暢",
+          "start": 32.6,
+          "end": 32.78,
+          "probability": 0.988
+        },
+        {
+          "word": "度",
+          "start": 32.78,
+          "end": 32.98,
+          "probability": 1.0
+        },
+        {
+          "word": "直接",
+          "start": 32.98,
+          "end": 33.54,
+          "probability": 0.87
+        },
+        {
+          "word": "擺",
+          "start": 33.54,
+          "end": 33.76,
+          "probability": 0.99
+        },
+        {
+          "word": "在",
+          "start": 33.76,
+          "end": 33.9,
+          "probability": 0.997
+        },
+        {
+          "word": "了",
+          "start": 33.9,
+          "end": 34.02,
+          "probability": 0.291
+        },
+        {
+          "word": "檯",
+          "start": 34.02,
+          "end": 34.2,
+          "probability": 0.873
+        },
+        {
+          "word": "面",
+          "start": 34.2,
+          "end": 34.36,
+          "probability": 0.999
+        },
+        {
+          "word": "上",
+          "start": 34.36,
+          "end": 34.62,
+          "probability": 0.996
+        }
+      ]
+    }
+  ],
+  "word_timestamps": [
+    {
+      "word": "在",
+      "start": 0.0,
+      "end": 0.28,
+      "probability": 0.923
+    },
+    {
+      "word": "結",
+      "start": 0.28,
+      "end": 0.46,
+      "probability": 0.332
+    },
+    {
+      "word": "合",
+      "start": 0.46,
+      "end": 0.62,
+      "probability": 0.996
+    },
+    {
+      "word": "普",
+      "start": 0.62,
+      "end": 0.78,
+      "probability": 0.971
+    },
+    {
+      "word": "京,",
+      "start": 0.78,
+      "end": 0.96,
+      "probability": 0.945
+    },
+    {
+      "word": "同",
+      "start": 1.28,
+      "end": 1.42,
+      "probability": 0.963
+    },
+    {
+      "word": "時",
+      "start": 1.42,
+      "end": 1.58,
+      "probability": 0.995
+    },
+    {
+      "word": "點",
+      "start": 1.58,
+      "end": 1.72,
+      "probability": 0.967
+    },
+    {
+      "word": "出",
+      "start": 1.72,
+      "end": 1.98,
+      "probability": 0.979
+    },
+    {
+      "word": "北",
+      "start": 1.98,
+      "end": 2.3,
+      "probability": 0.725
+    },
+    {
+      "word": "約",
+      "start": 2.3,
+      "end": 2.48,
+      "probability": 0.994
+    },
+    {
+      "word": "向",
+      "start": 2.48,
+      "end": 2.72,
+      "probability": 0.975
+    },
+    {
+      "word": "太",
+      "start": 2.72,
+      "end": 2.88,
+      "probability": 0.937
+    },
+    {
+      "word": "平",
+      "start": 2.88,
+      "end": 3.06,
+      "probability": 0.992
+    },
+    {
+      "word": "洋",
+      "start": 3.06,
+      "end": 3.16,
+      "probability": 0.993
+    },
+    {
+      "word": "滲",
+      "start": 3.16,
+      "end": 3.38,
+      "probability": 0.963
+    },
+    {
+      "word": "透",
+      "start": 3.38,
+      "end": 3.52,
+      "probability": 0.995
+    },
+    {
+      "word": "的",
+      "start": 3.52,
+      "end": 3.64,
+      "probability": 0.978
+    },
+    {
+      "word": "安全",
+      "start": 3.64,
+      "end": 3.88,
+      "probability": 0.963
+    },
+    {
+      "word": "威",
+      "start": 3.88,
+      "end": 4.08,
+      "probability": 0.998
+    },
+    {
+      "word": "脅",
+      "start": 4.08,
+      "end": 4.36,
+      "probability": 0.984
+    },
+    {
+      "word": "背",
+      "start": 4.36,
+      "end": 4.98,
+      "probability": 0.769
+    },
+    {
+      "word": "後",
+      "start": 4.98,
+      "end": 5.14,
+      "probability": 0.997
+    },
+    {
+      "word": "的",
+      "start": 5.14,
+      "end": 5.28,
+      "probability": 0.986
+    },
+    {
+      "word": "戰",
+      "start": 5.28,
+      "end": 5.4,
+      "probability": 0.986
+    },
+    {
+      "word": "略",
+      "start": 5.4,
+      "end": 5.54,
+      "probability": 1.0
+    },
+    {
+      "word": "邏",
+      "start": 5.54,
+      "end": 5.74,
+      "probability": 0.955
+    },
+    {
+      "word": "輯",
+      "start": 5.74,
+      "end": 5.92,
+      "probability": 0.998
+    },
+    {
+      "word": "一下",
+      "start": 5.92,
+      "end": 6.38,
+      "probability": 0.718
+    },
+    {
+      "word": "就",
+      "start": 6.38,
+      "end": 6.58,
+      "probability": 0.993
+    },
+    {
+      "word": "通",
+      "start": 6.58,
+      "end": 6.74,
+      "probability": 0.993
+    },
+    {
+      "word": "了",
+      "start": 6.74,
+      "end": 6.96,
+      "probability": 0.996
+    },
+    {
+      "word": "現在",
+      "start": 6.96,
+      "end": 7.56,
+      "probability": 0.901
+    },
+    {
+      "word": "北",
+      "start": 7.56,
+      "end": 7.86,
+      "probability": 0.933
+    },
+    {
+      "word": "約",
+      "start": 7.86,
+      "end": 8.02,
+      "probability": 0.998
+    },
+    {
+      "word": "的",
+      "start": 8.02,
+      "end": 8.14,
+      "probability": 0.991
+    },
+    {
+      "word": "觸",
+      "start": 8.14,
+      "end": 8.26,
+      "probability": 0.671
+    },
+    {
+      "word": "手",
+      "start": 8.26,
+      "end": 8.46,
+      "probability": 0.733
+    },
+    {
+      "word": "已經",
+      "start": 8.46,
+      "end": 8.86,
+      "probability": 0.916
+    },
+    {
+      "word": "同",
+      "start": 8.86,
+      "end": 9.06,
+      "probability": 0.999
+    },
+    {
+      "word": "時",
+      "start": 9.06,
+      "end": 9.28,
+      "probability": 0.996
+    },
+    {
+      "word": "往",
+      "start": 9.28,
+      "end": 9.44,
+      "probability": 0.984
+    },
+    {
+      "word": "歐",
+      "start": 9.44,
+      "end": 9.68,
+      "probability": 0.97
+    },
+    {
+      "word": "亞",
+      "start": 9.68,
+      "end": 9.76,
+      "probability": 0.9
+    },
+    {
+      "word": "大",
+      "start": 9.76,
+      "end": 9.96,
+      "probability": 0.996
+    },
+    {
+      "word": "陸",
+      "start": 9.96,
+      "end": 10.08,
+      "probability": 0.996
+    },
+    {
+      "word": "的",
+      "start": 10.08,
+      "end": 10.22,
+      "probability": 0.991
+    },
+    {
+      "word": "東西",
+      "start": 10.22,
+      "end": 10.54,
+      "probability": 0.932
+    },
+    {
+      "word": "兩",
+      "start": 10.54,
+      "end": 10.8,
+      "probability": 0.965
+    },
+    {
+      "word": "端",
+      "start": 10.8,
+      "end": 11.0,
+      "probability": 0.941
+    },
+    {
+      "word": "生",
+      "start": 11.0,
+      "end": 11.18,
+      "probability": 0.284
+    },
+    {
+      "word": "西",
+      "start": 11.18,
+      "end": 11.86,
+      "probability": 0.359
+    },
+    {
+      "word": "邊",
+      "start": 11.86,
+      "end": 11.98,
+      "probability": 0.979
+    },
+    {
+      "word": "在",
+      "start": 11.98,
+      "end": 12.2,
+      "probability": 0.987
+    },
+    {
+      "word": "波",
+      "start": 12.2,
+      "end": 12.36,
+      "probability": 0.946
+    },
+    {
+      "word": "羅",
+      "start": 12.36,
+      "end": 12.46,
+      "probability": 0.978
+    },
+    {
+      "word": "地",
+      "start": 12.46,
+      "end": 12.66,
+      "probability": 0.759
+    },
+    {
+      "word": "海、",
+      "start": 12.66,
+      "end": 12.9,
+      "probability": 0.991
+    },
+    {
+      "word": "東",
+      "start": 13.28,
+      "end": 13.36,
+      "probability": 0.97
+    },
+    {
+      "word": "歐",
+      "start": 13.36,
+      "end": 13.5,
+      "probability": 0.997
+    },
+    {
+      "word": "亞",
+      "start": 13.5,
+      "end": 13.7,
+      "probability": 0.538
+    },
+    {
+      "word": "俄",
+      "start": 13.7,
+      "end": 13.86,
+      "probability": 0.942
+    },
+    {
+      "word": "羅",
+      "start": 13.86,
+      "end": 13.96,
+      "probability": 0.996
+    },
+    {
+      "word": "斯、",
+      "start": 13.96,
+      "end": 14.16,
+      "probability": 0.996
+    },
+    {
+      "word": "東",
+      "start": 14.38,
+      "end": 14.48,
+      "probability": 0.989
+    },
+    {
+      "word": "邊",
+      "start": 14.48,
+      "end": 14.62,
+      "probability": 0.981
+    },
+    {
+      "word": "在",
+      "start": 14.62,
+      "end": 14.86,
+      "probability": 0.986
+    },
+    {
+      "word": "西",
+      "start": 14.86,
+      "end": 15.04,
+      "probability": 0.953
+    },
+    {
+      "word": "太",
+      "start": 15.04,
+      "end": 15.18,
+      "probability": 0.888
+    },
+    {
+      "word": "搞",
+      "start": 15.18,
+      "end": 15.3,
+      "probability": 0.614
+    },
+    {
+      "word": "島",
+      "start": 15.3,
+      "end": 15.44,
+      "probability": 0.48
+    },
+    {
+      "word": "鏈",
+      "start": 15.44,
+      "end": 15.58,
+      "probability": 0.726
+    },
+    {
+      "word": "部",
+      "start": 15.58,
+      "end": 15.76,
+      "probability": 0.964
+    },
+    {
+      "word": "署",
+      "start": 15.76,
+      "end": 16.02,
+      "probability": 0.972
+    },
+    {
+      "word": "這種",
+      "start": 16.02,
+      "end": 16.66,
+      "probability": 0.965
+    },
+    {
+      "word": "東西",
+      "start": 16.66,
+      "end": 17.0,
+      "probability": 0.996
+    },
+    {
+      "word": "雙",
+      "start": 17.0,
+      "end": 17.2,
+      "probability": 0.989
+    },
+    {
+      "word": "線",
+      "start": 17.2,
+      "end": 17.36,
+      "probability": 0.748
+    },
+    {
+      "word": "的",
+      "start": 17.36,
+      "end": 17.48,
+      "probability": 0.971
+    },
+    {
+      "word": "擠",
+      "start": 17.48,
+      "end": 17.6,
+      "probability": 0.953
+    },
+    {
+      "word": "壓,",
+      "start": 17.6,
+      "end": 17.8,
+      "probability": 0.979
+    },
+    {
+      "word": "對",
+      "start": 18.04,
+      "end": 18.28,
+      "probability": 0.882
+    },
+    {
+      "word": "應",
+      "start": 18.28,
+      "end": 18.38,
+      "probability": 0.988
+    },
+    {
+      "word": "的",
+      "start": 18.38,
+      "end": 18.48,
+      "probability": 0.921
+    },
+    {
+      "word": "自",
+      "start": 18.48,
+      "end": 18.64,
+      "probability": 0.982
+    },
+    {
+      "word": "然",
+      "start": 18.64,
+      "end": 18.74,
+      "probability": 0.999
+    },
+    {
+      "word": "就是",
+      "start": 18.74,
+      "end": 19.1,
+      "probability": 0.97
+    },
+    {
+      "word": "中",
+      "start": 19.1,
+      "end": 19.58,
+      "probability": 0.634
+    },
+    {
+      "word": "俄",
+      "start": 19.58,
+      "end": 19.8,
+      "probability": 0.962
+    },
+    {
+      "word": "在",
+      "start": 19.8,
+      "end": 19.98,
+      "probability": 0.993
+    },
+    {
+      "word": "兩個",
+      "start": 19.98,
+      "end": 20.16,
+      "probability": 0.834
+    },
+    {
+      "word": "戰",
+      "start": 20.16,
+      "end": 20.38,
+      "probability": 0.998
+    },
+    {
+      "word": "略",
+      "start": 20.38,
+      "end": 20.5,
+      "probability": 1.0
+    },
+    {
+      "word": "方",
+      "start": 20.5,
+      "end": 20.66,
+      "probability": 0.995
+    },
+    {
+      "word": "向",
+      "start": 20.66,
+      "end": 20.78,
+      "probability": 1.0
+    },
+    {
+      "word": "上",
+      "start": 20.78,
+      "end": 20.98,
+      "probability": 0.996
+    },
+    {
+      "word": "的",
+      "start": 20.98,
+      "end": 21.08,
+      "probability": 0.993
+    },
+    {
+      "word": "協",
+      "start": 21.08,
+      "end": 21.28,
+      "probability": 0.785
+    },
+    {
+      "word": "助",
+      "start": 21.28,
+      "end": 21.42,
+      "probability": 0.541
+    },
+    {
+      "word": "部",
+      "start": 21.42,
+      "end": 21.58,
+      "probability": 0.531
+    },
+    {
+      "word": "位",
+      "start": 21.58,
+      "end": 21.82,
+      "probability": 0.998
+    },
+    {
+      "word": "白",
+      "start": 21.82,
+      "end": 22.34,
+      "probability": 0.891
+    },
+    {
+      "word": "俄",
+      "start": 22.34,
+      "end": 22.46,
+      "probability": 0.999
+    },
+    {
+      "word": "羅",
+      "start": 22.46,
+      "end": 22.6,
+      "probability": 0.999
+    },
+    {
+      "word": "斯",
+      "start": 22.6,
+      "end": 22.82,
+      "probability": 1.0
+    },
+    {
+      "word": "處",
+      "start": 22.82,
+      "end": 23.12,
+      "probability": 0.896
+    },
+    {
+      "word": "在",
+      "start": 23.12,
+      "end": 23.24,
+      "probability": 0.998
+    },
+    {
+      "word": "北",
+      "start": 23.24,
+      "end": 23.4,
+      "probability": 0.996
+    },
+    {
+      "word": "約",
+      "start": 23.4,
+      "end": 23.56,
+      "probability": 0.996
+    },
+    {
+      "word": "西",
+      "start": 23.56,
+      "end": 23.76,
+      "probability": 0.708
+    },
+    {
+      "word": "線、",
+      "start": 23.76,
+      "end": 24.0,
+      "probability": 0.932
+    },
+    {
+      "word": "擠",
+      "start": 24.28,
+      "end": 24.38,
+      "probability": 0.997
+    },
+    {
+      "word": "壓",
+      "start": 24.38,
+      "end": 24.52,
+      "probability": 0.813
+    },
+    {
+      "word": "俄",
+      "start": 24.52,
+      "end": 24.64,
+      "probability": 0.998
+    },
+    {
+      "word": "羅",
+      "start": 24.64,
+      "end": 24.76,
+      "probability": 1.0
+    },
+    {
+      "word": "斯",
+      "start": 24.76,
+      "end": 24.88,
+      "probability": 1.0
+    },
+    {
+      "word": "的",
+      "start": 24.88,
+      "end": 25.0,
+      "probability": 0.996
+    },
+    {
+      "word": "核",
+      "start": 25.0,
+      "end": 25.18,
+      "probability": 0.993
+    },
+    {
+      "word": "心",
+      "start": 25.18,
+      "end": 25.34,
+      "probability": 0.995
+    },
+    {
+      "word": "緩",
+      "start": 25.34,
+      "end": 25.54,
+      "probability": 0.973
+    },
+    {
+      "word": "衝",
+      "start": 25.54,
+      "end": 25.74,
+      "probability": 0.94
+    },
+    {
+      "word": "帶",
+      "start": 25.74,
+      "end": 25.88,
+      "probability": 0.57
+    },
+    {
+      "word": "而",
+      "start": 25.88,
+      "end": 26.36,
+      "probability": 0.978
+    },
+    {
+      "word": "中",
+      "start": 26.36,
+      "end": 26.52,
+      "probability": 0.96
+    },
+    {
+      "word": "白",
+      "start": 26.52,
+      "end": 26.66,
+      "probability": 0.963
+    },
+    {
+      "word": "的",
+      "start": 26.66,
+      "end": 26.78,
+      "probability": 0.978
+    },
+    {
+      "word": "散",
+      "start": 26.78,
+      "end": 26.96,
+      "probability": 0.747
+    },
+    {
+      "word": "兵",
+      "start": 26.96,
+      "end": 27.08,
+      "probability": 0.802
+    },
+    {
+      "word": "協",
+      "start": 27.08,
+      "end": 27.26,
+      "probability": 0.127
+    },
+    {
+      "word": "同,",
+      "start": 27.26,
+      "end": 27.46,
+      "probability": 0.953
+    },
+    {
+      "word": "本",
+      "start": 27.68,
+      "end": 27.8,
+      "probability": 0.992
+    },
+    {
+      "word": "質",
+      "start": 27.8,
+      "end": 27.98,
+      "probability": 0.399
+    },
+    {
+      "word": "上",
+      "start": 27.98,
+      "end": 28.2,
+      "probability": 0.948
+    },
+    {
+      "word": "是",
+      "start": 28.2,
+      "end": 28.44,
+      "probability": 0.978
+    },
+    {
+      "word": "在",
+      "start": 28.44,
+      "end": 28.56,
+      "probability": 0.981
+    },
+    {
+      "word": "整",
+      "start": 28.56,
+      "end": 28.72,
+      "probability": 0.992
+    },
+    {
+      "word": "個",
+      "start": 28.72,
+      "end": 28.88,
+      "probability": 0.978
+    },
+    {
+      "word": "歐",
+      "start": 28.88,
+      "end": 29.04,
+      "probability": 0.961
+    },
+    {
+      "word": "亞",
+      "start": 29.04,
+      "end": 29.14,
+      "probability": 0.937
+    },
+    {
+      "word": "大",
+      "start": 29.14,
+      "end": 29.32,
+      "probability": 0.996
+    },
+    {
+      "word": "陸",
+      "start": 29.32,
+      "end": 29.46,
+      "probability": 0.996
+    },
+    {
+      "word": "的",
+      "start": 29.46,
+      "end": 29.6,
+      "probability": 0.977
+    },
+    {
+      "word": "中",
+      "start": 29.6,
+      "end": 29.76,
+      "probability": 0.996
+    },
+    {
+      "word": "間",
+      "start": 29.76,
+      "end": 29.94,
+      "probability": 0.976
+    },
+    {
+      "word": "輸",
+      "start": 29.94,
+      "end": 30.12,
+      "probability": 0.547
+    },
+    {
+      "word": "紐",
+      "start": 30.12,
+      "end": 30.28,
+      "probability": 0.565
+    },
+    {
+      "word": "位",
+      "start": 30.28,
+      "end": 30.48,
+      "probability": 0.979
+    },
+    {
+      "word": "置",
+      "start": 30.48,
+      "end": 30.66,
+      "probability": 0.999
+    },
+    {
+      "word": "把",
+      "start": 30.66,
+      "end": 31.22,
+      "probability": 0.707
+    },
+    {
+      "word": "協",
+      "start": 31.22,
+      "end": 31.46,
+      "probability": 0.974
+    },
+    {
+      "word": "助",
+      "start": 31.46,
+      "end": 31.56,
+      "probability": 0.056
+    },
+    {
+      "word": "的",
+      "start": 31.56,
+      "end": 31.7,
+      "probability": 0.928
+    },
+    {
+      "word": "透",
+      "start": 31.7,
+      "end": 31.84,
+      "probability": 0.998
+    },
+    {
+      "word": "明",
+      "start": 31.84,
+      "end": 32.0,
+      "probability": 0.998
+    },
+    {
+      "word": "度",
+      "start": 32.0,
+      "end": 32.2,
+      "probability": 0.999
+    },
+    {
+      "word": "和",
+      "start": 32.2,
+      "end": 32.44,
+      "probability": 0.971
+    },
+    {
+      "word": "順",
+      "start": 32.44,
+      "end": 32.6,
+      "probability": 0.943
+    },
+    {
+      "word": "暢",
+      "start": 32.6,
+      "end": 32.78,
+      "probability": 0.988
+    },
+    {
+      "word": "度",
+      "start": 32.78,
+      "end": 32.98,
+      "probability": 1.0
+    },
+    {
+      "word": "直接",
+      "start": 32.98,
+      "end": 33.54,
+      "probability": 0.87
+    },
+    {
+      "word": "擺",
+      "start": 33.54,
+      "end": 33.76,
+      "probability": 0.99
+    },
+    {
+      "word": "在",
+      "start": 33.76,
+      "end": 33.9,
+      "probability": 0.997
+    },
+    {
+      "word": "了",
+      "start": 33.9,
+      "end": 34.02,
+      "probability": 0.291
+    },
+    {
+      "word": "檯",
+      "start": 34.02,
+      "end": 34.2,
+      "probability": 0.873
+    },
+    {
+      "word": "面",
+      "start": 34.2,
+      "end": 34.36,
+      "probability": 0.999
+    },
+    {
+      "word": "上",
+      "start": 34.36,
+      "end": 34.62,
+      "probability": 0.996
+    }
+  ],
+  "language": "zh",
+  "duration_seconds": 35.496,
+  "model_size": "D:\\Danny\\projects\\animation\\my_open_montage\\.models\\whisper\\faster-whisper-base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "gpu_fallback_reason": null
+}

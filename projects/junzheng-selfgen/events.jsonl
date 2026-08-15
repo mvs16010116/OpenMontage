@@ -1,0 +1,48 @@
+{"ts": "2026-08-14T02:34:04.836060+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:34:33.137687+00:00", "tool": "transcriber", "event": "error", "error": "Got: ConnectTimeout: [WinError 10060] \u7531\u4e8e\u8fde\u63a5\u65b9\u5728\u4e00\u6bb5\u65f6\u95f4\u540e\u6ca1\u6709\u6b63\u786e\u7b54\u590d\u6216\u8fde\u63a5\u7684\u4e3b\u673a\u6ca1\u6709\u53cd\u5e94\uff0c\u8fde\u63a5\u5c1d\u8bd5\u5931\u8d25\u3002\nAn error happened while trying to locate the files on the Hub, and we cannot find the appropriate snapshot folder for the specified revision on the local disk. Please check your internet connection and try again.", "duration_s": 28.3}
+{"ts": "2026-08-14T02:35:35.464253+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:35:43.695377+00:00", "tool": "transcriber", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 8.23}
+{"ts": "2026-08-14T02:35:43.697659+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:35:49.995483+00:00", "tool": "transcriber", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 6.3}
+{"ts": "2026-08-14T02:35:49.998432+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:35:55.795253+00:00", "tool": "transcriber", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 5.8}
+{"ts": "2026-08-14T02:35:55.799718+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:35:58.834779+00:00", "tool": "transcriber", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 3.03}
+{"ts": "2026-08-14T02:35:58.837363+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:36:02.130848+00:00", "tool": "transcriber", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 3.29}
+{"ts": "2026-08-14T02:36:02.144296+00:00", "tool": "transcriber", "event": "start"}
+{"ts": "2026-08-14T02:36:04.470166+00:00", "tool": "transcriber", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 2.33}
+{"ts": "2026-08-14T02:41:27.414890+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4"}
+{"ts": "2026-08-14T02:41:27.416382+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4", "success": false, "cost_usd": 0.0, "duration_s": 0.0}
+{"ts": "2026-08-14T02:41:58.166040+00:00", "tool": "video_compose", "event": "start", "output_path": "projects/junzheng-selfgen/renders/final.mp4"}
+{"ts": "2026-08-14T02:41:58.167568+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects/junzheng-selfgen/renders/final.mp4", "success": false, "cost_usd": 0.0, "duration_s": 0.0}
+{"ts": "2026-08-14T02:42:39.326944+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4"}
+{"ts": "2026-08-14T02:42:39.328770+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4", "success": false, "cost_usd": 0.0, "duration_s": 0.0}
+{"ts": "2026-08-14T02:42:56.953085+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4"}
+{"ts": "2026-08-14T02:44:01.901348+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4", "success": true, "cost_usd": 0.0, "duration_s": 64.95}
+{"ts": "2026-08-14T02:53:05.689690+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4"}
+{"ts": "2026-08-14T02:53:33.741482+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4", "success": true, "cost_usd": 0.0, "duration_s": 28.05}
+{"ts": "2026-08-14T02:53:33.742744+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_subtitle.mp4"}
+{"ts": "2026-08-14T02:54:43.329146+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_subtitle.mp4", "success": true, "cost_usd": 0.0, "duration_s": 69.59}
+{"ts": "2026-08-14T02:55:11.681172+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4"}
+{"ts": "2026-08-14T02:55:41.065795+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4", "success": true, "cost_usd": 0.0, "duration_s": 29.38}
+{"ts": "2026-08-14T02:55:41.066859+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff.mp4"}
+{"ts": "2026-08-14T02:56:51.107032+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff.mp4", "success": true, "cost_usd": 0.0, "duration_s": 70.04}
+{"ts": "2026-08-14T02:57:03.603155+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4"}
+{"ts": "2026-08-14T02:57:32.301244+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4", "success": true, "cost_usd": 0.0, "duration_s": 28.7}
+{"ts": "2026-08-14T02:57:32.302134+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff.mp4"}
+{"ts": "2026-08-14T02:58:45.166317+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_diff.mp4", "success": true, "cost_usd": 0.0, "duration_s": 72.86}
+{"ts": "2026-08-14T02:59:28.945692+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4"}
+{"ts": "2026-08-14T02:59:54.997739+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\_diff_nosub.mp4", "success": true, "cost_usd": 0.0, "duration_s": 26.05}
+{"ts": "2026-08-14T02:59:54.998942+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\_diff.mp4"}
+{"ts": "2026-08-14T03:01:04.250976+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\_diff.mp4", "success": true, "cost_usd": 0.0, "duration_s": 69.25}
+{"ts": "2026-08-14T03:10:05.342598+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\_diff.mp4"}
+{"ts": "2026-08-14T03:10:59.396724+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\_diff.mp4", "success": true, "cost_usd": 0.0, "duration_s": 54.05}
+{"ts": "2026-08-14T03:28:51.639652+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4"}
+{"ts": "2026-08-14T03:29:55.523751+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\final.mp4", "success": true, "cost_usd": 0.0, "duration_s": 63.88}
+{"ts": "2026-08-14T03:30:06.531206+00:00", "tool": "video_compose", "event": "start", "output_path": "projects\\junzheng-selfgen\\renders\\_ctrl.mp4"}
+{"ts": "2026-08-14T03:30:29.696652+00:00", "tool": "video_compose", "event": "finish", "output_path": "projects\\junzheng-selfgen\\renders\\_ctrl.mp4", "success": false, "cost_usd": 0.0, "duration_s": 23.17}
+{"ts": "2026-08-15T00:00:22.726548+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4"}
+{"ts": "2026-08-15T00:00:22.800751+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4", "success": false, "cost_usd": 0.0, "duration_s": 0.05}
+{"ts": "2026-08-15T00:00:35.336584+00:00", "tool": "video_compose", "event": "start", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4"}
+{"ts": "2026-08-15T00:01:19.856269+00:00", "tool": "video_compose", "event": "finish", "output_path": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\junzheng-selfgen\\renders\\_fixed_test.mp4", "success": true, "cost_usd": 0.0, "duration_s": 44.52}

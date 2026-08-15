@@ -1,0 +1,251 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-selfgen",
+  "pipeline_type": "narration-synth",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-08-14T02:31:11.937293+00:00",
+  "checkpoint_policy": "human_checkpoint",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "renderer_family": "narration-montage",
+      "render_runtime": "ffmpeg",
+      "composition_mode": "templated",
+      "cuts": [
+        {
+          "id": "cut_scene_opener",
+          "source": "anim_scene_opener",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transition_in": "fade_in",
+          "transition_out": "cut",
+          "transition_duration": 0.5,
+          "reason": "scene_opener — opener — center title card with video title under the hook"
+        },
+        {
+          "id": "cut_scene_01",
+          "source": "anim_scene_01",
+          "in_seconds": 0.0,
+          "out_seconds": 12.0,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_01 — hook — NATO eastward-expansion arrow over Baltic/Eastern Eur"
+        },
+        {
+          "id": "cut_scene_chapter_1",
+          "source": "anim_scene_chapter_1",
+          "in_seconds": 0.0,
+          "out_seconds": 3.0,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_chapter_1 — chapter 1 break — lower-mode title card into the airborne-fo"
+        },
+        {
+          "id": "cut_scene_02",
+          "source": "anim_scene_02",
+          "in_seconds": 0.0,
+          "out_seconds": 39.3,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_02 — bars — airborne rapid-projection response time (hours) vs co"
+        },
+        {
+          "id": "cut_scene_03",
+          "source": "anim_scene_03",
+          "in_seconds": 0.0,
+          "out_seconds": 42.0,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_03 — hero — dual-front squeeze map (Baltic/E. Europe press Russia"
+        },
+        {
+          "id": "cut_scene_chapter_2",
+          "source": "anim_scene_chapter_2",
+          "in_seconds": 0.0,
+          "out_seconds": 2.5,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_chapter_2 — chapter 2 break — lower-mode title card into the signal anal"
+        },
+        {
+          "id": "cut_scene_04",
+          "source": "anim_scene_04",
+          "in_seconds": 0.0,
+          "out_seconds": 24.3,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_04 — seal — red-header joint-training notice stamps over the '公开透"
+        },
+        {
+          "id": "cut_scene_05",
+          "source": "anim_scene_05",
+          "in_seconds": 0.0,
+          "out_seconds": 12.2,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "reason": "scene_05 — timeline — joint drill frequency trend across years under th"
+        },
+        {
+          "id": "cut_scene_06",
+          "source": "anim_scene_06",
+          "in_seconds": 0.0,
+          "out_seconds": 14.9,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "fade_out",
+          "transition_duration": 0.5,
+          "reason": "scene_06 — closing — keyword card with count-up (dual fronts) under the"
+        }
+      ],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "narration_section_01",
+              "start_seconds": 3.0,
+              "end_seconds": 14.06
+            },
+            {
+              "asset_id": "narration_section_02",
+              "start_seconds": 18.0,
+              "end_seconds": 49.01
+            },
+            {
+              "asset_id": "narration_section_03",
+              "start_seconds": 57.3,
+              "end_seconds": 92.8
+            },
+            {
+              "asset_id": "narration_section_04",
+              "start_seconds": 101.8,
+              "end_seconds": 123.18
+            },
+            {
+              "asset_id": "narration_section_05",
+              "start_seconds": 126.1,
+              "end_seconds": 137.24
+            },
+            {
+              "asset_id": "narration_section_06",
+              "start_seconds": 138.3,
+              "end_seconds": 152.2
+            }
+          ]
+        },
+        "music": {
+          "volume": 0.35,
+          "fade_in_seconds": 1.0,
+          "fade_out_seconds": 3.0,
+          "ducking": {
+            "enabled": true,
+            "threshold_db": -20,
+            "reduction_db": 8
+          }
+        }
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "static_whole_line",
+        "source": "force_aligned",
+        "font_size": 56,
+        "color": "#FFFFFF",
+        "outline_color": "#000000",
+        "background": "#00000080",
+        "position": "bottom-center",
+        "max_words_per_line": 12
+      },
+      "metadata": {
+        "pipeline": "narration-synth",
+        "scene_count": 9,
+        "hero_scenes": [
+          "scene_opener",
+          "scene_01",
+          "scene_03"
+        ],
+        "total_duration_seconds": 153.2,
+        "script_total_duration_seconds": 147.1,
+        "adjacency_notes": [
+          "No two adjacent cuts share the same military-* generation skill."
+        ],
+        "duration_deltas": [],
+        "subtitle_exclude_scene_ids": [
+          "scene_opener",
+          "scene_chapter_1",
+          "scene_chapter_2"
+        ]
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "junzheng-selfgen",
+      "decisions": [
+        {
+          "decision_id": "selfgen-edit-001",
+          "stage": "edit",
+          "category": "render_runtime_selection",
+          "subject": "renderer_family value for narration-synth pipeline",
+          "options_considered": [
+            {
+              "option_id": "narration_synth",
+              "label": "\"narration-synth\" (pipeline name)",
+              "score": 0.7,
+              "reason": "Most accurate label but edit_decisions.schema.json enum does not include it — artifact invalid."
+            },
+            {
+              "option_id": "narration_montage",
+              "label": "\"narration-montage\" (schema enum)",
+              "score": 1.0,
+              "reason": "Schema-valid; same narration-first spine (shares ffmpeg concat + subtitle burn + mux grammar); junzheng-commentary precedent."
+            }
+          ],
+          "selected": "narration_montage",
+          "reason": "Schema enum only permits registered family tags; narration-montage is the closest registered family and shares the exact runtime grammar.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.92
+        }
+      ]
+    }
+  },
+  "style_playbook": "clean-professional",
+  "review": {
+    "findings": [
+      {
+        "severity": "info",
+        "item": "9 cuts, one full scene per section/slot, laid end-to-end; opener fade_in, closer fade_out."
+      },
+      {
+        "severity": "info",
+        "item": "render_runtime locked ffmpeg; renderer_family narration-montage (schema-legal for narration-synth)."
+      },
+      {
+        "severity": "info",
+        "item": "subtitles static whole-line, source force_aligned, font 56; title-card bookends excluded via metadata.subtitle_exclude_scene_ids."
+      },
+      {
+        "severity": "info",
+        "item": "audio layout: 6 narration segments placed at section scene cut starts; music none (assets decision selfgen-assets-002, music_opt_out)."
+      },
+      {
+        "severity": "info",
+        "item": "Timeline 153.2s vs script 147.1s (+4.1%); render durations match scene_plan windows (no deltas)."
+      }
+    ],
+    "conclusion": "pass"
+  },
+  "metadata": {
+    "n_cuts": 9,
+    "timeline_duration_seconds": 153.2
+  }
+}

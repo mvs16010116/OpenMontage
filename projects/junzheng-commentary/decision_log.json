@@ -88,6 +88,31 @@
       "user_visible": true,
       "user_approved": true,
       "confidence": 0.9
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "script",
+      "category": "approval_policy",
+      "subject": "Full-run pre-authorization for rebuild with newest commentary text",
+      "options_considered": [
+        {
+          "option_id": "use_newest_same_topic",
+          "label": "Use 2026-08-12 recvs42qFOtuHf (newest, topic-compatible)",
+          "score": 1.0,
+          "reason": "User confirmed newest \u5168\u7403\u519b\u4e8b\u52a8\u6001 text; keeps topic continuity with existing \u7f8e\u4f0a/\u4fc4\u4e4c script"
+        },
+        {
+          "option_id": "keep_old_text",
+          "label": "Keep previous \u7f8e\u4f0a\u6838\u534f\u8bae text",
+          "score": 0.1,
+          "reason": "Stale; building-heavy footage already rejected"
+        }
+      ],
+      "selected": "full_run_pre_authorized",
+      "reason": "User confirmed: adopt newest 2026-08-12 text + NER-driven asset queries (no building-heavy footage) + rerun \u811a\u672c\u2192\u7d20\u6750\u2192\u6e32\u67d3 stages under director-skill governance. Recorded so gated stages can resume without re-asking.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
     }
   ]
 }

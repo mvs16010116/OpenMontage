@@ -1,0 +1,1160 @@
+{
+ "version": "1.0",
+ "project_id": "junzheng-commentary",
+ "pipeline_type": "narration-montage",
+ "stage": "edit",
+ "status": "completed",
+ "timestamp": "2026-08-13T02:15:15.331981+00:00",
+ "checkpoint_policy": "guided",
+ "human_approval_required": true,
+ "human_approved": true,
+ "artifacts": {
+  "edit_decisions": {
+   "version": "1.0",
+   "renderer_family": "narration-montage",
+   "render_runtime": "ffmpeg",
+   "composition_mode": "templated",
+   "cuts": [
+    {
+     "id": "cut_001",
+     "source": "asset_video_scene_01_30988838",
+     "in_seconds": 0.0,
+     "out_seconds": 4.5,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "fade_in",
+     "transition_out": "cut",
+     "transition_duration": 0.4,
+     "reason": "scene_01/Hook — real narration window (12.9s), shot 1/4"
+    },
+    {
+     "id": "cut_002",
+     "source": "asset_video_scene_01_29924971",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_01/Hook — real narration window (12.9s), shot 2/4"
+    },
+    {
+     "id": "cut_003",
+     "source": "asset_video_scene_01_6952223",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_01/Hook — real narration window (12.9s), shot 3/4"
+    },
+    {
+     "id": "cut_004",
+     "source": "asset_video_scene_01_34779953",
+     "in_seconds": 0.0,
+     "out_seconds": 2.388,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_01/Hook — real narration window (12.9s), shot 4/4"
+    },
+    {
+     "id": "cut_005",
+     "source": "asset_video_scene_02_5849623",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_02/全球航运咽喉 — real narration window (14.9s), shot 1/5"
+    },
+    {
+     "id": "cut_006",
+     "source": "asset_video_scene_02_19694217",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_02/全球航运咽喉 — real narration window (14.9s), shot 2/5"
+    },
+    {
+     "id": "cut_007",
+     "source": "asset_video_scene_02_35885669",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_02/全球航运咽喉 — real narration window (14.9s), shot 3/5"
+    },
+    {
+     "id": "cut_008",
+     "source": "asset_video_scene_02_19694219",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_02/全球航运咽喉 — real narration window (14.9s), shot 4/5"
+    },
+    {
+     "id": "cut_009",
+     "source": "asset_video_scene_02_7841670",
+     "in_seconds": 0.0,
+     "out_seconds": 2.856,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_02/全球航运咽喉 — real narration window (14.9s), shot 5/5"
+    },
+    {
+     "id": "cut_010",
+     "source": "asset_video_scene_03_8382401",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_03/霍尔木兹博弈 — real narration window (17.4s), shot 1/6"
+    },
+    {
+     "id": "cut_011",
+     "source": "asset_video_scene_03_7230290",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_03/霍尔木兹博弈 — real narration window (17.4s), shot 2/6"
+    },
+    {
+     "id": "cut_012",
+     "source": "asset_video_scene_03_8102861",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_03/霍尔木兹博弈 — real narration window (17.4s), shot 3/6"
+    },
+    {
+     "id": "cut_013",
+     "source": "asset_video_scene_03_8863754",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_03/霍尔木兹博弈 — real narration window (17.4s), shot 4/6"
+    },
+    {
+     "id": "cut_014",
+     "source": "asset_video_scene_03_6814372",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_03/霍尔木兹博弈 — real narration window (17.4s), shot 5/6"
+    },
+    {
+     "id": "cut_015",
+     "source": "asset_video_scene_03_35239446",
+     "in_seconds": 0.0,
+     "out_seconds": 2.352,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_03/霍尔木兹博弈 — real narration window (17.4s), shot 6/6"
+    },
+    {
+     "id": "cut_016",
+     "source": "asset_video_scene_04_6603164",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_04/对等反制与指挥重组 — real narration window (14.3s), shot 1/5"
+    },
+    {
+     "id": "cut_017",
+     "source": "asset_video_scene_04_6603157",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_04/对等反制与指挥重组 — real narration window (14.3s), shot 2/5"
+    },
+    {
+     "id": "cut_018",
+     "source": "asset_video_scene_04_9467039",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_04/对等反制与指挥重组 — real narration window (14.3s), shot 3/5"
+    },
+    {
+     "id": "cut_019",
+     "source": "asset_video_scene_04_6054220",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_04/对等反制与指挥重组 — real narration window (14.3s), shot 4/5"
+    },
+    {
+     "id": "cut_020",
+     "source": "asset_video_scene_04_6054013",
+     "in_seconds": 0.0,
+     "out_seconds": 2.304,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_04/对等反制与指挥重组 — real narration window (14.3s), shot 5/5"
+    },
+    {
+     "id": "cut_021",
+     "source": "asset_video_scene_05_10719817",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_05/风险规则化 — real narration window (16.5s), shot 1/6"
+    },
+    {
+     "id": "cut_022",
+     "source": "asset_video_scene_05_1319747",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_05/风险规则化 — real narration window (16.5s), shot 2/6"
+    },
+    {
+     "id": "cut_023",
+     "source": "asset_video_scene_05_30322003",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_05/风险规则化 — real narration window (16.5s), shot 3/6"
+    },
+    {
+     "id": "cut_024",
+     "source": "asset_video_scene_05_7431509",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_05/风险规则化 — real narration window (16.5s), shot 4/6"
+    },
+    {
+     "id": "cut_025",
+     "source": "asset_video_scene_05_7431751",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_05/风险规则化 — real narration window (16.5s), shot 5/6"
+    },
+    {
+     "id": "cut_026",
+     "source": "asset_video_scene_05_36721728",
+     "in_seconds": 0.0,
+     "out_seconds": 1.464,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_05/风险规则化 — real narration window (16.5s), shot 6/6"
+    },
+    {
+     "id": "cut_027",
+     "source": "asset_video_scene_06_6534416",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_06/红海与黑海呼应 — real narration window (17.0s), shot 1/6"
+    },
+    {
+     "id": "cut_028",
+     "source": "asset_video_scene_06_10253175",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_06/红海与黑海呼应 — real narration window (17.0s), shot 2/6"
+    },
+    {
+     "id": "cut_029",
+     "source": "asset_video_scene_06_4211319",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_06/红海与黑海呼应 — real narration window (17.0s), shot 3/6"
+    },
+    {
+     "id": "cut_030",
+     "source": "asset_video_scene_06_11154588",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_06/红海与黑海呼应 — real narration window (17.0s), shot 4/6"
+    },
+    {
+     "id": "cut_031",
+     "source": "asset_video_scene_06_28671359",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_06/红海与黑海呼应 — real narration window (17.0s), shot 5/6"
+    },
+    {
+     "id": "cut_032",
+     "source": "asset_video_scene_06_6581274",
+     "in_seconds": 0.0,
+     "out_seconds": 1.992,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_06/红海与黑海呼应 — real narration window (17.0s), shot 6/6"
+    },
+    {
+     "id": "cut_033",
+     "source": "asset_video_scene_07_4911815",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_07/三条主动脉 — real narration window (15.7s), shot 1/6"
+    },
+    {
+     "id": "cut_034",
+     "source": "asset_video_scene_07_18486224",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_07/三条主动脉 — real narration window (15.7s), shot 2/6"
+    },
+    {
+     "id": "cut_035",
+     "source": "asset_video_scene_07_5973537",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_07/三条主动脉 — real narration window (15.7s), shot 3/6"
+    },
+    {
+     "id": "cut_036",
+     "source": "asset_video_scene_07_9834838",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_07/三条主动脉 — real narration window (15.7s), shot 4/6"
+    },
+    {
+     "id": "cut_037",
+     "source": "asset_video_scene_07_18827448",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_07/三条主动脉 — real narration window (15.7s), shot 5/6"
+    },
+    {
+     "id": "cut_038",
+     "source": "asset_video_scene_07_6656528",
+     "in_seconds": 0.0,
+     "out_seconds": 0.72,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_07/三条主动脉 — real narration window (15.7s), shot 6/6"
+    },
+    {
+     "id": "cut_039",
+     "source": "asset_video_scene_08_38838133",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_08/消耗战新范式 — real narration window (16.3s), shot 1/6"
+    },
+    {
+     "id": "cut_040",
+     "source": "asset_video_scene_08_20522549",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_08/消耗战新范式 — real narration window (16.3s), shot 2/6"
+    },
+    {
+     "id": "cut_041",
+     "source": "asset_video_scene_08_31410462",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_08/消耗战新范式 — real narration window (16.3s), shot 3/6"
+    },
+    {
+     "id": "cut_042",
+     "source": "asset_video_scene_08_18338776",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_08/消耗战新范式 — real narration window (16.3s), shot 4/6"
+    },
+    {
+     "id": "cut_043",
+     "source": "asset_video_scene_08_30346370",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_08/消耗战新范式 — real narration window (16.3s), shot 5/6"
+    },
+    {
+     "id": "cut_044",
+     "source": "asset_video_scene_08_35972202",
+     "in_seconds": 0.0,
+     "out_seconds": 1.296,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_08/消耗战新范式 — real narration window (16.3s), shot 6/6"
+    },
+    {
+     "id": "cut_045",
+     "source": "asset_video_scene_09_852364",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_09/北约资源聚焦 — real narration window (15.7s), shot 1/6"
+    },
+    {
+     "id": "cut_046",
+     "source": "asset_video_scene_09_8492947",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_09/北约资源聚焦 — real narration window (15.7s), shot 2/6"
+    },
+    {
+     "id": "cut_047",
+     "source": "asset_video_scene_09_33828511",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_09/北约资源聚焦 — real narration window (15.7s), shot 3/6"
+    },
+    {
+     "id": "cut_048",
+     "source": "asset_video_scene_09_13456884",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_09/北约资源聚焦 — real narration window (15.7s), shot 4/6"
+    },
+    {
+     "id": "cut_049",
+     "source": "asset_video_scene_09_12124876",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_09/北约资源聚焦 — real narration window (15.7s), shot 5/6"
+    },
+    {
+     "id": "cut_050",
+     "source": "asset_video_scene_09_10003356",
+     "in_seconds": 0.0,
+     "out_seconds": 0.72,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_09/北约资源聚焦 — real narration window (15.7s), shot 6/6"
+    },
+    {
+     "id": "cut_051",
+     "source": "asset_video_scene_10_30262138",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_10/定价逻辑重写 — real narration window (17.3s), shot 1/6"
+    },
+    {
+     "id": "cut_052",
+     "source": "asset_video_scene_10_30262140",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_10/定价逻辑重写 — real narration window (17.3s), shot 2/6"
+    },
+    {
+     "id": "cut_053",
+     "source": "asset_video_scene_10_8847371",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_10/定价逻辑重写 — real narration window (17.3s), shot 3/6"
+    },
+    {
+     "id": "cut_054",
+     "source": "asset_video_scene_10_7103389",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_10/定价逻辑重写 — real narration window (17.3s), shot 4/6"
+    },
+    {
+     "id": "cut_055",
+     "source": "asset_video_scene_10_30916173",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_10/定价逻辑重写 — real narration window (17.3s), shot 5/6"
+    },
+    {
+     "id": "cut_056",
+     "source": "asset_video_scene_10_8847367",
+     "in_seconds": 0.0,
+     "out_seconds": 2.28,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_10/定价逻辑重写 — real narration window (17.3s), shot 6/6"
+    },
+    {
+     "id": "cut_057",
+     "source": "asset_video_scene_11_14807922",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_11/物流成本高企 — real narration window (14.1s), shot 1/5"
+    },
+    {
+     "id": "cut_058",
+     "source": "asset_video_scene_11_29928556",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_11/物流成本高企 — real narration window (14.1s), shot 2/5"
+    },
+    {
+     "id": "cut_059",
+     "source": "asset_video_scene_11_6979847",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_11/物流成本高企 — real narration window (14.1s), shot 3/5"
+    },
+    {
+     "id": "cut_060",
+     "source": "asset_video_scene_11_15148915",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_11/物流成本高企 — real narration window (14.1s), shot 4/5"
+    },
+    {
+     "id": "cut_061",
+     "source": "asset_video_scene_11_30900249",
+     "in_seconds": 0.0,
+     "out_seconds": 2.088,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_11/物流成本高企 — real narration window (14.1s), shot 5/5"
+    },
+    {
+     "id": "cut_062",
+     "source": "asset_video_scene_12_8716593",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_12/结语互动 — real narration window (15.5s), shot 1/6"
+    },
+    {
+     "id": "cut_063",
+     "source": "asset_video_scene_12_26744501",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_12/结语互动 — real narration window (15.5s), shot 2/6"
+    },
+    {
+     "id": "cut_064",
+     "source": "asset_video_scene_12_9465318",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_12/结语互动 — real narration window (15.5s), shot 3/6"
+    },
+    {
+     "id": "cut_065",
+     "source": "asset_video_scene_12_37849430",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_12/结语互动 — real narration window (15.5s), shot 4/6"
+    },
+    {
+     "id": "cut_066",
+     "source": "asset_video_scene_12_37639455",
+     "in_seconds": 0.0,
+     "out_seconds": 3.0,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_12/结语互动 — real narration window (15.5s), shot 5/6"
+    },
+    {
+     "id": "cut_067",
+     "source": "asset_video_scene_12_15039368",
+     "in_seconds": 0.0,
+     "out_seconds": 0.504,
+     "layer": "primary",
+     "transform": {
+      "scale": 1.0,
+      "position": "center"
+     },
+     "transition_in": "cut",
+     "transition_out": "cut",
+     "transition_duration": 0.0,
+     "reason": "scene_12/结语互动 — real narration window (15.5s), shot 6/6"
+    }
+   ],
+   "audio": {
+    "narration": {
+     "segments": [
+      {
+       "asset_id": "asset_narration_section_01",
+       "start_seconds": 0.0,
+       "end_seconds": 12.888
+      },
+      {
+       "asset_id": "asset_narration_section_02",
+       "start_seconds": 12.888,
+       "end_seconds": 27.744
+      },
+      {
+       "asset_id": "asset_narration_section_03",
+       "start_seconds": 27.744,
+       "end_seconds": 45.096
+      },
+      {
+       "asset_id": "asset_narration_section_04",
+       "start_seconds": 45.096,
+       "end_seconds": 59.4
+      },
+      {
+       "asset_id": "asset_narration_section_05",
+       "start_seconds": 59.4,
+       "end_seconds": 75.864
+      },
+      {
+       "asset_id": "asset_narration_section_06",
+       "start_seconds": 75.864,
+       "end_seconds": 92.856
+      },
+      {
+       "asset_id": "asset_narration_section_07",
+       "start_seconds": 92.856,
+       "end_seconds": 108.576
+      },
+      {
+       "asset_id": "asset_narration_section_08",
+       "start_seconds": 108.576,
+       "end_seconds": 124.872
+      },
+      {
+       "asset_id": "asset_narration_section_09",
+       "start_seconds": 124.872,
+       "end_seconds": 140.592
+      },
+      {
+       "asset_id": "asset_narration_section_10",
+       "start_seconds": 140.592,
+       "end_seconds": 157.872
+      },
+      {
+       "asset_id": "asset_narration_section_11",
+       "start_seconds": 157.872,
+       "end_seconds": 171.96
+      },
+      {
+       "asset_id": "asset_narration_section_12",
+       "start_seconds": 171.96,
+       "end_seconds": 187.464
+      }
+     ]
+    }
+   },
+   "subtitles": {
+    "enabled": true,
+    "style": "static_whole_line",
+    "source": "force_aligned",
+    "font_size": 56,
+    "color": "#FFFFFF",
+    "outline_color": "#000000",
+    "background": "#00000080",
+    "position": "bottom-center",
+    "max_words_per_line": 18
+   },
+   "metadata": {
+    "pipeline": "narration-montage",
+    "shot_cadence_seconds": 3.0,
+    "hero_scenes": [
+     "scene_01"
+    ],
+    "hero_hold_seconds": 4.5,
+    "total_duration_seconds": 187.464,
+    "real_narration_total_seconds": 187.464,
+    "proposal_render_runtime": "ffmpeg",
+    "music_plan": {
+     "source": "none",
+     "opt_out_reason": "User requested no background music (d-002)."
+    },
+    "audio_levels": {
+     "loudness_target_lufs": -12,
+     "max_true_peak_db": -1.5,
+     "limiter_threshold": 0.85
+    },
+    "subtitle_style": {
+     "font_size": 56,
+     "position": "bottom-center",
+     "color": "#FFFFFF",
+     "outline_color": "#000000",
+     "mode": "static_whole_line"
+    }
+   }
+  }
+ },
+ "style_playbook": "clean-professional",
+ "review": {
+  "findings": [
+   {
+    "severity": "info",
+    "item": "67 cuts, one full shot per distinct clip, 12 scenes back-to-back."
+   },
+   {
+    "severity": "info",
+    "item": "render_runtime locked ffmpeg; renderer_family narration-montage."
+   },
+   {
+    "severity": "info",
+    "item": "subtitles static whole-line force-aligned (font 56)."
+   },
+   {
+    "severity": "info",
+    "item": "audio layout: narration-only (music none, d-002); loudness target -12 LUFS."
+   },
+   {
+    "severity": "info",
+    "item": "scenes re-timed to REAL narration durations, back-to-back, total 187.464s."
+   }
+  ],
+  "conclusion": "pass"
+ },
+ "metadata": {
+  "n_cuts": 67,
+  "timeline_duration_seconds": 187.464
+ }
+}

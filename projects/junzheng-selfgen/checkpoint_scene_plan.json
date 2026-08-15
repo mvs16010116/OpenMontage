@@ -1,0 +1,582 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-selfgen",
+  "pipeline_type": "narration-synth",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-08-14T01:50:30.764844+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "clean-professional",
+      "scenes": [
+        {
+          "id": "scene_opener",
+          "type": "generated",
+          "description": "opener \u2014 center title card with video title under the hook",
+          "start_seconds": 0.0,
+          "end_seconds": 3.0,
+          "script_section_id": "section_opener",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "fade_in",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "establish the video's thesis with an authoritative title card",
+          "narrative_role": "establish_context",
+          "information_role": "opener \u2014 center title card with video title under the hook",
+          "hero_moment": true,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "opener \u2014 center title card with video title under the hook",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_01",
+          "type": "generated",
+          "description": "hook \u2014 NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands",
+          "start_seconds": 3.0,
+          "end_seconds": 15.0,
+          "script_section_id": "section_01",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "extreme_wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "visualize the coincidence the hook posits: NATO expansion timing clashes with the drill",
+          "narrative_role": "build_tension",
+          "information_role": "hook \u2014 NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands",
+          "hero_moment": true,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "hook \u2014 NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_chapter_1",
+          "type": "generated",
+          "description": "chapter 1 break \u2014 lower-mode title card into the airborne-forces analysis",
+          "start_seconds": 15.4,
+          "end_seconds": 18.4,
+          "script_section_id": "section_chapter_1",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "mark the transition from hook to the core analysis",
+          "narrative_role": "transition",
+          "information_role": "chapter 1 break \u2014 lower-mode title card into the airborne-forces analysis",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "chapter 1 break \u2014 lower-mode title card into the airborne-forces analysis",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_02",
+          "type": "generated",
+          "description": "bars \u2014 airborne rapid-projection response time (hours) vs conventional forces under the \u8de8\u4f53\u7cfb\u534f\u540c line",
+          "start_seconds": 18.4,
+          "end_seconds": 57.7,
+          "script_section_id": "section_02",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "quantify why airborne units are a strategic projection force",
+          "narrative_role": "introduce_subject",
+          "information_role": "bars \u2014 airborne rapid-projection response time (hours) vs conventional forces under the \u8de8\u4f53\u7cfb\u534f\u540c line",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "bars \u2014 airborne rapid-projection response time (hours) vs conventional forces under the \u8de8\u4f53\u7cfb\u534f\u540c line",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_03",
+          "type": "generated",
+          "description": "hero \u2014 dual-front squeeze map (Baltic/E. Europe press Russia, island-chain in W. Pacific) with Belarus/airborne cooperation fill",
+          "start_seconds": 58.1,
+          "end_seconds": 100.1,
+          "script_section_id": "section_03",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "extreme_wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "show the two-front pressure and the China-Belarus cooperation that fills the gap",
+          "narrative_role": "deliver_payload",
+          "information_role": "hero \u2014 dual-front squeeze map (Baltic/E. Europe press Russia, island-chain in W. Pacific) with Belarus/airborne cooperation fill",
+          "hero_moment": true,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "hero \u2014 dual-front squeeze map (Baltic/E. Europe press Russia, island-chain in W. Pacific) with Belarus/airborne cooperation fill",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_chapter_2",
+          "type": "generated",
+          "description": "chapter 2 break \u2014 lower-mode title card into the signal analysis",
+          "start_seconds": 100.5,
+          "end_seconds": 103.0,
+          "script_section_id": "section_chapter_2",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "mark the transition from strategic logic to signal interpretation",
+          "narrative_role": "transition",
+          "information_role": "chapter 2 break \u2014 lower-mode title card into the signal analysis",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "chapter 2 break \u2014 lower-mode title card into the signal analysis",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_04",
+          "type": "generated",
+          "description": "seal \u2014 red-header joint-training notice stamps over the '\u516c\u5f00\u900f\u660e\u4e0d\u9488\u5bf9\u7b2c\u4e09\u65b9' line",
+          "start_seconds": 103.0,
+          "end_seconds": 127.3,
+          "script_section_id": "section_04",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "underscore the official, deliberate nature of the openly publicized drill",
+          "narrative_role": "evidence",
+          "information_role": "seal \u2014 red-header joint-training notice stamps over the '\u516c\u5f00\u900f\u660e\u4e0d\u9488\u5bf9\u7b2c\u4e09\u65b9' line",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "seal \u2014 red-header joint-training notice stamps over the '\u516c\u5f00\u900f\u660e\u4e0d\u9488\u5bf9\u7b2c\u4e09\u65b9' line",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_05",
+          "type": "generated",
+          "description": "timeline \u2014 joint drill frequency trend across years under the 'only up, never down' line",
+          "start_seconds": 127.7,
+          "end_seconds": 139.9,
+          "script_section_id": "section_05",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "show the rising trend line and tactical-standard convergence",
+          "narrative_role": "build_tension",
+          "information_role": "timeline \u2014 joint drill frequency trend across years under the 'only up, never down' line",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "timeline \u2014 joint drill frequency trend across years under the 'only up, never down' line",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene_06",
+          "type": "generated",
+          "description": "closing \u2014 keyword card with count-up (dual fronts) under the CTA question",
+          "start_seconds": 140.3,
+          "end_seconds": 155.2,
+          "script_section_id": "section_06",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "fade_out",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lens_mm": 24,
+            "lighting_key": "low_key",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "land the closing question with a minimal, memorable frame",
+          "narrative_role": "call_to_action",
+          "information_role": "closing \u2014 keyword card with count-up (dual fronts) under the CTA question",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "professional"
+          ],
+          "required_assets": [
+            {
+              "type": "animation",
+              "description": "closing \u2014 keyword card with count-up (dual fronts) under the CTA question",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "pipeline": "narration-synth",
+        "tone": "authoritative",
+        "allowed_skills_used": {
+          "military-title-card": 3,
+          "military-map-deduction": 2,
+          "military-data-viz": 2,
+          "military-seal": 1
+        },
+        "adjacency_checked": true,
+        "total_scene_seconds": 155.2,
+        "script_total_duration_seconds": 147.1,
+        "generation_specs": {
+          "scene_opener": {
+            "skill": "military-title-card",
+            "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+            "cli_args": {
+              "--title": "\u795e\u9e70-2026\uff1a\u7a7a\u964d\u5175\u7684\u5a01\u6151\u4fe1\u53f7",
+              "--keyword": "\u7a7a\u964d\u5175 \u00b7 \u8054\u5408\u6f14\u4e60",
+              "--accent": "#fbbf24",
+              "--duration": "3"
+            },
+            "cluster_args": {
+              "duration": 3
+            },
+            "output_note": "opener \u2014 center title card with video title under the hook"
+          },
+          "scene_01": {
+            "skill": "military-map-deduction",
+            "build_script": ".agents/skills/military-map-deduction/scripts/build_map_deduction.mjs",
+            "cli_args": {
+              "--theatre": "\u6b27\u6d32\u65b9\u5411",
+              "--regions": [
+                "\u767d\u4fc4\u7f57\u65af:\u91cd\u70b9",
+                "\u6ce2\u7f57\u7684\u6d77:\u9ad8\u4eae",
+                "\u4e1c\u6b27:\u9ad8\u4eae"
+              ],
+              "--arrows": [
+                "\u897f\u2192\u4e1c:\u5317\u7ea6\u4e1c\u6269"
+              ],
+              "--phase": "\u5317\u7ea6\u4e1c\u6269 \u00b7 \u6218\u7565\u8b66\u544a",
+              "--accent": "#fbbf24",
+              "--duration": "12"
+            },
+            "cluster_args": {
+              "duration": 12
+            },
+            "output_note": "hook \u2014 NATO eastward-expansion arrow over Baltic/Eastern Europe while the warning line lands"
+          },
+          "scene_chapter_1": {
+            "skill": "military-title-card",
+            "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+            "cli_args": {
+              "--title": "\u7b2c\u4e00\u7ae0 \u00b7 \u7a7a\u964d\u5175\u62c6\u89e3",
+              "--keyword": "\u8de8\u4f53\u7cfb\u534f\u540c",
+              "--lower": "\u795e\u9e70-2026 \u00b7 \u6838\u5fc3\u62c6\u89e3",
+              "--accent": "#fbbf24",
+              "--duration": "3"
+            },
+            "cluster_args": {
+              "duration": 3
+            },
+            "output_note": "chapter 1 break \u2014 lower-mode title card into the airborne-forces analysis"
+          },
+          "scene_02": {
+            "skill": "military-data-viz",
+            "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+            "cli_args": {
+              "--title": "\u5feb\u901f\u54cd\u5e94 \u00b7 \u6295\u5c04\u80fd\u529b",
+              "--type": "bars",
+              "--bars": [
+                "\u7a7a\u964d\u5175:24",
+                "\u5e38\u89c4\u90e8\u961f:168"
+              ],
+              "--kpi": "\u9ad8\u673a\u52a8 \u00b7 \u5feb\u54cd\u5e94 \u00b7 \u6218\u7565\u6295\u5c04",
+              "--accent": "#fbbf24",
+              "--duration": "12"
+            },
+            "cluster_args": {
+              "duration": 12
+            },
+            "output_note": "bars \u2014 airborne rapid-projection response time (hours) vs conventional forces under the \u8de8\u4f53\u7cfb\u534f\u540c line"
+          },
+          "scene_03": {
+            "skill": "military-map-deduction",
+            "build_script": ".agents/skills/military-map-deduction/scripts/build_map_deduction.mjs",
+            "cli_args": {
+              "--theatre": "\u6b27\u4e9a\u5927\u9646",
+              "--regions": [
+                "\u897f\u592a:\u9ad8\u4eae",
+                "\u6ce2\u7f57\u7684\u6d77:\u91cd\u70b9",
+                "\u4e1c\u6b27:\u9ad8\u4eae",
+                "\u767d\u4fc4\u7f57\u65af:\u91cd\u70b9"
+              ],
+              "--arrows": [
+                "\u897f\u2192\u4e1c:\u5317\u7ea6\u6324\u538b",
+                "\u4e1c\u2192\u897f:\u5c9b\u94fe\u90e8\u7f72"
+              ],
+              "--phase": "\u4e1c\u897f\u53cc\u7ebf \u00b7 \u6324\u538b\u4e0e\u8865\u4f4d",
+              "--accent": "#fbbf24",
+              "--duration": "18"
+            },
+            "cluster_args": {
+              "duration": 18
+            },
+            "output_note": "hero \u2014 dual-front squeeze map (Baltic/E. Europe press Russia, island-chain in W. Pacific) with Belarus/airborne cooperation fill"
+          },
+          "scene_chapter_2": {
+            "skill": "military-title-card",
+            "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+            "cli_args": {
+              "--title": "\u7b2c\u4e8c\u7ae0 \u00b7 \u4fe1\u53f7\u89e3\u8bfb",
+              "--keyword": "\u516c\u5f00\u900f\u660e",
+              "--lower": "\u795e\u9e70-2026 \u00b7 \u4fe1\u53f7\u89e3\u8bfb",
+              "--accent": "#fbbf24",
+              "--duration": "3"
+            },
+            "cluster_args": {
+              "duration": 3
+            },
+            "output_note": "chapter 2 break \u2014 lower-mode title card into the signal analysis"
+          },
+          "scene_04": {
+            "skill": "military-seal",
+            "build_script": ".agents/skills/military-seal/scripts/build_seal.mjs",
+            "cli_args": {
+              "--title": "\u4e2d\u767d \u00b7 \u795e\u9e70-2026 \u8054\u5408\u8bad\u7ec3",
+              "--org": "\u56fd\u9632\u90e8",
+              "--seal-text": "\u4e2d\u56fd\u4eba\u6c11\u89e3\u653e\u519b\u8054\u5408\u8bad\u7ec3\u516c\u544a",
+              "--accent": "#d33",
+              "--duration": "8"
+            },
+            "cluster_args": {
+              "duration": 8
+            },
+            "output_note": "seal \u2014 red-header joint-training notice stamps over the '\u516c\u5f00\u900f\u660e\u4e0d\u9488\u5bf9\u7b2c\u4e09\u65b9' line"
+          },
+          "scene_05": {
+            "skill": "military-data-viz",
+            "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+            "cli_args": {
+              "--title": "\u4e2d\u8fdc\u7a0b\u673a\u52a8\u7c7b\u8054\u5408\u6f14\u8bad \u00b7 \u9891\u6b21",
+              "--type": "timeline",
+              "--timeline": [
+                "2022:\u542f\u52a8",
+                "2024:\u5e38\u6001",
+                "2025:\u52a0\u7801",
+                "2026:\u9891\u6b21\u4e0a\u5347"
+              ],
+              "--kpi": "\u9891\u7387\u53ea\u5347\u4e0d\u964d \u00b7 \u6218\u672f\u534f\u540c\u5bf9\u9f50",
+              "--accent": "#fbbf24",
+              "--duration": "12"
+            },
+            "cluster_args": {
+              "duration": 12
+            },
+            "output_note": "timeline \u2014 joint drill frequency trend across years under the 'only up, never down' line"
+          },
+          "scene_06": {
+            "skill": "military-title-card",
+            "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+            "cli_args": {
+              "--title": "\u5173\u952e\u4e2d\u95f4\u8282\u70b9\u7684\u516c\u5f00\u534f\u4f5c",
+              "--keyword": "\u6210\u672c\u6700\u4f4e \u00b7 \u6548\u679c\u6700\u5b9e",
+              "--number": "2:\u6218\u7ebf",
+              "--accent": "#fbbf24",
+              "--duration": "8"
+            },
+            "cluster_args": {
+              "duration": 8
+            },
+            "output_note": "closing \u2014 keyword card with count-up (dual fronts) under the CTA question"
+          }
+        }
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "junzheng-selfgen",
+      "decisions": [
+        {
+          "decision_id": "nono-idea-004",
+          "stage": "scene_plan",
+          "category": "fallback_decision",
+          "subject": "Where generation_spec lives in scene_plan",
+          "options_considered": [
+            {
+              "option_id": "on_scene",
+              "label": "On each scene item (scene-director doc example)",
+              "score": 0.1,
+              "reason": "scene_plan.schema.json sets additionalProperties:false on scene items and does not declare generation_spec \u2014 fails artifact validation"
+            },
+            {
+              "option_id": "metadata_map",
+              "label": "metadata.generation_specs keyed by scene id",
+              "score": 1.0,
+              "reason": "scene_plan.metadata is a free-form object; keeps artifact schema-valid while preserving the exact per-scene spec the asset stage consumes"
+            }
+          ],
+          "selected": "metadata_map",
+          "reason": "Schema-legal placement; asset-director reads the spec via scene id from the same artifact",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "nono-idea-005",
+          "stage": "scene_plan",
+          "category": "playbook_override",
+          "subject": "Opener + chapter card windows on a linear timeline",
+          "options_considered": [
+            {
+              "option_id": "negative_offset",
+              "label": "Negative opener start (scene-director -1.0 example)",
+              "score": 0.1,
+              "reason": "scene_plan.schema.json enforces start_seconds >= 0 \u2014 invalid"
+            },
+            {
+              "option_id": "linear_cursor",
+              "label": "Cursor-accumulated linear timeline; opener/chapter cards hold real seconds",
+              "score": 1.0,
+              "reason": "Schema-valid; section scene durations match script; total 155.2s is +5.5% of 147.1s \u2014 inside the \u00b110% gate"
+            }
+          ],
+          "selected": "linear_cursor",
+          "reason": "Schema-valid, deterministic, and edit/compose can lay scenes end-to-end without gaps",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        }
+      ]
+    }
+  },
+  "review": {
+    "findings": [
+      {
+        "severity": "info",
+        "item": "User authorized auto-approval for downstream gates; scene_plan approved directly."
+      },
+      {
+        "severity": "info",
+        "item": "generation_spec placed in metadata.generation_specs (schema forbids extra scene props); asset stage reads it by scene id."
+      },
+      {
+        "severity": "info",
+        "item": "Bookends linear-layout: opener 3.0s + 2 chapter cards (3.0/2.5s); section scene durations match script sections exactly."
+      }
+    ],
+    "conclusion": "approved"
+  }
+}
