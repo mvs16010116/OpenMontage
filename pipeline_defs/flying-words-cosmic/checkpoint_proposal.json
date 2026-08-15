@@ -1,0 +1,500 @@
+{
+  "version": "1.0",
+  "project_id": "flying-words-cosmic",
+  "pipeline_type": "animation",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-08-07T09:24:38.147309+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "c1",
+          "title": "\u661f\u6cb3\u98de\u5b57",
+          "hook": "\u4e00\u53e5\u53f0\u8bcd\uff0c\u6587\u5b57\u4ece\u56db\u65b9\u98de\u5165\uff0c\u5e26\u7740\u56de\u5f39\u7a33\u7a33\u843d\u8fdb\u661f\u6cb3\u3002",
+          "narrative_structure": "story",
+          "visual_approach": "\u591a\u5f69 mesh \u6e10\u53d8\u94f6\u6cb3\u80cc\u666f + \u5149\u6591\uff1b\u6bcf 4-6 \u5b57\u4e00\u5757\u4ece\u968f\u673a\u65b9\u5411\u5f39\u6027\u963b\u5c3c\u98de\u5165\uff0c\u81ea\u52a8\u6362\u884c\u586b\u6ee1\u5c4f\u5e55",
+          "suggested_playbook": "custom (atelier)",
+          "target_audience": "\u77ed\u89c6\u9891\u521b\u4f5c\u8005 / \u6280\u672f\u6f14\u793a",
+          "target_platform": "generic",
+          "target_duration_seconds": 30,
+          "key_points": [
+            "\u56db\u5411\u968f\u673a\u98de\u5165 + \u5f39\u6027\u963b\u5c3c\u843d\u5730",
+            "\u591a\u5f69\u7a0b\u5e8f\u5316\u6e10\u53d8\u80cc\u666f\uff08\u65e0\u9700 AI \u56fe\u50cf\uff09",
+            "4-6 \u5b57\u4e00\u6279\uff0c\u6362\u884c\u586b\u6ee1\u5c4f\u5e55"
+          ],
+          "core_message": "\u7eaf\u4ee3\u7801 + \u672c\u5730\u8bed\u97f3\u4e5f\u80fd\u505a\u51fa\u9ad8\u8d28\u611f\u5b57\u5e55\u7279\u6548",
+          "cta": "\uff08\u6d4b\u8bd5\u7247\uff0c\u65e0 CTA\uff09",
+          "tone": "\u8bd7\u610f \u00b7 \u5947\u5e7b",
+          "why_this_works": "GSAP elastic/back \u7f13\u52a8\u539f\u751f\u4ea7\u751f\u963b\u5c3c\u56de\u5f39\uff1b\u7a0b\u5e8f\u5316 mesh/conic \u6e10\u53d8\u5df2\u9a8c\u8bc1\u53ef\u751f\u6210\u591a\u5f69\u5947\u5e7b\u80cc\u666f\uff0c\u96f6\u6210\u672c"
+        },
+        {
+          "id": "c2",
+          "title": "\u9713\u8679\u5f39\u5e55",
+          "hook": "\u70ed\u8840\u77ed\u53e5\uff0c\u6697\u591c\u661f\u4e91\u4e0a\u70b8\u5f00\u9713\u8679\u5927\u5b57\u3002",
+          "narrative_structure": "story",
+          "visual_approach": "\u6697\u9ed1\u661f\u4e91\u80cc\u666f + \u9713\u8679\u63cf\u8fb9/\u53d1\u5149\u7c97\u4f53\u5927\u5b57\uff1b\u56db\u5411\u968f\u673a\u98de\u5165 + \u5f3a overshoot \u56de\u5f39",
+          "suggested_playbook": "custom (atelier)",
+          "target_audience": "\u77ed\u89c6\u9891\u521b\u4f5c\u8005 / \u6280\u672f\u6f14\u793a",
+          "target_platform": "generic",
+          "target_duration_seconds": 30,
+          "key_points": [
+            "\u9713\u8679\u53d1\u5149\u63cf\u8fb9\u6587\u5b57",
+            "\u5f3a\u70c8\u963b\u5c3c\u56de\u5f39\uff08low damping\uff09",
+            "\u56db\u5411\u968f\u673a\u98de\u5165"
+          ],
+          "core_message": "\u9ad8\u5bf9\u6bd4\u53d1\u5149\u6587\u5b57\u4e0e\u6697\u80cc\u666f\u5f62\u6210\u5f3a\u89c6\u89c9\u51b2\u51fb",
+          "cta": "\uff08\u6d4b\u8bd5\u7247\uff0c\u65e0 CTA\uff09",
+          "tone": "\u70ed\u8840 \u00b7 \u5f3a\u70c8",
+          "why_this_works": "\u9713\u8679\u53d1\u5149 + \u6697\u80cc\u666f\u4fdd\u8bc1\u6587\u5b57\u53ef\u8bfb\u6027\uff1b\u4f4e\u963b\u5c3c spring/elastic \u63d0\u4f9b'\u5f39\u5230 1.15 \u518d\u56de\u843d'\u7684\u5361\u901a\u56de\u5f39"
+        },
+        {
+          "id": "c3",
+          "title": "\u6781\u5149\u8bd7\u884c",
+          "hook": "\u6e29\u67d4\u77ed\u53e5\uff0c\u6781\u5149\u80cc\u666f\u4e0a\u9010\u5b57\u8f7b\u8f7b\u843d\u5b9a\u3002",
+          "narrative_structure": "story",
+          "visual_approach": "\u6781\u5149\u6e10\u53d8 + \u67d4\u548c\u5149\u6655\u80cc\u666f\uff1b\u56db\u89d2\u7f13\u5165 + \u8f7b\u963b\u5c3c\u9010\u5b57\u9519\u5cf0\uff0c\u8282\u594f\u8212\u7f13",
+          "suggested_playbook": "custom (atelier)",
+          "target_audience": "\u77ed\u89c6\u9891\u521b\u4f5c\u8005 / \u6280\u672f\u6f14\u793a",
+          "target_platform": "generic",
+          "target_duration_seconds": 30,
+          "key_points": [
+            "\u67d4\u548c\u6781\u5149\u6e10\u53d8",
+            "\u8f7b\u963b\u5c3c\u9010\u5b57\u9519\u5cf0",
+            "\u8212\u7f13\u8282\u594f"
+          ],
+          "core_message": "\u540c\u4e00\u5957\u98de\u5165\u673a\u5236\u53ef\u6f14\u7ece\u591a\u79cd\u60c5\u7eea\u8282\u594f",
+          "cta": "\uff08\u6d4b\u8bd5\u7247\uff0c\u65e0 CTA\uff09",
+          "tone": "\u6e29\u67d4 \u00b7 \u6cbb\u6108",
+          "why_this_works": "\u540c\u4e00 motion grammar \u901a\u8fc7\u963b\u5c3c\u5f3a\u5f31\u4e0e\u8282\u594f\u5dee\u5f02\u5373\u53ef\u4ea7\u751f\u5b8c\u5168\u4e0d\u540c\u7684\u60c5\u7eea\u8d28\u611f"
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "c4_hybrid",
+        "rationale": "\u7528\u6237\u9009\u62e9\u6df7\u642d\uff1aC2 \u9713\u8679\u5f39\u5e55\u7684\u6587\u6848\uff08\u70ed\u8840\u77ed\u53e5\uff09+ C1 \u661f\u6cb3\u98de\u5b57\u7684\u80cc\u666f\uff08\u591a\u5f69 mesh \u6e10\u53d8\u94f6\u6cb3 + \u5149\u6591\uff09\u3002\u89c6\u89c9\u91c7\u7528\u591a\u5f69\u5947\u5e7b\u80cc\u666f + \u7c97\u4f53\u53d1\u5149\u5927\u5b57 + \u56db\u5411\u968f\u673a\u98de\u5165 + \u963b\u5c3c\u56de\u5f39\u3002",
+        "modifications": [
+          "\u6587\u6848\u53d6\u81ea C2\uff1a\u6562\u60f3\u6562\u505a\uff0c\u65e0\u754f\u65e0\u60e7\uff0c\u4e00\u8def\u5411\u524d\uff0c\u52bf\u4e0d\u53ef\u6321",
+          "\u80cc\u666f\u53d6\u81ea C1\uff1a\u591a\u5f69 mesh \u6e10\u53d8\u94f6\u6cb3 + \u6f02\u6d6e\u5149\u6591",
+          "\u8fd0\u884c\u65f6\u9501\u5b9a HyperFrames\uff08\u7528\u6237\u6279\u51c6\uff09"
+        ]
+      },
+      "production_plan": {
+        "pipeline": "animation",
+        "playbook": "custom-atelier",
+        "renderer_family": "animation-first",
+        "render_runtime": "hyperframes",
+        "composition_mode": "atelier",
+        "art_direction": "\u591a\u5f69 mesh/conic \u6e10\u53d8\u94f6\u6cb3\u80cc\u666f\uff08\u9713\u8679\u7d2b/\u9752/\u6d0b\u7ea2\u6e10\u53d8 + \u6f02\u6d6e\u5149\u6591\u7c92\u5b50\uff09\uff0c\u7c97\u4f53\u65e0\u886c\u7ebf\u4e2d\u6587\u5b57\uff08\u767d\u5e95\u53d1\u5149 + \u6e10\u53d8\u63cf\u8fb9\uff09\uff0c\u6587\u5b57\u5757\u4ece\u4e0a\u4e0b\u5de6\u53f3\u968f\u673a\u65b9\u5411\u5f39\u6027\u98de\u5165\uff08back.out / elastic \u963b\u5c3c\u8fc7\u51b2\u540e\u56de\u5f39\u843d\u5b9a\uff09\uff0c\u81ea\u52a8\u6362\u884c\u586b\u6ee1\u5c4f\u5e55\u3002\u6bcf\u6279 4-6 \u5b57\u3002",
+        "delivery_promise": {
+          "promise_type": "motion_led",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "epic",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "taste_profile": {
+          "design_read": "\u70ed\u8840\u8bd7\u610f\u5b57\u5e55\u7279\u6548\uff1a\u7c97\u4f53\u5927\u5b57\u4ece\u56db\u65b9\u5411\u968f\u673a\u98de\u5165\u3001\u5f39\u6027\u963b\u5c3c\u843d\u5730\uff0c\u591a\u5f69\u5947\u5e7b\u6e10\u53d8\u94f6\u6cb3\u80cc\u666f\uff0c\u6587\u5b57\u59cb\u7ec8\u662f\u7b2c\u4e00\u4e3b\u89d2\u3002",
+          "visual_variance": 5,
+          "motion_intensity": 9,
+          "information_density": 3,
+          "palette_discipline": "\u9ad8\u9971\u548c\u5947\u5e7b\u6e10\u53d8 + \u767d/\u9713\u8679\u53d1\u5149\u7c97\u4f53\u5b57\uff0c\u6bcf\u53e5\u4e00\u4e2a\u5f3a\u8c03\u8272\uff0c\u80cc\u666f\u538b\u6697\u4fdd\u8bc1\u5bf9\u6bd4\u5ea6",
+          "layout_variation": "\u6587\u5b57\u5757\u968f\u673a\u65b9\u5411\u98de\u5165\u540e\u81ea\u52a8\u6362\u884c\u586b\u6ee1\u5c4f\u5e55",
+          "reference_strategy": "GSAP SplitText \u9010\u5b57 + elastic/back \u7f13\u52a8\u4e3a\u6280\u6cd5\u53c2\u8003",
+          "anti_patterns": [
+            "\u80cc\u666f\u8fc7\u4eae\u6df9\u6ca1\u6587\u5b57",
+            "\u963b\u5c3c\u8fc7\u5f3a\u5bfc\u81f4\u56de\u5f39\u671f\u95f4\u96be\u4ee5\u9605\u8bfb",
+            "\u56db\u65b9\u5411\u540c\u65f6\u98de\u5165\u9020\u6210\u6742\u4e71"
+          ],
+          "quality_gates": [
+            "\u6bcf\u6279\u6587\u5b57\u843d\u5730\u540e\u505c\u9a7b \u22650.3s \u518d\u98de\u5165\u4e0b\u4e00\u6279",
+            "\u6587\u5b57\u5728\u591a\u8272\u80cc\u666f\u4e0b\u5bf9\u6bd4\u5ea6\u53ef\u8bfb",
+            "\u98de\u5165\u65b9\u5411\u56db\u5411\u5747\u8861\u968f\u673a"
+          ]
+        },
+        "stages": [
+          {
+            "stage": "script",
+            "tools": [],
+            "approach": "\u5199\u70ed\u8840\u77ed\u6587\u6848\uff0c\u6309 4-6 \u5b57\u62c6\u53e5\uff0c\u6807\u6ce8\u6bcf\u53e5\u98de\u5165\u65b9\u5411\u4e0e\u8282\u594f"
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "\u5b9a\u4e49\u6bcf\u6279\u6587\u5b57\u98de\u5165\u65b9\u5411\u3001\u963b\u5c3c\u53c2\u6570\u3001\u6362\u884c\u5e03\u5c40\u3001\u80cc\u666f\u5149\u6591\u8fd0\u52a8"
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "piper_tts",
+                "role": "\u4e2d\u6587\u8bed\u97f3\u9010\u53e5\u751f\u6210",
+                "provider": "piper",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "why_this_provider": "\u672c\u5730\u514d\u8d39\u4e2d\u6587\u6a21\u578b zh_CN-huayan\uff0c\u5df2\u9a8c\u8bc1\u53ef\u7528"
+              },
+              {
+                "tool_name": "pixabay_music",
+                "role": "\u80cc\u666f\u97f3\u4e50\u641c\u7d22\u4e0b\u8f7d",
+                "provider": "pixabay_music",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "why_this_provider": "\u514d\u8d39\u5546\u7528\u3001\u65e0\u9700 key"
+              }
+            ],
+            "approach": "piper \u9010\u53e5\u751f\u6210\u4e2d\u6587\u8bed\u97f3\uff1bPixabay \u641c\u5947\u5e7b/\u53f2\u8bd7\u6c1b\u56f4\u80cc\u666f\u4e50"
+          },
+          {
+            "stage": "edit",
+            "tools": [],
+            "approach": "\u7f16\u6392\u6587\u5b57\u6279\u6b21\u4e0e\u8bed\u97f3\u540c\u6b65\uff1b\u97f3\u4e50\u57ab\u5e95\u5e76\u4fa7\u94fe\u538b\u4f4e"
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "role": "HyperFrames \u6e32\u67d3\u6210\u7247",
+                "provider": "hyperframes",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "why_this_provider": "HTML/GSAP kinetic typography \u6bcd\u8bed\uff0c\u5f39\u6027\u7f13\u52a8 + SplitText \u539f\u751f"
+              },
+              {
+                "tool_name": "audio_mixer",
+                "role": "\u8bed\u97f3+\u97f3\u4e50\u6df7\u97f3",
+                "provider": "ffmpeg",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "why_this_provider": "\u672c\u5730 ffmpeg"
+              }
+            ],
+            "approach": "HyperFrames \u6e32\u67d3 + \u672c\u5730\u6df7\u97f3\u5408\u6210\u6700\u7ec8 MP4"
+          },
+          {
+            "stage": "publish",
+            "tools": [],
+            "approach": "\u5143\u6570\u636e\u4e0e\u6253\u5305"
+          }
+        ],
+        "quality_tradeoffs": [
+          {
+            "tradeoff": "piper \u672c\u5730\u4e2d\u6587\u8bed\u97f3\uff08\u514d\u8d39\uff09 vs \u4e91\u7aef TTS\uff08\u4e0d\u53ef\u7528\uff0c\u65e0 key\uff09",
+            "recommendation": "piper",
+            "quality_impact": "\u5408\u6210\u97f3\u8d28\u611f\uff0c\u4f46\u514d\u8d39\u79bb\u7ebf\uff0c\u6d4b\u8bd5\u7247\u8db3\u591f"
+          },
+          {
+            "tradeoff": "HyperFrames\uff08GSAP \u5f39\u6027\u7f13\u52a8\uff09 vs Remotion\uff08spring \u9010\u5e27\u786e\u5b9a\uff09",
+            "recommendation": "HyperFrames",
+            "quality_impact": "\u56db\u5411\u98de\u5165\u5e03\u5c40\u66f4\u81ea\u7531\uff1b\u8bed\u97f3\u9010\u5e27\u5bf9\u9f50\u7565\u5f31\u4e8e Remotion"
+          }
+        ],
+        "alternative_paths": [
+          {
+            "description": "Remotion \u8fd0\u884c\u65f6\u7248\uff08\u540c\u6587\u6848\u540c\u80cc\u666f\uff09",
+            "total_cost_usd": 0,
+            "quality_level": "free",
+            "what_changes": "\u6362\u8fd0\u884c\u65f6\uff0cspring() \u9010\u5e27\u786e\u5b9a\u6027\u66f4\u5f3a"
+          },
+          {
+            "description": "\u7eaf ffmpeg \u9759\u6001\u5b57\u5e55\u7248\uff08\u964d\u7ea7\uff09",
+            "total_cost_usd": 0,
+            "quality_level": "budget",
+            "what_changes": "\u65e0\u98de\u5165\u52a8\u753b\uff0c\u4ec5\u9759\u6001\u5b57\u5e55 burn-in"
+          }
+        ],
+        "music_source": {
+          "source_type": "bring_your_own",
+          "provider": "pixabay_music",
+          "mood_direction": "\u5947\u5e7b\u53f2\u8bd7\u6c1b\u56f4\uff0c\u4e2d\u901f\uff0c\u53ef\u57ab\u5e95\u4e0d\u62a2\u8bed\u97f3",
+          "estimated_cost_usd": 0
+        },
+        "voice_selection": {
+          "provider": "piper",
+          "voice_id": "zh_CN-huayan-medium",
+          "rationale": "\u672c\u5730\u514d\u8d39\u4e2d\u6587\u6a21\u578b\uff0c\u5df2\u9a8c\u8bc1\u751f\u6210 2.275s WAV \u6210\u529f\uff1b\u65e0 API key \u4e5f\u53ef\u7528",
+          "estimated_cost_usd": 0,
+          "delivery_style": "\u6e05\u6670\u6709\u529b\u7684\u4e2d\u6587\u65c1\u767d\uff0c\u54ac\u5b57\u6e05\u695a",
+          "pacing_policy": "\u9010\u53e5\u5bf9\u5e94\u6587\u5b57\u6279\u6b21\uff0c\u53e5\u95f4\u7559 0.3-0.5s \u505c\u987f",
+          "sample_approval_required": true
+        },
+        "provider_rankings": {
+          "tts": [
+            {
+              "tool_name": "piper_tts",
+              "provider": "piper",
+              "weighted_score": 1.0,
+              "task_fit": 1.0,
+              "output_quality": 0.7,
+              "explanation": "\u552f\u4e00\u53ef\u7528\u4e14\u514d\u8d39\uff0c\u4e2d\u6587\u6a21\u578b\u5df2\u9a8c\u8bc1"
+            }
+          ],
+          "music": [
+            {
+              "tool_name": "pixabay_music",
+              "provider": "pixabay_music",
+              "weighted_score": 1.0,
+              "task_fit": 1.0,
+              "output_quality": 0.8,
+              "explanation": "\u514d\u8d39\u65e0\u9700 key\uff0c\u76f4\u63a5\u53ef\u7528"
+            }
+          ]
+        },
+        "decision_log_ref": "pipeline_defs\\flying-words-cosmic\\decision_log.json"
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 0,
+        "line_items": [
+          {
+            "tool": "piper_tts",
+            "operation": "\u4e2d\u6587\u8bed\u97f3\u9010\u53e5\u751f\u6210\uff08\u7ea6 6 \u53e5\uff09",
+            "quantity": 6,
+            "estimated_usd": 0,
+            "notes": "\u672c\u5730\u514d\u8d39"
+          },
+          {
+            "tool": "pixabay_music",
+            "operation": "\u80cc\u666f\u97f3\u4e50\u4e0b\u8f7d 1 \u9996",
+            "quantity": 1,
+            "estimated_usd": 0,
+            "notes": "\u514d\u8d39\u5546\u7528"
+          },
+          {
+            "tool": "video_compose",
+            "operation": "HyperFrames \u672c\u5730\u6e32\u67d3",
+            "quantity": 1,
+            "estimated_usd": 0,
+            "notes": "\u672c\u5730"
+          }
+        ],
+        "budget_cap_usd": 2.0,
+        "budget_verdict": "within_budget",
+        "savings_options": []
+      },
+      "approval": {
+        "status": "approved",
+        "user_notes": "\u7528\u6237\u6279\u51c6\uff1aHyperFrames \u8fd0\u884c\u65f6 + C2 \u6587\u6848 \u00d7 C1 \u80cc\u666f\u6df7\u642d",
+        "approved_budget_usd": 2.0
+      },
+      "metadata": {
+        "direct_brief": true,
+        "runtime_user_approved": "hyperframes",
+        "concept_user_approved": "c4_hybrid (C2 copy + C1 background)"
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "flying-words-cosmic",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "proposal",
+          "category": "pipeline_selection",
+          "subject": "Pipeline for subtitle-effect test video",
+          "options_considered": [
+            {
+              "option_id": "animation",
+              "label": "Animation pipeline",
+              "score": 1.0,
+              "reason": "kinetic typography / motion-graphics-first, production stability"
+            },
+            {
+              "option_id": "animated-explainer",
+              "label": "Animated explainer",
+              "score": 0.4,
+              "reason": "explainer-led, not effect-led"
+            },
+            {
+              "option_id": "cinematic",
+              "label": "Cinematic",
+              "score": 0.3,
+              "reason": "trailer/mood-led, no motion graphics focus"
+            }
+          ],
+          "selected": "animation",
+          "reason": "\u5b57\u5e55\u7279\u6548\u5c5e motion-graphics / kinetic typography\uff0canimation pipeline \u662f\u6700\u4f73\u5339\u914d"
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime for subtitle effect",
+          "options_considered": [
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/GSAP)",
+              "score": 0.9,
+              "reason": "kinetic typography \u6bcd\u8bed\uff0cSplitText + elastic \u963b\u5c3c\u7f13\u52a8\u539f\u751f\uff0c\u56db\u5411\u98de\u5165\u5e03\u5c40\u6700\u81ea\u7531"
+            },
+            {
+              "option_id": "remotion",
+              "label": "Remotion (React + spring)",
+              "score": 0.7,
+              "reason": "spring() \u9010\u5e27\u786e\u5b9a\u3001\u4e0e\u8bed\u97f3\u540c\u6b65\u6700\u7cbe\u786e\uff0c\u4f46\u56db\u5411\u968f\u673a\u98de\u5165\u6392\u7248\u5199 React \u66f4\u7e41\u7410"
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg concat/burn-in",
+              "score": 0.1,
+              "reason": "\u65e0\u98de\u5165\u52a8\u753b\uff0c\u4ec5\u9759\u6001\u5b57\u5e55\uff0c\u4e0d\u6ee1\u8db3 motion-required"
+            }
+          ],
+          "selected": "hyperframes",
+          "reason": "\u7528\u6237\u660e\u786e\u6279\u51c6 HyperFrames\uff1bbrief \u4e3a\u5b57\u5e55\u7279\u6548\uff08kinetic typography\uff09\uff0cHTML/GSAP \u662f\u6700\u81ea\u7136\u8868\u8fbe",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "Composition authoring mode",
+          "options_considered": [
+            {
+              "option_id": "atelier",
+              "label": "Atelier (hand-authored)",
+              "score": 0.9,
+              "reason": "hero \u7ea7\u7279\u6548\uff1a\u5168\u65b0\u89c6\u89c9\u8bed\u8a00\uff08\u591a\u5f69\u5947\u5e7b\u6e10\u53d8 + \u56db\u5411\u98de\u5165\u963b\u5c3c\uff09\uff0c\u590d\u7528 stock cut.type \u4f1a\u5343\u7bc7\u4e00\u5f8b"
+            },
+            {
+              "option_id": "templated",
+              "label": "Templated (stock scene types)",
+              "score": 0.3,
+              "reason": "\u65e0\u73b0\u6210'\u56db\u5411\u98de\u5165\u5b57\u5e55'\u573a\u666f\uff0c\u5feb\u901f\u4f46\u5343\u7bc7\u4e00\u5f8b"
+            }
+          ],
+          "selected": "atelier",
+          "reason": "\u5b57\u5e55\u7279\u6548\u662f\u5168\u65b0\u89c6\u89c9\u8bed\u8a00\uff0c\u5fc5\u987b hand-author\uff1bstock \u573a\u666f\u4e0d\u542b\u6b64\u6548\u679c",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "proposal",
+          "category": "concept_selection",
+          "subject": "Concept direction",
+          "options_considered": [
+            {
+              "option_id": "c1",
+              "label": "C1 \u661f\u6cb3\u98de\u5b57",
+              "score": 0.7,
+              "reason": "\u591a\u5f69\u6e10\u53d8\u80cc\u666f+\u8bd7\u610f\u6587\u6848"
+            },
+            {
+              "option_id": "c2",
+              "label": "C2 \u9713\u8679\u5f39\u5e55",
+              "score": 0.7,
+              "reason": "\u70ed\u8840\u6587\u6848+\u9713\u8679\u53d1\u5149"
+            },
+            {
+              "option_id": "c3",
+              "label": "C3 \u6781\u5149\u8bd7\u884c",
+              "score": 0.5,
+              "reason": "\u6781\u5149\u80cc\u666f+\u8212\u7f13\u8282\u594f"
+            },
+            {
+              "option_id": "c4_hybrid",
+              "label": "C4 \u6df7\u642d\uff1aC2\u6587\u6848\u00d7C1\u80cc\u666f",
+              "score": 0.9,
+              "reason": "\u7528\u6237\u6307\u5b9a\u6df7\u642d"
+            }
+          ],
+          "selected": "c4_hybrid",
+          "reason": "\u7528\u6237\u9009\u62e9\uff1a\u70ed\u8840\u77ed\u53e5\u6587\u6848\uff08C2\uff09+ \u591a\u5f69\u5947\u5e7b\u6e10\u53d8\u80cc\u666f\uff08C1\uff09",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 1.0
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "Narration TTS provider",
+          "options_considered": [
+            {
+              "option_id": "piper",
+              "label": "Piper \u672c\u5730\u4e2d\u6587 (zh_CN-huayan-medium)",
+              "score": 0.95,
+              "reason": "\u53ef\u7528\u3001\u514d\u8d39\u3001\u79bb\u7ebf\uff0c\u4e2d\u6587\u6a21\u578b\u5df2\u9a8c\u8bc1\u751f\u6210\u6210\u529f"
+            },
+            {
+              "option_id": "elevenlabs",
+              "label": "ElevenLabs",
+              "score": 0,
+              "reason": "\u65e0 API key\uff0c\u4e0d\u53ef\u7528",
+              "rejected_because": "runtime not configured"
+            },
+            {
+              "option_id": "openai",
+              "label": "OpenAI TTS",
+              "score": 0,
+              "reason": "\u65e0 API key\uff0c\u4e0d\u53ef\u7528",
+              "rejected_because": "runtime not configured"
+            },
+            {
+              "option_id": "dashscope",
+              "label": "DashScope TTS",
+              "score": 0,
+              "reason": "\u65e0 API key\uff0c\u4e0d\u53ef\u7528",
+              "rejected_because": "runtime not configured"
+            }
+          ],
+          "selected": "piper",
+          "reason": "\u552f\u4e00\u53ef\u7528\u4e14\u514d\u8d39\uff1b\u4e2d\u6587\u6a21\u578b\u5df2\u9a8c\u8bc1",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "Background music source",
+          "options_considered": [
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay \u514d\u8d39\u97f3\u4e50",
+              "score": 0.9,
+              "reason": "\u514d\u8d39\u5546\u7528\u3001\u65e0\u9700 key\uff0c\u76f4\u63a5\u53ef\u7528"
+            },
+            {
+              "option_id": "music_gen",
+              "label": "AI \u751f\u6210\u97f3\u4e50",
+              "score": 0,
+              "reason": "\u65e0 key \u4e0d\u53ef\u7528",
+              "rejected_because": "no API key configured"
+            },
+            {
+              "option_id": "music_library",
+              "label": "\u672c\u5730\u97f3\u4e50\u5e93",
+              "score": 0,
+              "reason": "music_library/ \u4e3a\u7a7a",
+              "rejected_because": "empty library"
+            },
+            {
+              "option_id": "none",
+              "label": "\u65e0\u97f3\u4e50",
+              "score": 0.2,
+              "reason": "\u4f4e\u4fdd\u771f\uff0c\u975e\u9996\u9009"
+            }
+          ],
+          "selected": "pixabay_music",
+          "reason": "\u514d\u8d39\u3001\u65e0\u9700 key\u3001\u53ef\u7528\uff1b\u5df2\u6309 Music Plan \u5728 proposal \u9636\u6bb5\u5448\u73b0\u7ed9\u7528\u6237",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "note": "User approved: runtime=hyperframes, concept=c4_hybrid (C2 copy + C1 bg)"
+  }
+}

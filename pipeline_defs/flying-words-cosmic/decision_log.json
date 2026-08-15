@@ -1,0 +1,206 @@
+{
+  "version": "1.0",
+  "project_id": "flying-words-cosmic",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "pipeline_selection",
+      "subject": "Pipeline for subtitle-effect test video",
+      "options_considered": [
+        {
+          "option_id": "animation",
+          "label": "Animation pipeline",
+          "score": 1.0,
+          "reason": "kinetic typography / motion-graphics-first, production stability"
+        },
+        {
+          "option_id": "animated-explainer",
+          "label": "Animated explainer",
+          "score": 0.4,
+          "reason": "explainer-led, not effect-led"
+        },
+        {
+          "option_id": "cinematic",
+          "label": "Cinematic",
+          "score": 0.3,
+          "reason": "trailer/mood-led, no motion graphics focus"
+        }
+      ],
+      "selected": "animation",
+      "reason": "\u5b57\u5e55\u7279\u6548\u5c5e motion-graphics / kinetic typography\uff0canimation pipeline \u662f\u6700\u4f73\u5339\u914d"
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime for subtitle effect",
+      "options_considered": [
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/GSAP)",
+          "score": 0.9,
+          "reason": "kinetic typography \u6bcd\u8bed\uff0cSplitText + elastic \u963b\u5c3c\u7f13\u52a8\u539f\u751f\uff0c\u56db\u5411\u98de\u5165\u5e03\u5c40\u6700\u81ea\u7531"
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React + spring)",
+          "score": 0.7,
+          "reason": "spring() \u9010\u5e27\u786e\u5b9a\u3001\u4e0e\u8bed\u97f3\u540c\u6b65\u6700\u7cbe\u786e\uff0c\u4f46\u56db\u5411\u968f\u673a\u98de\u5165\u6392\u7248\u5199 React \u66f4\u7e41\u7410"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg concat/burn-in",
+          "score": 0.1,
+          "reason": "\u65e0\u98de\u5165\u52a8\u753b\uff0c\u4ec5\u9759\u6001\u5b57\u5e55\uff0c\u4e0d\u6ee1\u8db3 motion-required"
+        }
+      ],
+      "selected": "hyperframes",
+      "reason": "\u7528\u6237\u660e\u786e\u6279\u51c6 HyperFrames\uff1bbrief \u4e3a\u5b57\u5e55\u7279\u6548\uff08kinetic typography\uff09\uff0cHTML/GSAP \u662f\u6700\u81ea\u7136\u8868\u8fbe",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier (hand-authored)",
+          "score": 0.9,
+          "reason": "hero \u7ea7\u7279\u6548\uff1a\u5168\u65b0\u89c6\u89c9\u8bed\u8a00\uff08\u591a\u5f69\u5947\u5e7b\u6e10\u53d8 + \u56db\u5411\u98de\u5165\u963b\u5c3c\uff09\uff0c\u590d\u7528 stock cut.type \u4f1a\u5343\u7bc7\u4e00\u5f8b"
+        },
+        {
+          "option_id": "templated",
+          "label": "Templated (stock scene types)",
+          "score": 0.3,
+          "reason": "\u65e0\u73b0\u6210'\u56db\u5411\u98de\u5165\u5b57\u5e55'\u573a\u666f\uff0c\u5feb\u901f\u4f46\u5343\u7bc7\u4e00\u5f8b"
+        }
+      ],
+      "selected": "atelier",
+      "reason": "\u5b57\u5e55\u7279\u6548\u662f\u5168\u65b0\u89c6\u89c9\u8bed\u8a00\uff0c\u5fc5\u987b hand-author\uff1bstock \u573a\u666f\u4e0d\u542b\u6b64\u6548\u679c",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Concept direction",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "C1 \u661f\u6cb3\u98de\u5b57",
+          "score": 0.7,
+          "reason": "\u591a\u5f69\u6e10\u53d8\u80cc\u666f+\u8bd7\u610f\u6587\u6848"
+        },
+        {
+          "option_id": "c2",
+          "label": "C2 \u9713\u8679\u5f39\u5e55",
+          "score": 0.7,
+          "reason": "\u70ed\u8840\u6587\u6848+\u9713\u8679\u53d1\u5149"
+        },
+        {
+          "option_id": "c3",
+          "label": "C3 \u6781\u5149\u8bd7\u884c",
+          "score": 0.5,
+          "reason": "\u6781\u5149\u80cc\u666f+\u8212\u7f13\u8282\u594f"
+        },
+        {
+          "option_id": "c4_hybrid",
+          "label": "C4 \u6df7\u642d\uff1aC2\u6587\u6848\u00d7C1\u80cc\u666f",
+          "score": 0.9,
+          "reason": "\u7528\u6237\u6307\u5b9a\u6df7\u642d"
+        }
+      ],
+      "selected": "c4_hybrid",
+      "reason": "\u7528\u6237\u9009\u62e9\uff1a\u70ed\u8840\u77ed\u53e5\u6587\u6848\uff08C2\uff09+ \u591a\u5f69\u5947\u5e7b\u6e10\u53d8\u80cc\u666f\uff08C1\uff09",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper \u672c\u5730\u4e2d\u6587 (zh_CN-huayan-medium)",
+          "score": 0.95,
+          "reason": "\u53ef\u7528\u3001\u514d\u8d39\u3001\u79bb\u7ebf\uff0c\u4e2d\u6587\u6a21\u578b\u5df2\u9a8c\u8bc1\u751f\u6210\u6210\u529f"
+        },
+        {
+          "option_id": "elevenlabs",
+          "label": "ElevenLabs",
+          "score": 0,
+          "reason": "\u65e0 API key\uff0c\u4e0d\u53ef\u7528",
+          "rejected_because": "runtime not configured"
+        },
+        {
+          "option_id": "openai",
+          "label": "OpenAI TTS",
+          "score": 0,
+          "reason": "\u65e0 API key\uff0c\u4e0d\u53ef\u7528",
+          "rejected_because": "runtime not configured"
+        },
+        {
+          "option_id": "dashscope",
+          "label": "DashScope TTS",
+          "score": 0,
+          "reason": "\u65e0 API key\uff0c\u4e0d\u53ef\u7528",
+          "rejected_because": "runtime not configured"
+        }
+      ],
+      "selected": "piper",
+      "reason": "\u552f\u4e00\u53ef\u7528\u4e14\u514d\u8d39\uff1b\u4e2d\u6587\u6a21\u578b\u5df2\u9a8c\u8bc1",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music source",
+      "options_considered": [
+        {
+          "option_id": "pixabay_music",
+          "label": "Pixabay \u514d\u8d39\u97f3\u4e50",
+          "score": 0.9,
+          "reason": "\u514d\u8d39\u5546\u7528\u3001\u65e0\u9700 key\uff0c\u76f4\u63a5\u53ef\u7528"
+        },
+        {
+          "option_id": "music_gen",
+          "label": "AI \u751f\u6210\u97f3\u4e50",
+          "score": 0,
+          "reason": "\u65e0 key \u4e0d\u53ef\u7528",
+          "rejected_because": "no API key configured"
+        },
+        {
+          "option_id": "music_library",
+          "label": "\u672c\u5730\u97f3\u4e50\u5e93",
+          "score": 0,
+          "reason": "music_library/ \u4e3a\u7a7a",
+          "rejected_because": "empty library"
+        },
+        {
+          "option_id": "none",
+          "label": "\u65e0\u97f3\u4e50",
+          "score": 0.2,
+          "reason": "\u4f4e\u4fdd\u771f\uff0c\u975e\u9996\u9009"
+        }
+      ],
+      "selected": "pixabay_music",
+      "reason": "\u514d\u8d39\u3001\u65e0\u9700 key\u3001\u53ef\u7528\uff1b\u5df2\u6309 Music Plan \u5728 proposal \u9636\u6bb5\u5448\u73b0\u7ed9\u7528\u6237",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    }
+  ]
+}

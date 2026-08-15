@@ -1,0 +1,182 @@
+{
+  "version": "1.0",
+  "project_id": "flying-words-cosmic",
+  "pipeline_type": "animation",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-08-07T09:20:21.063551+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "\u5b57\u5e55\u7279\u6548\u89c6\u9891\uff1a\u4e2d\u6587\u5b57\u53e5\u4ece\u56db\u65b9\u5411\u968f\u673a\u98de\u5165\uff08\u963b\u5c3c\u5f39\u8df3\uff09+ \u7c97\u4f53\u5927\u5b57 + \u591a\u5f69\u5947\u5e7b\u80cc\u666f + \u4e2d\u6587\u8bed\u97f3 + \u80cc\u666f\u97f3\u4e50\uff08\u6d4b\u8bd5\u7247\uff09",
+      "research_date": "2026-08-07",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "Remotion spring() \u6587\u6863",
+            "url": "https://www.remotion.dev/docs/spring",
+            "source": "official-docs",
+            "angle": "\u5f39\u7c27\u7269\u7406\uff1adamping/stiffness/mass \u63a7\u5236\u56de\u5f39\u4e0e\u8fc7\u51b2",
+            "what_it_covers": "Remotion \u5185\u7f6e spring() \u7684\u963b\u5c3c(damping)\u3001\u521a\u5ea6(stiffness)\u3001\u8d28\u91cf(mass)\u53c2\u6570\uff0c\u76f4\u63a5\u5bf9\u5e94\u672c\u7247\u6240\u9700\u7684'\u963b\u5c3c\u6548\u679c'"
+          },
+          {
+            "title": "Kinetic Typography 10 Presets (RemotionLab)",
+            "url": "https://remotionlab.com/tutorials/kinetic-typography-presets",
+            "source": "blog",
+            "angle": "\u7a0b\u5e8f\u5316\u6e10\u53d8\u80cc\u666f(Mesh/Conic/SVG Turbulence) + \u6587\u5b57\u8fdb\u51fa\u573a\u52a8\u753b",
+            "what_it_covers": "\u591a\u5f69\u5947\u5e7b\u80cc\u666f\u53ef\u7eaf\u4ee3\u7801\u751f\u6210\uff0c\u65e0\u9700\u56fe\u50cf\u751f\u6210 API\uff1bElasticPop/WordStagger \u7b49\u8fd0\u52a8\u9884\u8bbe\u4e0e'\u98de\u5165+\u963b\u5c3c'\u9ad8\u5ea6\u76f8\u5173"
+          },
+          {
+            "title": "GSAP SplitText \u9010\u5b57\u52a8\u753b",
+            "url": "https://gsapify.com/gsap-splittext",
+            "source": "blog",
+            "angle": "\u9010\u5b57\u7b26/\u9010\u8bcd/\u9010\u884c\u62c6\u5206\u4e0e stagger \u9519\u5cf0",
+            "what_it_covers": "\u6309\u5b57\u62c6\u5206\u7684 kinetic typography \u662f HTML/GSAP \u7684\u5929\u7136\u5f3a\u9879\uff0cback.out \u7b49 elastic \u7f13\u52a8\u5373'\u963b\u5c3c\u8fc7\u51b2'\u6548\u679c"
+          }
+        ],
+        "saturated_angles": [],
+        "underserved_gaps": [
+          "\u56db\u65b9\u5411\u968f\u673a\u98de\u5165 + \u963b\u5c3c\u56de\u5f39 + \u6362\u884c\u586b\u6ee1\u5c4f\u5e55\u7684\u5b57\u5e55\u7279\u6548\uff0c\u7528\u672c\u5730\u514d\u8d39\u5de5\u5177(piper TTS + \u4ee3\u7801\u751f\u6210\u80cc\u666f)\u5b8c\u6574\u8dd1\u901a\u662f\u7a7a\u767d"
+        ]
+      },
+      "trending": {
+        "recent_developments": [],
+        "active_discussions": [],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "Remotion spring() \u9ed8\u8ba4 damping=10 \u4f1a\u8fc7\u51b2\u5230\u7ea6 1.15 \u518d\u56de\u5f39\uff1bdamping=8 \u4e3a\u5f3a\u56de\u5f39\uff08cartoon pop\uff09\uff0cdamping=200 \u5b8c\u5168\u65e0\u56de\u5f39\uff08\u9002\u5408 highlight \u6a2a\u626b\uff09",
+          "source_url": "https://www.remotion.dev/docs/spring",
+          "source_name": "Remotion Docs",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "motion_dial"
+        },
+        {
+          "claim": "kinetic typography \u9010\u5b57\u7b26\u52a8\u753b\u662f HTML/GSAP \u539f\u751f\u5f3a\u9879\uff0cGSAP SplitText \u63d0\u4f9b chars/words/lines \u4e09\u7ea7\u62c6\u5206\uff0cback.out elastic \u7f13\u52a8\u5929\u7136\u4ea7\u751f\u963b\u5c3c\u8fc7\u51b2",
+          "source_url": "https://gsapify.com/gsap-splittext",
+          "source_name": "GSAPify Guide",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "runtime_selection"
+        },
+        {
+          "claim": "\u7a0b\u5e8f\u5316\u80cc\u666f\uff08Mesh Gradient / Conic Rotation / SVG Turbulence\uff09\u53ef\u7eaf\u4ee3\u7801\u751f\u6210\u591a\u5f69\u5947\u5e7b\u6e10\u53d8\uff0c\u4e0d\u9700\u8981\u56fe\u50cf\u751f\u6210 API key",
+          "source_url": "https://remotionlab.com/tutorials/kinetic-typography-presets",
+          "source_name": "RemotionLab",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "visual_identity"
+        },
+        {
+          "claim": "\u6587\u672c\u52a8\u753b\u6240\u6709\u503c\u5fc5\u987b\u7531 useCurrentFrame() \u6d3e\u751f\uff08frame \u7eaf\u51fd\u6570\uff09\uff0cCSS transition \u5728\u9010\u5e27\u6e32\u67d3\u4e2d\u4e0d\u4f1a\u64ad\u653e",
+          "source_url": "https://devsvideo.com/remotion/remotion-text-animations",
+          "source_name": "DevsVideo",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "scene_plan"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "\u6587\u5b57\u4e00\u6b21\u51fa\u73b0\u51e0\u4e2a\u5b57\u6700\u5408\u9002\uff1f",
+          "\u963b\u5c3c\u56de\u5f39\u5982\u4f55\u907f\u514d\u6587\u5b57\u6296\u52a8\u96be\u8bfb\uff1f",
+          "\u591a\u5f69\u80cc\u666f\u662f\u5426\u76d6\u4f4f\u5b57\u5e55\u53ef\u8bfb\u6027\uff1f"
+        ],
+        "misconceptions": [
+          {
+            "myth": "\u5b57\u5e55\u7279\u6548\u5fc5\u987b\u6709 AI \u56fe\u50cf/\u89c6\u9891\u751f\u6210\u624d\u597d\u770b",
+            "reality": "\u7eaf\u4ee3\u7801 kinetic typography + \u7a0b\u5e8f\u5316\u6e10\u53d8\u80cc\u666f\u5373\u53ef\u5b9e\u73b0\u9ad8\u8d28\u611f\uff0c\u4e14 100% \u514d\u8d39\u672c\u5730\u6e32\u67d3",
+            "source": "remotionlab.com"
+          },
+          {
+            "myth": "\u9010\u5b57 opacity \u52a8\u753b\u6bd4\u5b57\u7b26\u4e32\u5207\u7247\u597d",
+            "reality": "\u9010\u5b57 toggle opacity \u4f1a\u9020\u6210\u5e03\u5c40\u6296\u52a8\uff1b\u5e94\u4f7f\u7528 slicing \u6216\u6574\u5757 transform/opacity",
+            "source": "devsvideo.com"
+          }
+        ],
+        "knowledge_level": "\u89c2\u4f17\u4e3a\u89c6\u9891\u521b\u4f5c\u8005/\u6280\u672f\u6f14\u793a\u4eba\u7fa4\uff1b\u6d4b\u8bd5\u7247\u76ee\u7684=\u9a8c\u8bc1'\u56db\u5411\u98de\u5165+\u963b\u5c3c+\u8bed\u97f3'\u89c2\u611f",
+        "pain_points": [
+          "\u6587\u5b57\u591a\u65b9\u5411\u98de\u5165\u540e\u5c4f\u5e55\u6742\u4e71",
+          "\u963b\u5c3c\u8fc7\u5f3a\u5bfc\u81f4\u6587\u5b57\u56de\u5f39\u65f6\u96be\u4ee5\u9605\u8bfb",
+          "\u80cc\u666f\u82b1\u54e8\u76d6\u8fc7\u5b57\u5e55"
+        ]
+      },
+      "expert_voices": [],
+      "angles_discovered": [
+        {
+          "name": "\u56db\u5411\u98de\u5165\u00b7\u963b\u5c3c\u843d\u5730",
+          "hook": "\u4e00\u53e5\u53f0\u8bcd\uff0c\u4ece\u4e0a\u4e0b\u5de6\u53f3\u56db\u4e2a\u65b9\u5411\u968f\u673a\u98de\u5165\u5c4f\u5e55\u4e2d\u592e\uff0c\u5e26\u7740\u56de\u5f39\u7a33\u7a33\u843d\u5730\u3002",
+          "type": "evergreen",
+          "why_now": "\u7528\u6237\u660e\u786e\u6307\u5b9a\u56db\u65b9\u5411\u968f\u673a\u98de\u5165+\u963b\u5c3c\u6548\u679c\uff1bGSAP elastic / Remotion spring \u5747\u5df2\u9a8c\u8bc1\u53ef\u7cbe\u786e\u5b9e\u73b0",
+          "grounded_in": [
+            "Remotion spring() \u6587\u6863",
+            "GSAP SplitText \u9010\u5b57\u52a8\u753b"
+          ]
+        },
+        {
+          "name": "\u7a0b\u5e8f\u5316\u5947\u5e7b\u6e10\u53d8\u80cc\u666f",
+          "hook": "\u65e0\u9700\u4efb\u4f55 AI \u56fe\u50cf\uff0c\u7eaf\u4ee3\u7801 Mesh/Conic \u6e10\u53d8\u751f\u6210\u591a\u5f69\u5947\u5e7b\u661f\u7a7a\u3002",
+          "type": "evergreen",
+          "why_now": "\u672c\u673a\u65e0\u56fe\u50cf\u751f\u6210 key\uff1b\u7a0b\u5e8f\u5316\u80cc\u666f\u5df2\u9a8c\u8bc1\u53ef\u884c\u4e14\u514d\u8d39",
+          "grounded_in": [
+            "Kinetic Typography 10 Presets (RemotionLab)"
+          ]
+        },
+        {
+          "name": "4-6 \u5b57\u5206\u53e5\u00b7\u6362\u884c\u586b\u6ee1",
+          "hook": "\u6bcf 4-6 \u4e2a\u5b57\u4e00\u6279\u98de\u5165\uff0c\u81ea\u52a8\u6362\u884c\u76f4\u5230\u586b\u6ee1\u5c4f\u5e55\uff0c\u5f62\u6210\u9010\u53e5\u63a8\u8fdb\u7684\u5b57\u5e55\u8282\u594f\u3002",
+          "type": "evergreen",
+          "why_now": "\u7528\u6237\u6307\u5b9a\u6bcf\u6b21 4-6 \u5b57\u3001\u53ef\u6362\u884c\u586b\u6ee1\u5c4f\u5e55\uff1b\u4fe1\u606f\u5bc6\u5ea6\u4e0e\u53ef\u8bfb\u6027\u517c\u987e",
+          "grounded_in": [
+            "Remotion spring() \u6587\u6863"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.remotion.dev/docs/spring",
+          "title": "Remotion spring() official docs",
+          "used_for": "\u963b\u5c3c\u53c2\u6570\u4e0e\u8fd0\u52a8\u7269\u7406",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://devsvideo.com/remotion/remotion-text-animations",
+          "title": "Remotion Text Animations guide",
+          "used_for": "\u9010\u5e27\u52a8\u753b\u4e0e spring \u914d\u7f6e",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://remotionlab.com/tutorials/kinetic-typography-presets",
+          "title": "Kinetic Typography: 10 Presets",
+          "used_for": "\u7a0b\u5e8f\u5316\u80cc\u666f + \u6587\u5b57\u9884\u8bbe",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://gsapify.com/gsap-splittext",
+          "title": "GSAP SplitText complete guide",
+          "used_for": "\u9010\u5b57\u62c6\u5206\u4e0e elastic \u7f13\u52a8",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://stealthis.dev/r/remotion-kinetic-text/",
+          "title": "Kinetic Typography (Remotion) example",
+          "used_for": "spring \u9519\u5cf0\u6587\u5b57\u8fdb\u573a\u8303\u4f8b",
+          "reliability": "secondary"
+        }
+      ],
+      "research_summary": "\u8fd9\u662f\u4e00\u4e2a\u76f4\u63a5\u521b\u610f\u7b80\u62a5\uff08\u81ea\u5199\u6587\u6848\u7684\u6d4b\u8bd5\u7247\uff09\uff0c\u4e3b\u9898\u6027\u7814\u7a76\u4ece\u7b80\uff0c\u91cd\u70b9\u662f\u52a8\u753b\u6280\u6cd5\u7814\u7a76\uff1a'\u56db\u65b9\u5411\u968f\u673a\u98de\u5165 + \u963b\u5c3c\u56de\u5f39' \u5728 Remotion spring()\uff08damping/stiffness/mass\uff09\u4e0e GSAP elastic \u7f13\u52a8\u4e0b\u90fd\u80fd\u7cbe\u786e\u5b9e\u73b0\uff1b\u591a\u5f69\u5947\u5e7b\u80cc\u666f\u53ef\u7531\u7a0b\u5e8f\u5316\u6e10\u53d8\uff08Mesh/Conic/Turbulence\uff09\u7eaf\u4ee3\u7801\u751f\u6210\uff0c\u65e0\u9700\u56fe\u50cf API\uff1bTTS \u4f7f\u7528\u5df2\u9a8c\u8bc1\u53ef\u7528\u7684\u672c\u5730 piper \u4e2d\u6587\u6a21\u578b\uff1b\u97f3\u4e50\u8d70\u514d\u8d39 Pixabay\u3002\u6574\u7247\u53ef 100% \u514d\u8d39\u672c\u5730\u6e32\u67d3\u3002",
+      "metadata": {
+        "direct_brief": true,
+        "note": "\u7528\u6237\u76f4\u63a5\u63d0\u4f9b\u521b\u610f\u65b9\u5411\u5e76\u81ea\u5199\u6587\u6848\uff1b\u8df3\u8fc7\u4e3b\u9898\u6027\u7f51\u7edc\u7814\u7a76\uff0c\u4ec5\u505a\u52a8\u753b\u6280\u6cd5\u7814\u7a76"
+      }
+    }
+  },
+  "metadata": {
+    "note": "direct brief - technique research only"
+  }
+}

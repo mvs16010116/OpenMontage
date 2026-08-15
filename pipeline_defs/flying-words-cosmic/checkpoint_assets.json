@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "project_id": "flying-words-cosmic",
+  "pipeline_type": "animation",
+  "stage": "assets",
+  "status": "in_progress",
+  "timestamp": "2026-08-07T09:27:36.093960+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {},
+  "metadata": {
+    "partial_progress": {
+      "note": "Asset generation starting: piper TTS x4, pixabay music x1, hyperframes composition"
+    }
+  }
+}
