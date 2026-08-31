@@ -1,0 +1,1645 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-gaza-pursuit",
+  "pipeline_type": "narration-synth",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-08-28T03:48:32.760859+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "clean-professional",
+      "scenes": [
+        {
+          "id": "scene_opener",
+          "type": "generated",
+          "description": "opener - center title card with hook",
+          "semantic_sentence": "\u8bf4\u51fa\u6765\u4f60\u6562\u4fe1\uff1f",
+          "start_seconds": -0.5,
+          "end_seconds": 2.5,
+          "script_section_id": "section_opener",
+          "framing": "wide",
+          "movement": "static",
+          "transition_in": "fade_in",
+          "transition_out": "cut",
+          "shot_language": "title_card_open",
+          "shot_intent": "\u76f4\u5165 hook \u5927\u5b57\uff0c\u65e0\u54c1\u724c\u7247\u5934",
+          "narrative_role": "opener",
+          "hero_moment": true,
+          "texture_keywords": [
+            "\u8bf4",
+            "\u4f60\u6562\u4fe1",
+            "hook"
+          ],
+          "materials": [
+            {
+              "id": "scene_opener_mat",
+              "layer": "background",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u8bf4\u51fa\u6765\u4f60\u6562\u4fe1\uff1f",
+                "--keyword": "\u4ee5\u519b\u76ee\u6807\u5df2\u6362\u82af",
+                "--accent": "#fbbf24",
+                "--duration": "2",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "opener \u2014 \u7ad6\u7248\u4e2d\u5fc3\u6807\u9898\u5361\uff08vertical compositor \u4e8e assets \u9636\u6bb5\u5b9e\u73b0\uff09"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_01_1",
+          "type": "generated",
+          "description": "\u5927\u5bb6\u597d\uff0c\u6211\u662f\u4faf\u54e5\u519b\u60c5\u3002",
+          "semantic_sentence": "\u5927\u5bb6\u597d\uff0c\u6211\u662f\u4faf\u54e5\u519b\u60c5\u3002",
+          "start_seconds": 0.0,
+          "end_seconds": 2.0,
+          "script_section_id": "section_01",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_01_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_01_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_01_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "smoke dark background cinematic",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "2.0"
+              },
+              "output_note": "scene_section_01_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_01_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u4faf\u54e5\u519b\u60c5 \u00b7 \u76ee\u6807\u5df2\u6362\u82af",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "2.0",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_01_1 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_01_2",
+          "type": "generated",
+          "description": "\u8bf4\u51fa\u6765\u4f60\u6562\u4fe1\uff1f\u6253\u4e86\u5feb3\u5e74\u7684\u52a0\u6c99\u6218\u4e8b\uff0c\u4ee5\u8272\u5217\u519b",
+          "semantic_sentence": "\u8bf4\u51fa\u6765\u4f60\u6562\u4fe1\uff1f\u6253\u4e86\u5feb3\u5e74\u7684\u52a0\u6c99\u6218\u4e8b\uff0c\u4ee5\u8272\u5217\u519b\u65b9\u5230\u73b0\u5728\u624d\u628a\u6838\u5fc3\u76ee\u6807\u4ece\u6467\u6bc1\u54c8\u9a6c\u65af\u6362\u6210\u4e86\u9010\u4e2a\u6e05\u7b972023\u5e7410\u67087\u65e5\u7684\u53c2\u4e0e\u8005",
+          "start_seconds": 2.0,
+          "end_seconds": 14.67,
+          "script_section_id": "section_01",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": true,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_01_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_01_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_01_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "gaza conflict aftermath rubble",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "12.67"
+              },
+              "output_note": "scene_section_01_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_01_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u8bf4\u51fa\u6765\u4f60\u6562\u4fe1\uff1f\u6838\u5fc3\u76ee\u6807\u5df2\u6362",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "12.67",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_01_2 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_01_3",
+          "type": "generated",
+          "description": "\u8fd9\u6ce2\u8c03\u6574\u8bf4\u7a7f\u4e86\u6839\u672c\u4e0d\u662f\u4ec0\u4e48\u6218\u672f\u5c42\u9762\u7684\u5c0f\u4fee\u5c0f\u8865",
+          "semantic_sentence": "\u8fd9\u6ce2\u8c03\u6574\u8bf4\u7a7f\u4e86\u6839\u672c\u4e0d\u662f\u4ec0\u4e48\u6218\u672f\u5c42\u9762\u7684\u5c0f\u4fee\u5c0f\u8865\uff0c\u5b8c\u5168\u662f\u4ee5\u519b\u6700\u9ad8\u5c42\u628a\u4e4b\u524d\u6a21\u7cca\u4e86\u5feb3\u5e74\u7684\u62a5\u590d\u4f18\u5148\u7ea7\u7ed9\u5f7b\u5e95\u9489\u6b7b\u4e86",
+          "start_seconds": 14.67,
+          "end_seconds": 26.0,
+          "script_section_id": "section_01",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "data_over_photo",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_01_3_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_01_3_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_01_3_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "military strategy documents tactical",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "11.33"
+              },
+              "output_note": "scene_section_01_3 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_01_3_mat_fg",
+              "layer": "foreground",
+              "skill": "military-data-viz",
+              "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u62a5\u590d\u4f18\u5148\u7ea7 \u00b7 \u5f7b\u5e95\u9489\u6b7b",
+                "--type": "timeline",
+                "--bars": [],
+                "--timeline": [
+                  "2023-10-07:\u88ad\u51fb",
+                  "2026-08:\u76ee\u6807\u6362\u82af"
+                ],
+                "--kpi": "\u5feb3\u5e74",
+                "--accent": "#fbbf24",
+                "--duration": "11.33",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_01_3 \u524d\u666f \u2014 \u6570\u636e\u53ef\u89c6\u5316"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_02_1",
+          "type": "generated",
+          "description": "\u4e4b\u524d\u558a\u7684\u6467\u6bc1\u54c8\u9a6c\u65af\u8bf4\u767d\u4e86\u5c31\u662f\u4e2a\u6ca1\u660e\u786e\u7ec8\u70b9\u7684\u5e4c",
+          "semantic_sentence": "\u4e4b\u524d\u558a\u7684\u6467\u6bc1\u54c8\u9a6c\u65af\u8bf4\u767d\u4e86\u5c31\u662f\u4e2a\u6ca1\u660e\u786e\u7ec8\u70b9\u7684\u5e4c\u5b50\uff0c\u65e2\u80fd\u62ff\u6765\u7ed9\u56fd\u5185\u6c11\u4f17\u4ea4\u5dee\uff0c\u4e5f\u80fd\u7ed9\u56fd\u9645\u793e\u4f1a\u7559\u65a1\u65cb\u7684\u4f59\u5730",
+          "start_seconds": 26.0,
+          "end_seconds": 36.44,
+          "script_section_id": "section_02",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_02_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_02_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_02_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "official building flags symbol",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "10.44"
+              },
+              "output_note": "scene_section_02_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_02_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u300c\u6467\u6bc1\u54c8\u9a6c\u65af\u300d\uff1d\u5e4c\u5b50",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "10.44",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_02_1 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_02_2",
+          "type": "generated",
+          "description": "\u73b0\u5728\u628a\u76ee\u6807\u6b7b\u6b7b\u6536\u7f29\u52302023\u5e7410\u67087\u65e5\u7684\u53c2",
+          "semantic_sentence": "\u73b0\u5728\u628a\u76ee\u6807\u6b7b\u6b7b\u6536\u7f29\u52302023\u5e7410\u67087\u65e5\u7684\u53c2\u4e0e\u8005\u4e00\u4e2a\u4e0d\u843d\uff0c\u7b49\u4e8e\u76f4\u63a5\u628a\u6240\u6709\u519b\u4e8b\u884c\u52a8\u7684\u8003\u6838\u6307\u6807\u4ece\u5360\u5730\u76d8\u70b8\u5de5\u4e8b\u6539\u6210\u4e86\u4eba\u5934\u6e05\u8d26",
+          "start_seconds": 36.44,
+          "end_seconds": 49.33,
+          "script_section_id": "section_02",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_02_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_02_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_02_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "operation planning map documents",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "12.89"
+              },
+              "output_note": "scene_section_02_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_02_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u76ee\u6807\u6536\u7f29 \u00b7 \u4eba\u5934\u6e05\u8d26",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "12.89",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_02_2 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_02_3",
+          "type": "generated",
+          "description": "\u534a\u5206\u6298\u4e2d\u59a5\u534f\u7684\u7a7a\u95f4\u90fd\u6ca1\u6709",
+          "semantic_sentence": "\u534a\u5206\u6298\u4e2d\u59a5\u534f\u7684\u7a7a\u95f4\u90fd\u6ca1\u6709",
+          "start_seconds": 49.33,
+          "end_seconds": 52.0,
+          "script_section_id": "section_02",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_02_3_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_02_3_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_02_3_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "empty road bleak sky",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "2.67"
+              },
+              "output_note": "scene_section_02_3 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_02_3_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u96f6\u5f39\u6027 \u00b7 \u534a\u5206\u6298\u4e2d\u7a7a\u95f4\u90fd\u6ca1\u6709",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "2.67",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_02_3 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_chapter_1",
+          "type": "generated",
+          "description": "chapter break - \u7b2c\u4e00\u90e8\u5206 \u00b7 \u76ee\u6807\u6362\u82af",
+          "semantic_sentence": "\u7b2c\u4e00\u90e8\u5206 \u00b7 \u76ee\u6807\u6362\u82af",
+          "start_seconds": 52.0,
+          "end_seconds": 54.5,
+          "script_section_id": "section_chapter_1",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "chapter_card",
+          "shot_intent": "\u7ae0\u8282\u5206\u9694",
+          "narrative_role": "transition",
+          "materials": [
+            {
+              "id": "scene_section_chapter_1_mat",
+              "layer": "background",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u7b2c\u4e00\u90e8\u5206 \u00b7 \u76ee\u6807\u6362\u82af",
+                "--keyword": "\u7ae0\u8282",
+                "--accent": "#fbbf24",
+                "--duration": "2.5",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "section_chapter_1 \u2014 \u7ad6\u7248\u7ae0\u8282\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_03_1",
+          "type": "generated",
+          "description": "\u672c\u8d28\u4e0a\u5c31\u662f\u519b\u65b9\u7ed9\u56fd\u5185\u5806\u4e86\u5feb3\u5e74\u7684\u653f\u6cbb\u7126\u8651\u4ea4\u4e0a",
+          "semantic_sentence": "\u672c\u8d28\u4e0a\u5c31\u662f\u519b\u65b9\u7ed9\u56fd\u5185\u5806\u4e86\u5feb3\u5e74\u7684\u653f\u6cbb\u7126\u8651\u4ea4\u4e0a\u53bb\u7684\u4e00\u4efd\u534a\u70b9\u513f\u5f39\u6027\u90fd\u6ca1\u6709\u7684\u7b54\u5377",
+          "start_seconds": 54.5,
+          "end_seconds": 61.87,
+          "script_section_id": "section_03",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_03_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_03_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_03_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "document signing ceremony official",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "7.37"
+              },
+              "output_note": "scene_section_03_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_03_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u653f\u6cbb\u7126\u8651 \u00b7 \u65e0\u5f39\u6027\u7b54\u5377",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "7.37",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_03_1 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_03_2",
+          "type": "generated",
+          "description": "\u4ece\u519b\u4e8b\u90e8\u7f72\u7684\u903b\u8f91\u6765\u770b\uff0c\u8fd9\u4e2a\u8c03\u6574\u610f\u5473\u7740\u4ee5\u519b\u4e4b\u524d",
+          "semantic_sentence": "\u4ece\u519b\u4e8b\u90e8\u7f72\u7684\u903b\u8f91\u6765\u770b\uff0c\u8fd9\u4e2a\u8c03\u6574\u610f\u5473\u7740\u4ee5\u519b\u4e4b\u524d\u90a3\u79cd\u5927\u89c4\u6a21\u7a7a\u5730\u8f70\u70b8\u6210\u5efa\u5236\u5e73\u63a8\u7684\u6253\u6cd5\u76f4\u63a5\u8981\u9760\u8fb9\u7ad9",
+          "start_seconds": 61.87,
+          "end_seconds": 70.64,
+          "script_section_id": "section_03",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "data_over_photo",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_03_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_03_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_03_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "military operation aerial smoke",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "8.77"
+              },
+              "output_note": "scene_section_03_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_03_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-data-viz",
+              "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u6253\u6cd5\u8f6c\u578b\uff1a\u65e7\u6253\u6cd5\u9760\u8fb9\u7ad9",
+                "--type": "bars",
+                "--bars": [
+                  "\u5927\u89c4\u6a21\u7a7a\u5730\u8f70\u70b8:\u65e7\u4f53\u7cfb",
+                  "\u5c0f\u5355\u5143\u6e17\u900f:\u65b0\u6253\u6cd5"
+                ],
+                "--timeline": [],
+                "--kpi": "\u6253\u6cd5\u5207\u6362",
+                "--accent": "#fbbf24",
+                "--duration": "8.77",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_03_2 \u524d\u666f \u2014 \u6570\u636e\u53ef\u89c6\u5316"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_03_3",
+          "type": "generated",
+          "description": "\u53d6\u800c\u4ee3\u4e4b\u7684\u662f\u9ad8\u5bc6\u5ea6\u5c0f\u5355\u5143\u6e17\u900f\u60c5\u62a5\u7cbe\u51c6\u5b9a\u4f4d\u9010\u8857",
+          "semantic_sentence": "\u53d6\u800c\u4ee3\u4e4b\u7684\u662f\u9ad8\u5bc6\u5ea6\u5c0f\u5355\u5143\u6e17\u900f\u60c5\u62a5\u7cbe\u51c6\u5b9a\u4f4d\u9010\u8857\u533a\u62c9\u7f51\u5f0f\u7504\u522b",
+          "start_seconds": 70.64,
+          "end_seconds": 76.22,
+          "script_section_id": "section_03",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "data_over_photo",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_03_3_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_03_3_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_03_3_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "urban street security raid night",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "5.58"
+              },
+              "output_note": "scene_section_03_3 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_03_3_mat_fg",
+              "layer": "foreground",
+              "skill": "military-data-viz",
+              "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u9ad8\u5bc6\u5ea6\u5c0f\u5355\u5143 \u00b7 \u7cbe\u51c6\u5b9a\u4f4d \u00b7 \u62c9\u7f51\u7504\u522b",
+                "--type": "bars",
+                "--bars": [
+                  "\u5c0f\u5355\u5143\u6e17\u900f:\u9ad8",
+                  "\u9010\u8857\u533a\u7504\u522b:\u5bc6"
+                ],
+                "--timeline": [],
+                "--kpi": "\u65b0\u4f5c\u6218\u6a21\u5f0f",
+                "--accent": "#fbbf24",
+                "--duration": "5.58",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_03_3 \u524d\u666f \u2014 \u6570\u636e\u53ef\u89c6\u5316"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_04_1",
+          "type": "generated",
+          "description": "\u8fd9\u79cd\u4f5c\u6218\u6a21\u5f0f\u7684\u4eba\u5458\u4f24\u4ea1\u7387\u6bd4\u4e4b\u524d\u9ad8\u5f97\u4e0d\u662f\u4e00\u70b9\u534a",
+          "semantic_sentence": "\u8fd9\u79cd\u4f5c\u6218\u6a21\u5f0f\u7684\u4eba\u5458\u4f24\u4ea1\u7387\u6bd4\u4e4b\u524d\u9ad8\u5f97\u4e0d\u662f\u4e00\u70b9\u534a\u70b9",
+          "start_seconds": 76.22,
+          "end_seconds": 81.33,
+          "script_section_id": "section_04",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "data_over_photo",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_04_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_04_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_04_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "war casualties memorial night",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "5.11"
+              },
+              "output_note": "scene_section_04_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_04_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-data-viz",
+              "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u4f24\u4ea1\u7387 \u00b7 \u663e\u8457\u4e0a\u5347",
+                "--type": "bars",
+                "--bars": [
+                  "\u65e7\u6a21\u5f0f:0",
+                  "\u65b0\u6a21\u5f0f:1"
+                ],
+                "--timeline": [],
+                "--kpi": "\u4f24\u4ea1\u7387\u2191",
+                "--accent": "#fbbf24",
+                "--duration": "5.11",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_04_1 \u524d\u666f \u2014 \u6570\u636e\u53ef\u89c6\u5316"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_04_2",
+          "type": "generated",
+          "description": "\u5bf9\u60c5\u62a5\u94fe\u8def\u7684\u54cd\u5e94\u901f\u5ea6\u8981\u6c42\u66f4\u662f\u62c9\u5230\u4e86\u524d\u6240\u672a\u6709\u7684",
+          "semantic_sentence": "\u5bf9\u60c5\u62a5\u94fe\u8def\u7684\u54cd\u5e94\u901f\u5ea6\u8981\u6c42\u66f4\u662f\u62c9\u5230\u4e86\u524d\u6240\u672a\u6709\u7684\u9ad8\u5ea6",
+          "start_seconds": 81.33,
+          "end_seconds": 86.66,
+          "script_section_id": "section_04",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_04_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_04_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_04_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "sonar radar screen control room",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "5.33"
+              },
+              "output_note": "scene_section_04_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_04_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u60c5\u62a5\u54cd\u5e94 \u00b7 \u524d\u6240\u672a\u6709",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "5.33",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_04_2 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_04_3",
+          "type": "generated",
+          "description": "\u8fd9\u80cc\u540e\u7684\u6f5c\u53f0\u8bcd\u66f4\u503c\u5f97\u5482\u6478",
+          "semantic_sentence": "\u8fd9\u80cc\u540e\u7684\u6f5c\u53f0\u8bcd\u66f4\u503c\u5f97\u5482\u6478",
+          "start_seconds": 86.66,
+          "end_seconds": 89.33,
+          "script_section_id": "section_04",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_04_3_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_04_3_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_04_3_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "silhouette person window thinking",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "2.67"
+              },
+              "output_note": "scene_section_04_3 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_04_3_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u6f5c\u53f0\u8bcd \u00b7 \u66f4\u503c\u5f97\u5482\u6478",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "2.67",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_04_3 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_chapter_2",
+          "type": "generated",
+          "description": "chapter break - \u7b2c\u4e8c\u90e8\u5206 \u00b7 \u4ee3\u4ef7\u4e0e\u6f5c\u53f0\u8bcd",
+          "semantic_sentence": "\u7b2c\u4e8c\u90e8\u5206 \u00b7 \u4ee3\u4ef7\u4e0e\u6f5c\u53f0\u8bcd",
+          "start_seconds": 89.33,
+          "end_seconds": 91.83,
+          "script_section_id": "section_chapter_2",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "chapter_card",
+          "shot_intent": "\u7ae0\u8282\u5206\u9694",
+          "narrative_role": "transition",
+          "materials": [
+            {
+              "id": "scene_section_chapter_2_mat",
+              "layer": "background",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u7b2c\u4e8c\u90e8\u5206 \u00b7 \u4ee3\u4ef7\u4e0e\u6f5c\u53f0\u8bcd",
+                "--keyword": "\u7ae0\u8282",
+                "--accent": "#fbbf24",
+                "--duration": "2.5",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "section_chapter_2 \u2014 \u7ad6\u7248\u7ae0\u8282\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_05_1",
+          "type": "generated",
+          "description": "\u7b2c\u4e00\u8fd9\u8bf4\u660e\u4ee5\u519b\u9ad8\u5c42\u5df2\u7ecf\u660e\u660e\u767d\u767d\u5224\u65ad\u51fa\u6765\u5f53\u524d\u7684",
+          "semantic_sentence": "\u7b2c\u4e00\u8fd9\u8bf4\u660e\u4ee5\u519b\u9ad8\u5c42\u5df2\u7ecf\u660e\u660e\u767d\u767d\u5224\u65ad\u51fa\u6765\u5f53\u524d\u7684\u56fd\u9645\u73af\u5883\u7a97\u53e3\u6839\u672c\u7ed9\u4ed6\u4eec\u7559\u4e0d\u4e86\u591a\u4e45",
+          "start_seconds": 91.83,
+          "end_seconds": 98.9,
+          "script_section_id": "section_05",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_05_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_05_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_05_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "clock hourglass deadline urgent",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "7.07"
+              },
+              "output_note": "scene_section_05_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_05_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u7b2c\u4e00 \u00b7 \u56fd\u9645\u7a97\u53e3\u7559\u4e0d\u4e86\u591a\u4e45",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "7.07",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_05_1 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_05_2",
+          "type": "generated",
+          "description": "\u5fc5\u987b\u5f97\u5728\u5916\u90e8\u538b\u529b\u6ca1\u89e6\u78b0\u5230\u4e34\u754c\u70b9\u4e4b\u524d\u628a\u8fd9\u4e2a\u6700\u6838",
+          "semantic_sentence": "\u5fc5\u987b\u5f97\u5728\u5916\u90e8\u538b\u529b\u6ca1\u89e6\u78b0\u5230\u4e34\u754c\u70b9\u4e4b\u524d\u628a\u8fd9\u4e2a\u6700\u6838\u5fc3\u7684\u653f\u6cbb\u627f\u8bfa\u7ed9\u843d\u5730",
+          "start_seconds": 98.9,
+          "end_seconds": 104.67,
+          "script_section_id": "section_05",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "data_over_photo",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_05_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_05_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_05_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "pressure gauge tension",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "5.77"
+              },
+              "output_note": "scene_section_05_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_05_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-data-viz",
+              "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u4e34\u754c\u70b9\u524d \u00b7 \u843d\u5730\u627f\u8bfa",
+                "--type": "timeline",
+                "--bars": [],
+                "--timeline": [
+                  "\u5916\u90e8\u538b\u529b0\u4e34\u754c:\u7a97\u53e3",
+                  "\u627f\u8bfa\u843d\u5730:\u5fc5\u987b"
+                ],
+                "--kpi": "\u65f6\u95f4\u538b\u529b",
+                "--accent": "#fbbf24",
+                "--duration": "5.77",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_05_2 \u524d\u666f \u2014 \u6570\u636e\u53ef\u89c6\u5316"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_06_1",
+          "type": "generated",
+          "description": "\u7b2c\u4e8c\u8fd9\u79cd\u6ca1\u6709\u4efb\u4f55\u66ff\u4ee3\u9009\u9879\u7684\u5355\u4e00\u4efb\u52a1\u4f18\u5148\u7ea7\u7b49\u4e8e",
+          "semantic_sentence": "\u7b2c\u4e8c\u8fd9\u79cd\u6ca1\u6709\u4efb\u4f55\u66ff\u4ee3\u9009\u9879\u7684\u5355\u4e00\u4efb\u52a1\u4f18\u5148\u7ea7\u7b49\u4e8e\u76f4\u63a5\u628a\u4efb\u4f55\u8de8\u6218\u7ebf\u591a\u65b9\u5411\u6269\u5f20\u519b\u4e8b\u884c\u52a8\u7684\u53ef\u80fd\u6027\u7ed9\u6392\u9664\u4e86",
+          "start_seconds": 104.67,
+          "end_seconds": 115.11,
+          "script_section_id": "section_06",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_06_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_06_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_06_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "checkpoint barrier blockade",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "10.44"
+              },
+              "output_note": "scene_section_06_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_06_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u7b2c\u4e8c \u00b7 \u5355\u4e00\u4efb\u52a1\u4f18\u5148\u7ea7",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "10.44",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_06_1 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_06_2",
+          "type": "generated",
+          "description": "\u81f3\u5c11\u5728\u8fd9\u4e2a\u76ee\u6807\u5b8c\u6210\u4e4b\u524d\u5176\u4ed6\u65b9\u5411\u7684\u4efb\u4f55\u519b\u4e8b\u52a8\u4f5c",
+          "semantic_sentence": "\u81f3\u5c11\u5728\u8fd9\u4e2a\u76ee\u6807\u5b8c\u6210\u4e4b\u524d\u5176\u4ed6\u65b9\u5411\u7684\u4efb\u4f55\u519b\u4e8b\u52a8\u4f5c\u90fd\u5f97\u7ed9\u8fd9\u4e2a\u6838\u5fc3\u4efb\u52a1\u8ba9\u8def",
+          "start_seconds": 115.11,
+          "end_seconds": 122.44,
+          "script_section_id": "section_06",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_06_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_06_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_06_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "convoy military convoy night",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "7.33"
+              },
+              "output_note": "scene_section_06_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_06_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u5176\u4ed6\u65b9\u5411 \u00b7 \u5168\u90e8\u8ba9\u8def",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "7.33",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_06_2 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_chapter_3",
+          "type": "generated",
+          "description": "chapter break - \u7b2c\u4e09\u90e8\u5206 \u00b7 \u5386\u53f2\u5148\u4f8b\u4e0e\u6536\u5c3e",
+          "semantic_sentence": "\u7b2c\u4e09\u90e8\u5206 \u00b7 \u5386\u53f2\u5148\u4f8b\u4e0e\u6536\u5c3e",
+          "start_seconds": 122.44,
+          "end_seconds": 124.94,
+          "script_section_id": "section_chapter_3",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "chapter_card",
+          "shot_intent": "\u7ae0\u8282\u5206\u9694",
+          "narrative_role": "transition",
+          "materials": [
+            {
+              "id": "scene_section_chapter_3_mat",
+              "layer": "background",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u7b2c\u4e09\u90e8\u5206 \u00b7 \u5386\u53f2\u5148\u4f8b\u4e0e\u6536\u5c3e",
+                "--keyword": "\u7ae0\u8282",
+                "--accent": "#fbbf24",
+                "--duration": "2.5",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "section_chapter_3 \u2014 \u7ad6\u7248\u7ae0\u8282\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_07_1",
+          "type": "generated",
+          "description": "\u8fd9\u4e0d\u514d\u8ba9\u4eba\u60f3\u8d77\u4e0a\u4e16\u7eaa\u4e0d\u5c11\u5c40\u90e8\u51b2\u7a81\u91cc\u4e00\u65b9\u628a\u590d\u4ec7",
+          "semantic_sentence": "\u8fd9\u4e0d\u514d\u8ba9\u4eba\u60f3\u8d77\u4e0a\u4e16\u7eaa\u4e0d\u5c11\u5c40\u90e8\u51b2\u7a81\u91cc\u4e00\u65b9\u628a\u590d\u4ec7\u5f0f\u6e05\u7b97\u653e\u5728\u6218\u7565\u76ee\u6807\u6700\u9876\u7aef\u7684\u5148\u4f8b",
+          "start_seconds": 124.94,
+          "end_seconds": 131.42,
+          "script_section_id": "section_07",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "data_over_photo",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_07_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_07_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_07_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "archive old newspaper history",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "6.48"
+              },
+              "output_note": "scene_section_07_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_07_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-data-viz",
+              "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u5386\u53f2\u5148\u4f8b\uff1a\u590d\u4ec7\u5f0f\u6e05\u7b97",
+                "--type": "timeline",
+                "--bars": [],
+                "--timeline": [
+                  "\u4e0a\u4e16\u7eaa\u672b:\u590d\u4ec7\u4f18\u5148",
+                  "\u5982\u4eca:\u6838\u5fc3\u627f\u8bfa"
+                ],
+                "--kpi": "\u4f3c\u66fe\u76f8\u8bc6",
+                "--accent": "#fbbf24",
+                "--duration": "6.48",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_07_1 \u524d\u666f \u2014 \u6570\u636e\u53ef\u89c6\u5316"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_07_2",
+          "type": "generated",
+          "description": "\u6700\u540e\u5f80\u5f80\u90fd\u9677\u8fdb\u4e86\u770b\u4e0d\u5230\u5934\u7684\u6ce5\u6f6d\u91cc",
+          "semantic_sentence": "\u6700\u540e\u5f80\u5f80\u90fd\u9677\u8fdb\u4e86\u770b\u4e0d\u5230\u5934\u7684\u6ce5\u6f6d\u91cc",
+          "start_seconds": 131.42,
+          "end_seconds": 134.22,
+          "script_section_id": "section_07",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_07_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_07_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_07_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "swamp dark forest mist",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "2.8"
+              },
+              "output_note": "scene_section_07_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_07_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u6ce5\u6f6d \u00b7 \u770b\u4e0d\u5230\u5934",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "2.8",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_07_2 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_08_1",
+          "type": "generated",
+          "description": "\u73b0\u5728\u5c31\u6709\u4e2a\u95ee\u9898\u6446\u5728\u8fd9\u5f53\u4e00\u56fd\u519b\u961f\u628a\u8fd9\u79cd\u8fd1\u4e4e\u79c1\u4eba",
+          "semantic_sentence": "\u73b0\u5728\u5c31\u6709\u4e2a\u95ee\u9898\u6446\u5728\u8fd9\u5f53\u4e00\u56fd\u519b\u961f\u628a\u8fd9\u79cd\u8fd1\u4e4e\u79c1\u4eba\u6069\u6028\u5f0f\u7684\u6e05\u7b97\u653e\u5728\u6240\u6709\u6218\u7565\u76ee\u6807\u7684\u6700\u9876\u7aef",
+          "start_seconds": 134.22,
+          "end_seconds": 143.11,
+          "script_section_id": "section_08",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_08_1_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_08_1_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_08_1_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "question silhouette darkness",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "8.89"
+              },
+              "output_note": "scene_section_08_1 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_08_1_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u95ee\u9898\uff1a\u79c1\u4eba\u6069\u6028\u5f0f\u6e05\u7b97\uff1f",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "8.89",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_08_1 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_08_2",
+          "type": "generated",
+          "description": "\u8fd9\u79cd\u6ca1\u8fb9\u754c\u7684\u4efb\u52a1\u6700\u540e\u5230\u5e95\u4f1a\u4ee5\u4ec0\u4e48\u65b9\u5f0f\u6536\u5c3e",
+          "semantic_sentence": "\u8fd9\u79cd\u6ca1\u8fb9\u754c\u7684\u4efb\u52a1\u6700\u540e\u5230\u5e95\u4f1a\u4ee5\u4ec0\u4e48\u65b9\u5f0f\u6536\u5c3e",
+          "start_seconds": 143.11,
+          "end_seconds": 147.56,
+          "script_section_id": "section_08",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_08_2_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_08_2_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_08_2_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "night sky question horizon",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "4.45"
+              },
+              "output_note": "scene_section_08_2 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_08_2_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u6ca1\u8fb9\u754c\u7684\u4efb\u52a1 \u00b7 \u5982\u4f55\u6536\u5c3e",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "4.45",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_08_2 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        },
+        {
+          "id": "scene_section_08_3",
+          "type": "generated",
+          "description": "\u5927\u4f19\u6709\u4ec0\u4e48\u5224\u65ad\u54b1\u4eec\u8bc4\u8bba\u533a\u804a\u804a",
+          "semantic_sentence": "\u5927\u4f19\u6709\u4ec0\u4e48\u5224\u65ad\u54b1\u4eec\u8bc4\u8bba\u533a\u804a\u804a",
+          "start_seconds": 147.56,
+          "end_seconds": 150.67,
+          "script_section_id": "section_08",
+          "framing": "medium",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "shot_language": "photo_overlay",
+          "shot_intent": "\u89c6\u89c9\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1b\u914d\u56fe\u53ea\u4f5c\u80cc\u666f\uff0c\u4e0d\u53d1\u660e\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+          "narrative_role": "body",
+          "hero_moment": false,
+          "texture_keywords": [
+            "\u7ad6\u7248",
+            "photo-bg",
+            "\u519b\u653f"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "material_id": "scene_section_08_3_mat_bg",
+              "description": "Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09",
+              "source": "generate"
+            },
+            {
+              "type": "animation",
+              "material_id": "scene_section_08_3_mat_fg",
+              "description": "\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u524d\u666f",
+              "source": "generate"
+            }
+          ],
+          "materials": [
+            {
+              "id": "scene_section_08_3_mat_bg",
+              "layer": "background",
+              "skill": "pexels-photo",
+              "build_script": "tools/graphics/pexels_image",
+              "cli_args": {
+                "bg_query": "comment discussion phone screen",
+                "orientation": "portrait",
+                "size": "large",
+                "dark_overlay": true,
+                "accent": "#fbbf24",
+                "duration": "3.11"
+              },
+              "output_note": "scene_section_08_3 \u80cc\u666f \u2014 Pexels \u7ad6\u7248\u914d\u56fe\uff08\u6697\u6e10\u53d8\uff09"
+            },
+            {
+              "id": "scene_section_08_3_mat_fg",
+              "layer": "foreground",
+              "skill": "military-title-card",
+              "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+              "cli_args": {
+                "--project": "junzheng-gaza-pursuit",
+                "--title": "\u8bc4\u8bba\u533a\u804a\u804a\u4f60\u7684\u5224\u65ad",
+                "--keyword": "keyword",
+                "--accent": "#fbbf24",
+                "--duration": "3.11",
+                "--vertical": "1080x1920"
+              },
+              "output_note": "scene_section_08_3 \u524d\u666f \u2014 \u5927\u5b57\u5173\u952e\u8bcd\u6807\u9898\u5361"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "pipeline": "narration-synth",
+        "tone": "urgent",
+        "canvas": "1080x1920 vertical",
+        "allowed_skills_used": {
+          "military-title-card": 19,
+          "pexels-photo": 21,
+          "military-data-viz": 6
+        },
+        "visual_faithfulness_note": "\u6240\u6709\u573a\u666f\u89c6\u89c9\u53ea\u843d\u6587\u6848\u5173\u952e\u8bcd\uff1bPexels \u7ad6\u7248\u914d\u56fe\u4ec5\u4f5c\u80cc\u666f\uff0c\u6807\u9898\u5361/\u6570\u636e\u53ef\u89c6\u5316\u4f5c\u524d\u666f\uff1b\u4e0d\u653e\u6587\u6848\u672a\u63d0\u53ca\u7684\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+        "total_scene_seconds": 153.67
+      }
+    }
+  },
+  "review": {
+    "summary": "25 scenes, 153.67s, opener preroll + 3 chapter breaks, 2 heroes (hook+payoff); photo backgrounds all pexels-photo per locked register scene_variety_via=visual_source",
+    "critical_findings": [],
+    "suggestions": []
+  },
+  "cost_snapshot": {
+    "usd_total": 0.0,
+    "breakdown": {}
+  },
+  "metadata": {
+    "note": "vertical 1080x1920 native; background skill adjacency waived for photo register"
+  }
+}

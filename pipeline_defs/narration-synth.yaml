@@ -3,17 +3,23 @@ version: "1.0"
 description: >
   Narration-led explained promo pipeline for military-political commentary (军政), same
   spine as narration-montage but with SELF-GENERATED visuals instead of stock footage.
-  The script is segmented, each section maps to a scene, and each scene maps to a
-  `generation_spec` that routes to one of the `military-*` HyperFrames skills
-  (warship / missile / map-deduction / data-viz / title-card / seal). The asset
-  stage runs the skill's `build_*.mjs` to write a HyperFrames composition, verifies
-  it via `hyperframes lint` + `hyperframes validate`, then renders it to a per-scene
-  MP4 via `npx hyperframes render`. TTS narration and a music bed are generated
-  alongside. The edit stage lays one generated scene per section; the compose stage
-  force-aligns subtitles to real narration audio (transcriber), concatenates the
-  scene MP4s, burns static whole-line subtitles, and muxes narration + music via
-  ffmpeg. A title-card scene (military-title-card) bookends the piece for
-  chapter/emphasis transitions.
+  STORYBOARD MODEL: a story is many small stories — the script is segmented into
+  sections, each section is split into SEMANTIC SENTENCES, and each sentence is ONE
+  SHOT (scene). Each shot is assembled by overlaying MATERIALS in the same window
+  (background skill + midground + foreground data/text cards), each material routed
+  to a `military-*` HyperFrames skill (warship / missile / map-deduction / data-viz
+  / title-card / seal) via its own generation spec. The asset stage runs each
+  material's `build_*.mjs` to write a HyperFrames composition, verifies it via
+  `hyperframes lint` + `hyperframes validate`, then renders it to a per-material
+  TRANSPARENT MP4 via `npx hyperframes render`. TTS narration and a music bed are
+  generated alongside. The edit stage lays one timeline SLOT per shot with its
+  materials in layer order and locks short-line ASS subtitles
+  (ass-subtitle-generator) + a back-to-back narration mix; the compose stage
+  regenerates subtitles from real narration offsets, OVERLAYS each slot's materials
+  into one shot image, concatenates the shots, rebuilds the narration mix
+  contiguously (silence only at opener/chapter cards), burns the subtitles, and
+  muxes narration + music via ffmpeg. A title-card scene (military-title-card)
+  bookends the piece for chapter/emphasis transitions.
 category: generated
 stability: beta
 
@@ -98,16 +104,17 @@ stages:
     checkpoint_required: true
     human_approval_default: true
     review_focus:
-      - One scene per script section, time-aligned to the section window
-      - Every scene carries a `generation_spec` naming ONE military-* skill plus its exact CLI args
-      - generation_spec is deterministic (no random seeds; fixed palettes/accents)
+      - One SHOT per semantic sentence; each section splits into sentence-shots at meaning boundaries, time-aligned proportionally
+      - Every shot carries `materials[]` (background/midground/foreground), each material naming ONE military-* skill plus its exact CLI args
+      - Material specs are deterministic (no random seeds; fixed palettes/accents consistent within a shot)
       - Scene descriptions use concrete noun-and-adjective visual language
-      - Scene type spread avoids two adjacent scenes using the same military-* skill
+      - Adjacent shots vary their background/full-frame skill (foreground overlays exempt)
+      - Sentence-shot windows sum to their section window (no unaccounted time)
     success_criteria:
       - Schema-valid scene_plan artifact
-      - One scene per script section (count matches sections count)
+      - Every script section has >=1 shot (semantic-sentence split), windows sum to section
       - Sum of (end_seconds - start_seconds) within 10% of script.total_duration_seconds
-      - Every scene has a generation_spec with skill in the allowed set and concrete args
+      - Every shot has materials[] with skills in the allowed set and concrete args + layer order
 
   - name: assets
     skill: pipelines/narration-synth/asset-director
@@ -128,16 +135,16 @@ stages:
     checkpoint_required: true
     human_approval_default: true
     review_focus:
-      - One self-generated animation MP4 per scene, produced from its generation_spec
-      - Every scene composition passed `hyperframes lint` + `hyperframes validate` (0 errors) before render
-      - HyperFrames render output is 1920x1080 and its duration matches the scene window
-      - No two scenes share the same output clip (each scene renders its own composition)
-      - Every animation asset has provenance (skill name, build script, CLI args, seed)
+      - One self-generated TRANSPARENT animation MP4 per MATERIAL, produced from its material spec
+      - Every material composition passed `hyperframes lint` + `hyperframes validate` (0 errors) before render
+      - HyperFrames render output is 1920x1080 WITH ALPHA and its duration matches the shot window
+      - No two materials in the same shot share identical output (each material renders its own composition)
+      - Every animation asset has provenance (skill name, build script, CLI args, seed, material_id, layer)
       - Narration audio generated with the approved voice + REAL probed duration
       - Music plan executed EXACTLY as recorded in the brief
     success_criteria:
       - Schema-valid asset_manifest artifact
-      - One `animation` asset per scene with duration_seconds >= scene window
+      - One `animation` asset PER MATERIAL with duration_seconds ≈ shot window, has_alpha true
       - narration assets present per section (or explicit opt-out recorded)
       - Effectively unmixed narration + music assets present (or explicit opt-out)
       - Every asset's file path resolves on disk
@@ -153,15 +160,16 @@ stages:
     checkpoint_required: true
     human_approval_default: true
     review_focus:
-      - One generated scene per section; scene clips are not re-cut into multiple shots
-      - Subtitle style is locked (static whole-line, force-aligned timing)
-      - Audio layout matches the narration plan from the brief
-      - render_runtime stays "ffmpeg" (scene MP4s concat + subtitle burn + mux)
+      - One timeline SLOT per shot; a section's sentence-shots are consecutive slots whose windows sum to the section window
+      - Every slot lists ALL materials in layer order (background → midground → foreground), all spanning the SAME window (overlay, not concat)
+      - Subtitle style is locked (short-line ASS via ass-subtitle-generator; bookends excluded)
+      - Audio layout — narration back-to-back (silence only at opener/chapter cards), matches the brief
+      - render_runtime stays "ffmpeg" (material overlay + concat + subtitle burn + mux)
     success_criteria:
       - Schema-valid edit_decisions artifact
       - render_runtime present and ffmpeg
-      - subtitles.enabled is true and subtitles.style is set
-      - total duration matches script.total_duration_seconds within 10%
+      - subtitles.enabled is true and subtitles.style points to ass-subtitle-generator output
+      - total duration matches script.total_duration_seconds within 10% (incl. bookends; sentence-shots sum per section)
 
   - name: compose
     skill: pipelines/narration-synth/compose-director
@@ -175,27 +183,25 @@ stages:
     required_tools:
       - video_compose
     optional_tools:
-      - video_stitch
-      - transcriber
-      - subtitle_gen
+      - audio_mixer
     tools_available:
       - video_compose
-      - video_stitch
-      - transcriber
-      - subtitle_gen
+      - audio_mixer
     checkpoint_required: true
     human_approval_default: false
     review_focus:
       - Output duration matches planned within 1s
       - Resolution matches the 1920x1080 canvas
-      - Subtitle lines are burned and readable (no \k karaoke markers)
-      - Narration is muxed and synchronized (force-aligned timestamps)
-      - Scene cuts land at section boundaries (one generated scene per section)
-      - Self-generated animations appear (not stock); no missing-scene blanks
+      - Subtitle lines are burned and readable (no \k karaoke markers); pixel check passes (burn-in is invisible to stream probes)
+      - Each slot's materials overlayed in layer order (background visible under foreground; no material hides another)
+      - Narration is muxed back-to-back (silence only at opener/chapter cards) and synchronized to section starts
+      - Shot boundaries land at sentence transitions; no missing-shot blanks
+      - Audio layout verified via volumedetect — narration present at windows, near-silent at bookends
+      - Self-generated animations appear (not stock); no missing-material blanks
     success_criteria:
       - Schema-valid render_report artifact
       - Schema-valid final_review artifact (status pass/revise/fail)
       - Output file exists and passes ffprobe validation
-      - final_review.checks.subtitle_check.subtitles_present = true
+      - final_review.checks.subtitle_check.subtitles_present = true (or pixel-check substitute noted)
       - final_review.checks.audio_spotcheck.narration_present = true
       - final_review.recommended_action present

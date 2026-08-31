@@ -91,6 +91,48 @@
         "additionalProperties": false
       }
     },
+    "slots": {
+      "type": "array",
+      "description": "Master timeline for the narration-synth pipeline — one slot per generated shot; materials OVERLAY the same window in layer order (background → midground → foreground), then slots concatenate in scene order.",
+      "items": {
+        "type": "object",
+        "required": ["scene_id", "window", "materials"],
+        "properties": {
+          "scene_id": { "type": "string" },
+          "window": {
+            "type": "object",
+            "required": ["start", "end"],
+            "properties": {
+              "start": { "type": "number" },
+              "end": { "type": "number" }
+            },
+            "additionalProperties": false
+          },
+          "materials": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["asset_id", "layer"],
+              "properties": {
+                "asset_id": { "type": "string" },
+                "layer": {
+                  "type": "string",
+                  "enum": ["background", "midground", "foreground"]
+                },
+                "in_seconds": { "type": "number" },
+                "out_seconds": { "type": "number" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "transition_in": { "type": "string", "default": "cut" },
+          "transition_out": { "type": "string", "default": "cut" },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
     "audio": {
       "type": "object",
       "description": "Audio configuration for narration, music, and SFX.",
@@ -157,7 +199,27 @@
       "type": "object",
       "properties": {
         "enabled": { "type": "boolean" },
-        "style": { "type": "string", "description": "Display style: sentence, word-by-word, karaoke" },
+        "style": {
+          "description": "Display style: sentence, word-by-word, karaoke (string) OR an ASS styling object",
+          "anyOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "properties": {
+                "font": { "type": "string" },
+                "font_size": { "type": "integer" },
+                "bold": { "type": "boolean" },
+                "primary_color": { "type": "string", "description": "ASS-format color, e.g. &H00FFFFFF (NOT HTML hex — hex renders black)" },
+                "outline_color": { "type": "string" },
+                "outline_width": { "type": "integer" },
+                "shadow": { "type": "integer" },
+                "margin_v": { "type": "integer" },
+                "alignment": { "type": "integer" }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
         "source": { "type": "string", "description": "Path to subtitle file or asset ID" },
         "font": { "type": "string" },
         "font_size": { "type": "integer" },
@@ -165,7 +227,9 @@
         "outline_color": { "type": "string" },
         "background": { "type": "string", "description": "Background color with optional alpha (e.g. #00000088)" },
         "position": { "type": "string", "enum": ["top-center", "bottom-center", "center"] },
-        "max_words_per_line": { "type": "integer", "minimum": 1 }
+        "max_words_per_line": { "type": "integer", "minimum": 1 },
+        "max_chars_per_line": { "type": "integer", "minimum": 1 },
+        "exclude_scene_ids": { "type": "array", "items": { "type": "string" } }
       },
       "additionalProperties": false
     },
@@ -195,7 +259,7 @@
     },
     "renderer_family": {
       "type": "string",
-      "enum": ["explainer-data", "explainer-teacher", "cinematic-trailer", "documentary-montage", "narration-montage", "product-reveal", "screen-demo", "presenter", "animation-first"],
+      "enum": ["explainer-data", "explainer-teacher", "cinematic-trailer", "documentary-montage", "narration-montage", "narration-synth", "product-reveal", "screen-demo", "presenter", "animation-first"],
       "description": "Locked at proposal stage — creative grammar for this deliverable. Preserved from proposal_packet; edit MUST NOT change without a logged decision."
     },
     "render_runtime": {

@@ -1,0 +1,253 @@
+{
+  "version": "1.0",
+  "title": "以军总参谋长：追击直至消灭巴勒斯坦武装",
+  "total_duration_seconds": 161.0,
+  "sections": [
+    {
+      "id": "section_01",
+      "label": "开场钩子 · 目标换芯",
+      "text": "大家好，我是侯哥军情。说出来你敢信？打了快3年的加沙战事，以色列军方到现在才把核心目标从摧毁哈马斯换成了逐个清算2023年10月7日的参与者，这波调整说穿了根本不是什么战术层面的小修小补，完全是以军最高层把之前模糊了快3年的报复优先级给彻底钉死了",
+      "start_seconds": 0.0,
+      "end_seconds": 26.0,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "strong",
+        "emphasis_words": [
+          "说出来你敢信",
+          "逐个清算2023年10月7日的参与者"
+        ],
+        "pause_after_seconds": 0.6,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "hook 大字标题卡：说出来你敢信？",
+          "timestamp_seconds": 0.5
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_01"
+    },
+    {
+      "id": "section_02",
+      "label": "旧幌子与新清算",
+      "text": "之前喊的摧毁哈马斯说白了就是个没明确终点的幌子，既能拿来给国内民众交差，也能给国际社会留斡旋的余地，现在把目标死死收缩到2023年10月7日的参与者一个不落，等于直接把所有军事行动的考核指标从占地盘、炸工事改成了人头清账，半分折中妥协的空间都没有",
+      "start_seconds": 26.0,
+      "end_seconds": 52.0,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent authoritative",
+        "emphasis_words": [
+          "幌子",
+          "人头清账",
+          "半分折中妥协的空间都没有"
+        ],
+        "pause_after_seconds": 0.3,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "旧幌子 vs 人头清账 指标对比卡",
+          "timestamp_seconds": 26.0
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_02"
+    },
+    {
+      "id": "section_03",
+      "label": "政治答卷与打法转型",
+      "text": "本质上就是军方给国内堆了快3年的政治焦虑交上去的一份半点儿弹性都没有的答卷，从军事部署的逻辑来看，这个调整意味着以军之前那种大规模空地轰炸、成建制平推的打法直接要靠边站，取而代之的是高密度小单元渗透、情报精准定位、逐街区拉网式甄别",
+      "start_seconds": 52.0,
+      "end_seconds": 76.22,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent authoritative",
+        "emphasis_words": [
+          "答卷",
+          "高密度小单元渗透",
+          "逐街区拉网式甄别"
+        ],
+        "pause_after_seconds": 0.3,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "答卷 + 打法转型关键词卡",
+          "timestamp_seconds": 52.0
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_03"
+    },
+    {
+      "id": "section_04",
+      "label": "新作战模式的代价",
+      "text": "这种作战模式的人员伤亡率比之前高得不是一点半点，对情报链路的响应速度要求更是拉到了前所未有的高度，这背后的潜台词更值得咂摸",
+      "start_seconds": 76.22,
+      "end_seconds": 89.33,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent authoritative",
+        "emphasis_words": [
+          "伤亡率",
+          "前所未有的高度"
+        ],
+        "pause_after_seconds": 0.6,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "stat_card",
+          "description": "伤亡率/情报响应数据卡",
+          "timestamp_seconds": 76.22
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_04"
+    },
+    {
+      "id": "section_05",
+      "label": "潜台词第一 · 国际窗口",
+      "text": "第一，这说明以军高层已经明明白白判断出来，当前的国际环境窗口根本给他们留不了多久，必须得在外部压力没触碰到临界点之前，把这个最核心的政治承诺给落地",
+      "start_seconds": 89.33,
+      "end_seconds": 104.67,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent authoritative",
+        "emphasis_words": [
+          "第一",
+          "国际环境窗口",
+          "临界点"
+        ],
+        "pause_after_seconds": 0.3,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "潜台词一 · 国际窗口标题卡",
+          "timestamp_seconds": 89.33
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_05"
+    },
+    {
+      "id": "section_06",
+      "label": "潜台词第二 · 单一优先级",
+      "text": "第二，这种没有任何替代选项的单一任务优先级，等于直接把任何跨战线、多方向扩张军事行动的可能性给排除了，至少在这个目标完成之前，其他方向的任何军事动作都得给这个核心任务让路",
+      "start_seconds": 104.67,
+      "end_seconds": 122.44,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent authoritative",
+        "emphasis_words": [
+          "第二",
+          "单一任务优先级",
+          "给这个核心任务让路"
+        ],
+        "pause_after_seconds": 0.3,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "潜台词二 · 单一任务优先级标题卡",
+          "timestamp_seconds": 104.67
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_06"
+    },
+    {
+      "id": "section_07",
+      "label": "历史先例 · 复仇泥潭",
+      "text": "这不免让人想起上世纪不少局部冲突里，一方把复仇式清算放在战略目标最顶端的先例，最后往往都陷进了看不到头的泥潭里",
+      "start_seconds": 122.44,
+      "end_seconds": 134.22,
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "urgent authoritative",
+        "emphasis_words": [
+          "复仇式清算",
+          "泥潭"
+        ],
+        "pause_after_seconds": 0.6,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "历史先例 · 泥潭时间线",
+          "timestamp_seconds": 122.44
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_07"
+    },
+    {
+      "id": "section_08",
+      "label": "收尾提问 + 评论区引导",
+      "text": "现在就有个问题摆在这：当一国军队把这种近乎私人恩怨式的清算放在所有战略目标的最顶端，这种没边界的任务，最后到底会以什么方式收尾，大伙有什么判断，咱们评论区聊聊",
+      "start_seconds": 134.22,
+      "end_seconds": 150.67,
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "engaging",
+        "emphasis_words": [
+          "没边界的任务",
+          "评论区聊聊"
+        ],
+        "pause_after_seconds": 0.3,
+        "delivery_note": "见 visual anchor；数字处放慢，强调词加重"
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "收尾提问大字 + 评论区引导",
+          "timestamp_seconds": 134.22
+        }
+      ],
+      "source_ref": "record recvttJWodlxpo · section_08"
+    }
+  ],
+  "voice_performance": {
+    "performance_intent": "urgent authoritative",
+    "pacing_profile": "custom",
+    "energy_curve": "hook_strong → body_authoritative → closing_engaging",
+    "pause_policy": "数字与强调句后留顿；仅开场/章节转折处短暂停顿；TTS 速率 -4% 以压低语速营造军政播报感",
+    "sample_section_id": "section_01",
+    "provider_notes": {
+      "edge_tts": "zh-CN-YunxiNeural, rate -4%, pitch 0%",
+      "chinese_speaking_rate": "4.5 chars/sec target"
+    }
+  },
+  "metadata": {
+    "pipeline": "narration-synth",
+    "source_record": "recvttJWodlxpo",
+    "chapter_breaks": [
+      {
+        "id": "section_chapter_1",
+        "at_seconds": 52.0,
+        "title": "第一部分 · 目标换芯"
+      },
+      {
+        "id": "section_chapter_2",
+        "at_seconds": 76.22,
+        "title": "第二部分 · 代价与潜台词"
+      },
+      {
+        "id": "section_chapter_3",
+        "at_seconds": 122.44,
+        "title": "第三部分 · 历史先例与收尾"
+      }
+    ],
+    "section_visual_anchors": {
+      "section_01": "直入 hook 大字「说出来你敢信？」+ 暗色底叠文案关键词（摧毁哈马斯 → 逐个清算2023年10月7日的参与者）",
+      "section_02": "关键词卡「幌子」（旧）vs「人头清账」（新），考核指标对比",
+      "section_03": "关键词卡「答卷」+ 打法转型（大规模空地轰炸 → 小单元渗透/精准定位/拉网甄别）",
+      "section_04": "数据卡：伤亡率↑ + 情报响应速度要求拉到前所未有",
+      "section_05": "章节卡「潜台词 · 一」+ 国际环境窗口紧迫（外部压力临界点前落地）",
+      "section_06": "章节卡「潜台词 · 二」+ 单一任务优先级排除跨战线扩张",
+      "section_07": "历史先例时间线：复仇式清算 → 泥潭",
+      "section_08": "收尾疑问大字 + 评论区引导「咱们评论区聊聊」"
+    }
+  }
+}

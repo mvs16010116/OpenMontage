@@ -47,7 +47,7 @@ flow into TTS generation at the assets stage.
 
 While writing, note the visual anchor each section implies (the scene director
 will read it): a "驱逐舰下水" section → warship; "弹道覆盖" → missile;
-"地区力量对比" → data-viz or map. Do NOT write the generation_spec here — that's
+"地区力量对比" → data-viz or map. Do NOT write material specs here — that's
 the scene plan's job — but leave enough concrete nouns that the mapping is obvious.
 
 ### 5. Emit The Script
@@ -104,8 +104,9 @@ Canonical shape:
 - Writing sections so dense the visuals can only hold a wall of text.
 - One 120s monolith that blows past the 90s ceiling.
 - Omitting `visual_anchor` — then the scene director guesses.
-- Trusting section timings for the final burn — compose force-aligns anyway; these
-  are the planning cadence, not the contract.
+- Trusting section timings for the final burn — compose regenerates subtitles from
+  real narration offsets; these estimates only size the scene windows, they are the
+  planning cadence, not the contract.
 
 ---
 

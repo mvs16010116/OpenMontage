@@ -1,0 +1,193 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-gaza-pursuit",
+  "decisions": [
+    {
+      "decision_id": "nsynth-gaza-idea-001",
+      "stage": "idea",
+      "category": "downgrade_approval",
+      "subject": "Pre-authorization for the full run (skip per-gate approval)",
+      "options_considered": [
+        {
+          "option_id": "per_gate",
+          "label": "\u6bcf\u4e2a gate \u5206\u522b\u5ba1\u6279",
+          "score": 0.3,
+          "reason": "\u4fdd\u5b88\u4f46\u8282\u594f\u6162\uff1b\u7528\u6237\u5df2\u5728 grilling \u6700\u540e\u4e00\u6b65\u660e\u786e\u56de\u590d\u786e\u8ba4\u5b8c\u6574\u65b9\u6848"
+        },
+        {
+          "option_id": "full_auto",
+          "label": "\u5168\u6d41\u7a0b\u81ea\u52a8\u5ba1\u6279\u76f4\u5230\u6210\u7247",
+          "score": 1.0,
+          "reason": "\u7528\u6237\u5728 grilling \u51b3\u7b56\u6811\u6700\u540e\u4e00\u6b65\u660e\u786e\u56de\u590d\u300c\u786e\u8ba4\u300d\uff0c\u9884\u6388\u6743\u6574\u6761 narration-synth \u6d41\u6c34\u7ebf"
+        }
+      ],
+      "selected": "full_auto",
+      "reason": "grilling \u5b8c\u6574\u65b9\u6848\u786e\u8ba4\uff08\u542b\u7ad6\u7248\u91cd\u5efa\u3001edge-tts \u4e91\u6eaa -4%\u3001\u65e0\u97f3\u4e50\u3001Pexels+\u6807\u9898\u5361+\u6570\u636e\u53ef\u89c6\u5316\u4e09\u5c42\u3001\u9010\u53e5\u9ad8\u4eae\u5b57\u5e55\uff09\uff1b\u540e\u7eed\u6240\u6709 gate \u4e0d\u518d\u4eba\u5de5\u62e6\u622a\uff0c\u9010\u9636\u6bb5 checkpoint \u8bb0\u5f55\u5b8c\u6210\u72b6\u6001",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "nsynth-gaza-idea-002",
+      "stage": "idea",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames\uff08\u7d20\u6750\u751f\u6210\u5668\uff0c\u7ad6\u7248\u91cd\u5efa\uff09",
+          "score": 0.95,
+          "reason": "\u6bcf\u573a\u666f\u662f\u786e\u5b9a\u6027 HTML/GSAP \u5408\u6210\uff0cassets \u9636\u6bb5\u6e32\u67d3\u4e3a\u5168\u5e27\u4e0d\u900f\u660e\u7ad6\u7248 MP4\uff1b\u5df2\u6709 0.8.17 CLI \u53ef\u7528\uff08\u9884\u68c0 doctor \u8d85\u65f6\u4e3a\u8bef\u62a5\uff09\uff0c\u4e0b\u4e00\u9879\u76ee\u5df2\u9a8c\u8bc1"
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion\uff08React \u573a\u666f\u6808\uff09",
+          "score": 0.2,
+          "reason": "\u65e0 military \u573a\u666f\u6808\uff0c\u7ad6\u7248\u91cd\u5efa\u9700\u989d\u5916 authoring tokens\uff0c\u4e14\u4e0a\u4e00\u9879\u76ee\u786e\u8ba4 HyperFrames \u8def\u7ebf\u53ef\u884c"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg\uff08\u7ec8\u88c1\u8fd0\u884c\u65f6\uff09",
+          "score": 1.0,
+          "reason": "\u573a\u666f MP4 \u62fc\u63a5 + ASS \u5b57\u5e55\u70e7\u5f55 + \u65c1\u767d mux \u7684\u539f\u751f\u8def\u5f84\uff1bfinal.mp4 \u7531 ffmpeg \u5b8c\u6210"
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "HyperFrames \u4ea7\u751f\u573a\u666f\u7d20\u6750\uff081080x1920 \u7ad6\u7248\u5168\u5e27\u4e0d\u900f\u660e\uff09\uff0cffmpeg \u505a\u6700\u7ec8\u5408\u6210\uff08concat+\u70e7\u5b57\u5e55+mux\uff09\uff1brender_runtime \u8bb0\u5f55\u4e3a ffmpeg",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "nsynth-gaza-idea-003",
+      "stage": "idea",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "edge_tts_yunxi",
+          "label": "edge-tts zh-CN-YunxiNeural\uff08\u4e2d\u6587\u7537\u58f0\uff09",
+          "score": 0.95,
+          "reason": "\u672c\u5730 .venv \u53ef\u7528\u4e14\u5df2\u9a8c\u8bc1\uff08junzheng-yasukuni narration_section_*.mp3\uff09\uff0c\u4e2d\u6587\u7537\u58f0\u7b26\u5408\u519b\u653f\u89e3\u8bf4\u8bed\u6c14\uff0c\u96f6\u6210\u672c\uff1bgrilling \u5df2\u786e\u8ba4"
+        },
+        {
+          "option_id": "doubao_speech",
+          "label": "Doubao Speech 2.0\uff08\u5e26\u9010\u5b57\u65f6\u95f4\u6233\uff09",
+          "score": 0.7,
+          "reason": "\u9010\u5b57\u65f6\u95f4\u6233\u5bf9\u9f50\u5b57\u5e55\u66f4\u51c6\uff0c\u4f46 registry tts 0/7 \u672a\u914d\u7f6e key\uff1b\u672c\u6b21\u65e0\u97f3\u4e50\u3001\u9010\u53e5\u5b57\u5e55\u57fa\u4e8e\u771f\u5b9e\u65c1\u767d\u504f\u79fb\uff0cedge-tts \u8db3\u591f"
+        },
+        {
+          "option_id": "openai_tts",
+          "label": "OpenAI gpt-4o-mini-tts",
+          "score": 0.3,
+          "reason": "\u4e2d\u6587\u6cdb\u5316\u9002\u914d\uff0c\u6210\u672c\u66f4\u9ad8\uff0ckey \u672a\u914d\u7f6e\u5728\u672c\u9879\u76ee .env \u4e4b\u5916"
+        }
+      ],
+      "selected": "edge_tts_yunxi",
+      "reason": "\u7528\u6237 grilling \u786e\u8ba4\u6cbf\u7528\u4e91\u6eaa -4%\uff1bregistry \u65e0 TTS provider\uff080/7\uff09\uff0c\u672c\u5730 edge-tts \u5df2\u9a8c\u8bc1\uff1b\u4e0e\u65c1\u767d spine\u3001\u519b\u653f\u8bed\u6c14\u4e00\u81f4",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "nsynth-gaza-idea-004",
+      "stage": "idea",
+      "category": "music_source",
+      "subject": "Background music plan",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "\u65e0\u97f3\u4e50\uff08\u7528\u6237\u9009\u62e9\uff09",
+          "score": 0.9,
+          "reason": "\u7528\u6237 grilling \u660e\u786e\u9009\u62e9\u65e0\u97f3\u4e50\uff1b\u65c1\u767d\u4e3a\u552f\u4e00\u58f0\u97f3\u4e3b\u5e72\uff0copener \u76f4\u5165 hook \u65e0\u54c1\u724c\u97f3\u6548"
+        },
+        {
+          "option_id": "heygen_audio_bgm",
+          "label": "\u97f3\u4e50\u5e93\u4f4e\u6c89 pulse",
+          "score": 0.4,
+          "reason": "\u519b\u653f\u57fa\u8c03\u53ef\u7528\uff0c\u4f46\u7528\u6237\u660e\u786e\u8981\u65e0\u97f3\u4e50\uff0c\u4e14\u538b\u7f29\u7ad6\u7248\u65f6\u95f4\u7ebf"
+        }
+      ],
+      "selected": "none",
+      "reason": "music_plan.source = none + opt_out_reason \u7528\u6237\u660e\u786e\u65e0\u97f3\u4e50\uff1b\u97f3\u4e50\u533a\u7559\u7a7a\uff0ccompose \u4e0d mux \u97f3\u4e50\u8f68",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "nsynth-gaza-idea-005",
+      "stage": "idea",
+      "category": "renderer_family_selection",
+      "subject": "Storyboard model for this deliverable",
+      "options_considered": [
+        {
+          "option_id": "sentence_per_shot",
+          "label": "\u53e5\u5b50=\u955c\u5934\uff08sentence-per-shot\uff09",
+          "score": 1.0,
+          "reason": "narration-synth \u89c4\u8303\u9ed8\u8ba4\uff1b\u6bcf\u4e2a\u8bed\u4e49\u53e5\u4e00\u4e2a shot\uff0c\u6bb5\u843d\u7a97\u53e3\u6309\u5b57\u7b26\u5360\u6bd4\u62c6\u5206"
+        },
+        {
+          "option_id": "montage",
+          "label": "\u7d20\u6750\u8499\u592a\u5947\uff08narration-montage \u98ce\u683c\uff09",
+          "score": 0.2,
+          "reason": "\u672c deliverable \u89c6\u89c9\u4e3a\u914d\u56fe+\u6807\u9898\u5361+\u6570\u636e\u53ef\u89c6\u5316\u81ea\u6d3d\uff0c\u65e0\u9700 stock \u8499\u592a\u5947"
+        }
+      ],
+      "selected": "sentence_per_shot",
+      "reason": "\u6309 narration-synth \u6700\u65b0 storyboard \u6a21\u578b\uff1b\u6536\u5f55\u4e8e metadata.visual_register",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "nsynth-gaza-idea-006",
+      "stage": "idea",
+      "category": "composition_mode",
+      "subject": "Canvas orientation for this deliverable",
+      "options_considered": [
+        {
+          "option_id": "vertical_native",
+          "label": "\u7ad6\u7248\u539f\u751f\u91cd\u5efa 1080x1920",
+          "score": 1.0,
+          "reason": "\u7528\u6237 grilling \u660e\u786e\u7ad6\u7248\u591a\u5e73\u53f0\uff08\u6296\u97f3\u7b49\uff09\uff1b\u4e0a\u4e00\u9879\u76ee\u6210\u7247\u4e3a\u6a2a\u7248 1920x1080\uff0c\u672c\u7247\u662f\u72ec\u7acb\u7ad6\u7248\u539f\u751f\u91cd\u5efa\uff0c\u975e\u6a2a\u7248\u88c1\u5207"
+        },
+        {
+          "option_id": "landscape",
+          "label": "\u6a2a\u7248 1920x1080\uff08\u6cbf\u7528\u65e7\u6a21\u677f\uff09",
+          "score": 0.3,
+          "reason": "\u4e0e\u4e0a\u4e00\u9879\u76ee\u4e00\u81f4\u4f46\u4e0d\u7b26\u5408\u672c\u7247\u53d1\u5e03\u5e73\u53f0\u8bc9\u6c42"
+        }
+      ],
+      "selected": "vertical_native",
+      "reason": "canvas 1080x1920 \u7ad6\u7248\uff1bassets \u9636\u6bb5\u6bcf\u4e2a\u573a\u666f\u7d20\u6750\u76f4\u63a5\u6e32\u67d3 1080x1920 \u5168\u5e27\u4e0d\u900f\u660e MP4\uff08\u975e\u5728\u6a2a\u7248\u4e0a\u5c45\u4e2d\u518d\u88c1\uff09\uff0c\u5b57\u5e55\u533a\u4fdd\u5b89\u5168\u533a\uff08\u4e0b 1/3\uff09",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "nsynth-gaza-idea-007",
+      "stage": "idea",
+      "category": "concept_selection",
+      "subject": "Self-generated visual register for this deliverable",
+      "options_considered": [
+        {
+          "option_id": "photo_title_viz",
+          "label": "Pexels \u7ad6\u7248\u914d\u56fe + \u6807\u9898\u5361 + \u6570\u636e\u53ef\u89c6\u5316",
+          "score": 1.0,
+          "reason": "\u7528\u6237 grilling \u786e\u8ba4\u4e09\u5c42\u89c6\u89c9\uff1a\u914d\u56fe\uff08\u4e8b\u4ef6\u80cc\u666f\uff0cPexels \u7ad6\u7248\u4f18\u5148\uff0c\u987b\u4e0e\u573a\u666f\u76f8\u5173\uff09\u3001\u6807\u9898\u5361\uff08\u6838\u5fc3\u8bba\u70b9/\u8f6c\u6298\uff09\u3001\u6570\u636e\u53ef\u89c6\u5316\uff08\u6570\u5b57/\u65f6\u95f4\u7ebf\uff09\uff1b\u672a\u63d0\u53ca\u5185\u5bb9\u4e0d\u51ed\u7a7a\u9020\u519b\u8230\u5bfc\u5f39"
+        },
+        {
+          "option_id": "military_animations",
+          "label": "warship/missile/map \u7b49\u519b\u4e8b\u52a8\u753b",
+          "score": 0.3,
+          "reason": "\u672c\u7247\u6587\u6848\u65e0\u519b\u8230/\u5bfc\u5f39/\u5730\u56fe\u660e\u786e\u5b9e\u4f53\uff0c\u89c6\u89c9\u5fe0\u5b9e\u5ea6\u7ea6\u675f\u7981\u6b62\u51ed\u7a7a\u9020\u6b66\u5668\u753b\u9762"
+        }
+      ],
+      "selected": "photo_title_viz",
+      "reason": "\u5168\u7247\u89c6\u89c9\u57fa\u4e8e\u300cPexels \u7ad6\u7248\u914d\u56fe\uff08\u4e0a\u90e82/3\uff09+ \u5927\u5b57\u5173\u952e\u8bcd\u53e0\u56fe + \u6570\u636e\u53ef\u89c6\u5316\u6570\u5b57/\u65f6\u95f4\u7ebf\u300d\u4e09\u5c42\uff1b\u4e0d\u653e\u4efb\u4f55\u6587\u6848\u672a\u63d0\u53ca\u7684\u5177\u4f53\u519b\u4e8b\u88c5\u5907\u5b9e\u4f53",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    }
+  ]
+}

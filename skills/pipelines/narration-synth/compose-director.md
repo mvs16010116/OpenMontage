@@ -2,18 +2,21 @@
 
 ## When To Use
 
-The edit decisions exist with a cut list (one per generated scene), subtitle
-style, and audio layout. You render the final master: force-align subtitles to the
-real narration audio, **concatenate the generated scene MP4s**, burn the
-subtitles, mux narration + music, and prove the output correct. You produce TWO
+The edit decisions exist with a timeline of SLOTS (one per generated shot, each
+with its layered materials), subtitle style, and audio layout. You render the
+final master: regenerate subtitles from real narration offsets, **overlay each
+slot's materials into one shot image, then concatenate the shots**, burn the
+subtitles, rebuild the narration mix back-to-back, mux narration + music, and
+prove the output correct. You produce TWO
 artifacts: `render_report` (render evidence) and `final_review` (structured
 self-review).
 
 ## Runtime Routing (HARD CONSTRAINT)
 
-`render_runtime="ffmpeg"`. Scene animations were rendered to MP4 **at the assets
-stage** via `npx hyperframes render`. Compose is ffmpeg-native: concat →
-`video_compose` ASS subtitle burn → narration/music mux.
+`render_runtime="ffmpeg"`. Scene animations (material layers) were rendered **at
+the assets stage** via `npx hyperframes render`. Compose is ffmpeg-native:
+per-slot overlay (filter_complex) → concat → `video_compose` ASS subtitle burn →
+narration/music mux.
 
 - If `edit_decisions.render_runtime` is anything but `ffmpeg`, STOP. Critical
   governance violation — surface, re-lock, log a `render_runtime_selection`
@@ -30,20 +33,22 @@ stage** via `npx hyperframes render`. Compose is ffmpeg-native: concat →
 |-------|----------|---------|
 | Schema | `schemas/artifacts/render_report.schema.json` | Render evidence |
 | Schema | `schemas/artifacts/final_review.schema.json` | Post-render self-review |
-| Prior artifact | `state.artifacts["edit"]["edit_decisions"]` | Cuts, subtitles, audio, render grammar |
-| Prior artifact | `state.artifacts["assets"]["asset_manifest"]` | Scene MP4s, narration ticks, real durations |
+| Prior artifact | `state.artifacts["edit"]["edit_decisions"]` | Slots, materials, subtitles, audio, render grammar |
+| Prior artifact | `state.artifacts["assets"]["asset_manifest"]` | Material MP4s, narration ticks, real durations |
 | Prior artifact | `state.artifacts["idea"]["brief"]` | narration_plan, music_plan, tone |
-| Tool | `video_compose` (ffmpeg) | Concat + subtitle burn + audio mux |
-| Tool | `transcriber` | Force-align subtitles to real narration audio |
-| Tool (optional) | `subtitle_gen` | Build subtitle file from aligned timings |
+| Tool | `video_compose` (ffmpeg) | Per-slot overlay + concat + subtitle burn + audio mux |
+| Tool | `ass-subtitle-generator` | Regenerates short-line `.ass` from real narration offsets |
+| Tool | `audio_mixer` | Rebuilds narration-mix back-to-back (or ffmpeg adelay+amix) |
 
 ## Mental Model
 
 Compose seals the CONTRACT between words and image. The narration audio is real;
 section timings were estimates. Make on-screen text match what is actually said,
-at the moment it is said, over the concatenated generated scenes. Then prove it.
+at the moment it is said, over the layered + concatenated generated shots. Then
+prove it.
 
-Never trust estimated timings for the final burn. Always force-align.
+Never trust estimated timings for the final burn. Always regenerate subtitles from
+real narration offsets (`ass-subtitle-generator`).
 
 ## Process
 
@@ -56,24 +61,46 @@ STOP and surface if:
 - `edit_decisions.renderer_family` is not `"narration-synth"`.
 - `edit_decisions.render_runtime` is not `"ffmpeg"`.
 
-### 1. Concat Order (from edit)
+### 1. Overlay Materials Per Slot, Then Concat (from edit)
 
-The master timeline is the cut list in `edit_decisions.cuts` order. Build a concat
-source from each cut's animation MP4 (`asset_manifest` path) with the cut window.
-Bookends listed first/last; scene cuts in scene order. Verify every referenced MP4
-exists before composing.
+The master timeline is the SLOT list in `edit_decisions.slots` order. Two passes:
+
+**Pass A — assemble each shot:** for every slot, overlay its materials in `layer`
+order via ffmpeg `filter_complex` (background on the bottom, then midground, then
+foreground on top; each material's transparent WebM/MP4 composites over the one
+below). Trim each material to its `in/out` from the slot. Output one composed shot
+file per slot: `projects/<name>/assets/video/shot_<scene_id>.mp4`.
+
+**Pass B — concatenate shots:** concatenate the composed shots in slot/scene
+order. Bookends listed first/last; sentence-shot slots in scene order. Verify every
+referenced material MP4 exists and every composed shot exists before continuing.
+
+A slot with ONE material still goes through Pass A (identity copy) so the concat
+is uniform.
 
 ### 2. Force-Align Subtitles To Real Audio (CRITICAL)
 
 1. Collect every narration asset (`type: "narration"`) with REAL probed duration.
-2. Align each narration text to its actual audio via `transcriber`/`subtitle_gen`,
-   producing per-line timestamps that match the audio's real boundaries.
-3. Build the subtitle file — static whole-line, NO `\k` karaoke markers; follow
-   `edit_decisions.subtitles` style (font size, color, position).
-4. Write to `projects/<name>/assets/subtitles.srt`. Skip `exclude_scene_ids`
+2. Add the section windows to the script artifact and regenerate `subtitles.ass`
+   via the **`ass-subtitle-generator`** skill — it reads
+   `script.sections[].start_seconds` (real narration offsets, not cumulative
+   durations) and writes a short-line 1920x1080 ASS that stays inside each
+   narration window even with opener/chapter-card silence.
+3. Build the subtitle file — static whole-line, NO `\k` karaoke markers,
+   ≤16 chars/line, ASS-format colors (see the ass-subtitle-generator SKILL.md
+   "black-text trap" — HTML hex renders black).
+4. Write to `projects/<name>/assets/subtitles.ass`. Skip `exclude_scene_ids`
    (bookends) — they carry their own typography.
 5. If a narration's probed duration differs from the scene window estimate by
    >15%, re-check the scene window and flag it in `warnings`.
+
+**Narration mix — back-to-back, not gapped.** The narration master is rebuilt at
+compose so sections tile seamlessly: section N's end = section N+1's start. The
+ONLY silence is at the opener + chapter-card holds. Use `audio_mixer` (or ffmpeg
+`adelay`+`amix` over an `anullsrc` base) to place each narration at its real
+start; the base track length = last narration end (~131.98s above). A rendered
+master with dead seconds between chapters means the mix was built with gaps —
+re-mix, don't ship it.
 
 ### 3. Resolve The Canvas
 
@@ -90,13 +117,21 @@ video_compose.execute({
     "edit_decisions": edit_decisions,      # renderer_family=narration-synth, render_runtime=ffmpeg
     "asset_manifest": asset_manifest,
     "proposal_packet": proposal_packet,     # so runtime_swap_detected runs
-    "subtitles_path": "projects/<name>/assets/subtitles.srt",
+    "audio_path": "projects/<name>/assets/audio/narration_mix.mp3",
+    "subtitle_path": "projects/<name>/assets/subtitles.ass",
+    "options": {"subtitle_burn": True},
 })
 ```
 
 Read the live `video_compose` schema at render time (`agent_skills`: `ffmpeg`,
-`hyperframes-core`) — concat of clips may pass through `edit_decisions.cuts` or a
-dedicated concat param. Do not invent parameters.
+`hyperframes-core`). Pass the two key paths explicitly:
+- `audio_path` → the reconstructed narration mix (back-to-back narration +
+  silence at opener/cards). Concat of clips may pass through
+  `edit_decisions.cuts` — do not invent parameters.
+- `subtitle_path` → the generated `subtitles.ass`; keep `subtitle_burn` on.
+  The in-tool post-render `subtitle_check` looks for a subtitle STREAM and will
+  report burn-ins as "not found" — that is a false positive; verify burned pixels,
+  not streams (step 5).
 
 Encoder: libx264 / yuv420p / CRF 18 / aac / 192k.
 
@@ -108,10 +143,18 @@ ffprobe the output + sample frames:
 - **Resolution** — matches canvas.
 - **Audio** — narration + music present (or planned silence).
 - **Subtitles** — 3+ frames from the subtitle region; readable, not clipped, no
-  `\k`.
+  `\k`. Since burn-in is invisible to ffprobe streams, do a **pixel check**: crop
+  the lower band (~bottom 200px) and confirm a bright white-pixel share on
+  subtitle frames vs a near-zero share on a bookend (no-subtitle) frame; a black
+  subtitle regression shows ~0.
 - **Frame variety** — sample opening/middle/closing frames; confirm the generated
   scenes appear (not black, not a repeated single scene); no blank gaps.
-- **Scene cuts** — the cut boundaries land at section transitions.
+- **Audio layout** — volumedetect at each narration window (present) and at the
+  opener/chapter cards (≈ -91 dB pure silence); dead seconds between chapters =
+  mix was gapped.
+- **Scene cuts** — shot boundaries land at sentence-shot transitions (and bookend
+  breaks); each shot shows its intended layering (background visible under
+  foreground overlays, not one material hiding another).
 - **Sync spot-check** — at a known narration line, on-screen text matches the
   spoken words within ~1s.
 
@@ -132,8 +175,9 @@ ffprobe the output + sample frames:
     "section_04 narration probed 18.2s vs 15.5s estimate — timing re-aligned against scene window"
   ],
   "verification_notes": [
-    "Scene MP4s concatenated in edit order (6 scenes, 0 missing)",
+    "Shots assembled by overlaying materials in layer order, then concatenated in edit order (6 shots, 0 missing)",
     "Subtitle burn verified: 4 frames sampled, text readable, no karaoke markers",
+    "Overlay sampled: foreground data visible over background at scene_02 frames",
     "Narration present and sync spot-checked within 1s at section_02 line"
   ],
   "render_grammar": "narration-synth",
@@ -141,8 +185,10 @@ ffprobe the output + sample frames:
   "metadata": {
     "pipeline": "narration-synth",
     "canvas": { "width": 1920, "height": 1080 },
-    "subtitles_force_aligned": true,
+    "subtitles_generated_ass": true,
+    "subtitles_short_lines": true,
     "generated_scene_count": 6,
+    "materials_overlaid": true,
     "narration_present": true,
     "music_present": true
   }
@@ -170,7 +216,8 @@ If `status` is `revise`/`fail`, do NOT present as complete — re-render/revise 
 
 - `render_report` and `final_review` validate against schemas.
 - Output file exists + passes ffprobe.
-- `render_report.metadata.subtitles_force_aligned = true`.
+- `render_report.metadata.subtitles_generated_ass = true` (regenerated from real
+  narration offsets, not estimated timings).
 - `final_review.checks.subtitle_check.subtitles_present = true`.
 - `final_review.checks.audio_spotcheck.narration_present = true` (or explicit
   opt-out honored).
@@ -180,15 +227,26 @@ If `status` is `revise`/`fail`, do NOT present as complete — re-render/revise 
 
 ## Common Pitfalls
 
-- **Burning estimated timings.** Always force-align.
+- **Burning estimated timings.** Always regenerate subtitles from real narration
+  offsets via ass-subtitle-generator.
 - **Skipping the runtime check.** Pass `proposal_packet`, report honestly.
-- **Re-rendering scenes at compose.** Scene MP4s are already done; compose concats.
-- **Concat order drift** — the master must follow `edit_decisions.cuts` order; an
+- **Re-rendering scenes at compose.** Material MP4s are already done; compose
+  overlays + concats.
+- **Overlaying in the wrong order** (foreground under background) → the shot is
+  broken; always compose background → midground → foreground.
+- **Opaque foreground materials.** A foreground rendered WITHOUT alpha hides the
+  background and reads as a single flat frame — the overlay check catches it.
+- **Concat order drift** — the master must follow `edit_decisions.slots` order; an
   un-ordered concat breaks the section arc.
 - **No-`proposal_packet` runtime swap.** `skipped` check = governance finding.
 - **Word-by-word/karaoke subtitles.** `\k` is an automatic fail.
+- **Counting a burn-in as missing.** `subtitle_check` looks for a subtitle STREAM;
+  a burned-in ASS reports "not found" — that's expected. Verify pixels, not
+  streams.
+- **Gapped narration mix.** Dead seconds between chapters means the mix wasn't
+  rebuilt back-to-back. Re-mix with silence only at opener/cards.
 - **Presenting a failed render.** Fix and re-render.
-- **Editing cuts at compose time.** Adjustments belong in edit_decisions.
+- **Editing slots at compose time.** Adjustments belong in edit_decisions.
 
 ## When The Render Fails
 

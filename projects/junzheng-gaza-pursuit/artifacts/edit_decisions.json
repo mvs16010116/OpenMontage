@@ -1,0 +1,561 @@
+{
+  "version": "1.0",
+  "renderer_family": "narration-synth",
+  "render_runtime": "ffmpeg",
+  "composition_mode": "templated",
+  "cuts": [],
+  "overlays": [],
+  "slots": [
+    {
+      "scene_id": "scene_opener",
+      "window": {
+        "start": 0.0,
+        "end": 2.0
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_opener",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.0
+        }
+      ],
+      "transition_in": "fade_in",
+      "transition_out": "cut",
+      "reason": "opener - 中心标题卡 + hook 大字「说出来你敢信？」"
+    },
+    {
+      "scene_id": "scene_section_01_1",
+      "window": {
+        "start": 2.0,
+        "end": 3.8942
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_01_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 1.8942
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_01 开场钩子 - 目标换芯：说出来你敢信 / 核心目标已换 / 报复优先级钉死 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_01_2",
+      "window": {
+        "start": 3.8942,
+        "end": 15.8937
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_01_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 11.9995
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_01 开场钩子 - 目标换芯：说出来你敢信 / 核心目标已换 / 报复优先级钉死 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_01_3",
+      "window": {
+        "start": 15.8937,
+        "end": 26.624
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_01_3",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 10.7303
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_01 开场钩子 - 目标换芯：说出来你敢信 / 核心目标已换 / 报复优先级钉死 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_02_1",
+      "window": {
+        "start": 26.624,
+        "end": 36.3091
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_02_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 9.6851
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_02 幌子拆穿 - 「摧毁哈马斯」幌子 / 目标收缩人头清账 / 零弹性 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_02_2",
+      "window": {
+        "start": 36.3091,
+        "end": 48.2671
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_02_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 11.958
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_02 幌子拆穿 - 「摧毁哈马斯」幌子 / 目标收缩人头清账 / 零弹性 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_02_3",
+      "window": {
+        "start": 48.2671,
+        "end": 50.744
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_02_3",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.4769
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_02 幌子拆穿 - 「摧毁哈马斯」幌子 / 目标收缩人头清账 / 零弹性 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_chapter_1",
+      "window": {
+        "start": 50.744,
+        "end": 53.244
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_chapter_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.5
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "chapter card - 第1部分 目标换芯"
+    },
+    {
+      "scene_id": "scene_section_03_1",
+      "window": {
+        "start": 53.244,
+        "end": 61.4528
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_03_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 8.2088
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_03 政治焦虑与打法转型 - 无弹性答卷 / 打法转型 / 高密度小单元 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_03_2",
+      "window": {
+        "start": 61.4528,
+        "end": 71.2209
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_03_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 9.7681
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_03 政治焦虑与打法转型 - 无弹性答卷 / 打法转型 / 高密度小单元 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_03_3",
+      "window": {
+        "start": 71.2209,
+        "end": 77.436
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_03_3",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 6.2151
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_03 政治焦虑与打法转型 - 无弹性答卷 / 打法转型 / 高密度小单元 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_04_1",
+      "window": {
+        "start": 77.436,
+        "end": 81.973
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_04_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 4.537
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_04 代价与潜台词 - 伤亡率上升 / 情报响应 / 潜台词 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_04_2",
+      "window": {
+        "start": 81.973,
+        "end": 86.7054
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_04_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 4.7324
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_04 代价与潜台词 - 伤亡率上升 / 情报响应 / 潜台词 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_04_3",
+      "window": {
+        "start": 86.7054,
+        "end": 89.076
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_04_3",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.3706
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_04 代价与潜台词 - 伤亡率上升 / 情报响应 / 潜台词 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_chapter_2",
+      "window": {
+        "start": 89.076,
+        "end": 91.576
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_chapter_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.5
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "chapter card - 第2部分 代价与潜台词"
+    },
+    {
+      "scene_id": "scene_section_05_1",
+      "window": {
+        "start": 91.576,
+        "end": 99.4257
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_05_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 7.8497
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_05 时间压力 - 国际窗口留不久 / 临界点前落地承诺 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_05_2",
+      "window": {
+        "start": 99.4257,
+        "end": 105.832
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_05_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 6.4063
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_05 时间压力 - 国际窗口留不久 / 临界点前落地承诺 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_06_1",
+      "window": {
+        "start": 105.832,
+        "end": 115.3637
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_06_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 9.5317
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_06 任务聚焦 - 单一任务优先级 / 其他方向全让路 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_06_2",
+      "window": {
+        "start": 115.3637,
+        "end": 122.056
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_06_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 6.6923
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_06 任务聚焦 - 单一任务优先级 / 其他方向全让路 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_chapter_3",
+      "window": {
+        "start": 122.056,
+        "end": 124.556
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_chapter_3",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.5
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "chapter card - 第3部分 历史先例与收尾"
+    },
+    {
+      "scene_id": "scene_section_07_1",
+      "window": {
+        "start": 124.556,
+        "end": 132.6504
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_07_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 8.0944
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_07 历史先例 - 复仇式清算 / 泥潭看不到头 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_07_2",
+      "window": {
+        "start": 132.6504,
+        "end": 136.148
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_07_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 3.4976
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_07 历史先例 - 复仇式清算 / 泥潭看不到头 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_08_1",
+      "window": {
+        "start": 136.148,
+        "end": 144.0728
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_08_1",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 7.9248
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_08 收尾与互动 - 私人恩怨式清算 / 没边界任务如何收尾 / 评论区聊聊 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_08_2",
+      "window": {
+        "start": 144.0728,
+        "end": 148.0397
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_08_2",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 3.9669
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "reason": "section_08 收尾与互动 - 私人恩怨式清算 / 没边界任务如何收尾 / 评论区聊聊 - 本镜台词"
+    },
+    {
+      "scene_id": "scene_section_08_3",
+      "window": {
+        "start": 148.0397,
+        "end": 150.812
+      },
+      "materials": [
+        {
+          "asset_id": "anim_scene_section_08_3",
+          "layer": "background",
+          "in_seconds": 0.0,
+          "out_seconds": 2.7723
+        }
+      ],
+      "transition_in": "cut",
+      "transition_out": "fade_out",
+      "reason": "section_08 收尾与互动 - 私人恩怨式清算 / 没边界任务如何收尾 / 评论区聊聊 - 本镜台词"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "segments": [
+        {
+          "asset_id": "asset_narration_section_01",
+          "start_seconds": 2.0,
+          "end_seconds": 26.624
+        },
+        {
+          "asset_id": "asset_narration_section_02",
+          "start_seconds": 26.624,
+          "end_seconds": 50.744
+        },
+        {
+          "asset_id": "asset_narration_section_03",
+          "start_seconds": 53.244,
+          "end_seconds": 77.436
+        },
+        {
+          "asset_id": "asset_narration_section_04",
+          "start_seconds": 77.436,
+          "end_seconds": 89.076
+        },
+        {
+          "asset_id": "asset_narration_section_05",
+          "start_seconds": 91.576,
+          "end_seconds": 105.832
+        },
+        {
+          "asset_id": "asset_narration_section_06",
+          "start_seconds": 105.832,
+          "end_seconds": 122.056
+        },
+        {
+          "asset_id": "asset_narration_section_07",
+          "start_seconds": 124.556,
+          "end_seconds": 136.148
+        },
+        {
+          "asset_id": "asset_narration_section_08",
+          "start_seconds": 136.148,
+          "end_seconds": 150.812
+        }
+      ]
+    },
+    "music": {
+      "enabled": false,
+      "volume": 0.0,
+      "fade_in_seconds": 0,
+      "fade_out_seconds": 0,
+      "ducking": false
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "style": {
+      "font": "MS YaHei",
+      "font_size": 68,
+      "bold": true,
+      "primary_color": "&H00FFFFFF",
+      "outline_color": "&H00000000",
+      "outline_width": 3,
+      "shadow": 0,
+      "margin_v": 55,
+      "alignment": 2
+    },
+    "source": "assets/subtitles.ass",
+    "max_words_per_line": 16,
+    "max_chars_per_line": 16,
+    "exclude_scene_ids": [
+      "scene_opener",
+      "scene_section_chapter_1",
+      "scene_section_chapter_2",
+      "scene_section_chapter_3"
+    ]
+  },
+  "metadata": {
+    "pipeline": "narration-synth",
+    "scene_count": 25,
+    "hero_scenes": [
+      "scene_opener",
+      "scene_section_01_2"
+    ],
+    "total_duration_seconds": 150.81,
+    "adjacency_notes": [
+      "背景视觉源交替（pexels 照片 / title-card / data-viz），photo->title 邻接同族按 scene_plan 豁免"
+    ],
+    "duration_deltas": [
+      "每镜渲染为 scene_plan 窗口长度；edit 按段实长重新缩放窗口，compose 端 trim-to-window + freeze-last-frame"
+    ],
+    "real_narration_seconds": {
+      "section_01": 24.624,
+      "section_02": 24.12,
+      "section_03": 24.192,
+      "section_04": 11.64,
+      "section_05": 14.256,
+      "section_06": 16.224,
+      "section_07": 11.592,
+      "section_08": 14.664
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "title": "以军总参谋长：追击直至消灭巴勒斯坦武装",
+  "hook": "说出来你敢信？打了快3年的加沙战事，以色列军方到现在才把核心目标换成逐个清算2023年10月7日的参与者。",
+  "key_points": [
+    "以军把加沙核心目标从摧毁哈马斯收缩为逐个清算2023年10月7日的参与者，报复优先级被彻底钉死",
+    "考核指标从占地盘炸工事改成人头清账，零弹性，本质是向国内政治焦虑交答卷",
+    "打法从大规模空地轰炸转为高密度小单元渗透+情报精准定位+逐街区拉网式甄别，伤亡率更高、情报链路要求空前",
+    "国际环境窗口留不久、单一任务优先级排除跨战线扩张，令人想起复仇式清算陷入泥潭的历史先例",
+    "收尾反问：无边界任务将以何种方式收尾，留言区聊判断"
+  ],
+  "core_message": "以军把加沙目标收缩为对2023年10月7日参与者的逐个清算，是向国内政治承诺交答卷的最后窗口期动作，同时排除了其他方向军事扩张，可能陷入无边界冲突泥潭。",
+  "cta": "大伙有什么判断，咱们评论区聊聊。关注侯哥军情，每天一条军事精读。",
+  "tone": "urgent",
+  "style": "photo-title-viz 军政竖版",
+  "target_audience": "军事爱好者、时政评论观众、短视频平台用户",
+  "target_platform": "tiktok",
+  "target_duration_seconds": 160,
+  "reference_material": [
+    "飞书多维表格 OZsLb287vaT2j8srKYXcyw05nkc / tbl6rLRt9fdRbNa7 / 视图 ve2901A%2CKS · record recvttJWodlxpo（2026-08-27）",
+    "projects/junzheng-gaza-pursuit/artifacts/source_script.json"
+  ],
+  "metadata": {
+    "source_script": "大家好，我是侯哥军情。说出来你敢信？打了快3年的加沙战事，以色列军方到现在才把核心目标从摧毁哈马斯换成了逐个清算2023年10月7日的参与者，这波调整说穿了根本不是什么战术层面的小修小补，完全是以军最高层把之前模糊了快3年的报复优先级给彻底钉死了，之前喊的摧毁哈马斯说白了就是个没明确终点的幌子，既能拿来给国内民众交差，也能给国际社会留斡旋的余地，现在把目标死死收缩到2023年10月7日的参与者一个不落，等于直接把所有军事行动的考核指标从占地盘、炸工事改成了人头清账，半分折中妥协的空间都没有，本质上就是军方给国内堆了快3年的政治焦虑交上去的一份半点儿弹性都没有的答卷，从军事部署的逻辑来看，这个调整意味着以军之前那种大规模空地轰炸、成建制平推的打法直接要靠边站，取而代之的是高密度小单元渗透、情报精准定位、逐街区拉网式甄别，这种作战模式的人员伤亡率比之前高得不是一点半点，对情报链路的响应速度要求更是拉到了前所未有的高度，这背后的潜台词更值得咂摸，第一，这说明以军高层已经明明白白判断出来，当前的国际环境窗口根本给他们留不了多久，必须得在外部压力没触碰到临界点之前，把这个最核心的政治承诺给落地，第二，这种没有任何替代选项的单一任务优先级，等于直接把任何跨战线、多方向扩张军事行动的可能性给排除了，至少在这个目标完成之前，其他方向的任何军事动作都得给这个核心任务让路，这不免让人想起上世纪不少局部冲突里，一方把复仇式清算放在战略目标最顶端的先例，最后往往都陷进了看不到头的泥潭里，现在就有个问题摆在这：当一国军队把这种近乎私人恩怨式的清算放在所有战略目标的最顶端，这种没边界的任务，最后到底会以什么方式收尾，大伙有什么判断，咱们评论区聊聊。",
+    "pipeline": "narration-synth",
+    "visual_register": {
+      "shot_model": "sentence-per-shot",
+      "material_layers": ["background", "midground", "foreground"],
+      "scene_variety_via": "visual_source",
+      "render_layers": "full_frame_opaque_per_material",
+      "canvas": "1080x1920 vertical",
+      "manifest_canvas_vertical": {
+        "resolution": "1080x1920",
+        "orientation": "portrait",
+        "note": "原生竖版，非横版裁切。所有场景/素材按 1080x1920 构建"
+      },
+      "allowed_skills": ["military-title-card", "military-data-viz", "pexels-photo"],
+      "default_palette": "dark",
+      "default_accent": "#fbbf24",
+      "style_note": "竖版军政解说：上部2/3为Pexels竖版配图（暗渐变压暗），图上叠一句大字关键词/标题（大号加粗，居上或中上部），下部1/3留安全区给字幕；数据可视化用于数字/时间线强调（快3年、2023年10月7日、伤亡率/情报响应速度拉满、单一任务优先级、泥潭先例）；不放任何文案未提及的具体军事装备实体（无军舰/导弹/地图发明），视觉只落文案关键词"
+    },
+    "bookend_plan": {
+      "opener": { "skill": "military-title-card", "mode": "center", "note": "无品牌片头，0.5s直入hook「说出来你敢信？」" },
+      "chapter_breaks": { "skill": "military-title-card", "mode": "lower", "note": "章节转折关键词卡（核心目标切换/打法转变/潜台词第一/第二/历史先例）" }
+    },
+    "narration_plan": {
+      "enabled": true,
+      "provider": "edge-tts",
+      "model": "edge-tts",
+      "voice": "zh-CN-YunxiNeural",
+      "language": "zh-CN",
+      "rate": "-4%",
+      "register": "urgent",
+      "notes": "edge-tts 本地 .venv 已验证（junzheng-yasukuni 同款，0成本）；Yunxi 男声 -4% 压语速适配军政严肃语气"
+    },
+    "music_plan": {
+      "source": "none",
+      "opt_out_reason": "用户明确选择无音乐（grilling 确认）。旁白为唯一声音主干，opener 直入 hook 无品牌音效；如 compose 判定过干可再向用户申请"
+    },
+    "subtitle_style": {
+      "enabled": true,
+      "generator": "ass-subtitle-generator",
+      "font_size": 88,
+      "font": "MS YaHei",
+      "bold": true,
+      "primary_color": "&H00FFFFFF",
+      "outline_color": "&H00000000",
+      "outline_width": 3,
+      "max_chars_per_line": 16,
+      "margin_v": 55,
+      "alignment": 2,
+      "mode": "per_sentence_highlight",
+      "current_line_highlight": true,
+      "exclude_scene_ids": ["scene_opener", "section_chapter_*"]
+    }
+  }
+}

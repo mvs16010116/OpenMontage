@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "output_path": "projects/junzheng-gaza-pursuit/renders/final.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 150.8,
+      "resolution": "1080x1920",
+      "fps": 30,
+      "has_audio": true,
+      "codec": "h264+aac",
+      "file_size_bytes": 46416627,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 6,
+      "frame_paths": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\rev\\opener.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\rev\\sub_mid.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\rev\\chapter.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_s01.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_s05.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_end.png"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": []
+    },
+    "audio_spotcheck": {
+      "narration_present": true,
+      "music_present": false,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": []
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "renderer_family_used": "narration-synth",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": false,
+      "runtime_swap_check": "ok - compose SSR with ffmpeg end-to-end (render_runtime locked ffmpeg at edit)",
+      "motion_ratio_actual": 1.0,
+      "silent_downgrade_detected": false,
+      "issues": []
+    },
+    "subtitle_check": {
+      "subtitles_expected": true,
+      "subtitles_present": true,
+      "coverage_ratio": 1.0,
+      "timing_drift_detected": false,
+      "issues": []
+    }
+  },
+  "issues_found": [],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "pipeline": "narration-synth",
+    "no_music_per_brief": true,
+    "bookend_holds_silent": true,
+    "subtitle_pixel_verified": true,
+    "render_runtime_locked": "ffmpeg",
+    "revision": "rev2-grilling",
+    "revision_notes": {
+      "#2_subtitle_overflow_fixed": "ASS 重建为竖版 1080x1920、字号 42；final.mp4 旁白帧 White-pixel share=1.1%、0 贴边/溢出；opener/chapter 卡帧无字幕（0 像素）",
+      "#3_word_level_sync": "faster-whisper 词级时间戳对齐重定时，字幕起止 snap 到真实词字界（首行 2.00s onset -> 末行 150.81s）",
+      "#1_keyword_motion": "25 镜重烘，标题字符 back.out 弹入 + 持续确定性上下浮动（GSAP timeline 覆盖全镜时长）；scene_section_02_1 帧 diff 14269px 证实运动"
+    }
+  }
+}

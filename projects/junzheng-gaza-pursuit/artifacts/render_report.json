@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "projects/junzheng-gaza-pursuit/renders/final.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 150.8,
+      "file_size_bytes": 46416627,
+      "platform_target": "tiktok"
+    }
+  ],
+  "render_time_seconds": 0,
+  "warnings": [
+    "REV2-grilling #2 字幕溢出修复：重建 ASS 为竖版 1080x1920（原误用 1920x1080 PlayRes 致 libass 缩放 1.78x 溢出），字号 42，像素验证 White-pixel 0 溢出/0 贴边",
+    "REV2-grilling #3 字幕-语音 100% 同步：对 8 段旁白用 faster-whisper（本地 base 模型）词级时间戳逐段对齐，字幕行起止 snap 到真实词字界；首行起点=语音 onset 2.00s，末行终点=150.81s",
+    "REV2-grilling #1 关键字动效：25 镜重烘（GOOD 0 / 25 时长不匹配）——标题 back.out 弹入 + 持续确定性上下浮动（GSAP timeline tweens 覆盖全镜时长，seek 安全）",
+    "subtitles.ass 由项目本地词级重定时器生成（faster-whisper 对齐），竖版 1080x1920、字号 42、56 条事件 2.00s->150.81s",
+    "镜头 MP4 烘烤为 scene_plan 窗口：edit 按 8 段旁白实长重新缩放窗口，compose 端 trim-to-window + freeze-last-frame（section_03/05/07_1/07_2 因旁白长于稿窗口冻结末帧补足）",
+    "render_report.render_grammar 用 narration-montage（schema 枚举唯一可行值）；实际走 narration-synth 流水线，render_runtime=ffmpeg"
+  ],
+  "verification_notes": [
+    "REV2 字幕溢出：#2 重生成竖版 ASS 后，final.mp4 每帧 1080x1920；旁白帧字幕带 White(>200)=4166px share=1.1%，0 像素贴边/溢出；opener/chapter 卡帧 White=0（无字幕）——文本完整落在框内",
+    "REV2 关键字动效：#1 25 镜重烘（build_vertical absolute ROOT + per-scene hyperframes render，时长全部 OK）；scene_section_02_1 标题带 t4/t6 帧 diff 14269px 变化（>12）、maxdiff 202——标题持续浮动证实",
+    "REV2 同步：#3 字幕由 faster-whisper 词级时间戳对齐重定时；首行「大家好…」2.00s=真实 onset，末行 150.81s=语音末字边界",
+    "25 镜头按 slot 顺序拼接（trim-to-window；FREEZE 用 tpad stop_mode=clone 补足），0 missing",
+    "旁白混音背靠背重建（adelay+amix over anullsrc 基轨，normalize=0）；volumedetect 证实仅 opener(0-2s) 与 ch1/ch2/ch3 卡点留白为 -91dB 纯静音",
+    "帧多样性：opener/s01/ch1/s05/end 抽样帧 YAVG 19/76/21/79/27，全部非黑且互异",
+    "ffprobe：1080x1920 h264@30fps 150.80s，aac 48kHz mono"
+  ],
+  "render_grammar": "narration-montage",
+  "final_review_ref": "projects/junzheng-gaza-pursuit/artifacts/final_review.json",
+  "metadata": {
+    "pipeline": "narration-synth",
+    "revision": "rev2-grilling",
+    "revision_fixes": [
+      "#2 subtitle_overflow fixed (vertical 1080x1920 ASS, font 42, 0 px overflow)",
+      "#3 word_level_sync (faster-whisper aligned timestamps)",
+      "#1 keyword_motion (back.out entry + persistent float, 25 shots re-baked)"
+    ],
+    "canvas": {
+      "width": 1080,
+      "height": 1920
+    },
+    "subtitles_generated_ass": true,
+    "subtitles_short_lines": true,
+    "subtitles_word_timed": true,
+    "subtitles_playres": "1080x1920",
+    "keyword_motion": true,
+    "generated_scene_count": 25,
+    "materials_overlaid": true,
+    "narration_present": true,
+    "music_present": false,
+    "duration_deltas": [
+      "section_03/05/07_1/07_2 冻结末帧补足窗口；其余镜头裁切"
+    ]
+  }
+}

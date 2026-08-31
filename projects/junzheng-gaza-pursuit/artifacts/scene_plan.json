@@ -1,0 +1,1620 @@
+{
+  "version": "1.0",
+  "style_playbook": "clean-professional",
+  "scenes": [
+    {
+      "id": "scene_opener",
+      "type": "generated",
+      "description": "opener - center title card with hook",
+      "semantic_sentence": "说出来你敢信？",
+      "start_seconds": -0.5,
+      "end_seconds": 2.5,
+      "script_section_id": "section_opener",
+      "framing": "wide",
+      "movement": "static",
+      "transition_in": "fade_in",
+      "transition_out": "cut",
+      "shot_language": "title_card_open",
+      "shot_intent": "直入 hook 大字，无品牌片头",
+      "narrative_role": "opener",
+      "hero_moment": true,
+      "texture_keywords": [
+        "说",
+        "你敢信",
+        "hook"
+      ],
+      "materials": [
+        {
+          "id": "scene_opener_mat",
+          "layer": "background",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "说出来你敢信？",
+            "--keyword": "以军目标已换芯",
+            "--accent": "#fbbf24",
+            "--duration": "2",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "opener — 竖版中心标题卡（vertical compositor 于 assets 阶段实现）"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_01_1",
+      "type": "generated",
+      "description": "大家好，我是侯哥军情。",
+      "semantic_sentence": "大家好，我是侯哥军情。",
+      "start_seconds": 0.0,
+      "end_seconds": 2.0,
+      "script_section_id": "section_01",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_01_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_01_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_01_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "smoke dark background cinematic",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "2.0"
+          },
+          "output_note": "scene_section_01_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_01_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "侯哥军情 · 目标已换芯",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "2.0",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_01_1 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_01_2",
+      "type": "generated",
+      "description": "说出来你敢信？打了快3年的加沙战事，以色列军",
+      "semantic_sentence": "说出来你敢信？打了快3年的加沙战事，以色列军方到现在才把核心目标从摧毁哈马斯换成了逐个清算2023年10月7日的参与者",
+      "start_seconds": 2.0,
+      "end_seconds": 14.67,
+      "script_section_id": "section_01",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": true,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_01_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_01_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_01_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "gaza conflict aftermath rubble",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "12.67"
+          },
+          "output_note": "scene_section_01_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_01_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "说出来你敢信？核心目标已换",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "12.67",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_01_2 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_01_3",
+      "type": "generated",
+      "description": "这波调整说穿了根本不是什么战术层面的小修小补",
+      "semantic_sentence": "这波调整说穿了根本不是什么战术层面的小修小补，完全是以军最高层把之前模糊了快3年的报复优先级给彻底钉死了",
+      "start_seconds": 14.67,
+      "end_seconds": 26.0,
+      "script_section_id": "section_01",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "data_over_photo",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_01_3_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_01_3_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_01_3_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "military strategy documents tactical",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "11.33"
+          },
+          "output_note": "scene_section_01_3 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_01_3_mat_fg",
+          "layer": "foreground",
+          "skill": "military-data-viz",
+          "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "报复优先级 · 彻底钉死",
+            "--type": "timeline",
+            "--bars": [],
+            "--timeline": [
+              "2023-10-07:袭击",
+              "2026-08:目标换芯"
+            ],
+            "--kpi": "快3年",
+            "--accent": "#fbbf24",
+            "--duration": "11.33",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_01_3 前景 — 数据可视化"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_02_1",
+      "type": "generated",
+      "description": "之前喊的摧毁哈马斯说白了就是个没明确终点的幌",
+      "semantic_sentence": "之前喊的摧毁哈马斯说白了就是个没明确终点的幌子，既能拿来给国内民众交差，也能给国际社会留斡旋的余地",
+      "start_seconds": 26.0,
+      "end_seconds": 36.44,
+      "script_section_id": "section_02",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_02_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_02_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_02_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "official building flags symbol",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "10.44"
+          },
+          "output_note": "scene_section_02_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_02_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "「摧毁哈马斯」＝幌子",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "10.44",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_02_1 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_02_2",
+      "type": "generated",
+      "description": "现在把目标死死收缩到2023年10月7日的参",
+      "semantic_sentence": "现在把目标死死收缩到2023年10月7日的参与者一个不落，等于直接把所有军事行动的考核指标从占地盘炸工事改成了人头清账",
+      "start_seconds": 36.44,
+      "end_seconds": 49.33,
+      "script_section_id": "section_02",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_02_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_02_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_02_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "operation planning map documents",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "12.89"
+          },
+          "output_note": "scene_section_02_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_02_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "目标收缩 · 人头清账",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "12.89",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_02_2 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_02_3",
+      "type": "generated",
+      "description": "半分折中妥协的空间都没有",
+      "semantic_sentence": "半分折中妥协的空间都没有",
+      "start_seconds": 49.33,
+      "end_seconds": 52.0,
+      "script_section_id": "section_02",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_02_3_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_02_3_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_02_3_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "empty road bleak sky",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "2.67"
+          },
+          "output_note": "scene_section_02_3 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_02_3_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "零弹性 · 半分折中空间都没有",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "2.67",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_02_3 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_chapter_1",
+      "type": "generated",
+      "description": "chapter break - 第一部分 · 目标换芯",
+      "semantic_sentence": "第一部分 · 目标换芯",
+      "start_seconds": 52.0,
+      "end_seconds": 54.5,
+      "script_section_id": "section_chapter_1",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "chapter_card",
+      "shot_intent": "章节分隔",
+      "narrative_role": "transition",
+      "materials": [
+        {
+          "id": "scene_section_chapter_1_mat",
+          "layer": "background",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "第一部分 · 目标换芯",
+            "--keyword": "章节",
+            "--accent": "#fbbf24",
+            "--duration": "2.5",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "section_chapter_1 — 竖版章节标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_03_1",
+      "type": "generated",
+      "description": "本质上就是军方给国内堆了快3年的政治焦虑交上",
+      "semantic_sentence": "本质上就是军方给国内堆了快3年的政治焦虑交上去的一份半点儿弹性都没有的答卷",
+      "start_seconds": 54.5,
+      "end_seconds": 61.87,
+      "script_section_id": "section_03",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_03_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_03_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_03_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "document signing ceremony official",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "7.37"
+          },
+          "output_note": "scene_section_03_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_03_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "政治焦虑 · 无弹性答卷",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "7.37",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_03_1 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_03_2",
+      "type": "generated",
+      "description": "从军事部署的逻辑来看，这个调整意味着以军之前",
+      "semantic_sentence": "从军事部署的逻辑来看，这个调整意味着以军之前那种大规模空地轰炸成建制平推的打法直接要靠边站",
+      "start_seconds": 61.87,
+      "end_seconds": 70.64,
+      "script_section_id": "section_03",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "data_over_photo",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_03_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_03_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_03_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "military operation aerial smoke",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "8.77"
+          },
+          "output_note": "scene_section_03_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_03_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-data-viz",
+          "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "打法转型：旧打法靠边站",
+            "--type": "bars",
+            "--bars": [
+              "大规模空地轰炸:旧体系",
+              "小单元渗透:新打法"
+            ],
+            "--timeline": [],
+            "--kpi": "打法切换",
+            "--accent": "#fbbf24",
+            "--duration": "8.77",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_03_2 前景 — 数据可视化"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_03_3",
+      "type": "generated",
+      "description": "取而代之的是高密度小单元渗透情报精准定位逐街",
+      "semantic_sentence": "取而代之的是高密度小单元渗透情报精准定位逐街区拉网式甄别",
+      "start_seconds": 70.64,
+      "end_seconds": 76.22,
+      "script_section_id": "section_03",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "data_over_photo",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_03_3_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_03_3_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_03_3_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "urban street security raid night",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "5.58"
+          },
+          "output_note": "scene_section_03_3 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_03_3_mat_fg",
+          "layer": "foreground",
+          "skill": "military-data-viz",
+          "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "高密度小单元 · 精准定位 · 拉网甄别",
+            "--type": "bars",
+            "--bars": [
+              "小单元渗透:高",
+              "逐街区甄别:密"
+            ],
+            "--timeline": [],
+            "--kpi": "新作战模式",
+            "--accent": "#fbbf24",
+            "--duration": "5.58",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_03_3 前景 — 数据可视化"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_04_1",
+      "type": "generated",
+      "description": "这种作战模式的人员伤亡率比之前高得不是一点半",
+      "semantic_sentence": "这种作战模式的人员伤亡率比之前高得不是一点半点",
+      "start_seconds": 76.22,
+      "end_seconds": 81.33,
+      "script_section_id": "section_04",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "data_over_photo",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_04_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_04_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_04_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "war casualties memorial night",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "5.11"
+          },
+          "output_note": "scene_section_04_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_04_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-data-viz",
+          "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "伤亡率 · 显著上升",
+            "--type": "bars",
+            "--bars": [
+              "旧模式:0",
+              "新模式:1"
+            ],
+            "--timeline": [],
+            "--kpi": "伤亡率↑",
+            "--accent": "#fbbf24",
+            "--duration": "5.11",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_04_1 前景 — 数据可视化"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_04_2",
+      "type": "generated",
+      "description": "对情报链路的响应速度要求更是拉到了前所未有的",
+      "semantic_sentence": "对情报链路的响应速度要求更是拉到了前所未有的高度",
+      "start_seconds": 81.33,
+      "end_seconds": 86.66,
+      "script_section_id": "section_04",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_04_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_04_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_04_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "sonar radar screen control room",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "5.33"
+          },
+          "output_note": "scene_section_04_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_04_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "情报响应 · 前所未有",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "5.33",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_04_2 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_04_3",
+      "type": "generated",
+      "description": "这背后的潜台词更值得咂摸",
+      "semantic_sentence": "这背后的潜台词更值得咂摸",
+      "start_seconds": 86.66,
+      "end_seconds": 89.33,
+      "script_section_id": "section_04",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_04_3_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_04_3_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_04_3_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "silhouette person window thinking",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "2.67"
+          },
+          "output_note": "scene_section_04_3 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_04_3_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "潜台词 · 更值得咂摸",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "2.67",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_04_3 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_chapter_2",
+      "type": "generated",
+      "description": "chapter break - 第二部分 · 代价与潜台词",
+      "semantic_sentence": "第二部分 · 代价与潜台词",
+      "start_seconds": 89.33,
+      "end_seconds": 91.83,
+      "script_section_id": "section_chapter_2",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "chapter_card",
+      "shot_intent": "章节分隔",
+      "narrative_role": "transition",
+      "materials": [
+        {
+          "id": "scene_section_chapter_2_mat",
+          "layer": "background",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "第二部分 · 代价与潜台词",
+            "--keyword": "章节",
+            "--accent": "#fbbf24",
+            "--duration": "2.5",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "section_chapter_2 — 竖版章节标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_05_1",
+      "type": "generated",
+      "description": "第一这说明以军高层已经明明白白判断出来当前的",
+      "semantic_sentence": "第一这说明以军高层已经明明白白判断出来当前的国际环境窗口根本给他们留不了多久",
+      "start_seconds": 91.83,
+      "end_seconds": 98.9,
+      "script_section_id": "section_05",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_05_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_05_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_05_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "clock hourglass deadline urgent",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "7.07"
+          },
+          "output_note": "scene_section_05_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_05_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "第一 · 国际窗口留不了多久",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "7.07",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_05_1 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_05_2",
+      "type": "generated",
+      "description": "必须得在外部压力没触碰到临界点之前把这个最核",
+      "semantic_sentence": "必须得在外部压力没触碰到临界点之前把这个最核心的政治承诺给落地",
+      "start_seconds": 98.9,
+      "end_seconds": 104.67,
+      "script_section_id": "section_05",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "data_over_photo",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_05_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_05_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_05_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "pressure gauge tension",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "5.77"
+          },
+          "output_note": "scene_section_05_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_05_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-data-viz",
+          "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "临界点前 · 落地承诺",
+            "--type": "timeline",
+            "--bars": [],
+            "--timeline": [
+              "外部压力0临界:窗口",
+              "承诺落地:必须"
+            ],
+            "--kpi": "时间压力",
+            "--accent": "#fbbf24",
+            "--duration": "5.77",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_05_2 前景 — 数据可视化"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_06_1",
+      "type": "generated",
+      "description": "第二这种没有任何替代选项的单一任务优先级等于",
+      "semantic_sentence": "第二这种没有任何替代选项的单一任务优先级等于直接把任何跨战线多方向扩张军事行动的可能性给排除了",
+      "start_seconds": 104.67,
+      "end_seconds": 115.11,
+      "script_section_id": "section_06",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_06_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_06_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_06_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "checkpoint barrier blockade",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "10.44"
+          },
+          "output_note": "scene_section_06_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_06_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "第二 · 单一任务优先级",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "10.44",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_06_1 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_06_2",
+      "type": "generated",
+      "description": "至少在这个目标完成之前其他方向的任何军事动作",
+      "semantic_sentence": "至少在这个目标完成之前其他方向的任何军事动作都得给这个核心任务让路",
+      "start_seconds": 115.11,
+      "end_seconds": 122.44,
+      "script_section_id": "section_06",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_06_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_06_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_06_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "convoy military convoy night",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "7.33"
+          },
+          "output_note": "scene_section_06_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_06_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "其他方向 · 全部让路",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "7.33",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_06_2 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_chapter_3",
+      "type": "generated",
+      "description": "chapter break - 第三部分 · 历史先例与收尾",
+      "semantic_sentence": "第三部分 · 历史先例与收尾",
+      "start_seconds": 122.44,
+      "end_seconds": 124.94,
+      "script_section_id": "section_chapter_3",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "chapter_card",
+      "shot_intent": "章节分隔",
+      "narrative_role": "transition",
+      "materials": [
+        {
+          "id": "scene_section_chapter_3_mat",
+          "layer": "background",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "第三部分 · 历史先例与收尾",
+            "--keyword": "章节",
+            "--accent": "#fbbf24",
+            "--duration": "2.5",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "section_chapter_3 — 竖版章节标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_07_1",
+      "type": "generated",
+      "description": "这不免让人想起上世纪不少局部冲突里一方把复仇",
+      "semantic_sentence": "这不免让人想起上世纪不少局部冲突里一方把复仇式清算放在战略目标最顶端的先例",
+      "start_seconds": 124.94,
+      "end_seconds": 131.42,
+      "script_section_id": "section_07",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "data_over_photo",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_07_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_07_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_07_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "archive old newspaper history",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "6.48"
+          },
+          "output_note": "scene_section_07_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_07_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-data-viz",
+          "build_script": ".agents/skills/military-data-viz/scripts/build_data_viz.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "历史先例：复仇式清算",
+            "--type": "timeline",
+            "--bars": [],
+            "--timeline": [
+              "上世纪末:复仇优先",
+              "如今:核心承诺"
+            ],
+            "--kpi": "似曾相识",
+            "--accent": "#fbbf24",
+            "--duration": "6.48",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_07_1 前景 — 数据可视化"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_07_2",
+      "type": "generated",
+      "description": "最后往往都陷进了看不到头的泥潭里",
+      "semantic_sentence": "最后往往都陷进了看不到头的泥潭里",
+      "start_seconds": 131.42,
+      "end_seconds": 134.22,
+      "script_section_id": "section_07",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_07_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_07_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_07_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "swamp dark forest mist",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "2.8"
+          },
+          "output_note": "scene_section_07_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_07_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "泥潭 · 看不到头",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "2.8",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_07_2 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_08_1",
+      "type": "generated",
+      "description": "现在就有个问题摆在这当一国军队把这种近乎私人",
+      "semantic_sentence": "现在就有个问题摆在这当一国军队把这种近乎私人恩怨式的清算放在所有战略目标的最顶端",
+      "start_seconds": 134.22,
+      "end_seconds": 143.11,
+      "script_section_id": "section_08",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_08_1_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_08_1_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_08_1_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "question silhouette darkness",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "8.89"
+          },
+          "output_note": "scene_section_08_1 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_08_1_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "问题：私人恩怨式清算？",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "8.89",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_08_1 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_08_2",
+      "type": "generated",
+      "description": "这种没边界的任务最后到底会以什么方式收尾",
+      "semantic_sentence": "这种没边界的任务最后到底会以什么方式收尾",
+      "start_seconds": 143.11,
+      "end_seconds": 147.56,
+      "script_section_id": "section_08",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_08_2_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_08_2_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_08_2_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "night sky question horizon",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "4.45"
+          },
+          "output_note": "scene_section_08_2 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_08_2_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "没边界的任务 · 如何收尾",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "4.45",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_08_2 前景 — 大字关键词标题卡"
+        }
+      ]
+    },
+    {
+      "id": "scene_section_08_3",
+      "type": "generated",
+      "description": "大伙有什么判断咱们评论区聊聊",
+      "semantic_sentence": "大伙有什么判断咱们评论区聊聊",
+      "start_seconds": 147.56,
+      "end_seconds": 150.67,
+      "script_section_id": "section_08",
+      "framing": "medium",
+      "movement": "static",
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "shot_language": "photo_overlay",
+      "shot_intent": "视觉落文案关键词；配图只作背景，不发明军事装备实体",
+      "narrative_role": "body",
+      "hero_moment": false,
+      "texture_keywords": [
+        "竖版",
+        "photo-bg",
+        "军政"
+      ],
+      "required_assets": [
+        {
+          "type": "image",
+          "material_id": "scene_section_08_3_mat_bg",
+          "description": "Pexels 竖版配图（暗渐变）",
+          "source": "generate"
+        },
+        {
+          "type": "animation",
+          "material_id": "scene_section_08_3_mat_fg",
+          "description": "标题卡/数据可视化前景",
+          "source": "generate"
+        }
+      ],
+      "materials": [
+        {
+          "id": "scene_section_08_3_mat_bg",
+          "layer": "background",
+          "skill": "pexels-photo",
+          "build_script": "tools/graphics/pexels_image",
+          "cli_args": {
+            "bg_query": "comment discussion phone screen",
+            "orientation": "portrait",
+            "size": "large",
+            "dark_overlay": true,
+            "accent": "#fbbf24",
+            "duration": "3.11"
+          },
+          "output_note": "scene_section_08_3 背景 — Pexels 竖版配图（暗渐变）"
+        },
+        {
+          "id": "scene_section_08_3_mat_fg",
+          "layer": "foreground",
+          "skill": "military-title-card",
+          "build_script": ".agents/skills/military-title-card/scripts/build_title_card.mjs",
+          "cli_args": {
+            "--project": "junzheng-gaza-pursuit",
+            "--title": "评论区聊聊你的判断",
+            "--keyword": "keyword",
+            "--accent": "#fbbf24",
+            "--duration": "3.11",
+            "--vertical": "1080x1920"
+          },
+          "output_note": "scene_section_08_3 前景 — 大字关键词标题卡"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pipeline": "narration-synth",
+    "tone": "urgent",
+    "canvas": "1080x1920 vertical",
+    "allowed_skills_used": {
+      "military-title-card": 19,
+      "pexels-photo": 21,
+      "military-data-viz": 6
+    },
+    "visual_faithfulness_note": "所有场景视觉只落文案关键词；Pexels 竖版配图仅作背景，标题卡/数据可视化作前景；不放文案未提及的军事装备实体",
+    "total_scene_seconds": 153.67
+  }
+}

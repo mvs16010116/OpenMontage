@@ -3,11 +3,13 @@
 ## When To Use
 
 The scene plan exists. You produce the raw material the edit needs: **one
-self-generated animation MP4 per scene** (executing each `generation_spec` through
-its `military-*` skill), the narration audio (TTS) per section, and the music bed.
-The output is an `asset_manifest` with full provenance on every asset.
+self-generated animation MP4 PER MATERIAL** (executing each `materials[].spec`
+through its `military-*` skill), the narration audio (TTS) per section, and the
+music bed. Each material renders to its OWN transparent-background MP4 at the
+scene window length — the edit overlays the materials per shot, then concatenates
+shots. The output is an `asset_manifest` with full provenance on every asset.
 
-Three workstreams, run in parallel where possible: (A) self-generated scene
+Three workstreams, run in parallel where possible: (A) self-generated material
 animations, (B) narration TTS, (C) music.
 
 ## Prerequisites
@@ -15,50 +17,55 @@ animations, (B) narration TTS, (C) music.
 | Layer | Resource | Purpose |
 |-------|----------|---------|
 | Schema | `schemas/artifacts/asset_manifest.schema.json` | Artifact validation (supports `type: "animation"`) |
-| Prior artifact | `state.artifacts["scene_plan"]["scene_plan"]` | Scenes + generation_specs |
+| Prior artifact | `state.artifacts["scene_plan"]["scene_plan"]` | Scenes + materials[] + windows |
 | Prior artifact | `state.artifacts["script"]["script"]` | Sections, voice_performance, delivery cues |
 | Prior artifact | `state.artifacts["idea"]["brief"]` | narration_plan, music_plan, visual_register |
 | Layer 3 | `.agents/skills/military-*/SKILL.md` | Per-skill build + verify commands (MANDATORY) |
 | Layer 3 | `hyperframes-core` / `hyperframes-cli` | Deterministic composition + render contract |
 | Tool | `tts_selector` | Narration (route through selector) |
 
-## Workstream A — Self-Generated Scene Animations
+## Workstream A — Self-Generated Material Animations
 
-### A1. Per-Scene Execution
+### A1. Per-Material Execution
 
-For each scene, read its `generation_spec`:
+For each scene, read its `materials[]`. For EACH material, execute ITS spec:
 
 1. **Build the composition:** run `node <build_script> --project <name> <cli_args>`
    from the project root. This writes
-   `projects/<name>/hyperframes/index.html` (each scene overwrites the workspace —
-   render immediately after building, per scene, so no scene's HTML is lost).
-   Use a scratch copy if a skill can't parameterize every scene; the *output MP4*
+   `projects/<name>/hyperframes/index.html` (each material overwrites the workspace —
+   render immediately after building, per material, so no composition is lost).
+   Use a scratch copy if a skill can't parameterize every material; the *output MP4*
    is the artifact, not the intermediate HTML.
 2. **Lint + validate:** `npx hyperframes lint` then `npx hyperframes validate`
    (or `hyperframes_compose` `operation="lint"` / `"validate"`). **0 errors
    required** before render. Record the result in `metadata.validation_results`.
-3. **Render to MP4:**
-   `npx hyperframes render . --skill=<skill> -o projects/<name>/assets/video/<scene_id>.mp4`
-   Set the render length to the scene window (`scene.end_seconds - start_seconds`),
-   matching the skill's duration flag; render at 1920x1080, 30fps.
+3. **Render to a TRANSPARENT MP4:**
+   `npx hyperframes render . --skill=<skill> -o projects/<name>/assets/video/<scene_id>__<material_id>.mp4`
+   Render with an alpha channel (WebM-vp9a or qtrle/ProRes-4444 with alpha, per
+   the skill's transparency contract) so layers can be overlaid later.
+   Set the render length to the SCENE window (`scene.end_seconds - start_seconds`) —
+   ALL materials in a shot share that window; render at 1920x1080, 30fps.
 4. **Probe the output:** confirm resolution 1920x1080, real `duration_seconds`,
-   has video. Record these.
+   has video + alpha, duration ≈ scene window. Record these. A material whose
+   render is shorter than the window is trimmed at edit time with a
+   `metadata.duration_deltas` annotation.
 
 ### A2. Provenance
 
 Every animation asset records:
 `provider: "self_generated"`, `subtype: "hyperframes_military"`,
-`skill: <skill name>`, `build_script`, `cli_args` (full), `seed` (if any),
-`generation_summary` (one line), `license: "procedurally generated — no external
-rights required"`.
+`skill: <skill name>`, `material_id`, `scene_id`, `layer`, `build_script`,
+`cli_args` (full), `seed` (if any), `generation_summary` (one line),
+`license: "procedurally generated — no external rights required"`.
 
 ### A3. Global Dedup
 
-Every scene generates its OWN composition from its OWN spec — there is no shared
-clip pool to dedup. But enforce: **one output MP4 per scene, and no scene's spec
-is a duplicate of a neighbor's** (adjacent identical specs would produce identical
-animation → reads as a render bug). Log near-duplicate specs in
-`metadata.rejected_specs`.
+Every material generates its OWN composition from its OWN spec — there is no shared
+clip pool to dedup. But enforce: **one output MP4 per material, and no two
+materials in the SAME shot carry an identical spec** (identical layers would
+produce identical animation → reads as a render bug). Adjacent-scene background
+variety is the scene plan's job; the asset stage only rejects exact duplicates
+within a shot. Log near-duplicate specs in `metadata.rejected_specs`.
 
 ## Workstream B — Narration Audio (tts_selector)
 
@@ -85,8 +92,9 @@ script estimates at compose time.
 
 ### B4. Record Narration Assets
 
-`type: "narration"`, `provider` from the plan, `scene_id` = the section's scene,
-`voice_performance` filled, real duration.
+`type: "narration"`, `provider` from the plan, `scene_id` = the section's FIRST
+scene (narration is per section/paragraph; the section it voices spans its
+sentence-shots), `voice_performance` filled, real duration.
 
 ## Workstream C — Music Bed
 
@@ -101,21 +109,44 @@ stage — log a `music_selection` decision first if the user changed it.
   "version": "1.0",
   "assets": [
     {
-      "id": "asset_scene_02_animation",
+      "id": "asset_scene_02_mat_bg",
       "type": "animation",
-      "path": "projects/<name>/assets/video/scene_02.mp4",
-      "source_tool": "military-warship",
+      "path": "projects/<name>/assets/video/scene_02__scene_02_mat_bg.webm",
+      "source_tool": "military-map-deduction",
       "scene_id": "scene_02",
+      "material_id": "scene_02_mat_bg",
+      "layer": "background",
       "duration_seconds": 8.5,
       "resolution": "1920x1080",
-      "format": "mp4",
+      "format": "webm",
+      "has_alpha": true,
       "provider": "self_generated",
       "subtype": "hyperframes_military",
-      "skill": "military-warship",
-      "build_script": ".agents/skills/military-warship/scripts/build_warship.mjs",
-      "cli_args": { "--name": "新型驱逐舰", "--hull": "173 号", "--stats": ["满载排水量:12000吨", "垂直发射单元:48", "航速:32节"], "--accent": "#fbbf24", "--palette": "dark" },
+      "skill": "military-map-deduction",
+      "build_script": ".agents/skills/military-map-deduction/scripts/build_map.mjs",
+      "cli_args": { "--theatre": "西太平洋", "--arrows": ["第一岛链", "宫古海峡"], "--accent": "#fbbf24", "--palette": "dark" },
       "license": "procedurally generated — no external rights required",
-      "generation_summary": "warship silhouette + count-up stats, lint/validate 0 errors, rendered to MP4"
+      "generation_summary": "theatre map background, lint/validate 0 errors, rendered transparent WebM"
+    },
+    {
+      "id": "asset_scene_02_mat_fg",
+      "type": "animation",
+      "path": "projects/<name>/assets/video/scene_02__scene_02_mat_fg.webm",
+      "source_tool": "military-data-viz",
+      "scene_id": "scene_02",
+      "material_id": "scene_02_mat_fg",
+      "layer": "foreground",
+      "duration_seconds": 8.5,
+      "resolution": "1920x1080",
+      "format": "webm",
+      "has_alpha": true,
+      "provider": "self_generated",
+      "subtype": "hyperframes_military",
+      "skill": "military-data-viz",
+      "build_script": ".agents/skills/military-data-viz/scripts/build_viz.mjs",
+      "cli_args": { "--series": ["驱逐舰数量:8", "护卫舰数量:12"], "--accent": "#fbbf24", "--palette": "dark" },
+      "license": "procedurally generated — no external rights required",
+      "generation_summary": "animated bar data overlay, lint/validate 0 errors, rendered transparent WebM"
     },
     {
       "id": "asset_narration_section_02",
@@ -135,8 +166,8 @@ stage — log a `music_selection` decision first if the user changed it.
   ],
   "metadata": {
     "pipeline": "narration-synth",
-    "scene_spec_counts": { "scene_opener": "military-title-card", "scene_02": "military-warship" },
-    "validation_results": { "scene_02": "lint 0 errors / validate 0 errors" },
+    "material_counts": { "scene_02": { "background": "military-map-deduction", "foreground": "military-data-viz" } },
+    "validation_results": { "scene_02__scene_02_mat_bg": "lint 0 errors / validate 0 errors", "scene_02__scene_02_mat_fg": "lint 0 errors / validate 0 errors" },
     "rejected_specs": [],
     "narration_voice": "onyx"
   }
@@ -145,27 +176,31 @@ stage — log a `music_selection` decision first if the user changed it.
 
 ## Quality Gate
 
-- One `animation` asset per scene, from the scene's exact `generation_spec`.
+- One `animation` asset PER MATERIAL, from that material's exact spec; all
+  materials of a shot present so the edit can overlay a complete frame.
 - Every animation asset passed `hyperframes lint` + `validate` with 0 errors
   before render (evidence in `metadata.validation_results`).
-- Every animation MP4 is 1920x1080 and `duration_seconds` ≥ scene window.
-- No two animation assets share the same `generation_spec` args (adjacency dedup).
+- Every animation MP4 is 1920x1080, has alpha, and `duration_seconds` ≈ scene
+  window (all layers of one shot match).
+- No two animation assets in the SAME shot share identical `cli_args`.
 - Every narration section has a TTS asset with REAL probed duration (or narration
   explicitly opted out).
 - Music asset exists OR `music_plan.source = "none"` with opt-out reason.
 - All file paths resolve.
-- If a scene fails render or validation, STOP and surface — never silently swap a
-  scene to a different skill or leave it missing.
+- If a material fails render or validation, STOP and surface — never silently swap
+  a material to a different skill or leave a shot's layer missing.
 
 ## Common Pitfalls
 
-- **Rendering all scenes into one workspace without saving each MP4.** Render per
-  scene, save the MP4 immediately, then rebuild for the next scene.
+- **Rendering all materials into one workspace without saving each MP4.** Render
+  per material, save the MP4 immediately, then rebuild for the next material.
 - **Skipping lint/validate.** "It looks fine in preview" is not the gate; 0 errors
   is the gate.
 - **Filing the intermediate HTML instead of the MP4 as the asset.** The edit/compose
-  pipeline consumes MP4s.
-- **Substituting a different skill when one scene fails.** Surface the blocker.
+  pipeline consumes MP4s/WebMs.
+- **Rendering without alpha.** Layers must composite over the shot background —
+  an opaque foreground MP4 would hide the background instead of overlaying it.
+- **Substituting a different skill when one material fails.** Surface the blocker.
 - **Trusting script estimates as final narration times.** Probe real durations.
 - **Substituting the approved TTS voice at this stage.** Governance violation; log
   a `voice_selection` decision first if it must change.

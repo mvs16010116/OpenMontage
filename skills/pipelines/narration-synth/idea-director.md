@@ -62,6 +62,24 @@ in `brief.tone`.
 Chinese narration maps at ~4-5 chars/sec → `chars / 4.5`. No single section may
 exceed ~90s of narration; split at the script stage.
 
+### 4b. Lock The Shot Model (MANDATORY DEFAULT)
+
+This pipeline's storyboard model is **sentence-shots, layered from materials**:
+a story is many small stories; a section is many sentences; **each semantic
+sentence is one shot**; each shot fills its window by overlaying multiple
+materials (a background skill + foreground data/text cards) in the SAME time
+window. Record this in `metadata.visual_register`:
+
+- `shot_model: "sentence-per-shot"` — one scene per semantic sentence, windows
+  proportional to character share.
+- `material_layers: ["background", "midground", "foreground"]` — materials
+  overlay within each shot, in layer order; never split a shot window across
+  materials.
+- `scene_variety_via: "background_skill"` — adjacent shots must vary the
+  full-frame/background skill; foreground overlays are exempt.
+- `render_layers: "transparent_per_material"` — each material renders its own
+  transparent MP4; edit overlays per shot then concatenates shots.
+
 ### 5. Choose The Narration Voice (MANDATORY)
 
 Narration is the spine. Record `metadata.narration_plan` with provider/model/voice
@@ -101,6 +119,10 @@ The brief carries the CORE creative promise that the scene plan will deliver:
     "source_script": "<verbatim user script>",
     "pipeline": "narration-synth",
     "visual_register": {
+      "shot_model": "sentence-per-shot",
+      "material_layers": ["background", "midground", "foreground"],
+      "scene_variety_via": "background_skill",
+      "render_layers": "transparent_per_material",
       "allowed_skills": ["military-warship", "military-missile", "military-map-deduction", "military-data-viz", "military-title-card", "military-seal"],
       "default_palette": "dark",
       "default_accent": "#fbbf24",
@@ -123,13 +145,19 @@ The brief carries the CORE creative promise that the scene plan will deliver:
       "provider": "suno_music",
       "prompt_seed": "understated military-pulse underscore, no vocals, 90s, low brass + sub-bass, tense but restrained"
     },
-    "shot_cadence_seconds": 3.0,
     "subtitle_style": {
-      "font_size": 56,
-      "position": "bottom-center",
-      "color": "#FFFFFF",
-      "outline_color": "#000000",
-      "mode": "static_whole_line"
+      "enabled": true,
+      "generator": "ass-subtitle-generator",
+      "font_size": 68,
+      "font": "MS YaHei",
+      "bold": true,
+      "primary_color": "&H00FFFFFF",
+      "outline_color": "&H00000000",
+      "outline_width": 3,
+      "max_chars_per_line": 16,
+      "margin_v": 55,
+      "alignment": 2,
+      "exclude_scene_ids": ["scene_opener", "section_chapter_*"]
     }
   }
 }

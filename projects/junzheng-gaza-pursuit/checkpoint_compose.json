@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "project_id": "junzheng-gaza-pursuit",
+  "pipeline_type": "narration-synth",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-08-31T00:00:00+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "revision": "rev2-grilling",
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/junzheng-gaza-pursuit/renders/final.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1080x1920",
+          "fps": 30,
+          "duration_seconds": 150.8,
+          "file_size_bytes": 46416627,
+          "platform_target": "tiktok"
+        }
+      ],
+      "render_time_seconds": 0,
+      "warnings": [
+        "镜头 MP4 烘焙为 scene_plan 窗口；edit 按 8 段旁白实长重新缩放窗口，compose 端 trim-to-window + freeze-last-frame（section_03/05/07_1/07_2 因旁白长于稿窗口冻结末帧补足）",
+        "render_report.render_grammar 用 narration-montage（schema 枚举）；实际走 narration-synth 流水线，render_runtime=ffmpeg",
+        "subtitles.ass 由 ass-subtitle-generator 从 edit 旁白网格（非稿比例窗）重生成，56 条事件 2.0s->150.812s"
+      ],
+      "verification_notes": [
+        "25 镜头按 slot 顺序拼接（trim-to-window；FREEZE 用 tpad stop_mode=clone 补足），0 missing",
+        "旁白混音背靠背重建（adelay+amix over anullsrc 基轨，normalize=0）；volumedetect 证实仅 opener(0-2s) 与 ch1/ch2/ch3 卡点留白为 -91dB 纯静音",
+        "subtitles 烧录 ASS 色 &H00FFFFFF 白字 &H00000000 黑描边；像素检查：旁白帧字幕带 YMAX=255（白字在位），opener/chapter 卡帧 YMAX=3（无字）",
+        "帧多样性：opener/s01/ch1/s05/end 抽样帧 YAVG 19.4/76.4/21.1/79.3/26.9，全部非黑且互异",
+        "ffprobe：1080x1920 h264@30fps 150.80s，aac 48kHz mono"
+      ],
+      "render_grammar": "narration-montage",
+      "final_review_ref": "projects/junzheng-gaza-pursuit/artifacts/final_review.json",
+      "metadata": {
+        "pipeline": "narration-synth",
+        "canvas": {
+          "width": 1080,
+          "height": 1920
+        },
+        "subtitles_generated_ass": true,
+        "subtitles_short_lines": true,
+        "generated_scene_count": 25,
+        "materials_overlaid": true,
+        "narration_present": true,
+        "music_present": false,
+        "duration_deltas": [
+          "section_03/05/07_1/07_2 冻结末帧补足窗口；其余镜头裁切"
+        ]
+      }
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "projects/junzheng-gaza-pursuit/renders/final.mp4",
+      "status": "pass",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 150.8,
+          "resolution": "1080x1920",
+          "fps": 30,
+          "has_audio": true,
+          "codec": "h264+aac",
+          "file_size_bytes": 46416627,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 5,
+          "frame_paths": [
+            "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_opener.png",
+            "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_s01.png",
+            "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_ch1.png",
+            "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_s05.png",
+            "C:\\Users\\user\\AppData\\Local\\Temp\\opencode\\gaza_verify\\fr_end.png"
+          ],
+          "black_frames_detected": false,
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "narration_present": true,
+          "music_present": false,
+          "unexpected_silence": false,
+          "clipping_detected": false,
+          "mix_intelligible": true,
+          "issues": []
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "renderer_family_used": "narration-synth",
+          "render_runtime_used": "ffmpeg",
+          "runtime_swap_detected": false,
+          "runtime_swap_check": "ok - compose SSR with ffmpeg end-to-end (render_runtime locked ffmpeg at edit)",
+          "motion_ratio_actual": 1.0,
+          "silent_downgrade_detected": false,
+          "issues": []
+        },
+        "subtitle_check": {
+          "subtitles_expected": true,
+          "subtitles_present": true,
+          "coverage_ratio": 1.0,
+          "timing_drift_detected": false,
+          "issues": []
+        }
+      },
+      "issues_found": [],
+      "recommended_action": "present_to_user",
+      "metadata": {
+        "pipeline": "narration-synth",
+        "no_music_per_brief": true,
+        "bookend_holds_silent": true,
+        "subtitle_pixel_verified": true,
+        "render_runtime_locked": "ffmpeg"
+      }
+    }
+  },
+  "review": {
+    "findings": [
+      {
+        "severity": "info",
+        "item": "REV2 final.mp4 1080x1920(竖版原生 9:16)@30fps 150.80s h264+aac, ffprobe 验证通过 (46.4MB)"
+      },
+      {
+        "severity": "info",
+        "item": "REV2 #2 字幕溢出修复: 竖版 1080x1920 ASS + 字号42, 旁白帧 White 4166px 0 溢出/0 贴边; opener/chapter 帧无字幕"
+      },
+      {
+        "severity": "info",
+        "item": "REV2 #3 词级同步: faster-whisper 本地 base 模型词级时间戳对齐重定时, 字幕起止 snap 到真实词字界"
+      },
+      {
+        "severity": "info",
+        "item": "REV2 #1 关键字动效: 25 镜重烘, 标题 back.out 弹入 + 持续浮动(确定性 GSAP timeline); scene_section_02_1 帧 diff 证实运动"
+      },
+      {
+        "severity": "note",
+        "item": "render_grammar 填 narration-montage (schema 枚举); 实际流水线 narration-synth, runtime=ffmpeg"
+      }
+    ],
+    "conclusion": "approved"
+  },
+  "metadata": {
+    "next_stage": null,
+    "pipeline_complete": true
+  }
+}

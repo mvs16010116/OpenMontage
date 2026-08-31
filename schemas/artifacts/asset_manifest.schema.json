@@ -14,6 +14,9 @@
         "required": ["id", "type", "path", "source_tool", "scene_id"],
         "properties": {
           "id": { "type": "string" },
+          "material_id": { "type": "string", "description": "Reference to the scene_plan material this asset was built from" },
+          "layer": { "type": "string", "enum": ["background", "midground", "foreground"] },
+          "has_alpha": { "type": "boolean", "description": "True if the asset carries an alpha channel (transparent background)" },
           "type": {
             "type": "string",
             "enum": ["image", "video", "audio", "narration", "music", "sfx", "diagram", "animation", "code_snippet", "subtitle", "font", "lut"]
