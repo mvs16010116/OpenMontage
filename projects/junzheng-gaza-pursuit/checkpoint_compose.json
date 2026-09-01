@@ -8,7 +8,7 @@
   "checkpoint_policy": "guided",
   "human_approval_required": true,
   "human_approved": true,
-  "revision": "rev2-grilling",
+  "revision": "rev4-grilling",
   "artifacts": {
     "render_report": {
       "version": "1.0",
@@ -21,7 +21,7 @@
           "resolution": "1080x1920",
           "fps": 30,
           "duration_seconds": 150.8,
-          "file_size_bytes": 46416627,
+          "file_size_bytes": 51896928,
           "platform_target": "tiktok"
         }
       ],
@@ -54,7 +54,8 @@
         "music_present": false,
         "duration_deltas": [
           "section_03/05/07_1/07_2 冻结末帧补足窗口；其余镜头裁切"
-        ]
+        ],
+        "revision": "rev4-grilling"
       }
     },
     "final_review": {
@@ -69,7 +70,7 @@
           "fps": 30,
           "has_audio": true,
           "codec": "h264+aac",
-          "file_size_bytes": 46416627,
+          "file_size_bytes": 51896928,
           "issues": []
         },
         "visual_spotcheck": {
@@ -120,7 +121,8 @@
         "no_music_per_brief": true,
         "bookend_holds_silent": true,
         "subtitle_pixel_verified": true,
-        "render_runtime_locked": "ffmpeg"
+        "render_runtime_locked": "ffmpeg",
+        "revision": "rev4-grilling"
       }
     }
   },
@@ -128,29 +130,45 @@
     "findings": [
       {
         "severity": "info",
-        "item": "REV2 final.mp4 1080x1920(竖版原生 9:16)@30fps 150.80s h264+aac, ffprobe 验证通过 (46.4MB)"
+        "item": "REV4 final.mp4 1080x1920(竖版 9:16)@30fps 150.80s h264+aac, ffprobe 通过 (51.9MB)"
       },
       {
         "severity": "info",
-        "item": "REV2 #2 字幕溢出修复: 竖版 1080x1920 ASS + 字号42, 旁白帧 White 4166px 0 溢出/0 贴边; opener/chapter 帧无字幕"
+        "item": "REV4 #1 关键字重叠修复: 长标题单行 + 浮动收敛 ±6px; 标题带 1 条行带像素证实无撞击"
       },
       {
         "severity": "info",
-        "item": "REV2 #3 词级同步: faster-whisper 本地 base 模型词级时间戳对齐重定时, 字幕起止 snap 到真实词字界"
+        "item": "REV4 #2 呼吸灯: headline/kwtag textShadow 2.2s sine 错相位脉动"
       },
       {
         "severity": "info",
-        "item": "REV2 #1 关键字动效: 25 镜重烘, 标题 back.out 弹入 + 持续浮动(确定性 GSAP timeline); scene_section_02_1 帧 diff 证实运动"
+        "item": "REV4 #3 增强进场: 字符 blur+y+back.out+stagger + 光带横扫 + 标签延迟弹入"
+      },
+      {
+        "severity": "info",
+        "item": "REV4 #4 语义镜头: 翻页揭示 / 平移 / 推远 / 拉近, 帧delta+前景比证实"
+      },
+      {
+        "severity": "info",
+        "item": "REV4 #5 渲染无弹窗: CREATE_NO_WINDOW+cmd /c npx, 0 新增 chrome 窗口"
       },
       {
         "severity": "note",
-        "item": "render_grammar 填 narration-montage (schema 枚举); 实际流水线 narration-synth, runtime=ffmpeg"
+        "item": "render_grammar 填 narration-montage (schema 枚举); 实际 narration-synth, runtime=ffmpeg"
       }
     ],
     "conclusion": "approved"
   },
   "metadata": {
     "next_stage": null,
-    "pipeline_complete": true
+    "pipeline_complete": true,
+    "revision": "rev4-grilling",
+    "revision_fixes": [
+      "#1 keyword_overlap_fixed (single-line min 40px title + ±6px float, 1 line-band verified)",
+      "#2 breathing_glow (headline+kwtag textShadow 2.2s sine pulse, 0.6s phase offset)",
+      "#3 enhanced_entrance (chars y -90->0 + blur + back.out + stagger, #sweep sweep, tag 0.2s delay)",
+      "#4 semantic_camera (page-flip zoom 1.08 + cross-dissolve overlay, data pan, conclusion push-out, title zoom-in)",
+      "#5 popup-free render (CREATE_NO_WINDOW + cmd /c npx, 0 new chrome windows during render)"
+    ]
   }
 }

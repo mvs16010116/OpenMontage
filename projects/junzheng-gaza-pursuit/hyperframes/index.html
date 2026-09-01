@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
-    <title>scene_section_chapter_3 :: gaza</title>
+    <title>scene_section_02_1 :: gaza</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
       @font-face{font-family:"Microsoft YaHei";src:local('Microsoft YaHei');font-display:swap}
@@ -11,35 +11,48 @@
       body{margin:0;background:#05070d;color:#fff;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;overflow:hidden}
       #root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#05070d}
       .clip{position:absolute;inset:0;overflow:hidden}
-      #bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+      #bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
       #shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,7,13,.18) 0%,rgba(5,7,13,.4) 40%,rgba(5,7,13,.82) 82%,rgba(5,7,13,.94) 100%)}
       bar{display:block}
       
-      #headline{position:absolute;left:60px;right:60px;top:30%;text-align:center;font-size:61.22448979591836px;font-weight:700;letter-spacing:4px;color:#fff3d6;line-height:1.5;will-change:transform}
+      
+      #headline{position:absolute;left:60px;right:60px;top:30%;text-align:center;font-size:85.71428571428571px;font-weight:700;letter-spacing:4px;color:#fff3d6;line-height:1.5;will-change:transform;text-shadow:none}
+      #sweep{position:absolute;left:-200px;top:28%;width:200px;height:137.14285714285714px;background:linear-gradient(90deg,transparent,#fbbf2433,transparent);opacity:0;will-change:transform;pointer-events:none}
       #kwbar{position:absolute;left:50%;top:56%;width:420px;height:10px;margin-left:-210px;background:#fbbf24;transform-origin:left}
-      #kwtag{position:absolute;left:60px;right:60px;top:60%;text-align:center;font-size:40px;font-weight:600;color:#fbbf24;letter-spacing:6px}
+      #kwtag{position:absolute;left:60px;right:60px;top:60%;text-align:center;font-size:40px;font-weight:600;color:#fbbf24;letter-spacing:6px;text-shadow:none}
       .t{margin:0 14px}
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="2.5">
-      <section id="scene" class="clip" data-start="0" data-duration="2.5" data-track-index="1">
-        
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="10.44">
+      <section id="scene" class="clip" data-start="0" data-duration="10.44" data-track-index="1">
+        <img id="bgimg" src="assets/images/scene_section_02_1.jpg" alt="" />
+    <div id="shade"></div>
     
-      <div id="headline"><span class="w" id="w-0">第</span><span class="w" id="w-1">三</span><span class="w" id="w-2">部</span><span class="w" id="w-3">分</span><span class="w" id="w-4">&nbsp;</span><span class="w" id="w-5">·</span><span class="w" id="w-6">&nbsp;</span><span class="w" id="w-7">历</span><span class="w" id="w-8">史</span><span class="w" id="w-9">先</span><span class="w" id="w-10">例</span><span class="w" id="w-11">与</span><span class="w" id="w-12">收</span><span class="w" id="w-13">尾</span></div>
+      <div id="headline"><span class="w" id="w-0">「</span><span class="w" id="w-1">摧</span><span class="w" id="w-2">毁</span><span class="w" id="w-3">哈</span><span class="w" id="w-4">马</span><span class="w" id="w-5">斯</span><span class="w" id="w-6">」</span><span class="w" id="w-7">＝</span><span class="w" id="w-8">幌</span><span class="w" id="w-9">子</span></div>
+      <div id="sweep"></div>
       <div id="kwbar"></div>
-      <div id="kwtag"></div>
+      <div id="kwtag"><span class="t">核心</span>,<span class="t">目标已换芯</span></div>
       </section>
     </div>
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      
-      gsap.set(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9","#w-10","#w-11","#w-12","#w-13"], { y: 60, opacity: 0, scale: 0.9 });
-      tl.to(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9","#w-10","#w-11","#w-12","#w-13"], { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)", stagger: 0.05 }, 0.3);
-      tl.fromTo("#kwbar", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 1.5);
-      tl.to("#kwtag", { opacity: 1, letterSpacing: "6px", duration: 0.6, ease: "power2.out" }, 2.0);
-      
+      gsap.set("#bgimg",{scale:1.0});
+    tl.to("#bgimg",{scale:1.08,duration:10.44,ease:"none"},0);
+
+      gsap.set(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9"], {y:-90,opacity:0,scale:0.92,filter:"blur(4px)"});
+      tl.to(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9"], {y:0,opacity:1,scale:1,filter:"blur(0px)",duration:0.8,ease:"back.out(2.2)",stagger:0.05}, 0.3);
+      gsap.set("#sweep",{opacity:0.5});
+      tl.fromTo("#sweep",{x:-200,opacity:0.5},{x:1280,opacity:0,duration:0.8,ease:"power2.inOut"}, 1.10);
+      tl.fromTo("#kwbar",{scaleX:0},{scaleX:1,duration:0.8,ease:"power2.inOut"}, 1.00);
+      gsap.set("#kwtag",{y:20,opacity:0});
+      tl.to("#kwtag",{y:0,opacity:1,letterSpacing:"6px",duration:0.6,ease:"back.out(1.4)"}, 1.50);
+      tl.to("#headline",{y:-6,duration:3.92,ease:"sine.inOut",delay:2.60});
+        tl.to("#headline",{y:6,duration:3.92,ease:"sine.inOut"});
+      tl.to("#headline",{textShadow:"0 0 18px #fbbf24",duration:1.1,ease:"sine.inOut",yoyo:true,repeat:8}, 0.90);
+tl.to("#kwtag",{textShadow:"0 0 18px #fbbf24",duration:1.1,ease:"sine.inOut",yoyo:true,repeat:8,delay:0.6}, 0.90);
+
       window.__timelines["main"] = tl;
     </script>
   </body>

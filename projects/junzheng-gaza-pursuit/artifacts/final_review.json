@@ -10,7 +10,7 @@
       "fps": 30,
       "has_audio": true,
       "codec": "h264+aac",
-      "file_size_bytes": 46416627,
+      "file_size_bytes": 51896928,
       "issues": []
     },
     "visual_spotcheck": {
@@ -63,11 +63,19 @@
     "bookend_holds_silent": true,
     "subtitle_pixel_verified": true,
     "render_runtime_locked": "ffmpeg",
-    "revision": "rev2-grilling",
+    "revision": "rev4-grilling",
     "revision_notes": {
-      "#2_subtitle_overflow_fixed": "ASS 重建为竖版 1080x1920、字号 42；final.mp4 旁白帧 White-pixel share=1.1%、0 贴边/溢出；opener/chapter 卡帧无字幕（0 像素）",
-      "#3_word_level_sync": "faster-whisper 词级时间戳对齐重定时，字幕起止 snap 到真实词字界（首行 2.00s onset -> 末行 150.81s）",
-      "#1_keyword_motion": "25 镜重烘，标题字符 back.out 弹入 + 持续确定性上下浮动（GSAP timeline 覆盖全镜时长）；scene_section_02_1 帧 diff 14269px 证实运动"
-    }
+      "#4_semantic_camera": "翻页揭示(photo 1.0->1.08 + overlay blur/fade cross-dissolve)、数据镜平移、结论卡推远、标题卡拉近; 像素/帧delta证实运动",
+      "#2_breathing_glow": "headline+kwtag textShadow 2.2s sine yoyo 错相位 0.6s; 长镜 HTML 证实",
+      "#1_keyword_overlap_fixed": "长标题单行化 + 浮动收敛 ±6px; 标题带 1 条行带, 0 撞击",
+      "#5_popup_free_render": "CREATE_NO_WINDOW + cmd /c npx, 渲染 40 次采样 0 新 chrome 窗口"
+    },
+    "revision_fixes": [
+      "#1 keyword_overlap_fixed (single-line min 40px title + ±6px float, 1 line-band verified)",
+      "#2 breathing_glow (headline+kwtag textShadow 2.2s sine pulse, 0.6s phase offset)",
+      "#3 enhanced_entrance (chars y -90->0 + blur + back.out + stagger, #sweep sweep, tag 0.2s delay)",
+      "#4 semantic_camera (page-flip zoom 1.08 + cross-dissolve overlay, data pan, conclusion push-out, title zoom-in)",
+      "#5 popup-free render (CREATE_NO_WINDOW + cmd /c npx, 0 new chrome windows during render)"
+    ]
   }
 }

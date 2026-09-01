@@ -9,37 +9,39 @@
       "resolution": "1080x1920",
       "fps": 30,
       "duration_seconds": 150.8,
-      "file_size_bytes": 46416627,
+      "file_size_bytes": 51896928,
       "platform_target": "tiktok"
     }
   ],
   "render_time_seconds": 0,
   "warnings": [
-    "REV2-grilling #2 字幕溢出修复：重建 ASS 为竖版 1080x1920（原误用 1920x1080 PlayRes 致 libass 缩放 1.78x 溢出），字号 42，像素验证 White-pixel 0 溢出/0 贴边",
-    "REV2-grilling #3 字幕-语音 100% 同步：对 8 段旁白用 faster-whisper（本地 base 模型）词级时间戳逐段对齐，字幕行起止 snap 到真实词字界；首行起点=语音 onset 2.00s，末行终点=150.81s",
-    "REV2-grilling #1 关键字动效：25 镜重烘（GOOD 0 / 25 时长不匹配）——标题 back.out 弹入 + 持续确定性上下浮动（GSAP timeline tweens 覆盖全镜时长，seek 安全）",
-    "subtitles.ass 由项目本地词级重定时器生成（faster-whisper 对齐），竖版 1080x1920、字号 42、56 条事件 2.00s->150.81s",
-    "镜头 MP4 烘烤为 scene_plan 窗口：edit 按 8 段旁白实长重新缩放窗口，compose 端 trim-to-window + freeze-last-frame（section_03/05/07_1/07_2 因旁白长于稿窗口冻结末帧补足）",
-    "render_report.render_grammar 用 narration-montage（schema 枚举唯一可行值）；实际走 narration-synth 流水线，render_runtime=ffmpeg"
+    "REV4-grilling #1 关键字重叠修复: 长标题(如 section_01_2 十二字)由两行 min40px 改为单行紧凑 + 关键字浮动收敛 ±6px; 像素验证标题带仅 1 条线带(单行), 0 两行撞击标签",
+    "REV4-grilling #2 呼吸灯: #headline+#kwtag 用 textShadow 2.2s sine 脉动(错相位 0.6s), title 卡长镜可见柔和辉光; KPI 数字弱呼吸",
+    "REV4-grilling #3 增强进场: 标题字符 y:-90->0 + blur(4->0) + back.out(2.2) + stagger 0.05; 光带 #sweep 横扫; 标签 0.2s 延迟弹入",
+    "REV4-grilling #4 语义镜头: 翻页揭示页(01_1/03_1/05_1/07_1) 照片 scale 1.0->1.08(0.6s) + overlay-wrap blur/fade cross-dissolve 翻页; 数据镜平移; 结论卡(08_1/08_2/08_3)推远; 标题卡拉近 zoom-in; 开场/章节卡淡入轻缩放",
+    "REV4 渲染窗口优化: 用 subprocess CREATE_NO_WINDOW(0x08000000) + cmd /c npx, 渲染期间无新增 chrome 窗口(采样 40 次均=基线 9, 0 次抬升), 解决 chrome-headless-shell 弹窗",
+    "REV3 竖屏字幕上移(保留): MarginV 288, 字幕 y_med=1612/1920(16%), 293px 下方留白, 0 溢出"
   ],
   "verification_notes": [
-    "REV2 字幕溢出：#2 重生成竖版 ASS 后，final.mp4 每帧 1080x1920；旁白帧字幕带 White(>200)=4166px share=1.1%，0 像素贴边/溢出；opener/chapter 卡帧 White=0（无字幕）——文本完整落在框内",
-    "REV2 关键字动效：#1 25 镜重烘（build_vertical absolute ROOT + per-scene hyperframes render，时长全部 OK）；scene_section_02_1 标题带 t4/t6 帧 diff 14269px 变化（>12）、maxdiff 202——标题持续浮动证实",
-    "REV2 同步：#3 字幕由 faster-whisper 词级时间戳对齐重定时；首行「大家好…」2.00s=真实 onset，末行 150.81s=语音末字边界",
-    "25 镜头按 slot 顺序拼接（trim-to-window；FREEZE 用 tpad stop_mode=clone 补足），0 missing",
-    "旁白混音背靠背重建（adelay+amix over anullsrc 基轨，normalize=0）；volumedetect 证实仅 opener(0-2s) 与 ch1/ch2/ch3 卡点留白为 -91dB 纯静音",
-    "帧多样性：opener/s01/ch1/s05/end 抽样帧 YAVG 19/76/21/79/27，全部非黑且互异",
-    "ffprobe：1080x1920 h264@30fps 150.80s，aac 48kHz mono"
+    "REV4 #1 单行标题: scene_section_01_2 标题带仅 1 条行带, 0 两行撞击",
+    "REV4 #4 翻页揭示: scene_section_01_1 前景比 0->0.003->0.029 递增(渐进 overlay 揭示)",
+    "REV4 #4 镜头: scene_section_02_1 zoom delta 5.5/3.6; scene_section_03_2 pan delta 7.0/5.7 (均非零=移动)",
+    "REV4 #2 呼吸灯: 长镜 HTML textShadow sine yoyo, headline/kwtag 错相位 0.6s",
+    "fresh shot_plan (re-probed baked), 25 shot 命中 target, concat 150.800s",
+    "字幕 t=3.2..134: y_med=1612/1920(83.9%), 292px 留白, 0 溢出",
+    "ffprobe: 1080x1920 h264@30fps 150.80s aac48k mono; audio rms 0.027-0.073"
   ],
   "render_grammar": "narration-montage",
   "final_review_ref": "projects/junzheng-gaza-pursuit/artifacts/final_review.json",
   "metadata": {
     "pipeline": "narration-synth",
-    "revision": "rev2-grilling",
+    "revision": "rev3-grilling",
     "revision_fixes": [
-      "#2 subtitle_overflow fixed (vertical 1080x1920 ASS, font 42, 0 px overflow)",
-      "#3 word_level_sync (faster-whisper aligned timestamps)",
-      "#1 keyword_motion (back.out entry + persistent float, 25 shots re-baked)"
+      "#1 keyword_overlap_fixed (single-line min 40px title + ±6px float, 1 line-band verified)",
+      "#2 breathing_glow (headline+kwtag textShadow 2.2s sine pulse, 0.6s phase offset)",
+      "#3 enhanced_entrance (chars y -90->0 + blur + back.out + stagger, #sweep sweep, tag 0.2s delay)",
+      "#4 semantic_camera (page-flip zoom 1.08 + cross-dissolve overlay, data pan, conclusion push-out, title zoom-in)",
+      "#5 popup-free render (CREATE_NO_WINDOW + cmd /c npx, 0 new chrome windows during render)"
     ],
     "canvas": {
       "width": 1080,
@@ -55,7 +57,7 @@
     "narration_present": true,
     "music_present": false,
     "duration_deltas": [
-      "section_03/05/07_1/07_2 冻结末帧补足窗口；其余镜头裁切"
+      "fresh shot_plan, 25 shots hit target; concat 150.800s"
     ]
   }
 }
