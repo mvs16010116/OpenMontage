@@ -10,7 +10,7 @@
       "fps": 30,
       "has_audio": true,
       "codec": "h264+aac",
-      "file_size_bytes": 51896928,
+      "file_size_bytes": 36297795,
       "issues": []
     },
     "visual_spotcheck": {
@@ -63,16 +63,17 @@
     "bookend_holds_silent": true,
     "subtitle_pixel_verified": true,
     "render_runtime_locked": "ffmpeg",
-    "revision": "rev4-grilling",
+    "revision": "rev5-tag-glow-removed",
     "revision_notes": {
+      "REV5_tag_glow_removed": "comma-tag(逗号分隔关键字)视觉粘连修复: build_vertical.mjs 中 #kwtag 的 breathing textShadow 已移除; 19 标题卡场景重烘烤, 6 数据镜保留; final.mp4 02_1 tag 间隙稳定 13px, 间隙亮度平直无脉动; 25 shot 命中 target, concat 150.800s, 字幕/旁白同步保持",
       "#4_semantic_camera": "翻页揭示(photo 1.0->1.08 + overlay blur/fade cross-dissolve)、数据镜平移、结论卡推远、标题卡拉近; 像素/帧delta证实运动",
-      "#2_breathing_glow": "headline+kwtag textShadow 2.2s sine yoyo 错相位 0.6s; 长镜 HTML 证实",
+      "#2_breathing_glow": "headline+kwtag textShadow 2.2s sine yoyo 错相位 0.6s; REV5 中 kwtag 辉光已移除(仅保留 headline/KPI 呼吸)",
       "#1_keyword_overlap_fixed": "长标题单行化 + 浮动收敛 ±6px; 标题带 1 条行带, 0 撞击",
       "#5_popup_free_render": "CREATE_NO_WINDOW + cmd /c npx, 渲染 40 次采样 0 新 chrome 窗口"
     },
     "revision_fixes": [
       "#1 keyword_overlap_fixed (single-line min 40px title + ±6px float, 1 line-band verified)",
-      "#2 breathing_glow (headline+kwtag textShadow 2.2s sine pulse, 0.6s phase offset)",
+      "#2 breathing_glow REMOVED from #kwtag (comma-tag visual joining fix); headline/KPI breathing retains",
       "#3 enhanced_entrance (chars y -90->0 + blur + back.out + stagger, #sweep sweep, tag 0.2s delay)",
       "#4 semantic_camera (page-flip zoom 1.08 + cross-dissolve overlay, data pan, conclusion push-out, title zoom-in)",
       "#5 popup-free render (CREATE_NO_WINDOW + cmd /c npx, 0 new chrome windows during render)"

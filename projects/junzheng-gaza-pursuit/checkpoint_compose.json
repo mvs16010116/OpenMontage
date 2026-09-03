@@ -8,7 +8,7 @@
   "checkpoint_policy": "guided",
   "human_approval_required": true,
   "human_approved": true,
-  "revision": "rev4-grilling",
+  "revision": "rev5-tag-glow-removed",
   "artifacts": {
     "render_report": {
       "version": "1.0",
@@ -21,7 +21,7 @@
           "resolution": "1080x1920",
           "fps": 30,
           "duration_seconds": 150.8,
-          "file_size_bytes": 51896928,
+          "file_size_bytes": 36297795,
           "platform_target": "tiktok"
         }
       ],
@@ -55,7 +55,7 @@
         "duration_deltas": [
           "section_03/05/07_1/07_2 冻结末帧补足窗口；其余镜头裁切"
         ],
-        "revision": "rev4-grilling"
+        "revision": "rev5-tag-glow-removed"
       }
     },
     "final_review": {
@@ -70,7 +70,7 @@
           "fps": 30,
           "has_audio": true,
           "codec": "h264+aac",
-          "file_size_bytes": 51896928,
+          "file_size_bytes": 36297795,
           "issues": []
         },
         "visual_spotcheck": {
@@ -122,7 +122,7 @@
         "bookend_holds_silent": true,
         "subtitle_pixel_verified": true,
         "render_runtime_locked": "ffmpeg",
-        "revision": "rev4-grilling"
+        "revision": "rev5-tag-glow-removed"
       }
     }
   },
@@ -130,7 +130,7 @@
     "findings": [
       {
         "severity": "info",
-        "item": "REV4 final.mp4 1080x1920(竖版 9:16)@30fps 150.80s h264+aac, ffprobe 通过 (51.9MB)"
+        "item": "REV5 final.mp4 1080x1920(竖版 9:16)@30fps 150.80s h264+aac, ffprobe 通过 (36.3MB)"
       },
       {
         "severity": "info",
@@ -138,7 +138,11 @@
       },
       {
         "severity": "info",
-        "item": "REV4 #2 呼吸灯: headline/kwtag textShadow 2.2s sine 错相位脉动"
+        "item": "REV4 #2 呼吸灯: headline/kwtag textShadow 2.2s sine 错相位脉动 (REV5 中 kwtag 辉光已移除)"
+      },
+      {
+        "severity": "info",
+        "item": "REV5 标签辉光移除: #kwtag textShadow 删除修复逗号标签粘连(核心,目标已换芯); 19 标题卡重烘烤, 6 数据镜保留; final.mp4 tag 间隙稳定 13px 无脉动, 25 shot 命中 target concat 150.800s 同步保持"
       },
       {
         "severity": "info",
@@ -162,10 +166,10 @@
   "metadata": {
     "next_stage": null,
     "pipeline_complete": true,
-    "revision": "rev4-grilling",
+    "revision": "rev5-tag-glow-removed",
     "revision_fixes": [
       "#1 keyword_overlap_fixed (single-line min 40px title + ±6px float, 1 line-band verified)",
-      "#2 breathing_glow (headline+kwtag textShadow 2.2s sine pulse, 0.6s phase offset)",
+      "#2 breathing_glow REMOVED from #kwtag (comma-tag visual joining fix); headline/KPI breathing retains",
       "#3 enhanced_entrance (chars y -90->0 + blur + back.out + stagger, #sweep sweep, tag 0.2s delay)",
       "#4 semantic_camera (page-flip zoom 1.08 + cross-dissolve overlay, data pan, conclusion push-out, title zoom-in)",
       "#5 popup-free render (CREATE_NO_WINDOW + cmd /c npx, 0 new chrome windows during render)"

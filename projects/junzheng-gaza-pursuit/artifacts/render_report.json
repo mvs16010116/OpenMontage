@@ -9,7 +9,7 @@
       "resolution": "1080x1920",
       "fps": 30,
       "duration_seconds": 150.8,
-      "file_size_bytes": 51896928,
+      "file_size_bytes": 36297795,
       "platform_target": "tiktok"
     }
   ],
@@ -17,6 +17,7 @@
   "warnings": [
     "REV4-grilling #1 关键字重叠修复: 长标题(如 section_01_2 十二字)由两行 min40px 改为单行紧凑 + 关键字浮动收敛 ±6px; 像素验证标题带仅 1 条线带(单行), 0 两行撞击标签",
     "REV4-grilling #2 呼吸灯: #headline+#kwtag 用 textShadow 2.2s sine 脉动(错相位 0.6s), title 卡长镜可见柔和辉光; KPI 数字弱呼吸",
+    "REV5 关键字标签辉光移除: #kwtag textShadow 呼吸辉光已从 build_vertical.mjs 删除, 修复逗号分隔标签(如 核心,目标已换芯)视觉粘连; 19 个标题卡场景已重新烘烤, 其余6个数据镜场景保留原烘烤",
     "REV4-grilling #3 增强进场: 标题字符 y:-90->0 + blur(4->0) + back.out(2.2) + stagger 0.05; 光带 #sweep 横扫; 标签 0.2s 延迟弹入",
     "REV4-grilling #4 语义镜头: 翻页揭示页(01_1/03_1/05_1/07_1) 照片 scale 1.0->1.08(0.6s) + overlay-wrap blur/fade cross-dissolve 翻页; 数据镜平移; 结论卡(08_1/08_2/08_3)推远; 标题卡拉近 zoom-in; 开场/章节卡淡入轻缩放",
     "REV4 渲染窗口优化: 用 subprocess CREATE_NO_WINDOW(0x08000000) + cmd /c npx, 渲染期间无新增 chrome 窗口(采样 40 次均=基线 9, 0 次抬升), 解决 chrome-headless-shell 弹窗",
@@ -27,18 +28,19 @@
     "REV4 #4 翻页揭示: scene_section_01_1 前景比 0->0.003->0.029 递增(渐进 overlay 揭示)",
     "REV4 #4 镜头: scene_section_02_1 zoom delta 5.5/3.6; scene_section_03_2 pan delta 7.0/5.7 (均非零=移动)",
     "REV4 #2 呼吸灯: 长镜 HTML textShadow sine yoyo, headline/kwtag 错相位 0.6s",
+    "REV5 标签辉光移除验证: 重烘烤 02_3 帧间 tag 间隙稳定 11px 且间隙亮度平直(37.8-38.5 无脉动); final.mp4 02_1 tag 间隙稳定 13px, 无粘连; 25 个 shot 重新生成命中 target, concat 150.800s, 字幕/旁白同步保持",
     "fresh shot_plan (re-probed baked), 25 shot 命中 target, concat 150.800s",
     "字幕 t=3.2..134: y_med=1612/1920(83.9%), 292px 留白, 0 溢出",
     "ffprobe: 1080x1920 h264@30fps 150.80s aac48k mono; audio rms 0.027-0.073"
   ],
   "render_grammar": "narration-montage",
   "final_review_ref": "projects/junzheng-gaza-pursuit/artifacts/final_review.json",
-  "metadata": {
+    "metadata": {
     "pipeline": "narration-synth",
-    "revision": "rev3-grilling",
+    "revision": "rev5-tag-glow-removed",
     "revision_fixes": [
       "#1 keyword_overlap_fixed (single-line min 40px title + ±6px float, 1 line-band verified)",
-      "#2 breathing_glow (headline+kwtag textShadow 2.2s sine pulse, 0.6s phase offset)",
+      "#2 breathing_glow REMOVED from #kwtag (comma-tag visual joining fix); headline KPI breathing retains",
       "#3 enhanced_entrance (chars y -90->0 + blur + back.out + stagger, #sweep sweep, tag 0.2s delay)",
       "#4 semantic_camera (page-flip zoom 1.08 + cross-dissolve overlay, data pan, conclusion push-out, title zoom-in)",
       "#5 popup-free render (CREATE_NO_WINDOW + cmd /c npx, 0 new chrome windows during render)"
