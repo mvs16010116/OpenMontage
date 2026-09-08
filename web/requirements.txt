@@ -2,3 +2,5 @@ fastapi>=0.110
 uvicorn[standard]>=0.29
 apscheduler>=3.10
 edge-tts>=6.1
+itsdangerous>=2.1
+requests>=2.31

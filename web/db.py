@@ -8,6 +8,7 @@ exactly as the CLI pipeline produces them; this DB only tracks task bookkeeping.
 
 from __future__ import annotations
 
+import json
 import sqlite3
 import time
 import uuid
@@ -28,6 +29,16 @@ CREATE TABLE IF NOT EXISTS tasks (
     started_at   REAL,
     finished_at  REAL
 );
+CREATE TABLE IF NOT EXISTS users (
+    username      TEXT PRIMARY KEY,
+    password_hash TEXT NOT NULL,
+    created_at    REAL NOT NULL
+);
+CREATE TABLE IF NOT EXISTS settings (
+    id    INTEGER PRIMARY KEY CHECK (id = 1),
+    data  TEXT NOT NULL,
+    updated_at REAL NOT NULL
+);
 """
 
 
@@ -40,7 +51,7 @@ def _connect() -> sqlite3.Connection:
 def init_db() -> None:
     conn = _connect()
     try:
-        conn.execute(_SCHEMA)
+        conn.executescript(_SCHEMA)
         conn.commit()
     finally:
         conn.close()
@@ -108,5 +119,67 @@ def list_tasks(limit: int = 50) -> list[dict]:
             "SELECT * FROM tasks ORDER BY created_at DESC LIMIT ?", (limit,)
         ).fetchall()
         return [dict(r) for r in rows]
+    finally:
+        conn.close()
+
+
+# ---------------------------------------------------------------------------
+# users
+# ---------------------------------------------------------------------------
+def get_user(username: str) -> dict | None:
+    conn = _connect()
+    try:
+        row = conn.execute(
+            "SELECT username, password_hash, created_at FROM users WHERE username = ?",
+            (username,),
+        ).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+
+def set_password(username: str, password_hash: str) -> None:
+    conn = _connect()
+    try:
+        conn.execute(
+            "INSERT INTO users (username, password_hash, created_at) VALUES (?, ?, ?) "
+            "ON CONFLICT(username) DO UPDATE SET password_hash = excluded.password_hash",
+            (username, password_hash, time.time()),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+# ---------------------------------------------------------------------------
+# settings (single JSON row, id = 1)
+# ---------------------------------------------------------------------------
+def load_settings() -> dict:
+    """Return stored settings merged over defaults (api_key still obfuscated)."""
+    from web.config import DEFAULT_SETTINGS, deep_merge
+    conn = _connect()
+    try:
+        row = conn.execute("SELECT data FROM settings WHERE id = 1").fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        return deep_merge(DEFAULT_SETTINGS, {})
+    try:
+        stored = json.loads(row["data"])
+    except (ValueError, TypeError):
+        return deep_merge(DEFAULT_SETTINGS, {})
+    return deep_merge(DEFAULT_SETTINGS, stored)
+
+
+def save_settings(data: dict) -> None:
+    conn = _connect()
+    try:
+        conn.execute(
+            "INSERT INTO settings (id, data, updated_at) VALUES (1, ?, ?) "
+            "ON CONFLICT(id) DO UPDATE SET data = excluded.data, "
+            "updated_at = excluded.updated_at",
+            (json.dumps(data, ensure_ascii=False), time.time()),
+        )
+        conn.commit()
     finally:
         conn.close()

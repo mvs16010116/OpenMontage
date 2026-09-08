@@ -19,45 +19,47 @@
   body {
     margin: 0; background: var(--bg); color: var(--fg);
     font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-    min-height: 100vh; display: flex; justify-content: center; padding: 48px 16px;
+    min-height: 100vh; display: flex; justify-content: center; padding: 40px 16px;
   }
-  .wrap { width: 100%; max-width: 720px; }
+  .wrap { width: 100%; max-width: 860px; }
   h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: .5px; }
-  .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
   .card {
     background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
-    padding: 20px;
+    padding: 20px; margin-bottom: 16px;
   }
-  textarea {
+  .card h3 { margin: 0 0 12px; font-size: 15px; }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+  input[type=text], input[type=password], input[type=number], select, textarea {
     width: 100%; background: #0a0f18; color: var(--fg); border: 1px solid var(--border);
-    border-radius: 8px; padding: 12px; font-size: 14px; line-height: 1.7;
-    resize: vertical; min-height: 180px; font-family: inherit;
+    border-radius: 8px; padding: 9px 11px; font-size: 14px; font-family: inherit;
   }
-  textarea:focus { outline: none; border-color: var(--accent); }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { min-height: 120px; line-height: 1.7; resize: vertical; }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
   .btn {
     margin-top: 12px; background: var(--accent); color: #1a1a1a; border: none;
-    border-radius: 8px; padding: 12px 22px; font-size: 15px; font-weight: 600;
-    cursor: pointer; width: 100%;
+    border-radius: 8px; padding: 11px 22px; font-size: 15px; font-weight: 600;
+    cursor: pointer;
   }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
   .btn:disabled { opacity: .5; cursor: not-allowed; }
   .progress { margin-top: 14px; display: none; }
   .progress.show { display: block; }
   .bar { height: 8px; background: #1a2230; border-radius: 4px; overflow: hidden; }
-  .bar > div {
-    height: 100%; width: 0%; background: var(--accent);
-    transition: width .4s ease;
-  }
-  .stage-text { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .bar > div { height: 100%; width: 0%; background: var(--accent); transition: width .4s ease; }
+  .stage-text { font-size: 13px; color: var(--muted); margin-top: 8px; white-space: pre-line; }
   .err { color: var(--danger); font-size: 13px; margin-top: 10px; white-space: pre-wrap; }
-  .done-link { color: var(--ok); font-size: 14px; margin-top: 10px; display: none; }
-  .done-link a { color: var(--ok); }
-  h2 { font-size: 16px; margin: 28px 0 12px; color: var(--fg); }
+  .ok { color: var(--ok); font-size: 13px; margin-top: 10px; }
+  h2 { font-size: 16px; margin: 24px 0 12px; color: var(--fg); }
   .list { display: flex; flex-direction: column; gap: 10px; }
   .item {
     background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
-    padding: 12px 14px; display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   }
-  .item .sum { flex: 1; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item .sum { flex: 1 1 220px; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .badge { font-size: 11px; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
   .badge.done { background: rgba(52,211,153,.15); color: var(--ok); }
   .badge.running { background: rgba(251,191,36,.15); color: var(--accent); }
@@ -67,27 +69,163 @@
   .item .time { font-size: 11px; color: var(--muted); white-space: nowrap; }
   .item .dl { color: var(--accent); text-decoration: none; font-size: 12px; white-space: nowrap; }
   .item .dl:hover { text-decoration: underline; }
+  nav { display: flex; gap: 8px; margin: 16px 0; }
+  nav button { background: transparent; color: var(--muted); border: 1px solid var(--border);
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+  nav button.active { color: var(--accent); border-color: var(--accent); }
+  #loginView { max-width: 360px; margin: 80px auto 0; }
+  #loginView .card { padding: 28px; }
+  .muted { color: var(--muted); font-size: 12px; }
+  .checkline { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+  .checkline input { width: auto; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>口播视频生成器</h1>
-  <div class="sub">粘贴口播文案 → 生成配音 / 配图 / 动画 / 字幕并合成成片</div>
 
-  <div class="card">
-    <textarea id="txt" placeholder="在此粘贴口播文案（一段话即可，自动分节）…"></textarea>
-    <button id="go" class="btn">生成视频</button>
-
-    <div class="progress" id="progress">
-      <div class="bar"><div id="barfill"></div></div>
-      <div class="stage-text" id="stageText"></div>
+  <div id="loginView" style="display:none">
+    <h1>口播视频生成器</h1>
+    <div class="card">
+      <label>用户名</label>
+      <input id="loginUser" type="text" autocomplete="username" value="admin">
+      <label>密码</label>
+      <input id="loginPass" type="password" autocomplete="current-password">
+      <button id="loginBtn" class="btn">登 录</button>
+      <div class="err" id="loginErr"></div>
     </div>
-    <div class="err" id="err"></div>
-    <div class="done-link" id="doneLink"><a id="dlHref" href="#">⬇ 下载成片 final.mp4</a></div>
   </div>
 
-  <h2>历史生成</h2>
-  <div class="list" id="list"></div>
+  <div id="app" style="display:none">
+    <h1>口播视频生成器</h1>
+    <div class="sub">飞书多维表格文案 → 自动生成视频 → 回填状态并上传成片</div>
+    <nav>
+      <button id="navTasks" class="active">任务</button>
+      <button id="navSettings">配置</button>
+      <button id="logoutBtn" class="secondary">退出登录</button>
+    </nav>
+
+    <!-- 任务视图 -->
+    <section id="tasksView">
+      <div class="card">
+        <label>口播文案（或使用「扫描多维表格」从 Base 读取）</label>
+        <textarea id="txt" placeholder="在此粘贴口播文案（一段话即可，自动分节）…"></textarea>
+        <button id="go" class="btn">生成视频</button>
+        <div class="progress" id="progress">
+          <div class="bar"><div id="barfill"></div></div>
+          <div class="stage-text" id="stageText"></div>
+        </div>
+        <div class="err" id="err"></div>
+        <div class="done-link" id="doneLink" style="display:none">
+          <a id="dlHref" href="#" target="_blank">开通预览 / 下载成片 final.mp4</a>
+        </div>
+      </div>
+      <h2>历史生成</h2>
+      <div class="list" id="list"></div>
+    </section>
+
+    <!-- 配置视图 -->
+    <section id="settingsView" style="display:none">
+      <div class="card">
+        <h3>飞书多维表格</h3>
+        <label>Base 链接或 base_token（自动解析）</label>
+        <input id="cfg-base" type="text" placeholder="https://xxx.feishu.cn/base/... 或 base token">
+        <label>数据表 ID / 名称</label>
+        <input id="cfg-table" type="text" placeholder="table_id 或表名">
+        <div class="row">
+          <div>
+            <label>文案字段</label>
+            <input id="cfg-f-content" type="text" placeholder="如「口播文案」">
+          </div>
+          <div>
+            <label>日期字段（兼排序字段）</label>
+            <input id="cfg-f-date" type="text" placeholder="如「日期」">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>回填状态字段</label>
+            <input id="cfg-f-status" type="text" placeholder="如「状态」">
+          </div>
+          <div>
+            <label>视频附件字段</label>
+            <input id="cfg-f-attach" type="text" placeholder="如「成片视频」">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>排序方向</label>
+            <select id="cfg-date-sort">
+              <option value="asc">升序（先处理早的）</option>
+              <option value="desc">降序（先处理晚的）</option>
+            </select>
+          </div>
+          <div>
+            <label>状态词（成功 / 失败 / 处理中 / 视为待处理）</label>
+            <input id="cfg-status-words" type="text" placeholder="成功,失败,处理中,待处理">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>LLM 配置（OpenAI 兼容：文案分节 + 图片关键词）</h3>
+        <label>Base URL</label>
+        <input id="cfg-llm-url" type="text" placeholder="https://api.openai.com/v1">
+        <div class="row">
+          <div>
+            <label>API Key</label>
+            <input id="cfg-llm-key" type="password" placeholder="sk-...">
+          </div>
+          <div>
+            <label>Model</label>
+            <input id="cfg-llm-model" type="text" placeholder="gpt-4o-mini / deepseek-chat">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>temperature</label>
+            <input id="cfg-llm-temp" type="number" step="0.1" min="0" max="2">
+          </div>
+          <div>
+            <label>max_tokens</label>
+            <input id="cfg-llm-max" type="number" min="1">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>自动轮询</h3>
+        <div class="checkline">
+          <input id="cfg-poll-enable" type="checkbox">
+          <label style="margin:0">启用自动扫描多维表格</label>
+        </div>
+        <div class="row">
+          <div>
+            <label>扫描间隔（秒）</label>
+            <input id="cfg-poll-interval" type="number" min="10">
+          </div>
+          <div>
+            <label>每批最多记录数</label>
+            <input id="cfg-poll-max" type="number" min="1">
+          </div>
+        </div>
+      </div>
+
+      <button id="saveSettings" class="btn">保存配置</button>
+      <div class="ok" id="settingsOk"></div>
+      <div class="err" id="settingsErr"></div>
+
+      <div class="card" style="margin-top:16px">
+        <h3>修改登录密码</h3>
+        <div class="row">
+          <div><label>原密码</label><input id="pw-old" type="password"></div>
+          <div><label>新密码</label><input id="pw-new" type="password"></div>
+        </div>
+        <button id="pwBtn" class="btn secondary">修改密码</button>
+        <div class="ok" id="pwOk"></div>
+        <div class="err" id="pwErr"></div>
+      </div>
+    </section>
+  </div>
 </div>
 
 <script>
@@ -104,15 +242,135 @@ const STAGE_LABEL = {
   queued: "排队中…",
   running: "正在生成…",
 };
-let busy = false;
 
+// ---------- 登录 / 会话 ----------
+async function boot() {
+  try {
+    const r = await fetch("/api/me");
+    if (r.ok) { showApp(); return; }
+  } catch (_) {}
+  showLogin();
+}
+
+function showLogin() {
+  $("loginView").style.display = "block";
+  $("app").style.display = "none";
+}
+function showApp() {
+  $("loginView").style.display = "none";
+  $("app").style.display = "block";
+  refreshList();
+}
+
+$("loginBtn").addEventListener("click", async () => {
+  $("loginErr").textContent = "";
+  const r = await fetch("/api/login", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: $("loginUser").value.trim(), password: $("loginPass").value }),
+  });
+  if (r.ok) { boot(); return; }
+  const e = await r.json().catch(() => ({}));
+  $("loginErr").textContent = e.detail || "登录失败";
+});
+$("logoutBtn").addEventListener("click", async () => {
+  await fetch("/api/logout", { method: "POST" });
+  showLogin();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && $("loginView").style.display !== "none") $("loginBtn").click();
+});
+
+// ---------- 视图切换 ----------
+$("navTasks").addEventListener("click", () => switchView("tasks"));
+$("navSettings").addEventListener("click", () => switchView("settings"));
+function switchView(name) {
+  $("navTasks").classList.toggle("active", name === "tasks");
+  $("navSettings").classList.toggle("active", name === "settings");
+  $("tasksView").style.display = name === "tasks" ? "block" : "none";
+  $("settingsView").style.display = name === "settings" ? "block" : "none";
+  if (name === "settings") loadSettings();
+}
+
+// ---------- 配置 ----------
+async function loadSettings() {
+  $("settingsErr").textContent = ""; $("settingsOk").textContent = "";
+  const r = await fetch("/api/settings");
+  if (!r.ok) return;
+  const s = await r.json();
+  $("cfg-base").value = s.lark.base_url_or_token || "";
+  $("cfg-table").value = s.lark.table_id || "";
+  $("cfg-f-content").value = s.fields.content_field || "";
+  $("cfg-f-date").value = s.fields.date_field || "";
+  $("cfg-f-status").value = s.fields.status_field || "";
+  $("cfg-f-attach").value = s.fields.attachment_field || "";
+  $("cfg-date-sort").value = s.fields.date_sort || "asc";
+  $("cfg-status-words").value = [s.video.status_success, s.video.status_failed, s.video.status_processing, s.video.pending_if].join(",");
+  $("cfg-llm-url").value = s.llm.base_url || "";
+  $("cfg-llm-key").value = s.llm.api_key || "";
+  $("cfg-llm-model").value = s.llm.model || "";
+  $("cfg-llm-temp").value = s.llm.temperature ?? 0.2;
+  $("cfg-llm-max").value = s.llm.max_tokens ?? 2000;
+  $("cfg-poll-enable").checked = !!s.poll.enabled;
+  $("cfg-poll-interval").value = s.poll.interval_seconds || 300;
+  $("cfg-poll-max").value = s.poll.max_records_per_batch || 20;
+}
+
+$("saveSettings").addEventListener("click", async () => {
+  $("settingsErr").textContent = ""; $("settingsOk").textContent = "";
+  const words = $("cfg-status-words").value.split(/[,，]/).map(x => x.trim());
+  const payload = {
+    lark: { base_url_or_token: $("cfg-base").value.trim(), table_id: $("cfg-table").value.trim() },
+    fields: {
+      content_field: $("cfg-f-content").value.trim(),
+      date_field: $("cfg-f-date").value.trim(),
+      status_field: $("cfg-f-status").value.trim(),
+      attachment_field: $("cfg-f-attach").value.trim(),
+      date_sort: $("cfg-date-sort").value,
+    },
+    llm: {
+      base_url: $("cfg-llm-url").value.trim(),
+      api_key: $("cfg-llm-key").value.trim(),
+      model: $("cfg-llm-model").value.trim(),
+      temperature: parseFloat($("cfg-llm-temp").value) || 0.2,
+      max_tokens: parseInt($("cfg-llm-max").value, 10) || 2000,
+    },
+    poll: {
+      enabled: $("cfg-poll-enable").checked,
+      interval_seconds: parseInt($("cfg-poll-interval").value, 10) || 300,
+      max_records_per_batch: parseInt($("cfg-poll-max").value, 10) || 20,
+    },
+    video: {
+      status_success: words[0] || "成功",
+      status_failed: words[1] || "失败",
+      status_processing: words[2] || "处理中",
+      pending_if: words[3] || "待处理",
+    },
+  };
+  const r = await fetch("/api/settings", {
+    method: "PUT", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (r.ok) { $("settingsOk").textContent = "已保存"; loadSettings(); }
+  else { const e = await r.json().catch(() => ({})); $("settingsErr").textContent = e.detail || "保存失败"; }
+});
+
+$("pwBtn").addEventListener("click", async () => {
+  $("pwErr").textContent = ""; $("pwOk").textContent = "";
+  const r = await fetch("/api/change-password", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ old_password: $("pw-old").value, new_password: $("pw-new").value }),
+  });
+  if (r.ok) { $("pwOk").textContent = "密码已修改"; $("pw-old").value = ""; $("pw-new").value = ""; }
+  else { const e = await r.json().catch(() => ({})); $("pwErr").textContent = e.detail || "修改失败"; }
+});
+
+// ---------- 任务（文案直录，004-02 起扩展扫描） ----------
+let busy = false;
 $("go").addEventListener("click", async () => {
   const text = $("txt").value.trim();
   if (!text || busy) return;
-  busy = true;
-  $("go").disabled = true;
-  $("err").textContent = "";
-  $("doneLink").style.display = "none";
+  busy = true; $("go").disabled = true;
+  $("err").textContent = ""; $("doneLink").style.display = "none";
   showProgress("queued", 2);
   const res = await fetch("/api/generate", {
     method: "POST", headers: { "Content-Type": "application/json" },
@@ -127,25 +385,23 @@ $("go").addEventListener("click", async () => {
   refreshList();
 });
 
-function showProgress(stage, pct) {
+function showProgress(stage, pct, extra) {
   $("progress").classList.add("show");
   $("barfill").style.width = pct + "%";
-  $("stageText").textContent = STAGE_LABEL[stage] || stage || "…";
+  $("stageText").textContent = extra || (STAGE_LABEL[stage] || stage || "…");
 }
 
 function fail(msg) {
   $("err").textContent = msg;
   $("progress").classList.remove("show");
-  busy = false;
-  $("go").disabled = false;
+  busy = false; $("go").disabled = false;
 }
 
 function listen(taskId) {
   const es = new EventSource(`/api/tasks/${taskId}/events`);
   const order = ["queued","parse_script","generating_tts","fetching_images",
                  "rendering_scenes","subtitles","assembling","done","error"];
-  const idx = {};
-  order.forEach((s, i) => idx[s] = i);
+  const idx = {}; order.forEach((s, i) => idx[s] = i);
   es.onmessage = (e) => {
     let ev; try { ev = JSON.parse(e.data); } catch { return; }
     if (ev.stage === "__close__") { es.close(); refreshList(); busy = false; $("go").disabled = false; return; }
@@ -153,31 +409,24 @@ function listen(taskId) {
       showProgress("done", 100);
       $("dlHref").href = `/api/tasks/${taskId}/video`;
       $("doneLink").style.display = "block";
-      es.close(); refreshList(); busy = false; $("go").disabled = false;
-      return;
+      es.close(); refreshList(); busy = false; $("go").disabled = false; return;
     }
     if (ev.stage === "error") { fail(ev.message || "生成失败"); es.close(); refreshList(); return; }
     const pos = idx[ev.stage];
     const pct = pos === undefined ? 10 : Math.max(5, Math.round(pos / (order.length - 1) * 95));
     showProgress(ev.stage, pct);
   };
-  es.onerror = () => { /* EventSource auto-reconnects */ };
+  es.onerror = () => {};
 }
 
 async function refreshList() {
   const res = await fetch("/api/tasks");
   const tasks = await res.json();
-  const list = $("list");
-  list.innerHTML = "";
-  if (!tasks.length) {
-    list.innerHTML = '<div class="sub">暂无历史任务</div>';
-    return;
-  }
+  const list = $("list"); list.innerHTML = "";
+  if (!tasks.length) { list.innerHTML = '<div class="sub">暂无历史任务</div>'; return; }
   for (const t of tasks) {
-    const item = document.createElement("div");
-    item.className = "item";
-    const dl = t.status === "done"
-      ? `<a class="dl" href="/api/tasks/${t.id}/video">下载</a>` : "";
+    const item = document.createElement("div"); item.className = "item";
+    const dl = t.status === "done" ? `<a class="dl" href="/api/tasks/${t.id}/video" target="_blank">预览/下载</a>` : "";
     item.innerHTML =
       `<div class="sum">${escapeHtml(t.summary)}</div>` +
       `<span class="badge ${t.status}">${t.status}</span>` +
@@ -188,7 +437,7 @@ async function refreshList() {
 function escapeHtml(s) { return (s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function fmtTime(ts) { const d = new Date(ts * 1000); return d.toLocaleString("zh-CN", {month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
 
-refreshList();
+boot();
 </script>
 </body>
 </html>
