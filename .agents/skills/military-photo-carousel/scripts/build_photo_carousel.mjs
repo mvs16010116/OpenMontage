@@ -37,6 +37,13 @@ const numArg = arg("number", "");
 const [numTarget, numLabel] = numArg.split(":");
 const hasNum = numArg !== "";
 
+// hex accent (e.g. #fbbf24) -> rgba() string at given alpha, for chip glow params
+const accentRgba = (alpha) => {
+  const hex = accent.replace("#", "");
+  const n = parseInt(hex, 16);
+  return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${alpha})`;
+};
+
 // image paths: semicolon separated. Local images are copied under
 // hyperframes/assets/images/<slug>/ so the renderer (root=hyperframes/) resolves
 // the relative src reliably. Bare http URLs pass through unchanged.
@@ -83,7 +90,7 @@ const html = composition({
     #headline{position:absolute;left:0;right:0;top:33%;text-align:center;font-size:92px;font-weight:700;letter-spacing:14px;color:${FG};text-shadow:0 2px 18px rgba(0,0,0,.75)}
     .w{display:inline-block}
     #kwbar{position:absolute;left:50%;top:${keyword ? "63%" : "52%"};width:520px;height:10px;margin-left:-260px;background:${accent};transform-origin:left;display:block}
-    #kwtag{position:absolute;left:0;right:0;top:${hasNum ? "70%" : "57%"};text-align:center;font-size:42px;color:${accent};letter-spacing:8px;opacity:0;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+    #kwtag{position:absolute;left:50%;transform:translateX(-50%);top:${hasNum ? "70%" : "57%"};text-align:center;font-size:42px;color:${accent};letter-spacing:8px;opacity:0;text-shadow:0 2px 10px rgba(0,0,0,.8);display:inline-block;padding:14px 44px 18px;border-radius:999px;background:rgba(7,11,18,.62);box-shadow:0 0 18px ${accentRgba(0.2)};will-change:background-color,box-shadow}
     #numwrap{position:absolute;left:0;right:0;top:76%;text-align:center;opacity:0}
     #numval{display:inline-block;font-size:120px;font-weight:700;color:${FG};text-shadow:0 2px 16px rgba(0,0,0,.8)}
     #numlabel{display:inline-block;font-size:36px;color:${accent};margin-left:18px;letter-spacing:3px}
@@ -120,7 +127,14 @@ const html = composition({
     }, 0.3);
     ${keyword ? `
     tl.fromTo("#kwbar", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 1.2);
-    tl.to("#kwtag", { opacity: 1, duration: 0.5 }, 1.6);` : ""}
+    tl.to("#kwtag", { opacity: 1, duration: 0.5 }, 1.6);
+    // breathing glow on the chip background/outline only (no text glow -> keeps
+    // multi-segment keywords from visually merging). Determinstic: pinned to the
+    // main paused timeline, sine yoyo repeat, seek-safe.
+    tl.fromTo("#kwtag",
+      { backgroundColor: "rgba(7,11,18,.5)", boxShadow: "0 0 18px ${accentRgba(0.2)}" },
+      { backgroundColor: "rgba(7,11,18,.72)", boxShadow: "0 0 44px ${accentRgba(0.45)}",
+        duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1 }, 2.2);` : ""}
     ${hasNum ? `
     tl.to("#numwrap", { opacity: 1, duration: 0.3 }, 2.0);
     {
