@@ -84,6 +84,17 @@ class PexelsImage(BaseTool):
                 "default": "large2x",
             },
             "output_path": {"type": "string"},
+            "output_dir": {
+                "type": "string",
+                "description": "Directory to download N candidate images into. Requires `count`. When set, multiple photos are downloaded and the candidate list is returned; `output_path` is ignored.",
+            },
+            "count": {
+                "type": "integer",
+                "default": 1,
+                "minimum": 1,
+                "maximum": 20,
+                "description": "Number of photos to download (first N results). Only meaningful with `output_dir`; default 1 preserves legacy single-download behaviour.",
+            },
         },
     }
 
@@ -146,39 +157,76 @@ class PexelsImage(BaseTool):
                     data={"total_results": data.get("total_results", 0)},
                 )
 
-            # Pick the first result (agent can refine query if needed)
-            photo = photos[0]
             download_size = inputs.get("download_size", "large2x")
-            image_url = photo["src"].get(download_size, photo["src"]["large2x"])
+            output_dir = inputs.get("output_dir")
+            count = inputs.get("count", 1)
 
-            image_response = requests.get(image_url, timeout=60)
-            image_response.raise_for_status()
+            candidates = []
+            downloaded = []
+            selected = photos[:count]
 
-            output_path = Path(inputs.get("output_path", f"pexels_{photo['id']}.jpg"))
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_bytes(image_response.content)
+            if output_dir and count > 1:
+                # multi-download: fetch `count` photos into output_dir (photo_id-named files)
+                for idx, photo in enumerate(selected):
+                    image_url = photo["src"].get(download_size, photo["src"]["large2x"])
+                    image_response = requests.get(image_url, timeout=60)
+                    image_response.raise_for_status()
+                    out_path = Path(output_dir) / f"{photo['id']}.jpg"
+                    out_path.parent.mkdir(parents=True, exist_ok=True)
+                    out_path.write_bytes(image_response.content)
+                    downloaded.append(str(out_path))
+                    candidates.append(_to_candidate(query, photo, str(out_path)))
+            else:
+                # legacy single-download path
+                photo = selected[0]
+                image_url = photo["src"].get(download_size, photo["src"]["large2x"])
+                image_response = requests.get(image_url, timeout=60)
+                image_response.raise_for_status()
+                output_path = Path(inputs.get("output_path", f"pexels_{photo['id']}.jpg"))
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                output_path.write_bytes(image_response.content)
+                candidates.append(_to_candidate(query, photo, str(output_path)))
 
         except Exception as e:
             return ToolResult(success=False, error=f"Pexels image search failed: {e}")
 
+        primary = candidates[0]
         return ToolResult(
             success=True,
             data={
                 "provider": "pexels",
-                "photo_id": photo["id"],
-                "photographer": photo.get("photographer", "Unknown"),
-                "photographer_url": photo.get("photographer_url", ""),
-                "alt": photo.get("alt", ""),
-                "width": photo.get("width"),
-                "height": photo.get("height"),
+                "photo_id": primary["photo_id"],
+                "photographer": primary.get("photographer", "Unknown"),
+                "photographer_url": primary.get("photographer_url", ""),
+                "alt": primary.get("alt", ""),
+                "width": primary.get("width"),
+                "height": primary.get("height"),
                 "query": query,
-                "output": str(output_path),
+                "output": str(primary.get("output", "")),
+                "outputs": downloaded if downloaded else [str(primary.get("output", ""))],
                 "total_results": data.get("total_results", 0),
                 "results_returned": len(photos),
+                "candidates": candidates,
                 "license": "Pexels License (free, no attribution required)",
-                "pexels_url": photo.get("url", ""),
+                "pexels_url": primary.get("url", ""),
             },
-            artifacts=[str(output_path)],
+            artifacts=downloaded if downloaded else [str(primary.get("output", ""))],
             cost_usd=0.0,
             duration_seconds=round(time.time() - start, 2),
         )
+
+
+def _to_candidate(query: str, photo: dict, output_path: str = "") -> dict[str, Any]:
+    """Normalize a Pexels photo into a candidate descriptor for agent-side curation."""
+    return {
+        "query": query,
+        "photo_id": photo["id"],
+        "photographer": photo.get("photographer", "Unknown"),
+        "photographer_url": photo.get("photographer_url", ""),
+        "alt": photo.get("alt", ""),
+        "width": photo.get("width"),
+        "height": photo.get("height"),
+        "url": photo.get("url", ""),
+        "src": photo["src"].get("large2x", photo["src"].get("original", "")),
+        "output": output_path,
+    }
