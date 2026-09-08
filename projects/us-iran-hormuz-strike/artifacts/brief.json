@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "title": "美军打击伊朗革命卫队·霍尔木兹海峡控制权",
+  "hook": "美军这次对伊朗动手，真正的狠活不是炸防空阵地，是首次落地'以油轮对油轮'政策。",
+  "key_points": [
+    "首次油轮对油轮打击：直接掐断伊朗石油变现通道",
+    "霍尔木兹海峡控制权博弈规则改写",
+    "5万美军中东全衔命戒备的真正含义",
+    "全球石油贸易定价逻辑变化"
+  ],
+  "core_message": "美军通过精准打击伊朗油轮和海上设施，建立了霍尔木兹海峡的新规则：谁碰油轮就砸谁的饭碗。",
+  "cta": "你觉得伊朗会硬扛升级，还是找台阶接过去？评论区聊聊。",
+  "tone": "urgent",
+  "style": "flat-motion-graphics",
+  "target_audience": "军事爱好者、时政评论观众",
+  "target_platform": "youtube",
+  "target_duration_seconds": 115,
+  "reference_material": ["projects/us-iran-hormuz-strike/artifacts/source_script.json"],
+  "metadata": {
+    "source_script": "大家好，我是侯哥军情。美军这次对伊朗动手，真正的狠活根本不是那些被炸掉的防空阵地和雷达站，都是摆在台面上给全球媒体看的明牌。咱们先把这些表面热闹扒干净：伊朗布雷失败、打约旦基地的导弹全被拦截，美军炸了革命卫队的防空、海上设施，特朗普放话敢报复就把伊朗打剩不下啥，这些全是演给外人看的。真正藏在底下的核心杀招，是这次首次落地的"以油轮对油轮"政策，直接打了2艘伊朗政府的油轮。以前美军在中东动手，永远守着"不碰伊朗本土核心资产"的红线，怕的就是霍尔木兹海峡被彻底封死，毕竟全球20%的石油贸易走这儿，真堵了油价直接飞天，谁都接不住，这就像之前历次中东冲突美军都留着最后一脚的分寸，生怕踩翻了石油贸易的盘子。但这次不一样，美军直接掐伊朗手里的"硬通货"——国有油轮，相当于直接断了伊朗的石油变现通道，你要靠布雷、打商船抢海峡控制权？我直接把你用来运油的家当炸了，让你连卖油换钱的路子都走不通。而且你看这次打中的全是布雷、海上相关的设施，根本不是什么核心军事重镇，说白了就是精准敲掉伊朗能封海峡的能力，比之前那些"象征性空袭"狠了不止一个量级，就像以前都是挥挥拳头吓唬人，这次直接抄了对方装钱的钱袋子。再看现在的部署：5万美军在中东全衔命戒备，这个数字背后的潜台词根本不是要马上打全面战争，是把整个中东的美军反应阈值直接拉到了最高，以前可能要层层上报才能动武，现在只要伊朗有任何动作，前线直接就能接战，根本不给双方留误判的缓冲空间。很多人只盯着特朗普放的"二次打击"狠话，但你仔细想，美国现在根本没动力搞全面入侵，真把伊朗打垮了，中东的权力真空谁来填？俄罗斯、伊朗周边的什叶派势力直接捡漏，美国亏不起。这次的动作本质上是打出一套"海峡控制权的明确规则"：以后霍尔木兹海峡，谁要是敢动油轮，我就直接动你的油轮，别拿什么"间接报复"当幌子，这就相当于直接在霍尔木兹海峡立了块不准碰油轮的牌子，谁碰就直接砸谁的饭碗。这意味着接下来霍尔木兹海峡的巡逻密度、美军对伊朗海上动向的预警等级，只会越来越高，全球石油贸易的定价逻辑里，会直接加上一个"美军中东警戒系数"，油价的波动区间会被直接抬一个台阶。最后侯哥问大家一句，你觉得伊朗接下来，会真的硬扛着升级报复，还是会找个台阶把这事接过去？评论区聊聊。",
+    "pipeline": "narration-synth",
+    "visual_register": {
+      "shot_model": "sentence-per-shot",
+      "material_layers": ["background", "midground", "foreground"],
+      "scene_variety_via": "background_skill",
+      "render_layers": "transparent_per_material",
+      "allowed_skills": ["military-title-card", "military-data-viz", "military-map-deduction", "military-warship", "military-seal"],
+      "default_palette": "dark",
+      "default_accent": "#fbbf24",
+      "style_note": "dark military background, amber accents, archival-bold headlines — 军政 urgency over decorative flash"
+    },
+    "bookend_plan": {
+      "opener": { "skill": "military-title-card", "mode": "center" },
+      "chapter_breaks": { "skill": "military-title-card", "mode": "lower" }
+    },
+    "narration_plan": {
+      "enabled": true,
+      "provider": "doubao_tts",
+      "voice": "zh-CN-YunyangNeural",
+      "language": "zh-CN",
+      "register": "authoritative",
+      "note": "侯哥军情 style — steady, authoritative male voice"
+    },
+    "music_plan": {
+      "source": "library",
+      "note": "underscored tension bed — low brass/pulse, no vocals, ~120s"
+    },
+    "subtitle_style": {
+      "enabled": true,
+      "generator": "ass-subtitle-generator",
+      "font_size": 42,
+      "font": "MS YaHei",
+      "bold": false,
+      "primary_color": "&H00FFFFFF",
+      "outline_color": "&H00000000",
+      "outline_width": 3,
+      "max_chars_per_line": 18,
+      "margin_v": 45,
+      "alignment": 2,
+      "exclude_scene_ids": ["scene_opener", "section_chapter_*"]
+    }
+  }
+}

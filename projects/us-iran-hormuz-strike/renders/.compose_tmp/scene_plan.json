@@ -1,0 +1,83 @@
+[
+ {
+  "scene_id": "scene_opener",
+  "window": [
+   0.0,
+   9.0
+  ],
+  "duration": 9.0,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\scene_opener.mp4"
+ },
+ {
+  "scene_id": "section_01",
+  "window": [
+   9.0,
+   37.79
+  ],
+  "duration": 28.79,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_01.mp4"
+ },
+ {
+  "scene_id": "section_02",
+  "window": [
+   37.79,
+   62.88
+  ],
+  "duration": 25.09,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_02.mp4"
+ },
+ {
+  "scene_id": "section_03",
+  "window": [
+   62.88,
+   81.37
+  ],
+  "duration": 18.49,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_03.mp4"
+ },
+ {
+  "scene_id": "section_04",
+  "window": [
+   81.37,
+   107.78
+  ],
+  "duration": 26.41,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_04.mp4"
+ },
+ {
+  "scene_id": "section_05",
+  "window": [
+   107.78,
+   126.2
+  ],
+  "duration": 18.42,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_05.mp4"
+ },
+ {
+  "scene_id": "section_06",
+  "window": [
+   126.2,
+   144.6
+  ],
+  "duration": 18.4,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_06.mp4"
+ },
+ {
+  "scene_id": "section_07",
+  "window": [
+   144.6,
+   163.12
+  ],
+  "duration": 18.52,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_07.mp4"
+ },
+ {
+  "scene_id": "section_08",
+  "window": [
+   163.12,
+   174.75
+  ],
+  "duration": 11.63,
+  "src": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\video\\section_08.mp4"
+ }
+]

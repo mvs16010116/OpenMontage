@@ -1,0 +1,53 @@
+{
+ "segments": [
+  {
+   "id": "section_01",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_01.mp3",
+   "dur": 27.288,
+   "start": 9.0
+  },
+  {
+   "id": "section_02",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_02.mp3",
+   "dur": 23.592,
+   "start": 37.8
+  },
+  {
+   "id": "section_03",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_03.mp3",
+   "dur": 16.992,
+   "start": 62.900000000000006
+  },
+  {
+   "id": "section_04",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_04.mp3",
+   "dur": 24.912,
+   "start": 81.4
+  },
+  {
+   "id": "section_05",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_05.mp3",
+   "dur": 16.92,
+   "start": 107.83333300000001
+  },
+  {
+   "id": "section_06",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_06.mp3",
+   "dur": 16.896,
+   "start": 126.266666
+  },
+  {
+   "id": "section_07",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_07.mp3",
+   "dur": 17.016,
+   "start": 144.666666
+  },
+  {
+   "id": "section_08",
+   "audio": "D:\\Danny\\projects\\animation\\my_open_montage\\projects\\us-iran-hormuz-strike\\assets\\audio\\narration_section_08.mp3",
+   "dur": 10.128,
+   "start": 163.199999
+  }
+ ],
+ "total": 174.833
+}
