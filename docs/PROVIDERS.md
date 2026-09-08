@@ -788,6 +788,35 @@ HyperFrames workspaces live under `projects/<project-name>/hyperframes/`. Final 
 
 ---
 
+### Edge TTS — Free Online Neural Text-to-Speech
+
+> **Free, keyless neural TTS** backed by Microsoft Edge's online read-aloud service. No API key, no billing. Strong Chinese (zh-CN) voice coverage — a natural fit for narration-led 军政 (military-political) explainers.
+
+**Tool:** `edge_tts`
+**Runtime:** Online (network required)
+**Env var:** None
+
+#### Setup
+
+```bash
+pip install edge-tts
+```
+
+**Available voices:** Microsoft's full Edge neural voice catalog (`python -m edge_tts --list-voices`). Notable zh-CN voices for narration:
+
+| Voice | Style | Fit |
+|-------|-------|-----|
+| `zh-CN-YunyangNeural` (male) | News | Military-political commentary (default) |
+| `zh-CN-XiaoxiaoNeural` (female) | News, Novel | General narration |
+| `zh-CN-YunxiNeural` (male) | Novel | Storytelling, lively reads |
+| `zh-CN-YunxiaNeural` (male) | Cartoon, Novel | Casual commentary |
+
+**Quality:** Solid for narration and commentary. Slightly less controllable than paid providers (no cloning); requires network on every generation.
+
+**Cost:** Free (zero).
+
+---
+
 ### Piper TTS — Offline Text-to-Speech
 
 > **Completely free, fully offline TTS.** No network required. Good quality for drafts and budget-constrained projects.
@@ -925,6 +954,7 @@ These tools require only FFmpeg or Python packages — no GPU, no API key.
 |----------|---------|---------------|------|
 | **Pexels** | `PEXELS_API_KEY` | `pexels_image`, `pexels_video` | Free |
 | **Pixabay** | `PIXABAY_API_KEY` | `pixabay_image`, `pixabay_video` | Free |
+| **Edge TTS** | — (install only) | `edge_tts` | Free |
 | **Piper** | — (install only) | `piper_tts` | Free |
 | **Google** | `GOOGLE_API_KEY` (or `GEMINI_API_KEY`) | `google_tts`, `google_imagen`, `google_music`, `gemini_omni_video`, `veo_video` | Free tier (TTS) + paid |
 | **ElevenLabs** | `ELEVENLABS_API_KEY` | `elevenlabs_tts`, `music_gen` | Free tier + paid |
