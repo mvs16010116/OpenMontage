@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <title>military-title-card :: 伊朗会硬扛，还是找台阶？</title>
+    <title>military-photo-carousel :: 美国为何不搞全面入侵</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     
     <style>
@@ -14,25 +14,35 @@
       .clip{position:absolute;inset:0;overflow:hidden}
       bar{display:block}
       
-    #headline{position:absolute;left:0;right:0;top:34%;text-align:center;font-size:96px;font-weight:700;letter-spacing:14px;color:#fff3d6}
+    .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;will-change:transform,opacity}
+    #mask{position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,11,18,.55) 0%, rgba(7,11,18,.25) 38%, rgba(7,11,18,.42) 62%, rgba(7,11,18,.82) 100%)}
+    #vignette{position:absolute;inset:0;box-shadow:inset 0 0 240px 90px rgba(0,0,0,.55)}
+    #headline{position:absolute;left:0;right:0;top:33%;text-align:center;font-size:92px;font-weight:700;letter-spacing:14px;color:#fff3d6;text-shadow:0 2px 18px rgba(0,0,0,.75)}
     .w{display:inline-block}
-    #kwbar{position:absolute;left:50%;top:64%;width:520px;height:10px;margin-left:-260px;background:#fbbf24;transform-origin:left;display:block}
-    #kwtag{position:absolute;left:0;right:0;top:58%;text-align:center;font-size:42px;color:#fbbf24;letter-spacing:8px;opacity:0}
+    #kwbar{position:absolute;left:50%;top:63%;width:520px;height:10px;margin-left:-260px;background:#fbbf24;transform-origin:left;display:block}
+    #kwtag{position:absolute;left:0;right:0;top:57%;text-align:center;font-size:42px;color:#fbbf24;letter-spacing:8px;opacity:0;text-shadow:0 2px 10px rgba(0,0,0,.8)}
     #numwrap{position:absolute;left:0;right:0;top:76%;text-align:center;opacity:0}
-    #numval{display:inline-block;font-size:120px;font-weight:700;color:#fff3d6}
+    #numval{display:inline-block;font-size:120px;font-weight:700;color:#fff3d6;text-shadow:0 2px 16px rgba(0,0,0,.8)}
     #numlabel{display:inline-block;font-size:36px;color:#fbbf24;margin-left:18px;letter-spacing:3px}
-    #lower-third{position:absolute;left:60px;bottom:56px;font-size:28px;color:#fff3d6;opacity:.85;letter-spacing:3px;opacity:0}
+    #lower-third{position:absolute;left:60px;bottom:56px;font-size:28px;color:#fff3d6;opacity:.85;letter-spacing:3px;opacity:0;text-shadow:0 1px 8px rgba(0,0,0,.7)}
   
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="11.63">
-      <section id="scene" class="clip" data-start="0" data-duration="11.63" data-track-index="1">
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="17.1">
+      <section id="scene" class="clip" data-start="0" data-duration="17.1" data-track-index="1">
         
-    <div id="headline"><span class="w" id="w-0">伊</span><span class="w" id="w-1">朗</span><span class="w" id="w-2">会</span><span class="w" id="w-3">硬</span><span class="w" id="w-4">扛</span><span class="w" id="w-5">，</span><span class="w" id="w-6">还</span><span class="w" id="w-7">是</span><span class="w" id="w-8">找</span><span class="w" id="w-9">台</span><span class="w" id="w-10">阶</span><span class="w" id="w-11">？</span></div>
-    <div id="kwbar"></div><div id="kwtag">评论区聊聊</div>
     
+    <img id="bg-0" class="bgimg" src="assets/images/section_05/35549688.jpg" alt="carousel" />
+    <img id="bg-1" class="bgimg" src="assets/images/section_05/38982182.jpg" alt="carousel" />
+    <img id="bg-2" class="bgimg" src="assets/images/section_05/33132544.jpg" alt="carousel" />
+    <img id="bg-3" class="bgimg" src="assets/images/section_05/19664340.jpg" alt="carousel" />
+    <div id="mask"></div>
+    <div id="vignette"></div>
+    <div id="headline"><span class="w" id="w-0">美</span><span class="w" id="w-1">国</span><span class="w" id="w-2">为</span><span class="w" id="w-3">何</span><span class="w" id="w-4">不</span><span class="w" id="w-5">搞</span><span class="w" id="w-6">全</span><span class="w" id="w-7">面</span><span class="w" id="w-8">入</span><span class="w" id="w-9">侵</span></div>
+    <div id="kwbar"></div><div id="kwtag">权力真空没人接得住</div>
     
+    <div id="lower-third">俄罗斯 · 什叶派势力捡漏</div>
   
       </section>
     </div>
@@ -40,15 +50,32 @@
       window.__timelines = window.__timelines || {};
       
     const tl = gsap.timeline({ paused: true });
-    gsap.set(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9","#w-10","#w-11"], { y: 60, opacity: 0 });
-    tl.to(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9","#w-10","#w-11"], {
+    // carousel background: fade-in first image; each transition = crossfade
+    tl.to("#bg-0", { opacity: 1, duration: 0.5, ease: "power1.out" }, 0);
+    
+    
+    tl.to("#bg-1", { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 3.9750000000000005);
+    tl.to("#bg-0", { opacity: 0, duration: 0.6, ease: "power1.inOut" }, 4.575);
+    
+    tl.to("#bg-2", { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 8.25);
+    tl.to("#bg-1", { opacity: 0, duration: 0.6, ease: "power1.inOut" }, 8.850000000000001);
+    
+    tl.to("#bg-3", { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 12.525);
+    tl.to("#bg-2", { opacity: 0, duration: 0.6, ease: "power1.inOut" }, 13.125000000000002);
+    // Ken Burns on each visible img (alternate push toward / pull away)
+    tl.fromTo("#bg-0", { scale: 1, transformOrigin: "50% 30%" }, { scale: 1.08, duration: 4.675000000000001, ease: "none" }, 0);
+    tl.fromTo("#bg-1", { scale: 1, transformOrigin: "50% 70%" }, { scale: 1.08, duration: 4.675000000000001, ease: "none" }, 4.275);
+    tl.fromTo("#bg-2", { scale: 1, transformOrigin: "50% 30%" }, { scale: 1.08, duration: 4.675000000000001, ease: "none" }, 8.55);
+    tl.fromTo("#bg-3", { scale: 1, transformOrigin: "50% 70%" }, { scale: 1.08, duration: 4.675000000000001, ease: "none" }, 12.825000000000001);
+    gsap.set(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9"], { y: 60, opacity: 0 });
+    tl.to(["#w-0","#w-1","#w-2","#w-3","#w-4","#w-5","#w-6","#w-7","#w-8","#w-9"], {
       y: 0, opacity: 1, duration: 0.6, ease: "power3.out", stagger: 0.04,
     }, 0.3);
     
     tl.fromTo("#kwbar", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 1.2);
     tl.to("#kwtag", { opacity: 1, duration: 0.5 }, 1.6);
     
-    
+    tl.to("#lower-third", { opacity: 0.85, duration: 0.5 }, 1.0);
     window.__timelines["main"] = tl;
   
     </script>
