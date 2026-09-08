@@ -1,6 +1,6 @@
 # 004-05 - 端到端总装（触发 / 轮询 / 回填 / 上传 / 预览）
 
-**Status:** ready-for-agent  **Spec:** issues/004-narration-synth-lark-llm.md  **Blocking:** 004-02, 004-04
+**Status:** done  **Spec:** issues/004-narration-synth-lark-llm.md  **Blocking:** 004-02, 004-04
 
 ## 目标
 
@@ -18,11 +18,15 @@
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `web/server.py` | 改造 | 任务创建/批量路由、视频 preview 响应 |
-| `web/worker.py` | 改造 | 手动队列 + 自动轮询 + 后置回填/上传 |
-| `web/db.py` | 改造 | `base_sync_status` 字段 |
-| `web/templates/index.html` | 改造 | 任务视图完整化（扫描→选择→生成→预览/下载、轮询状态） |
+| `web/server.py` | 改造 | 任务创建/批量路由、视频 Range 流响应（206/416） |
+| `web/worker.py` | 改造 | 手动队列 + 自动轮询 + 后置回填/上传（`_sync_base`/`_mark_processing`） |
+| `web/db.py` | 改造 | `base_sync_status`、`base_sync_error` 字段 |
+| `web/templates/index.html` | 改造 | `<video controls>` 预览 + 下载按钮（done 事件接线） |
 
 ## 验证
 
-配置真实多维表格与 LLM 后，走通「扫描 → 选中生成 → 进度推进 → 成功回填/上传 → 前端预览下载」全流程；开启轮询后自动建任务。
+- 新增测试 +14 -> `tests/web/` 共 **75 passed**：
+  - `test_api.py`：POST /api/tasks 按文案 / 按 record_id（含未知记录 400、重复去重）、batch 批量入队去重、任务/批量需登录、视频 Range（全量 / `bytes=2-5` / 后缀 / 超出 416）。
+  - `test_worker.py`（新）：`_sync_base` 成功回填+上传（`base_sync_status=ok`）、无 record_id 跳过、失败记录 `failed`+错误；`_mark_processing` 写「处理中」；`_poll` 按 `interval_seconds` 入队待处理记录、空文案跳过、间隔内去重、`poll.enabled=false` 不扫描。
+- commit：`ea658ab`（代码）、`3df82c1`（004-04 证据提交）后追加本票证据。
+- 主动画：配置真实多维表格与 LLM 后，走通「扫描 → 选中生成 → 进度推进 → 成功回填/上传 → 前端预览下载」全流程；开启轮询后自动建任务（需真机 lark-cli 认证）。
