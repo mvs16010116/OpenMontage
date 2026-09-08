@@ -1,0 +1,357 @@
+{
+  "version": "1.0",
+  "project_id": "us-iran-hormuz-strike",
+  "sections": {
+    "scene_opener": {
+      "purpose": "开场标题背景",
+      "fallback": null,
+      "images": [
+        {
+          "section": "scene_opener",
+          "photo_id": 36699274,
+          "query": "US military war jets sky",
+          "alt": "A striking view of fighter jets flying in formation against a clouded sky.",
+          "file": "assets/images/scene_opener/36699274.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        },
+        {
+          "section": "scene_opener",
+          "photo_id": 36699220,
+          "query": "US military war jets sky",
+          "alt": "Five fighter jets perform an exhilarating formation in the sky, leaving vapor trails behind.",
+          "file": "assets/images/scene_opener/36699220.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "scene_opener",
+          "photo_id": 9969679,
+          "query": "fighter jet afterburner dark",
+          "alt": "Dynamic F-16 jet showcasing an afterburner flame against a dusky sky.",
+          "file": "assets/images/scene_opener/9969679.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "scene_opener",
+          "photo_id": 29514213,
+          "query": "fighter jet afterburner dark",
+          "alt": "A fighter jet soars against a backdrop of vibrant, fiery clouds at sunset.",
+          "file": "assets/images/scene_opener/29514213.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_01": {
+      "purpose": "明牌：防空阵地雷达被炸、导弹被拦截",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_01",
+          "photo_id": 27292151,
+          "query": "air defense missile system",
+          "alt": "A military missile launcher on exhibit outdoors with a backdrop of unique architecture and clear blue sky.",
+          "file": "assets/images/section_01/27292151.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_01",
+          "photo_id": 19893295,
+          "query": "air defense missile system",
+          "alt": "Detailed view of a military rocket launcher showcased outdoors, showcasing industrial design.",
+          "file": "assets/images/section_01/19893295.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_01",
+          "photo_id": 7327336,
+          "query": "anti missile interceptor launch",
+          "alt": "A rocket launch with smoke trails over South Padre Island, viewed across the ocean.",
+          "file": "assets/images/section_01/7327336.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_01",
+          "photo_id": 27292171,
+          "query": "air defense missile system",
+          "alt": "Outdoor display of a military missile defense system on a sunny day, highlighting its structure.",
+          "file": "assets/images/section_01/27292171.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 3.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_02": {
+      "purpose": "核心杀招：打2艘伊朗油轮，全球20%石油走海峡",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_02",
+          "photo_id": 33284879,
+          "query": "oil tanker sea",
+          "alt": "A fleet of cargo ships docked near oil storage tanks along a serene coastline with a clear blue sky above.",
+          "file": "assets/images/section_02/33284879.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        },
+        {
+          "section": "section_02",
+          "photo_id": 39012056,
+          "query": "oil tanker sea",
+          "alt": "A large red oil tanker named Bow Excellence docked at a harbor under clear blue skies.",
+          "file": "assets/images/section_02/39012056.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        },
+        {
+          "section": "section_02",
+          "photo_id": 38602143,
+          "query": "oil tanker loaded harbor",
+          "alt": "A large red cargo ship docked at an industrial port with scenic mountain background.",
+          "file": "assets/images/section_02/38602143.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        },
+        {
+          "section": "section_02",
+          "photo_id": 38602132,
+          "query": "oil tanker loaded harbor",
+          "alt": "A large oil tanker docked at an industrial port with refinery and mountainous backdrop.",
+          "file": "assets/images/section_02/38602132.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_03": {
+      "purpose": "掐硬通货：断伊朗卖油换钱通道",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_03",
+          "photo_id": 19704439,
+          "query": "oil tanker docked harbor",
+          "alt": "A vibrant scene of an industrial port featuring an oil tanker and cranes under a clear blue sky.",
+          "file": "assets/images/section_03/19704439.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        },
+        {
+          "section": "section_03",
+          "photo_id": 38602132,
+          "query": "oil tanker docked harbor",
+          "alt": "A large oil tanker docked at an industrial port with refinery and mountainous backdrop.",
+          "file": "assets/images/section_03/38602132.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 5.5
+        },
+        {
+          "section": "section_03",
+          "photo_id": 14154603,
+          "query": "oil refinery plant night",
+          "alt": "Aerial view of an illuminated factory with chimneys at sunset, showcasing industrial architecture.",
+          "file": "assets/images/section_03/14154603.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_03",
+          "photo_id": 10396413,
+          "query": "oil refinery plant night",
+          "alt": "Aerial night view of a brightly lit industrial oil refinery with smoking chimneys in Rosemount, MN, USA.",
+          "file": "assets/images/section_03/10396413.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_04": {
+      "purpose": "精准敲掉封海峡能力，5万美军戒备",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_04",
+          "photo_id": 18959221,
+          "query": "naval warship fleet ocean",
+          "alt": "A naval frigate navigates open waters with a hovering helicopter, showcasing maritime operations.",
+          "file": "assets/images/section_04/18959221.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_04",
+          "photo_id": 36674255,
+          "query": "US navy aircraft carrier",
+          "alt": "A US Navy helicopter is stationed on the deck of an aircraft carrier with radar equipment in the background.",
+          "file": "assets/images/section_04/36674255.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_04",
+          "photo_id": 39158256,
+          "query": "naval warship fleet ocean",
+          "alt": "Military personnel holding a Turkish flag with naval ships and helicopter in the background.",
+          "file": "assets/images/section_04/39158256.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 3.5
+        },
+        {
+          "section": "section_04",
+          "photo_id": 35372365,
+          "query": "naval warship fleet ocean",
+          "alt": "A fleet of military ships anchored with a cloudy sky backdrop.",
+          "file": "assets/images/section_04/35372365.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_05": {
+      "purpose": "美国无动力入侵，权力真空",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_05",
+          "photo_id": 35549688,
+          "query": "middle east desert city skyline",
+          "alt": "Scenic aerial view of Cairo with the iconic Mosque-Madrassa of Sultan Hassan and city skyline.",
+          "file": "assets/images/section_05/35549688.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_05",
+          "photo_id": 38982182,
+          "query": "russia iran flag diplomacy",
+          "alt": "Iraqi and Iranian flags waving with palm trees in the background, Karbala, Iraq.",
+          "file": "assets/images/section_05/38982182.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_05",
+          "photo_id": 33132544,
+          "query": "middle east desert city skyline",
+          "alt": "A panoramic view of Shiraz's rooftops, featuring a prominent mosque under a clear blue sky.",
+          "file": "assets/images/section_05/33132544.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        },
+        {
+          "section": "section_05",
+          "photo_id": 19664340,
+          "query": "middle east desert city skyline",
+          "alt": "A stunning view of Dubai's skyline featuring Burj Khalifa across the sea.",
+          "file": "assets/images/section_05/19664340.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_06": {
+      "purpose": "立规则牌子：谁动油轮动谁的油轮",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_06",
+          "photo_id": 27275198,
+          "query": "oil tanker strait water",
+          "alt": "Aerial shot of an oil tanker sailing in the ocean near Vado Ligure, Italy.",
+          "file": "assets/images/section_06/27275198.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_06",
+          "photo_id": 38995883,
+          "query": "hormuz strait aerial",
+          "alt": "A stunning aerial view of Istanbul featuring the Bosporus Strait and iconic cityscape.",
+          "file": "assets/images/section_06/38995883.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        },
+        {
+          "section": "section_06",
+          "photo_id": 10546956,
+          "query": "hormuz strait aerial",
+          "alt": "Elegant woman in red dress posing on Hormuz Island's red beach with scenic ocean view.",
+          "file": "assets/images/section_06/10546956.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        },
+        {
+          "section": "section_06",
+          "photo_id": 36099563,
+          "query": "hormuz strait aerial",
+          "alt": "Explore Oman’s breathtaking coastal landscapes from above, capturing rugged cliffs meeting azure seas.",
+          "file": "assets/images/section_06/36099563.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_07": {
+      "purpose": "石油定价加警戒系数",
+      "fallback": null,
+      "images": [
+        {
+          "section": "section_07",
+          "photo_id": 38915666,
+          "query": "cargo ship convoy sea dawn",
+          "alt": "Peaceful scene of cargo ships floating on calm sea under clear sky in Samsun, Turkey.",
+          "file": "assets/images/section_07/38915666.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 4.5
+        },
+        {
+          "section": "section_07",
+          "photo_id": 38150961,
+          "query": "oil price barrels",
+          "alt": "Bright red industrial oil barrels stacked outdoors in daylight, showcasing vivid color and industrial theme.",
+          "file": "assets/images/section_07/38150961.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        },
+        {
+          "section": "section_07",
+          "photo_id": 3151717,
+          "query": "oil price barrels",
+          "alt": "Pile of old, rusty oil barrels stacked outdoors with visible labels and numbers.",
+          "file": "assets/images/section_07/3151717.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        },
+        {
+          "section": "section_07",
+          "photo_id": 36688077,
+          "query": "oil price barrels",
+          "alt": "Detailed close-up of a rusty oil barrel with peeling orange paint texture.",
+          "file": "assets/images/section_07/36688077.jpg",
+          "reason": "alt matching semantic keywords: umbrella terms present",
+          "score": 2.5
+        }
+      ],
+      "selected_count": 4
+    },
+    "section_08": {
+      "purpose": "评论区互动，深底文字卡（无图）",
+      "fallback": "deep-dark-card",
+      "images": [],
+      "selected_count": 0,
+      "reason": "no candidate alt matched semantic keywords (score below threshold)"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "version": "1.0",
+  "project_id": "us-iran-hormuz-strike",
+  "note": "English search terms per section for Pexels photo search. relation: subject/topic mapping to section semantics.",
+  "sections": {
+    "scene_opener": {
+      "sec_name": "opener",
+      "duration_seconds": 9.0,
+      "semantic_keywords": ["美军打击伊朗", "革命卫队", "导弹"],
+      "purpose": "开场标题背景",
+      "searches": [
+        {"query": "US military war jets sky", "orientation": "landscape", "count": 4, "note": "开场军事氛围"},
+        {"query": "fighter jet afterburner dark", "orientation": "landscape", "count": 4, "note": "打击气势备选"}
+      ]
+    },
+    "section_01": {
+      "sec_name": "截击防空与雷达",
+      "duration_seconds": 27.3,
+      "semantic_keywords": ["防空阵地", "雷达站", "导弹拦截", "约旦基地"],
+      "purpose": "明牌：防空阵地雷达被炸、导弹被拦截",
+      "searches": [
+        {"query": "air defense missile system", "orientation": "landscape", "count": 4, "note": "防空导弹系统"},
+        {"query": "military radar station", "orientation": "landscape", "count": 4, "note": "雷达站"},
+        {"query": "anti missile interceptor launch", "orientation": "landscape", "count": 4, "note": "拦截弹发射"}
+      ]
+    },
+    "section_02": {
+      "sec_name": "油轮对油轮政策",
+      "duration_seconds": 23.6,
+      "semantic_keywords": ["油轮", "伊朗油轮", "石油贸易", "霍尔木兹", "20%"],
+      "purpose": "核心杀招：打2艘伊朗油轮，全球20%石油走海峡",
+      "searches": [
+        {"query": "oil tanker sea", "orientation": "landscape", "count": 4, "note": "海上油轮"},
+        {"query": "oil tanker cargo ship ocean", "orientation": "landscape", "count": 4, "note": "大型油轮"},
+        {"query": "oil tanker loaded harbor", "orientation": "landscape", "count": 4, "note": "港内装载油轮"}
+      ]
+    },
+    "section_03": {
+      "sec_name": "掐断石油变现",
+      "duration_seconds": 17.0,
+      "semantic_keywords": ["国有油轮", "石油变现", "经济制裁", "卖油"],
+      "purpose": "掐硬通货：断伊朗卖油换钱通道",
+      "searches": [
+        {"query": "oil tanker docked harbor", "orientation": "landscape", "count": 4, "note": "停泊油轮"},
+        {"query": "oil refinery plant night", "orientation": "landscape", "count": 4, "note": "炼油厂" }
+      ]
+    },
+    "section_04": {
+      "sec_name": "海上布雷与美军部署",
+      "duration_seconds": 26.4,
+      "semantic_keywords": ["布雷", "海上设施", "5万美军", "中东部署", "反应阈值"],
+      "purpose": "精准敲掉封海峡能力，5万美军戒备",
+      "searches": [
+        {"query": "naval warship fleet ocean", "orientation": "landscape", "count": 4, "note": "海军舰队"},
+        {"query": "US navy aircraft carrier", "orientation": "landscape", "count": 4, "note": "航母"},
+        {"query": "sea mine ocean surface", "orientation": "landscape", "count": 4, "note": "海上布雷"}
+      ]
+    },
+    "section_05": {
+      "sec_name": "中东权力真空",
+      "duration_seconds": 16.9,
+      "semantic_keywords": ["全面入侵", "权力真空", "俄罗斯", "什叶派", "中东"],
+      "purpose": "美国无动力入侵，权力真空",
+      "searches": [
+        {"query": "middle east desert city skyline", "orientation": "landscape", "count": 4, "note": "中东城市"},
+        {"query": "russia iran flag diplomacy", "orientation": "landscape", "count": 3, "note": "俄伊博弈"}
+      ]
+    },
+    "section_06": {
+      "sec_name": "海峡控制权规则",
+      "duration_seconds": 18.4,
+      "semantic_keywords": ["霍尔木兹海峡", "油轮规则", "控制权"],
+      "purpose": "立规则牌子：谁动油轮动谁的油轮",
+      "searches": [
+        {"query": "hormuz strait aerial", "orientation": "landscape", "count": 4, "note": "海峡空中视角"},
+        {"query": "oil tanker strait water", "orientation": "landscape", "count": 4, "note": "海峡油轮"}
+      ]
+    },
+    "section_07": {
+      "sec_name": "油价定价逻辑",
+      "duration_seconds": 18.5,
+      "semantic_keywords": ["巡逻密度", "预警等级", "油价", "定价逻辑"],
+      "purpose": "石油定价加警戒系数",
+      "searches": [
+        {"query": "oil price barrels", "orientation": "landscape", "count": 4, "note": "原油桶"},
+        {"query": "cargo ship convoy sea dawn", "orientation": "landscape", "count": 4, "note": "船队巡逻"}
+      ]
+    },
+    "section_08": {
+      "sec_name": "结尾互动",
+      "duration_seconds": 11.6,
+      "semantic_keywords": ["互动提问"],
+      "purpose": "评论区互动，深底文字卡（无图）",
+      "searches": [],
+      "fallback": "deep-dark-card"
+    }
+  }
+}
