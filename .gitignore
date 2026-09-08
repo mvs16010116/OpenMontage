@@ -23,6 +23,9 @@ htmlcov/
 .idea/
 .vscode/
 
+# Web service secrets (generated at first start; never commit)
+web/.session_secret
+
 # Pipeline outputs (regenerable — never commit large media)
 output/
 pipeline/
