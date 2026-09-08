@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>口播视频生成器</title>
+<style>
+  :root {
+    --bg: #070b12;
+    --panel: #0e1520;
+    --fg: #f5f0e3;
+    --muted: #9aa4b5;
+    --accent: #fbbf24;
+    --danger: #f87171;
+    --ok: #34d399;
+    --border: #232c3a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    min-height: 100vh; display: flex; justify-content: center; padding: 48px 16px;
+  }
+  .wrap { width: 100%; max-width: 720px; }
+  h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: .5px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px;
+  }
+  textarea {
+    width: 100%; background: #0a0f18; color: var(--fg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px; font-size: 14px; line-height: 1.7;
+    resize: vertical; min-height: 180px; font-family: inherit;
+  }
+  textarea:focus { outline: none; border-color: var(--accent); }
+  .btn {
+    margin-top: 12px; background: var(--accent); color: #1a1a1a; border: none;
+    border-radius: 8px; padding: 12px 22px; font-size: 15px; font-weight: 600;
+    cursor: pointer; width: 100%;
+  }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .progress { margin-top: 14px; display: none; }
+  .progress.show { display: block; }
+  .bar { height: 8px; background: #1a2230; border-radius: 4px; overflow: hidden; }
+  .bar > div {
+    height: 100%; width: 0%; background: var(--accent);
+    transition: width .4s ease;
+  }
+  .stage-text { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .err { color: var(--danger); font-size: 13px; margin-top: 10px; white-space: pre-wrap; }
+  .done-link { color: var(--ok); font-size: 14px; margin-top: 10px; display: none; }
+  .done-link a { color: var(--ok); }
+  h2 { font-size: 16px; margin: 28px 0 12px; color: var(--fg); }
+  .list { display: flex; flex-direction: column; gap: 10px; }
+  .item {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px; display: flex; align-items: center; gap: 12px;
+  }
+  .item .sum { flex: 1; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .badge { font-size: 11px; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+  .badge.done { background: rgba(52,211,153,.15); color: var(--ok); }
+  .badge.running { background: rgba(251,191,36,.15); color: var(--accent); }
+  .badge.queued { background: rgba(154,164,181,.15); color: var(--muted); }
+  .badge.error { background: rgba(248,113,113,.15); color: var(--danger); }
+  .badge.interrupted { background: rgba(154,164,181,.2); color: var(--muted); }
+  .item .time { font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .item .dl { color: var(--accent); text-decoration: none; font-size: 12px; white-space: nowrap; }
+  .item .dl:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>口播视频生成器</h1>
+  <div class="sub">粘贴口播文案 → 生成配音 / 配图 / 动画 / 字幕并合成成片</div>
+
+  <div class="card">
+    <textarea id="txt" placeholder="在此粘贴口播文案（一段话即可，自动分节）…"></textarea>
+    <button id="go" class="btn">生成视频</button>
+
+    <div class="progress" id="progress">
+      <div class="bar"><div id="barfill"></div></div>
+      <div class="stage-text" id="stageText"></div>
+    </div>
+    <div class="err" id="err"></div>
+    <div class="done-link" id="doneLink"><a id="dlHref" href="#">⬇ 下载成片 final.mp4</a></div>
+  </div>
+
+  <h2>历史生成</h2>
+  <div class="list" id="list"></div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const STAGE_LABEL = {
+  parse_script: "正在分节…",
+  generating_tts: "正在生成配音…",
+  fetching_images: "正在检索配图…",
+  rendering_scenes: "正在渲染画面…",
+  subtitles: "正在生成字幕…",
+  assembling: "正在合成成片…",
+  done: "生成完成",
+  error: "生成失败",
+  queued: "排队中…",
+  running: "正在生成…",
+};
+let busy = false;
+
+$("go").addEventListener("click", async () => {
+  const text = $("txt").value.trim();
+  if (!text || busy) return;
+  busy = true;
+  $("go").disabled = true;
+  $("err").textContent = "";
+  $("doneLink").style.display = "none";
+  showProgress("queued", 2);
+  const res = await fetch("/api/generate", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ narration_text: text }),
+  });
+  if (!res.ok) {
+    const e = await res.json().catch(() => ({}));
+    fail(e.detail || "提交失败"); return;
+  }
+  const { task_id } = await res.json();
+  listen(task_id);
+  refreshList();
+});
+
+function showProgress(stage, pct) {
+  $("progress").classList.add("show");
+  $("barfill").style.width = pct + "%";
+  $("stageText").textContent = STAGE_LABEL[stage] || stage || "…";
+}
+
+function fail(msg) {
+  $("err").textContent = msg;
+  $("progress").classList.remove("show");
+  busy = false;
+  $("go").disabled = false;
+}
+
+function listen(taskId) {
+  const es = new EventSource(`/api/tasks/${taskId}/events`);
+  const order = ["queued","parse_script","generating_tts","fetching_images",
+                 "rendering_scenes","subtitles","assembling","done","error"];
+  const idx = {};
+  order.forEach((s, i) => idx[s] = i);
+  es.onmessage = (e) => {
+    let ev; try { ev = JSON.parse(e.data); } catch { return; }
+    if (ev.stage === "__close__") { es.close(); refreshList(); busy = false; $("go").disabled = false; return; }
+    if (ev.stage === "done") {
+      showProgress("done", 100);
+      $("dlHref").href = `/api/tasks/${taskId}/video`;
+      $("doneLink").style.display = "block";
+      es.close(); refreshList(); busy = false; $("go").disabled = false;
+      return;
+    }
+    if (ev.stage === "error") { fail(ev.message || "生成失败"); es.close(); refreshList(); return; }
+    const pos = idx[ev.stage];
+    const pct = pos === undefined ? 10 : Math.max(5, Math.round(pos / (order.length - 1) * 95));
+    showProgress(ev.stage, pct);
+  };
+  es.onerror = () => { /* EventSource auto-reconnects */ };
+}
+
+async function refreshList() {
+  const res = await fetch("/api/tasks");
+  const tasks = await res.json();
+  const list = $("list");
+  list.innerHTML = "";
+  if (!tasks.length) {
+    list.innerHTML = '<div class="sub">暂无历史任务</div>';
+    return;
+  }
+  for (const t of tasks) {
+    const item = document.createElement("div");
+    item.className = "item";
+    const dl = t.status === "done"
+      ? `<a class="dl" href="/api/tasks/${t.id}/video">下载</a>` : "";
+    item.innerHTML =
+      `<div class="sum">${escapeHtml(t.summary)}</div>` +
+      `<span class="badge ${t.status}">${t.status}</span>` +
+      `<span class="time">${fmtTime(t.created_at)}</span>${dl}`;
+    list.appendChild(item);
+  }
+}
+function escapeHtml(s) { return (s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function fmtTime(ts) { const d = new Date(ts * 1000); return d.toLocaleString("zh-CN", {month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
+
+refreshList();
+</script>
+</body>
+</html>
