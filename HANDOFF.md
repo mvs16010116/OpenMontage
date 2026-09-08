@@ -1,8 +1,8 @@
 # Handoff — OpenMontage
 
 **Date:** 2026-09-08
-**Branch:** main (head `342491a`, pushed)
-**Next-session focus:** continue narration-synth landscape work or new-feature requests; see issues/001 tracker for the just-shipped Pexels carousel capability.
+**Branch:** main (head `abe2f53`, pushed)
+**Next-session focus:** continue narration-synth landscape work or new-feature requests; see issues/001 (Pexels carousel) and issues/002 (subtitle scale + keyword glow) trackers for the two shipped capabilities.
 
 ---
 
@@ -18,29 +18,39 @@ Tracker: `issues/001-pexels-keyword-image-carousel.md` (spec) + `issues/001-01..
 - **001-05** All 10 scenes baked (opener + 8 sections + 3s end-card); **breathing pauses** inserted (silence after number cues in `narration_section_02/04`); timeline/subtitles re-synced to 173.07s.
 - **001-06** Assembled `renders/final.mp4`, verified **16/16** (see below), pushed.
 
-### Final deliverable
-`projects/us-iran-hormuz-strike/renders/final.mp4`:
-1920×1080 · h264 · aac · yuv420p · 30fps · **173.07s**. Photo-carousel backgrounds at sampled times (colour-set 997–2447, not flat), subtitle white pixels 1297–1626 at t=13/45/130, narration vol −25.8/-25.9/−27.0 dB, per-section crossfade confirmed (frame-hash diff >98% between in-section times).
+Then a visual-revision round (spec + tickets `issues/002-subtitle-size-keyword-glow.md` + `002-01..04`), all DONE:
+- **002-01** kwtag → **dark translucent pill** (rgba(7,11,18,.62) rounded) + **amber breathing glow** (bg alpha .50↔.72, box-shadow .20↔.45, 2.6s sine yoyo, pinned to main paused timeline — deterministic/seek-safe). **No text glow** — that was the gaza comma-tag merge defect (3078077). Hex accent → rgba helper added to builder.
+- **002-02** subtitles scaled 1.8×: FontSize 44→**80**, Outline 3→**5**, MarginV 58→**90** in both `.ass` Style and burn `force_style`.
+- **002-03** all 10 scenes re-baked (durations hit windows).
+- **002-04** re-assembled `final.mp4`: verified 16/16, pytest 9 passed, pushed.
 
-### Meanwhile / context notes
-- This is the second narration-synth video; the landscape (vs gaza vertical) path is the one to reuse for future landscape projects.
-- Commits on main (all referenced by `issues/001-xx`): `c608f45` (t01) → `e667e07` (t02) → `65b52b3` (t03) → `148d9dc` (t05) → `342491a` (t06). Pushed.
+### Final deliverable (after revisions)
+`projects/us-iran-hormuz-strike/renders/final.mp4`:
+1920×1080 · h264 · aac · yuv420p · 30fps · **173.07s**. Photo-carousel backgrounds at sampled times; **enlarged subtitles** (white-glyph px 4004–4851 vs 1297–1626 before), **kwtag dark pill + breathing glow** confirmed in final frames (s02/s04/s06); narration −25.8/−25.9/−27.0 dB; per-section crossfade confirmed.
+
+### Commits (each referenced by its ticket)
+001: `c608f45` → `e667e07` → `65b52b3` → `148d9dc` → `342491a` (001-06) → `3cc9335` (handoff).
+002: `3bc9c69` (002-01) → `5add2db` (002-02) → `970ef76` (002-03) → `abe2f53` (002-04, head). Pushed to origin/main.
 
 ---
 
 ## 2. Key gotchas learned (do not re-hit)
 
-- **ffmpeg `subtitles=` filter needs a RELATIVE path (no drive colon).** `subtitles=D:/....ass` → `original_size` parse error. Use `cwd=ROOT` + `subtitles=projects/.../subtitles.ass`. Also wrap the whole `force_style` value in single quotes inside the filter string or the commas get eaten.
-- **ffmpeg amix hang trap (recurring):** do NOT put `atrim`/`apad` inside the amix filter chain. Mix first (plain `adelay` + `amix=inputs=N:normalize=0`), then if you need to reach full length, extend the audio at the **mux step** with `-af apad=pad_dur=...` and mux WITHOUT `-shortest` (that would still truncate to audio length). Mind that `amix` output ends at the last non-silent input — it does not pad to your `-t`.
+- **Nested template-literal trap in hyperframes builders:** inside `build_photo_carousel.mjs` the `script:` string and its `${keyword ? \`…\` : ""}` branch are themselves backtick template literals. Writing a raw backtick inside the branch (e.g. `` boxShadow: `0 0 18px ${x}` ``) closes the branch early → `SyntaxError: Unexpected number`. Use double quotes + direct interpolation (`boxShadow: "0 0 18px ${accentRgba(0.2)}"`) instead.
+- **Pill chip must shrink-wrap:** an absolutely-positioned `#kwtag` with `left:0;right:0` stretches the pill across the full row. Use `left:50%; transform:translateX(-50%)` (no width) so the dark capsule wraps the text.
+- **Breathing glow stays on background/box-shadow ONLY.** The gaza kwtag textShadow breathing (3078077) visually merged comma-separated multi-tag keywords — never reintroduce text glow; animate `backgroundColor` + `boxShadow` with sine yoyo repeat on the paused main timeline (seek-safe, deterministic).
+- **Subtitle burn params must live in two places:** `.ass` Style line AND burn `force_style` must match (FontSize/Outline/MarginV). Keep them in sync or the wrapped ASS self-consistency breaks.
+- **ffmpeg `subtitles=` filter needs a RELATIVE path (no drive colon).** `subtitles=D:/….ass` → `original_size` parse error. Use `cwd=ROOT` + `subtitles=projects/.../subtitles.ass`. Also wrap the whole `force_style` value in single quotes inside the filter string or the commas get eaten.
+- **ffmpeg amix hang trap (recurring):** do NOT put `atrim`/`apad` inside the amix filter chain. Mix first (plain `adelay` + `amix=inputs=N:normalize=0`), then if you need to reach full length, extend the audio at the **mux step** with `-af apad=pad_dur=...` and `-shortest` (video length governs). `amix` output ends at the last non-silent input — it does not pad to your `-t`; without apad at mux the film truncates to last-narration end (168.6s!).
 - **HyperFrames media root = `hyperframes/` not project root.** Local `<img>` files must live at `projects/<name>/hyperframes/assets/images/<slug>/…` or the renderer 404s (visible only at capture → frame is black/empty; `hyperframes check` Runtime may still say 0 errors). The builder copies them there.
 - **PexelsImage `.env` load:** scripts run via `.venv` python must load `.env` manually (`PEXELS_API_KEY` is not in env by default). Guard with `os.environ.setdefault` loop.
 - **PowerShell inline `python -c` breaks on quotes/slashes/East-Asian chars.** Always write temp `.py` under `C:\Users\user\AppData\Local\Temp\opencode\` and run `& "$pwd\.venv\Scripts\python.exe" <file>`. Avoid `->`, `<unicode>` escapes in `-c`.
 
 ## 3. Artifacts / files (reference these, don't duplicate)
 
-- Tracker: `issues/001-pexels-keyword-image-carousel.md` (spec), `issues/001-01..06-*.md` (tickets with blocking edges).
+- Tracker: `issues/001-pexels-keyword-image-carousel.md` (spec) + `issues/001-01..06-*.md` (blocking edges); `issues/002-subtitle-size-keyword-glow.md` (spec) + `issues/002-01..04-*.md`.
 - Skill: `.agents/skills/military-photo-carousel/` (`build_photo_carousel.mjs`, `SKILL.md`) — reusable for future landscape videos.
-- Project artifacts: `projects/us-iran-hormuz-strike/artifacts/pexels_searches.json`, `pexels_manifest.json` (per-image `photo_id/alt/file/reason/score`), `pexels_fetch_raw.json`; `assets/images/<section>/*.jpg` (gitignored, refetches via manifest); `assets/subtitles.ass` (62 events); `assets/audio/narration_section_0X.mp3` (s02/s04 have breathing gaps); `artifacts/script.json` (windows 173.07s incl end-card 3s).
+- Project artifacts: `projects/us-iran-hormuz-strike/artifacts/pexels_searches.json`, `pexels_manifest.json` (per-image `photo_id/alt/file/reason/score`), `pexels_fetch_raw.json`; `assets/images/<section>/*.jpg` (gitignored, refetches via manifest); `assets/subtitles.ass` (62 events, **Style FontSize=80/Outline=5/MarginV=90** — burn `force_style` must match); `assets/audio/narration_section_0X.mp3` (s02/s04 have breathing gaps); `artifacts/script.json` (windows 173.07s incl end-card 3s).
 - Tool change: `tools/graphics/pexels_image.py` (+ `tests/tools/test_pexels_image.py`).
 - Renders: `projects/us-iran-hormuz-strike/renders/final.mp4` (+ `.compose_tmp/_base_silent.mp4`, `narration_mix.m4a`, `_with_narration.mp4`, `concat.txt`).
 
