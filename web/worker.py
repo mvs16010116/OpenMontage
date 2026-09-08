@@ -53,15 +53,29 @@ class ProgressHub:
                 if not subs:
                     self._subs.pop(task_id, None)
 
-    def publish(self, task_id: str, stage: str, message: str) -> None:
+    def publish(
+        self, task_id: str, stage: str, message: str,
+        phase_duration_s: float = 0.0,
+        total_elapsed_s: float | None = None,
+        stage_timings: dict | None = None,
+        llm_usage: dict | None = None,
+    ) -> None:
         with self._lock:
             queues = list(self._subs.get(task_id, ()))
         if not queues or self._loop is None:
             return
-        payload = f"data: {json.dumps({'stage': stage, 'message': message})}\n\n"
+        payload = json.dumps({
+            "stage": stage,
+            "message": message,
+            "phase_duration_s": phase_duration_s,
+            "total_elapsed_s": total_elapsed_s,
+            "stage_timings": stage_timings or {},
+            "llm_usage": llm_usage,
+        }, ensure_ascii=False)
+        data = f"data: {payload}\n\n"
         for q in queues:
             try:
-                asyncio.run_coroutine_threadsafe(q.put(payload), self._loop)
+                asyncio.run_coroutine_threadsafe(q.put(data), self._loop)
             except Exception:
                 pass
 
@@ -110,15 +124,35 @@ def _dispatch() -> None:
         task_id = task["id"]
         db.update_task(task_id, status="running", started_at=_now())
 
-        def progress(stage, message):
-            progress_hub.publish(task_id, stage, message)
+        run_stats = {"stage_timings": {}, "total_elapsed_s": 0.0, "llm_usage": None}
+
+        def progress(stage, message, phase_duration_s=0.0, total_elapsed_s=0.0,
+                     stage_timings=None, llm_usage=None):
+            if stage_timings:
+                run_stats["stage_timings"] = stage_timings
+            if total_elapsed_s:
+                run_stats["total_elapsed_s"] = total_elapsed_s
+            if llm_usage:
+                run_stats["llm_usage"] = llm_usage
+            progress_hub.publish(
+                task_id, stage, message,
+                phase_duration_s=phase_duration_s,
+                total_elapsed_s=total_elapsed_s,
+                stage_timings=stage_timings,
+                llm_usage=llm_usage,
+            )
 
         try:
             final = run_pipeline(
                 task_id, task["narration_text"],
                 progress=progress, llm_settings=db.load_settings(),
             )
-            db.update_task(task_id, status="done", output_path=final, finished_at=_now())
+            db.update_task(
+                task_id, status="done", output_path=final, finished_at=_now(),
+                stage_timings=json.dumps(run_stats["stage_timings"], ensure_ascii=False),
+                llm_usage=json.dumps(run_stats["llm_usage"], ensure_ascii=False),
+                total_elapsed_s=run_stats["total_elapsed_s"],
+            )
             progress_hub.publish(task_id, "done", "生成完成")
             progress_hub.publish(task_id, "__close__", "")
         except Exception as exc:  # noqa: BLE001
@@ -126,6 +160,8 @@ def _dispatch() -> None:
             db.update_task(
                 task_id, status="error", error_message=str(exc)[:500],
                 finished_at=_now(),
+                stage_timings=json.dumps(run_stats["stage_timings"], ensure_ascii=False),
+                total_elapsed_s=run_stats["total_elapsed_s"],
             )
             progress_hub.publish(task_id, "error", str(exc)[:200])
             progress_hub.publish(task_id, "__close__", "")

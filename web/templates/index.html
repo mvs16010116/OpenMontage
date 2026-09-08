@@ -51,6 +51,12 @@
   .bar { height: 8px; background: #1a2230; border-radius: 4px; overflow: hidden; }
   .bar > div { height: 100%; width: 0%; background: var(--accent); transition: width .4s ease; }
   .stage-text { font-size: 13px; color: var(--muted); margin-top: 8px; white-space: pre-line; }
+  .stats { margin-top: 12px; font-size: 13px; color: var(--muted); }
+  .stats-table { border-collapse: collapse; width: 100%; max-width: 420px; margin-top: 6px; }
+  .stats-table th, .stats-table td { border-bottom: 1px solid rgba(255,255,255,.08); padding: 5px 10px; text-align: left; }
+  .stats-table th { color: var(--muted); font-weight: 600; }
+  .stats-table tr.total td { font-weight: 600; color: var(--text); }
+  .tok { margin-top: 8px; font-family: ui-monospace, Consolas, monospace; }
   .err { color: var(--danger); font-size: 13px; margin-top: 10px; white-space: pre-wrap; }
   .ok { color: var(--ok); font-size: 13px; margin-top: 10px; }
   h2 { font-size: 16px; margin: 24px 0 12px; color: var(--fg); }
@@ -117,6 +123,7 @@
           <div class="bar"><div id="barfill"></div></div>
           <div class="stage-text" id="stageText"></div>
         </div>
+        <div class="stats" id="statsBox" style="display:none"></div>
         <div class="err" id="err"></div>
         <div class="done-link" id="doneLink" style="display:none">
           <a id="dlHref" href="#" target="_blank">开通预览 / 下载成片 final.mp4</a>
@@ -374,6 +381,7 @@ $("go").addEventListener("click", async () => {
   if (!text || busy) return;
   busy = true; $("go").disabled = true;
   $("err").textContent = ""; $("doneLink").style.display = "none";
+  $("statsBox").style.display = "none";
   showProgress("queued", 2);
   const res = await fetch("/api/generate", {
     method: "POST", headers: { "Content-Type": "application/json" },
@@ -406,6 +414,7 @@ $("scanBtn").addEventListener("click", async () => {
 function fail(msg) {
   $("err").textContent = msg;
   $("progress").classList.remove("show");
+  $("statsBox").style.display = "none";
   busy = false; $("go").disabled = false;
 }
 
@@ -418,17 +427,45 @@ function listen(taskId) {
     let ev; try { ev = JSON.parse(e.data); } catch { return; }
     if (ev.stage === "__close__") { es.close(); refreshList(); busy = false; $("go").disabled = false; return; }
     if (ev.stage === "done") {
-      showProgress("done", 100);
+      showProgress("done", 100, "生成完成");
       $("dlHref").href = `/api/tasks/${taskId}/video`;
       $("doneLink").style.display = "block";
+      renderStats(ev);
       es.close(); refreshList(); busy = false; $("go").disabled = false; return;
     }
     if (ev.stage === "error") { fail(ev.message || "生成失败"); es.close(); refreshList(); return; }
     const pos = idx[ev.stage];
     const pct = pos === undefined ? 10 : Math.max(5, Math.round(pos / (order.length - 1) * 95));
-    showProgress(ev.stage, pct);
+    let extra = STAGE_LABEL[ev.stage] || ev.stage || "…";
+    if (ev.total_elapsed_s != null) {
+      const phase = (ev.phase_duration_s != null && ev.phase_duration_s > 0)
+        ? ` · 上一步 ${(ev.phase_duration_s).toFixed(1)}s` : "";
+      extra += `${phase} · 总耗时 ${ev.total_elapsed_s.toFixed(1)}s`;
+    }
+    showProgress(ev.stage, pct, extra);
   };
   es.onerror = () => {};
+}
+
+function stageLabel(s) { return STAGE_LABEL[s] || s; }
+
+function renderStats(ev) {
+  const box = $("statsBox");
+  const st = ev.stage_timings || {};
+  const rows = Object.entries(st).map(([k, v]) =>
+    `<tr><td>${stageLabel(k)}</td><td>${Number(v).toFixed(1)} s</td></tr>`).join("");
+  let html = `<table class="stats-table"><thead><tr><th>阶段</th><th>耗时</th></tr></thead><tbody>${rows}`;
+  if (ev.total_elapsed_s != null) {
+    html += `<tr class="total"><td>总耗时</td><td>${ev.total_elapsed_s.toFixed(1)} s</td></tr>`;
+  }
+  html += "</tbody></table>";
+  const u = ev.llm_usage;
+  if (u && u.total_tokens != null) {
+    html += `<div class="tok">LLM 用量（${escapeHtml(u.model || "-")}）：` +
+      `prompt ${u.prompt_tokens} · completion ${u.completion_tokens} · total ${u.total_tokens} tokens</div>`;
+  }
+  box.innerHTML = html;
+  box.style.display = "block";
 }
 
 async function refreshList() {

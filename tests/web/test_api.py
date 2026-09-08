@@ -6,6 +6,7 @@ All business/settings routes require login; a helper logs in as the admin
 user created by the app lifespan.
 """
 
+import json
 from pathlib import Path
 
 import pytest
@@ -231,3 +232,36 @@ def test_base_scan_unconfigured_returns_readable_error(client):
     r = client.post("/api/base/scan")
     assert r.status_code == 400
     assert "配置" in r.json()["detail"]
+
+
+# ---------------------------------------------------------------------------
+# task detail: 004-04 timing / llm usage fields
+# ---------------------------------------------------------------------------
+def test_task_detail_includes_timing_and_llm_usage(client):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "第一句。第二句。"})
+    tid = r.json()["task_id"]
+    db.update_task(
+        tid,
+        status="done",
+        output_path=r"c:\out\final.mp4",
+        stage_timings=json.dumps({"llm_parse": 1.2, "generating_tts": 3.4},
+                                 ensure_ascii=False),
+        llm_usage=json.dumps({"model": "m", "total_tokens": 5}, ensure_ascii=False),
+        total_elapsed_s=7.5,
+    )
+    d = client.get(f"/api/tasks/{tid}").json()
+    assert d["status"] == "done"
+    assert d["stage_timings"] == {"llm_parse": 1.2, "generating_tts": 3.4}
+    assert d["llm_usage"] == {"model": "m", "total_tokens": 5}
+    assert d["total_elapsed_s"] == 7.5
+
+
+def test_task_list_new_tasks_have_empty_stats(client):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "第一句。"})
+    tid = r.json()["task_id"]
+    d = client.get(f"/api/tasks/{tid}").json()
+    assert d["stage_timings"] is None
+    assert d["llm_usage"] is None
+    assert d["total_elapsed_s"] is None

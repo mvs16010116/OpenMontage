@@ -436,10 +436,37 @@ def run_pipeline(
     ``llm_settings`` comes from the web settings store; when omitted it is
     loaded from SQLite (CLI mode). LLM failure fails the task with a readable
     error — there is no hardcoded fallback.
+
+    Progress callback contract (004-04): ``progress(stage, message,
+    phase_duration_s, total_elapsed_s, stage_timings, llm_usage)`` — timing of
+    the just-completed stage, the run's total elapsed seconds, the accumulated
+    stage->seconds map, and (on ``done`` only) the LLM usage dict.
     """
-    def emit(stage, message=""):
+    run_started = time.monotonic()
+    stage_started = run_started
+    last_stage: str | None = None
+    stage_timings: dict[str, float] = {}
+    llm_usage_meta: dict = {}
+
+    def emit(stage, message="", llm_usage=None):
+        nonlocal stage_started, last_stage, stage_timings, llm_usage_meta
+        now = time.monotonic()
+        phase = 0.0
+        if last_stage is not None:
+            phase = round(now - stage_started, 2)
+            stage_timings[last_stage] = phase
+        last_stage = stage
+        stage_started = now
+        if llm_usage is not None:
+            llm_usage_meta = llm_usage
         if progress:
-            progress(stage, message)
+            progress(
+                stage, message,
+                phase_duration_s=phase,
+                total_elapsed_s=round(now - run_started, 2),
+                stage_timings=dict(stage_timings),
+                llm_usage=llm_usage_meta or None,
+            )
 
     title = narration_text.strip().replace("\n", " ")[:40] or "口播视频"
     slug = f"{_slugify(title)}-{task_id}"
@@ -487,7 +514,7 @@ def run_pipeline(
     emit("assembling", "正在合成成片…")
     final = _concat_and_assemble(script, project_dir)
 
-    emit("done", "生成完成")
+    emit("done", "生成完成", llm_usage=script.get("meta", {}).get("llm_usage"))
     return final
 
 
@@ -498,6 +525,6 @@ if __name__ == "__main__":
     ap.add_argument("--text", required=True)
     ap.add_argument("--task-id", default="local")
     a = ap.parse_args()
-    def p(stage, msg): print(f"[{stage}] {msg}", flush=True)
+    def p(stage, msg, **kw): print(f"[{stage}] {msg}", flush=True)
     out = run_pipeline(a.task_id, a.text, progress=p)
     print("RESULT", out)

@@ -245,7 +245,15 @@ async def task_events(
             # send current status snapshot first so a just-opened tab is in sync
             snapshot = db.get_task(task_id)
             stage = "queued" if snapshot["status"] == "queued" else snapshot["status"]
-            yield f"data: {json.dumps({'stage': stage, 'message': stage})}\n\n"
+            init = {
+                "stage": stage,
+                "message": stage,
+                "phase_duration_s": 0.0,
+                "total_elapsed_s": None,
+                "stage_timings": {},
+                "llm_usage": None,
+            }
+            yield f"data: {json.dumps(init, ensure_ascii=False)}\n\n"
             while True:
                 if await request.is_disconnected():
                     break
