@@ -19,11 +19,12 @@ from __future__ import annotations
 
 import asyncio
 import json
+import re
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
+from fastapi import Depends, FastAPI, HTTPException, Request, Response
+from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -202,6 +203,72 @@ def generate(payload: dict, username: str = Depends(require_user)) -> dict:
     return {"task_id": task["id"], "status": task["status"]}
 
 
+@app.post("/api/tasks")
+def create_task(payload: dict, username: str = Depends(require_user)) -> dict:
+    """Create an enqueued task from a narration_text, or a scanned record_id."""
+    narration_text = (payload.get("narration_text") or "").strip()
+    record_id = (payload.get("record_id") or "").strip()
+    if not narration_text and not record_id:
+        raise HTTPException(status_code=400, detail="narration_text 或 record_id 必填")
+    if record_id:
+        existing = db.get_task_by_record_id(record_id)
+        if existing:
+            return {"task_id": existing["id"], "status": existing["status"], "duplicate": True}
+        content = _record_content_by_id(record_id)
+        if not content:
+            raise HTTPException(status_code=400, detail="该记录未找到或文案字段为空")
+        task = db.create_task(content, status="queued", record_id=record_id)
+        return {"task_id": task["id"], "status": task["status"], "record_id": record_id}
+    task = db.create_task(narration_text, status="queued")
+    return {"task_id": task["id"], "status": task["status"]}
+
+
+@app.post("/api/tasks/batch")
+def create_tasks_batch(payload: dict, username: str = Depends(require_user)) -> dict:
+    """Batch-enqueue Base records by record_id (dedupe against existing tasks)."""
+    record_ids = payload.get("record_ids") or []
+    if not isinstance(record_ids, list) or not record_ids:
+        raise HTTPException(status_code=400, detail="record_ids 必填且非空")
+    by_id = _pending_records_map()
+    created: list[dict] = []
+    existing: list[dict] = []
+    empty: list[dict] = []
+    for rid in record_ids:
+        rid = (rid or "").strip()
+        if not rid:
+            continue
+        task = db.get_task_by_record_id(rid)
+        if task:
+            existing.append({"record_id": rid, "task_id": task["id"], "status": task["status"]})
+            continue
+        rec = by_id.get(rid)
+        if not rec or not rec.get("content"):
+            empty.append({"record_id": rid, "reason": "未找到或文案为空"})
+            continue
+        task = db.create_task(rec["content"], status="queued", record_id=rid,
+                              base_record_title=rec["title"])
+        created.append({"record_id": rid, "task_id": task["id"], "status": task["status"]})
+    return {"created": created, "existing": existing, "empty": empty}
+
+
+def _pending_records_map() -> dict[str, dict]:
+    """Scan the configured Base once and index pending records by record_id."""
+    s = db.load_settings()
+    lark = s.get("lark") or {}
+    if not (lark.get("base_url_or_token") or "").strip() or not (lark.get("table_id") or "").strip():
+        return {}
+    try:
+        rows = base_client.scan_records(s)
+    except base_client.BaseClientError:
+        return {}
+    return {r["record_id"]: r for r in rows if r["record_id"]}
+
+
+def _record_content_by_id(record_id: str) -> str:
+    rec = _pending_records_map().get(record_id)
+    return (rec or {}).get("content") or ""
+
+
 @app.get("/api/tasks")
 def list_tasks(username: str = Depends(require_user)) -> list[dict]:
     return db.list_tasks(limit=100)
@@ -216,7 +283,7 @@ def get_task(task_id: str, username: str = Depends(require_user)) -> dict:
 
 
 @app.get("/api/tasks/{task_id}/video")
-def get_video(task_id: str, username: str = Depends(require_user)) -> FileResponse:
+def get_video(task_id: str, request: Request, username: str = Depends(require_user)) -> Response:
     task = db.get_task(task_id)
     if task is None:
         raise HTTPException(status_code=404, detail="task not found")
@@ -225,7 +292,44 @@ def get_video(task_id: str, username: str = Depends(require_user)) -> FileRespon
     path = Path(task["output_path"])
     if not path.is_file():
         raise HTTPException(status_code=404, detail="video file missing")
-    return FileResponse(path, media_type="video/mp4", filename=f"{task_id}.mp4")
+    size = path.stat().st_size
+    media_type = "video/mp4"
+
+    def _chunks(start: int, end: int):
+        with path.open("rb") as fh:
+            fh.seek(start)
+            remaining = end - start + 1
+            while remaining > 0:
+                chunk = fh.read(min(1024 * 1024, remaining))
+                if not chunk:
+                    break
+                remaining -= len(chunk)
+                yield chunk
+
+    range_header = request.headers.get("range")
+    if range_header:
+        match = re.match(r"bytes=(\d*)-(\d*)$", range_header)
+        if match:
+            start_s, end_s = match.groups()
+            if start_s == "" and end_s == "":
+                start, end = 0, size - 1
+            elif start_s == "":
+                suffix = int(end_s)
+                start, end = max(0, size - suffix), size - 1
+            elif end_s == "":
+                start, end = int(start_s), size - 1
+            else:
+                start, end = int(start_s), min(int(end_s), size - 1)
+            if start > end or start >= size:
+                return Response(content=b"", status_code=416,
+                                headers={"Content-Range": f"bytes */{size}"})
+            headers = {"Content-Range": f"bytes {start}-{end}/{size}",
+                       "Accept-Ranges": "bytes", "Content-Length": str(end - start + 1)}
+            return StreamingResponse(_chunks(start, end), status_code=206,
+                                     media_type=media_type, headers=headers)
+    headers = {"Accept-Ranges": "bytes", "Content-Length": str(size),
+               "Content-Disposition": f'attachment; filename="{task_id}.mp4"'}
+    return StreamingResponse(_chunks(0, size - 1), media_type=media_type, headers=headers)
 
 
 @app.get("/api/tasks/{task_id}/events")

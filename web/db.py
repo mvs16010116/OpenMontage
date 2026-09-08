@@ -51,6 +51,8 @@ _MIGRATIONS = {
     "stage_timings": "ALTER TABLE tasks ADD COLUMN stage_timings TEXT",
     "llm_usage": "ALTER TABLE tasks ADD COLUMN llm_usage TEXT",
     "total_elapsed_s": "ALTER TABLE tasks ADD COLUMN total_elapsed_s REAL",
+    "base_sync_status": "ALTER TABLE tasks ADD COLUMN base_sync_status TEXT",
+    "base_sync_error": "ALTER TABLE tasks ADD COLUMN base_sync_error TEXT",
 }
 
 _JSON_COLUMNS = ("stage_timings", "llm_usage")
@@ -154,6 +156,7 @@ def update_task(task_id: str, **fields) -> dict | None:
         "status", "project_dir", "output_path", "error_message",
         "started_at", "finished_at",
         "stage_timings", "llm_usage", "total_elapsed_s",
+        "base_sync_status", "base_sync_error",
     }
     cols = [k for k in fields if k in allowed]
     if not cols:

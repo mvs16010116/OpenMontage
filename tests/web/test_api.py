@@ -265,3 +265,120 @@ def test_task_list_new_tasks_have_empty_stats(client):
     assert d["stage_timings"] is None
     assert d["llm_usage"] is None
     assert d["total_elapsed_s"] is None
+
+
+# ---------------------------------------------------------------------------
+# 004-05: create task via POST /api/tasks + batch enqueue
+# ---------------------------------------------------------------------------
+def test_create_task_by_narration_text(client):
+    login(client)
+    r = client.post("/api/tasks", json={"narration_text": "直录文案。"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["status"] == "queued"
+    assert "task_id" in body
+    assert "duplicate" not in body
+
+
+def test_create_task_requires_text_or_record(client):
+    login(client)
+    r = client.post("/api/tasks", json={})
+    assert r.status_code == 400
+    assert "record_id" in r.json()["detail"] or "narration_text" in r.json()["detail"]
+
+
+def _configure_base() -> None:
+    db.save_settings({
+        "lark": {"base_url_or_token": "appfakeBaseToken", "table_id": "tbl_demo"},
+        "fields": {"content_field": "口播文案", "status_field": "状态",
+                   "attachment_field": "成片"},
+    })
+
+
+def test_create_task_by_record_id_unknown(client, monkeypatch):
+    login(client)
+    _configure_base()
+    monkeypatch.setattr(server.base_client, "scan_records", lambda settings: [])
+    r = client.post("/api/tasks", json={"record_id": "rec_not_there"})
+    assert r.status_code == 400
+
+
+def test_create_task_by_record_id(client, monkeypatch):
+    login(client)
+    _configure_base()
+    monkeypatch.setattr(server.base_client, "scan_records", lambda settings: [{
+        "record_id": "rec_A", "title": "标题A",
+        "content": "记录文案。",
+        "date_value": None,
+    }])
+    r = client.post("/api/tasks", json={"record_id": "rec_A"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["record_id"] == "rec_A"
+    task = client.get(f"/api/tasks/{body['task_id']}").json()
+    assert task["record_id"] == "rec_A"
+    assert "记录文案" in task["narration_text"]
+    # second call is deduped
+    r2 = client.post("/api/tasks", json={"record_id": "rec_A"})
+    assert r2.status_code == 200
+    assert r2.json()["task_id"] == body["task_id"]
+    assert r2.json().get("duplicate") is True
+
+
+def test_create_tasks_batch(client, monkeypatch):
+    login(client)
+    _configure_base()
+    monkeypatch.setattr(server.base_client, "scan_records", lambda settings: [
+        {"record_id": "rec_1", "title": "一", "content": "文案一。", "date_value": None},
+        {"record_id": "rec_2", "title": "二", "content": "文案二。", "date_value": None},
+        {"record_id": "rec_empty", "title": "空", "content": "", "date_value": None},
+    ])
+    r = client.post("/api/tasks/batch", json={"record_ids": ["rec_1", "rec_2", "rec_empty", "rec_missing"]})
+    assert r.status_code == 200
+    body = r.json()
+    assert [c["record_id"] for c in body["created"]] == ["rec_1", "rec_2"]
+    assert [c["record_id"] for c in body["empty"]] == ["rec_empty", "rec_missing"]
+    # re-batch dedupes into existing
+    r2 = client.post("/api/tasks/batch", json={"record_ids": ["rec_1"]})
+    body2 = r2.json()
+    assert body2["created"] == []
+    assert body2["existing"][0]["record_id"] == "rec_1"
+
+
+def test_create_tasks_batch_requires_record_ids(client):
+    login(client)
+    assert client.post("/api/tasks/batch", json={}).status_code == 400
+
+
+def test_batch_and_tasks_require_login(client):
+    assert client.post("/api/tasks", json={"narration_text": "x"}).status_code == 401
+    assert client.post("/api/tasks/batch", json={"record_ids": ["a"]}).status_code == 401
+
+
+# ---------------------------------------------------------------------------
+# 004-05: video endpoint ranges
+# ---------------------------------------------------------------------------
+def test_video_range_request(client, tmp_path):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "视频测试。"})
+    tid = r.json()["task_id"]
+    video = tmp_path / "final.mp4"
+    video.write_bytes(b"0123456789abcdef")
+    db.update_task(tid, status="done", output_path=str(video))
+    # full stream
+    r = client.get(f"/api/tasks/{tid}/video")
+    assert r.status_code == 200
+    assert "Accept-Ranges" in r.headers
+    assert r.content == b"0123456789abcdef"
+    # byte range
+    r = client.get(f"/api/tasks/{tid}/video", headers={"Range": "bytes=2-5"})
+    assert r.status_code == 206
+    assert r.headers["Content-Range"] == "bytes 2-5/16"
+    assert r.content == b"2345"
+    # suffix range
+    r = client.get(f"/api/tasks/{tid}/video", headers={"Range": "bytes=-4"})
+    assert r.status_code == 206
+    assert r.content == b"cdef"
+    # unsatisfiable range
+    r = client.get(f"/api/tasks/{tid}/video", headers={"Range": "bytes=100-200"})
+    assert r.status_code == 416

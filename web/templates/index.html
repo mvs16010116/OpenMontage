@@ -126,7 +126,8 @@
         <div class="stats" id="statsBox" style="display:none"></div>
         <div class="err" id="err"></div>
         <div class="done-link" id="doneLink" style="display:none">
-          <a id="dlHref" href="#" target="_blank">开通预览 / 下载成片 final.mp4</a>
+          <video id="preview" controls style="width:100%;max-width:640px;max-height:360px;background:#000"></video>
+          <p><a id="dlHref" href="#" target="_blank">下载成片 final.mp4</a></p>
         </div>
       </div>
       <h2>历史生成</h2>
@@ -429,6 +430,8 @@ function listen(taskId) {
     if (ev.stage === "done") {
       showProgress("done", 100, "生成完成");
       $("dlHref").href = `/api/tasks/${taskId}/video`;
+      $("preview").src = `/api/tasks/${taskId}/video`;
+      $("preview").load();
       $("doneLink").style.display = "block";
       renderStats(ev);
       es.close(); refreshList(); busy = false; $("go").disabled = false; return;
