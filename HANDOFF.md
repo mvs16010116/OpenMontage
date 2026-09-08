@@ -1,8 +1,8 @@
 # Handoff — OpenMontage
 
-**Date:** 2026-09-08
-**Branch:** main (head `078809f`, pushed)
-**Next-session focus:** issues/003 (narration-synth web service) shipped and verified end-to-end; run the service (`python -m web.server`) for live use, or take new-feature requests. Tracker: issues/001 (Pexels carousel), issues/002 (subtitle scale + keyword glow), issues/003 (web service).
+**Date:** 2026-09-09
+**Branch:** main (head `0d0c7c5`, not pushed)
+**Next-session focus:** `issues/004` (narration-synth lark+LLM 流水线) fully shipped (004-01..05 DONE, `tests/web/` **75 passed**), including Base 扫描/轮询/回填/上传 + LLM 分节 + 阶段统计 + Range 视频预览. Next: 真机配置验证、新功能请求，或其它 tracker 项。Tracker: issues/001 (Pexels carousel), issues/002 (subtitle scale + keyword glow), issues/003 (web service), issues/004 (lark+LLM pipeline).
 
 ---
 
@@ -50,6 +50,18 @@ Turned the CLI narration-synth flow into a single-user web service. Full 5-stage
 ```
 Post Chinese text via a UTF-8-capable client (Python/curl, **not** PowerShell `ConvertTo-Json`). Stages: `queued → parse_script → generating_tts → fetching_images → rendering_scenes → subtitles → assembling → done/error`.
 
+## 1c. issues/004: lark 多维表格 + LLM 驱动的口播流水线 (shipped)
+
+Full 5-stage workflow done (spec `issues/004-narration-synth-lark-llm.md` → tickets `004-01..05`). All DONE; **`tests/web/` = 75 passed**.
+
+- **004-01** `web/auth.py`（admin 登录/会话/改密，密码 hash 落 db）+ `web/server.py` 路由拆分（`/api/me`、`/api/change-password`）。
+- **004-02** `web/base_client.py`（lark-cli subprocess：`resolve_base`/`scan_records`/`update_status`/`upload_video`，可读中文错误 `BaseClientError`）+ 前端扫描按钮 + settings 视图（lark/fields/poll/video 配置落 SQLite）。
+- **004-03** `web/llm.py`（OpenAI 兼容 `{base_url}/chat/completions`，requests；`parse_script_with_llm` → `{title,sections:[{text,keywords}]}`；`LlmError` 可读错误）；pipeline 删除硬编码 KEYWORD_MAP，改 LLM 分节关键词（`build_script_from_llm`，`meta.source="llm"`）。
+- **004-04** 阶段计时统计：`stage_timings`/`total_elapsed_s`/`llm_usage` 全链路（pipeline emit → ProgressHub SSE → db `_decode` → 前端 stats 表）。
+- **004-05** E2E 总装：`POST /api/tasks`（`record_id` 或 `narration_text`；未知记录 400、按 record 去重）+ `POST /api/tasks/batch`；worker 自动轮询（`poll.enabled`+`interval_seconds`）入队待处理；完成后 `_mark_processing`（处理中）→ `_sync_base`（成功/失败回填 + `final.mp4` 上传附件，失败记 `base_sync_status=failed` 不影响任务本体）；`GET .../video` 改 Range 流式（206/416）；前端 `<video controls>` 预览 + 下载。
+
+Commits (004): `9a8590c`(开头相关) → … → `1637321`/`334abc8`(004-03) → `593118c`/`3df82c1`(004-04) → `ea658ab`/`0d0c7c5`(004-05+handoff)。**未 push。**
+
 ---
 
 ## 2. Key gotchas learned (do not re-hit)
@@ -87,6 +99,9 @@ Post Chinese text via a UTF-8-capable client (Python/curl, **not** PowerShell `C
 
 ## 5. Open items / hygiene
 
-- Uncommitted stale changes NOT related to this feature: root `AGENTS.md` (adds the 5-stage workflow rules — pre-dates this session, leave for its own commit), root `renders/`, `projects/junzheng-gaza-pursuit/artifacts/_pexels_fetch.json` + `_section_cuts.json`, `projects/junzheng-selfgen/`, `projects/junzheng-yasukuni/`, `chrome_wincheck.py`, `tmp_sort.json`, `tmp_view.json`, `events.jsonl`. Decide separately.
-- Web service runtime: `web/narration_synth.db` + any `web/__pycache__/` are gitignored/regenerable. Smoke `projects/narration-*/` can be deleted anytime.
+- 004 相关 git history 未 push（head `0d0c7c5`）；如需同步远端先 push。
+- 真机验证待办：配置真实多维表格 + LLM（base_url/model/api_key）后走通「扫描→选中生成→进度→成功回填/上传→预览下载」全流程；开启 `poll.enabled` 后验证自动建任务。lark-cli 需 `--as user` 且已认证（user=侯辉聪，openId `ou_bec77ebe8e7a0d5a6c41d620af4116a6`）。默认登录 admin / `shiping@shiping`（首次登录请改密）。
+- `status_processing`/`status_success`/`status_failed` 词在 settings `video` 区配置，`pending_if` 决定扫描哪些记录；字段映射 `content_field`/`date_field`/`status_field`/`attachment_field`。
+- Uncommitted stale changes NOT related to 004: `.agents/skills/_military-shared/`（composition.mjs + vendor/）、`.reasonix/`、`AGENTS.md`（工作流规则）、`PROJECT_CONTEXT.md`、`docs/ARCHITECTURE.md`、`docs/PROVIDERS.md`、`reasonix.toml`、`_tmp_*.py`、`pipeline_defs/trump-skorea-drill/`、`projects/trump-skorea-drill/`、`projects/hormuz-strait-insurance/`、`tools/audio/edge_tts.py`。提交时只 stage 相关文件。
+- Web runtime: `web/narration_synth.db` + `web/__pycache__/` gitignored；`projects/narration-*/` smoke 产物可删。
 - Breathing pauses burned into narration MP3s (s02: +0.72s, s04: +0.37s) + scene durations +0.35/0.2 — if the script window math churns again, trust `script.json` `start/end_seconds` (already re-synced). Web-service path re-times windows from real edge-tts durations via `rewindow_script`.
