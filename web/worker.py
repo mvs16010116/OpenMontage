@@ -114,7 +114,10 @@ def _dispatch() -> None:
             progress_hub.publish(task_id, stage, message)
 
         try:
-            final = run_pipeline(task_id, task["narration_text"], progress=progress)
+            final = run_pipeline(
+                task_id, task["narration_text"],
+                progress=progress, llm_settings=db.load_settings(),
+            )
             db.update_task(task_id, status="done", output_path=final, finished_at=_now())
             progress_hub.publish(task_id, "done", "生成完成")
             progress_hub.publish(task_id, "__close__", "")

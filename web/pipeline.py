@@ -39,32 +39,6 @@ FPS = 30
 SCENE_IMAGES = 3
 CHAR_PER_SEC = 4.0  # Chinese narration pace chars/second used to pre-slice windows
 
-# ---------------------------------------------------------------------------
-# tiny English keyword dictionary for Pexels search extraction.
-# Keys are Chinese substrings matched inside a section; value = Pexels query.
-# ---------------------------------------------------------------------------
-KEYWORD_MAP = [
-    ("霍尔木兹海峡", "Hormuz strait tanker sea"),
-    ("油轮", "oil tanker cargo ship sea"),
-    ("海峡", "strait ocean shipping lane"),
-    ("石油", "crude oil barrels refinery"),
-    ("美国海军", "US Navy warship fleet"),
-    ("海军", "navy warship destroyer"),
-    ("导弹", "missile launch military"),
-    ("伊朗", "Iran middle east flag"),
-    ("中东", "middle east desert"),
-    ("航母", "aircraft carrier navy sea"),
-    ("战舰", "warship ocean fleet"),
-    ("军队", "soldiers military formation"),
-    ("战争", "battlefield war"),
-    ("雷达", "military radar antenna"),
-    ("基地", "military base hangar"),
-    ("港口", "port container ship dock"),
-    ("制裁", "sanctions documents"),
-    ("军队部署", "military deployment convoy"),
-    ("防空阵地", "air defense system military"),
-]
-
 
 def _slugify(text: str) -> str:
     """ASCII-safe project slug derived from the narration head.
@@ -113,6 +87,22 @@ def _load_env() -> None:
         os.environ.setdefault(key, val)
 
 
+def _apply_windows(section_texts: list[str]) -> list[dict]:
+    """Assign ids and back-to-back time windows to plain section texts."""
+    sections = []
+    cursor = 0.0
+    for i, p in enumerate(section_texts, start=1):
+        dur = max(4.0, len(p) / CHAR_PER_SEC)
+        sections.append({
+            "id": f"section_{i:02d}",
+            "text": p,
+            "start_seconds": round(cursor, 2),
+            "end_seconds": round(cursor + dur, 2),
+        })
+        cursor += dur
+    return sections
+
+
 def parse_script(text: str, title: str) -> dict:
     """Split narration into sections and assign estimated time windows.
 
@@ -124,31 +114,49 @@ def parse_script(text: str, title: str) -> dict:
     parts = [p.strip() for p in parts if p.strip()]
     if not parts:
         parts = [text.strip()]
-    sections = []
-    cursor = 0.0
-    for i, p in enumerate(parts, start=1):
-        dur = max(4.0, len(p) / CHAR_PER_SEC)
-        sections.append({
-            "id": f"section_{i:02d}",
-            "text": p,
-            "start_seconds": round(cursor, 2),
-            "end_seconds": round(cursor + dur, 2),
-        })
-        cursor += dur
+    sections = _apply_windows(parts)
     return {
         "version": "1.0",
         "title": title,
         "sections": sections,
-        "total_duration_seconds": round(cursor, 2),
+        "total_duration_seconds": round(sections[-1]["end_seconds"], 2),
     }
 
 
-def derive_keyword(section_text: str) -> tuple[str, bool]:
-    """Return (english_query, usable). Fallback to empty/False for dark card."""
-    for cn, en in KEYWORD_MAP:
-        if cn in section_text:
-            return en, True
-    return "", False
+def build_script_from_llm(title: str, parsed: dict, *, raw_response: str = "", usage: dict | None = None) -> dict:
+    """Assemble the final script.json from an LLM parse result.
+
+    Prepends ids/estimated windows over the LLM section texts, attaches each
+    section's English keywords (drives image search), and records the LLM
+    usage + raw response in ``script["meta"]``.
+    """
+    llm_sections = parsed.get("sections") or []
+    texts = [s["text"] for s in llm_sections]
+    sections = _apply_windows(texts)
+    for sec, lsec in zip(sections, llm_sections):
+        sec["keywords"] = [k for k in (lsec.get("keywords") or []) if k]
+    script = {
+        "version": "1.1",
+        "title": parsed.get("title") or title,
+        "sections": sections,
+        "total_duration_seconds": round(sections[-1]["end_seconds"], 2),
+        "meta": {
+            "source": "llm",
+            "llm_usage": {
+                "model": (usage or {}).get("model", ""),
+                "prompt_tokens": int((usage or {}).get("prompt_tokens") or 0),
+                "completion_tokens": int((usage or {}).get("completion_tokens") or 0),
+                "total_tokens": int((usage or {}).get("total_tokens") or 0),
+            },
+            "raw_llm_response": raw_response,
+        },
+    }
+    return script
+
+
+def section_keywords(sec: dict) -> list[str]:
+    """English image-search keywords carried on a section (from the LLM)."""
+    return [k for k in (sec.get("keywords") or []) if isinstance(k, str) and k.strip()]
 
 
 def _ensure_project(project_dir: Path) -> None:
@@ -250,21 +258,22 @@ def rewindow_script(script: dict, narration_assets: dict) -> dict:
 
 
 def step_images(script: dict, project_dir: Path) -> list:
-    """Fetch Pexels images per section where a keyword maps; else empty list."""
+    """Fetch Pexels images per section where the LLM supplied keywords."""
     _load_env()
     from tools.graphics.pexels_image import PexelsImage
     tool = PexelsImage()
     manifest = []
     for sec in script["sections"]:
         idx = sec["id"].replace("section_", "")
-        query, usable = derive_keyword(sec["text"])
+        keywords = section_keywords(sec)
+        query = " ".join(keywords[:1])
         entry = {
             "section_id": sec["id"],
             "query": query,
-            "usable": usable,
+            "usable": bool(query),
             "photos": [],
         }
-        if usable:
+        if entry["usable"]:
             out_dir = project_dir / "assets" / "images" / sec["id"]
             res = tool.execute({
                 "query": query,
@@ -416,8 +425,18 @@ def _concat_and_assemble(script: dict, project_dir: Path) -> str:
     return str(final)
 
 
-def run_pipeline(task_id: str, narration_text: str, progress=None) -> str:
-    """Full pipeline. Returns absolute path to final.mp4."""
+def run_pipeline(
+    task_id: str,
+    narration_text: str,
+    progress=None,
+    llm_settings: dict | None = None,
+) -> str:
+    """Full pipeline. Returns absolute path to final.mp4.
+
+    ``llm_settings`` comes from the web settings store; when omitted it is
+    loaded from SQLite (CLI mode). LLM failure fails the task with a readable
+    error — there is no hardcoded fallback.
+    """
     def emit(stage, message=""):
         if progress:
             progress(stage, message)
@@ -427,8 +446,26 @@ def run_pipeline(task_id: str, narration_text: str, progress=None) -> str:
     project_dir = PROJECTS_DIR / slug
     _ensure_project(project_dir)
 
-    emit("parse_script", "正在分节…")
-    script = parse_script(narration_text, title)
+    if llm_settings is None:
+        try:
+            from web import db as _db
+            llm_settings = _db.load_settings()
+        except Exception:  # noqa: BLE001
+            llm_settings = {}
+
+    emit("llm_parse", "正在解析分节…")
+    from web import llm as llm_mod
+    try:
+        parsed, usage = llm_mod.parse_script_with_llm(
+            llm_settings, narration_text, title)
+    except llm_mod.LlmError as exc:
+        raise RuntimeError(str(exc)) from None
+    script = build_script_from_llm(title, parsed, usage=usage)
+    # persist the LLM usage/raw next to the script for per-task stats (004-04)
+    (project_dir / "artifacts" / "script.json").write_text(
+        json.dumps(script, ensure_ascii=False, indent=2), encoding="utf-8")
+    (project_dir / "artifacts" / "llm_usage.json").write_text(
+        json.dumps(script["meta"], ensure_ascii=False, indent=2), encoding="utf-8")
 
     emit("generating_tts", "正在生成配音…")
     narration_assets = step_tts(script, project_dir)  # local Edge TTS, no key
