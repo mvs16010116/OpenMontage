@@ -132,3 +132,7 @@ venv/
 
 # Backlot local cache (thumbnails)
 .backlot/
+
+# narration-synth web service — runtime DB + generated tool output
+web/narration_synth.db
+projects/narration-*/
