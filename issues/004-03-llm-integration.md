@@ -1,6 +1,6 @@
 # 004-03 - LLM 集成（分节 + 关键词 + token 统计）
 
-**Status:** ready-for-agent  **Spec:** issues/004-narration-synth-lark-llm.md  **Blocking:** 004-01（04 依赖本票）
+**Status:** done  **Spec:** issues/004-narration-synth-lark-llm.md  **Blocking:** 004-01（04 依赖本票）
 
 ## 目标
 
@@ -20,8 +20,15 @@
 |------|------|------|
 | `web/llm.py` | 新增 | OpenAI 兼容客户端 |
 | `web/pipeline.py` | 改造 | LLM 分节/关键词替代硬编码，新增 `llm_parse` 阶段 |
-| `web/llm_test.py` | 新增 | 请求构造/响应解析单测（mock HTTP） |
+| `tests/web/test_llm.py` | 新增 | 请求构造/响应解析单测（mock HTTP） |
 
 ## 验证
 
 配置 LLM 后运行 `python -m web.pipeline --text "..."`，`script.json` 含 LLM 分节与 keywords，输出 token 用量。
+
+### 验证证据（2026-09-08）
+
+- `tests/web/test_llm.py`（17 用例）+ `test_pipeline.py` 关键词/窗口新用例全绿；`tests/web/` 合计 **59 passed**。
+- 提交 `1637321`（issues/004-03）。
+- 说明：`parse_script` 保留为纯窗口估算 helper（仍被单测直接覆盖）；`llm_parse` 阶段已在 pipeline emit 与前端 STAGE_LABEL/顺序同步；worker 传入 `llm_settings=db.load_settings()`（api_key 已混淆，`deobfuscate` 失败时回退原始串以兼容明文配置）。
+- 备注：`stage_timings` 计时字段属 004-04，本票只上线 `llm_parse` 阶段名。
