@@ -217,3 +217,17 @@ def test_settings_rejects_non_dict(client):
     login(client)
     r = client.put("/api/settings", json="nope")
     assert r.status_code in (400, 422)
+
+
+# ---------------------------------------------------------------------------
+# base scan
+# ---------------------------------------------------------------------------
+def test_base_scan_requires_login(client):
+    assert client.post("/api/base/scan").status_code == 401
+
+
+def test_base_scan_unconfigured_returns_readable_error(client):
+    login(client)
+    r = client.post("/api/base/scan")
+    assert r.status_code == 400
+    assert "配置" in r.json()["detail"]

@@ -27,7 +27,9 @@ CREATE TABLE IF NOT EXISTS tasks (
     error_message TEXT,
     created_at   REAL NOT NULL,
     started_at   REAL,
-    finished_at  REAL
+    finished_at  REAL,
+    record_id    TEXT UNIQUE,
+    base_record_title TEXT
 );
 CREATE TABLE IF NOT EXISTS users (
     username      TEXT PRIMARY KEY,
@@ -41,6 +43,13 @@ CREATE TABLE IF NOT EXISTS settings (
 );
 """
 
+# columns added after the original schema shipped (004-02); SQLite lacks
+# ADD COLUMN IF NOT EXISTS so migrations are applied against pragma output.
+_MIGRATIONS = {
+    "record_id": "ALTER TABLE tasks ADD COLUMN record_id TEXT UNIQUE",
+    "base_record_title": "ALTER TABLE tasks ADD COLUMN base_record_title TEXT",
+}
+
 
 def _connect() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
@@ -52,6 +61,10 @@ def init_db() -> None:
     conn = _connect()
     try:
         conn.executescript(_SCHEMA)
+        existing = {row["name"] for row in conn.execute("PRAGMA table_info(tasks)")}
+        for column, ddl in _MIGRATIONS.items():
+            if column not in existing:
+                conn.execute(ddl)
         conn.commit()
     finally:
         conn.close()
@@ -66,20 +79,43 @@ def _summarize(text: str, limit: int = 50) -> str:
     return text if len(text) <= limit else text[:limit] + "…"
 
 
-def create_task(narration_text: str, *, status: str = "queued") -> dict:
+def create_task(
+    narration_text: str,
+    *,
+    status: str = "queued",
+    record_id: str | None = None,
+    base_record_title: str | None = None,
+) -> dict:
     task_id = _new_id()
     now = time.time()
+    rid = (record_id or "").strip() or None
     conn = _connect()
     try:
         conn.execute(
-            "INSERT INTO tasks (id, status, narration_text, summary, created_at) "
-            "VALUES (?, ?, ?, ?, ?)",
-            (task_id, status, narration_text, _summarize(narration_text), now),
+            "INSERT INTO tasks (id, status, narration_text, summary, created_at, "
+            "record_id, base_record_title) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (task_id, status, narration_text, _summarize(narration_text), now,
+             rid, (base_record_title or "").strip() or None),
         )
         conn.commit()
+    except sqlite3.IntegrityError:
+        if rid:
+            return get_task_by_record_id(rid) or {"id": task_id}
+        raise
     finally:
         conn.close()
     return get_task(task_id)
+
+
+def get_task_by_record_id(record_id: str) -> dict | None:
+    conn = _connect()
+    try:
+        row = conn.execute(
+            "SELECT * FROM tasks WHERE record_id = ?", (record_id,)
+        ).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
 
 
 def get_task(task_id: str) -> dict | None:

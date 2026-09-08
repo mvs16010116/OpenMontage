@@ -110,6 +110,9 @@
         <label>口播文案（或使用「扫描多维表格」从 Base 读取）</label>
         <textarea id="txt" placeholder="在此粘贴口播文案（一段话即可，自动分节）…"></textarea>
         <button id="go" class="btn">生成视频</button>
+        <button id="scanBtn" class="btn secondary" style="margin-left:8px">扫描多维表格</button>
+        <div class="ok" id="scanResult"></div>
+        <div class="err" id="scanErr"></div>
         <div class="progress" id="progress">
           <div class="bar"><div id="barfill"></div></div>
           <div class="stage-text" id="stageText"></div>
@@ -390,6 +393,15 @@ function showProgress(stage, pct, extra) {
   $("barfill").style.width = pct + "%";
   $("stageText").textContent = extra || (STAGE_LABEL[stage] || stage || "…");
 }
+
+$("scanBtn").addEventListener("click", async () => {
+  $("scanErr").textContent = ""; $("scanResult").textContent = "扫描中…";
+  const r = await fetch("/api/base/scan", { method: "POST" });
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) { $("scanErr").textContent = body.detail || "扫描失败"; $("scanResult").textContent = ""; return; }
+  $("scanResult").textContent = `扫描到 ${body.pending} 条待处理，新建 ${body.created.length} 条任务，跳过 ${body.skipped.length} 条。`;
+  refreshList();
+});
 
 function fail(msg) {
   $("err").textContent = msg;

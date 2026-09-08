@@ -28,6 +28,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
 import web.auth as auth
+import web.base_client as base_client
 import web.config as cfg
 import web.db as db
 from web.worker import progress_hub, start_scheduler, shutdown_scheduler
@@ -154,6 +155,42 @@ def put_settings(
     if cfg.deobfuscate((s.get("llm") or {}).get("api_key") or ""):
         s["llm"]["api_key"] = "****"
     return s
+
+
+@app.post("/api/base/scan")
+def scan_base(username: str = Depends(require_user)) -> dict:
+    """Scan pending records from the configured Base and enqueue new tasks."""
+    s = db.load_settings()
+    lark = s.get("lark") or {}
+    if not (lark.get("base_url_or_token") or "").strip() or not (lark.get("table_id") or "").strip():
+        raise HTTPException(status_code=400, detail="未配置 Base 链接及数据表，请先在「配置」页填写")
+    try:
+        pending = base_client.scan_records(s)
+    except base_client.BaseClientError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from None
+    created: list[dict] = []
+    skipped: list[dict] = []
+    for rec in pending:
+        if not rec["record_id"]:
+            skipped.append({"record_id": "", "title": rec["title"], "reason": "缺少记录号"})
+            continue
+        if db.get_task_by_record_id(rec["record_id"]):
+            skipped.append({"record_id": rec["record_id"], "title": rec["title"], "reason": "已存在任务"})
+            continue
+        if not rec["content"]:
+            skipped.append({"record_id": rec["record_id"], "title": rec["title"], "reason": "文案字段为空"})
+            continue
+        task = db.create_task(
+            rec["content"],
+            record_id=rec["record_id"],
+            base_record_title=rec["title"],
+        )
+        created.append({"record_id": rec["record_id"], "task_id": task["id"], "title": rec["title"]})
+    return {
+        "pending": len(pending),
+        "created": created,
+        "skipped": skipped,
+    }
 
 
 @app.post("/api/generate")
