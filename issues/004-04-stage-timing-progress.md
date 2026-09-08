@@ -1,6 +1,6 @@
 # 004-04 - 阶段计时 + SSE 扩展 + 前端进度展示
 
-**Status:** ready-for-agent  **Spec:** issues/004-narration-synth-lark-llm.md  **Blocking:** 004-03（05 依赖本票）
+**Status:** done  **Spec:** issues/004-narration-synth-lark-llm.md  **Blocking:** 004-03（05 依赖本票）
 
 ## 目标
 
@@ -27,3 +27,11 @@
 ## 验证
 
 手动生成任务，前端看到随阶段推进的耗时数据与完成后的阶段耗时表、token 统计。
+
+### 验证证据（2026-09-08）
+
+- `tests/web/` **61 passed**（新增 task detail/list 的 stage_timings / llm_usage / total_elapsed_s 用例）。
+- 提交 `593118c`（issues/004-04）。
+- SSE/DB 契约：`{stage, message, phase_duration_s, total_elapsed_s, stage_timings, llm_usage}`；`done` 事件携带 `llm_usage`。`tasks` 表新列经 `_MIGRATIONS` 迁移（SQLite ALTER 无 IF EXISTS，重复调用幂等）；读行时 `_decode` 把两个 JSON 列还原成 dict。
+- `phase_duration_s` 语义 = 上一步骤耗时（pipeline 在下一个 stage emit 时结算前一个 stage）。
+- 说明：worker 在 done/error 都持久化 stage_timings+total；LLM usage 仅 done 时非空。
