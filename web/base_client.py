@@ -5,13 +5,16 @@ Wraps the ``lark-cli base +...`` shortcuts as subprocess calls (user
 identity). Read paths: URL/token resolution and pending-record scanning.
 Write paths: status field batch updates and attachment uploads.
 
-lark-cli is resolved through ``shutil.which`` so the Windows ``.cmd`` wrapper
-is found and executed like any other command.
+lark-cli is resolved through ``shutil.which``; npm ``.cmd`` shims are unwrapped
+to the native ``lark-cli.exe`` (via ``_unwrap_shim``) so arguments such as
+``...&view=vew…`` share URLs are passed to the CLI instead of being mis-parsed
+by ``cmd.exe``.
 """
 
 from __future__ import annotations
 
 import json
+import glob
 import os
 import re
 import shutil
@@ -29,6 +32,35 @@ def _resolve_bin() -> str:
     exe = shutil.which("lark-cli")
     if not exe:
         raise BaseClientError("未找到 lark-cli，请先安装并配置（lark-cli auth login）")
+    return _unwrap_shim(exe)
+
+
+def _unwrap_shim(exe: str) -> str:
+    """Resolve an npm ``.cmd``/``.bat`` shim to its native binary.
+
+    Running the shim goes through ``cmd.exe``, which splits arguments on
+    ``&`` — and Base share URLs contain ``...&view=vew…``, so the CLI "ran"
+    while cmd also tried to execute ``view`` and stderr carried that shell
+    error. When a sibling native binary exists we call it directly; otherwise
+    fall back to the shim (argument quoting caveat still applies).
+    """
+    if not (exe.lower().endswith(".cmd") or exe.lower().endswith(".bat")):
+        return exe
+    base = os.path.dirname(exe)
+    candidates: list[str] = [
+        os.path.join(base, "lark-cli.exe"),
+        os.path.join(base, "node_modules", "lark-cli", "bin", "lark-cli.exe"),
+    ]
+    scope_dir = os.path.join(base, "node_modules")
+    if os.path.isdir(scope_dir):
+        for entry in os.listdir(scope_dir):
+            if not entry.startswith("@"):
+                continue
+            candidates.extend(glob.glob(
+                os.path.join(scope_dir, entry, "*", "bin", "lark-cli.exe")))
+    for cand in candidates:
+        if cand and os.path.isfile(cand):
+            return cand
     return exe
 
 

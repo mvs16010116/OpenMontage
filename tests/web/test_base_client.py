@@ -29,6 +29,76 @@ def _settings(**overrides):
 
 
 # ---------------------------------------------------------------------------
+# shim unwrap (004-06: cmd.exe mangles & in Base share URLs)
+# ---------------------------------------------------------------------------
+def test_unwrap_shim_plain_binary(tmp_path):
+    exe = tmp_path / "lark-cli.exe"
+    exe.write_bytes(b"")
+    assert bc._unwrap_shim(str(exe)) == str(exe)
+
+
+def test_unwrap_shim_finds_sibling_exe(tmp_path):
+    shim = tmp_path / "lark-cli.cmd"
+    shim.write_text("@ECHO off\n", encoding="utf-8")
+    sibling = tmp_path / "lark-cli.exe"
+    sibling.write_bytes(b"")
+    assert bc._unwrap_shim(str(shim)) == str(sibling)
+
+
+def test_unwrap_shim_finds_scoped_npm_exe(tmp_path):
+    shim = tmp_path / "lark-cli.cmd"
+    shim.write_text("@ECHO off\n", encoding="utf-8")
+    exe = tmp_path / "node_modules" / "@larksuite" / "cli" / "bin" / "lark-cli.exe"
+    exe.parent.mkdir(parents=True)
+    exe.write_bytes(b"")
+    assert bc._unwrap_shim(str(shim)) == str(exe)
+
+
+def test_unwrap_shim_falls_back_to_shim_when_no_exe(tmp_path):
+    shim = tmp_path / "lark-cli.cmd"
+    shim.write_text("@ECHO off\n", encoding="utf-8")
+    assert bc._unwrap_shim(str(shim)) == str(shim)
+
+
+def test_resolve_bin_unwraps_cmd(monkeypatch, tmp_path):
+    exe = tmp_path / "node_modules" / "@larksuite" / "cli" / "bin" / "lark-cli.exe"
+    exe.parent.mkdir(parents=True)
+    exe.write_bytes(b"")
+    shim = tmp_path / "lark-cli.cmd"
+    shim.write_text("@ECHO off\n", encoding="utf-8")
+    monkeypatch.setattr(bc.shutil, "which", lambda name: str(shim))
+    assert bc._resolve_bin() == str(exe)
+
+
+def test_run_uses_native_exe_and_preserves_ampersand_url(monkeypatch, tmp_path):
+    """004-06 regression: a Base share URL with &view=… must reach the CLI
+    intact. Via the .cmd shim, cmd.exe split on '&' and tried to run 'view'.
+    _resolve_bin must forward the native .exe so subprocess sees the URL as a
+    single argv element."""
+    exe = tmp_path / "lark-cli.exe"
+    exe.write_bytes(b"")
+    shim = tmp_path / "lark-cli.cmd"
+    shim.write_text("@ECHO off\n", encoding="utf-8")
+    monkeypatch.setattr(bc.shutil, "which", lambda name: str(shim))
+    received = {}
+
+    class FakeProc:
+        returncode = 0
+        stdout = "{}"
+        stderr = ""
+
+    def fake_run(cmd, **kwargs):
+        received["cmd"] = cmd
+        return FakeProc()
+
+    monkeypatch.setattr(bc.subprocess, "run", fake_run)
+    url = "https://x.feishu.cn/base/app_xx?table=tbl_y&view=vew_1"
+    bc._run(["base", "+url-resolve", "--url", url, "--as", "user"])
+    assert received["cmd"][0] == str(exe)
+    assert received["cmd"][received["cmd"].index("--url") + 1] == url
+
+
+# ---------------------------------------------------------------------------
 # error mapping
 # ---------------------------------------------------------------------------
 def test_readable_error_known_hint():
