@@ -382,3 +382,21 @@ def test_video_range_request(client, tmp_path):
     # unsatisfiable range
     r = client.get(f"/api/tasks/{tid}/video", headers={"Range": "bytes=100-200"})
     assert r.status_code == 416
+
+
+def test_mark_interrupted(client):
+    login(client)
+    # create two tasks that will be "stuck" on restart
+    r1 = client.post("/api/generate", json={"narration_text": "排队中的文案。"})
+    r2 = client.post("/api/generate", json={"narration_text": "跑一半的文案。"})
+    tid1, tid2 = r1.json()["task_id"], r2.json()["task_id"]
+    # simulate a crash mid-flight: task1 stays queued, task2 stuck running
+    db.update_task(tid2, status="running", started_at=1.0)
+
+    count = db.mark_interrupted()
+    assert count == 2
+
+    t1 = client.get(f"/api/tasks/{tid1}").json()
+    t2 = client.get(f"/api/tasks/{tid2}").json()
+    assert t1["status"] == "interrupted"
+    assert t2["status"] == "interrupted"

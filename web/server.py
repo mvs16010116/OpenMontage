@@ -41,10 +41,12 @@ STATIC_DIR = WEB_DIR / "static"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # capture the running loop so worker threads can publish SSE to it
     progress_hub.bind_loop(asyncio.get_running_loop())
     db.init_db()
     auth.ensure_admin_user()
+    interrupted = db.mark_interrupted()
+    if interrupted:
+        print(f"[startup] marked {interrupted} stale task(s) as interrupted")
     start_scheduler()
     yield
     shutdown_scheduler()

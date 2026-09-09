@@ -243,3 +243,24 @@ def save_settings(data: dict) -> None:
         conn.commit()
     finally:
         conn.close()
+
+
+def mark_interrupted() -> int:
+    """Mark queued/running tasks as interrupted on server startup.
+
+    Called once when the FastAPI lifespan boots. Tasks that were stuck in
+    ``queued`` or ``running`` from a previous process are no longer eligible
+    for dispatch and should not masquerade as active.
+    """
+    now = time.time()
+    conn = _connect()
+    try:
+        cur = conn.execute(
+            "UPDATE tasks SET status = 'interrupted', finished_at = ? "
+            "WHERE status IN ('queued', 'running')",
+            (now,),
+        )
+        conn.commit()
+        return cur.rowcount
+    finally:
+        conn.close()
