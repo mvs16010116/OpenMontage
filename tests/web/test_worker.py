@@ -106,32 +106,55 @@ def test_mark_processing_recorded(tmp_path, monkeypatch):
     assert calls == [("appresolved", "tbl_demo", ["rec_1"], "状态", "处理中")]
 
 
-def test_poll_enqueues_pending(tmp_path, monkeypatch):
+def test_poll_enqueues_only_newest_pending(tmp_path, monkeypatch):
     db.DB_PATH = Path(tmp_path) / "test.db"
     db.init_db()
     monkeypatch.setattr(db, "load_settings", lambda: _settings())
     monkeypatch.setattr(worker, "_last_poll_at", 0.0)
     monkeypatch.setattr(bc, "scan_records", lambda settings: [
-        {"record_id": "rec_p1", "title": "一",
-         "content": "扫描文案一。", "date_value": None},
-        {"record_id": "rec_p2", "title": "二",
-         "content": "扫描文案二。", "date_value": None},
-        {"record_id": "rec_stale", "title": "空", "content": "", "date_value": None},
+        {"record_id": "rec_old", "title": "旧文案",
+         "content": "旧文案。", "date": "2026-01-01"},
+        {"record_id": "rec_new", "title": "新文案",
+         "content": "新文案。", "date": "2026-01-02"},
+        {"record_id": "rec_stale", "title": "空", "content": "", "date": "2026-01-03"},
     ])
-    # force interval to pass
     monkeypatch.setattr(worker.time, "time", lambda: 1000.0)
     worker._poll()
-    t1 = db.get_task_by_record_id("rec_p1")
-    t2 = db.get_task_by_record_id("rec_p2")
-    assert t1 is not None and t1["status"] == "queued"
-    assert t2 is not None and t2["status"] == "queued"
-    # empty content not enqueued
+    # only the newest non-stale record is enqueued
+    assert db.get_task_by_record_id("rec_new") is not None
+    assert db.get_task_by_record_id("rec_new")["status"] == "queued"
+    assert db.get_task_by_record_id("rec_old") is None
     assert db.get_task_by_record_id("rec_stale") is None
-    # second poll within interval is skipped -> existing task remains single
+    # next poll within interval is skipped -> still a single task total
     monkeypatch.setattr(worker.time, "time", lambda: 1005.0)
     worker._poll()
-    same = [t for t in db.list_tasks() if t["id"] == t1["id"]]
-    assert len(same) == 1
+    assert len(db.list_tasks()) == 1
+
+
+def test_poll_retries_failed_and_skips_done(tmp_path, monkeypatch):
+    db.DB_PATH = Path(tmp_path) / "test.db"
+    db.init_db()
+    monkeypatch.setattr(db, "load_settings", lambda: _settings())
+    monkeypatch.setattr(worker, "_last_poll_at", 0.0)
+    # newest has a done task -> skipped; the errored older one is requeued
+    done = db.create_task("新文案。", record_id="rec_new")
+    db.update_task(done["id"], status="done", output_path=r"c:\out\new.mp4")
+    failed = db.create_task("旧文案。", record_id="rec_old")
+    db.update_task(failed["id"], status="error", error_message="boom")
+    monkeypatch.setattr(bc, "scan_records", lambda settings: [
+        {"record_id": "rec_new", "title": "新文案",
+         "content": "新文案。", "date": "2026-01-02"},
+        {"record_id": "rec_old", "title": "旧文案",
+         "content": "旧文案。", "date": "2026-01-01"},
+    ])
+    monkeypatch.setattr(worker.time, "time", lambda: 1000.0)
+    worker._poll()
+    retried = db.get_task(failed["id"])
+    assert retried["status"] == "queued"
+    assert retried["error_message"] == ""
+    # no duplicate task created for the errored record
+    rec_old_tasks = [t for t in db.list_tasks() if t["record_id"] == "rec_old"]
+    assert len(rec_old_tasks) == 1
 
 
 def test_poll_disabled_does_nothing(tmp_path, monkeypatch):

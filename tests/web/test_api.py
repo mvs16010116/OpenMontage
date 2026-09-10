@@ -234,6 +234,84 @@ def test_base_scan_unconfigured_returns_readable_error(client):
     assert "配置" in r.json()["detail"]
 
 
+def _save_base_settings():
+    db.save_settings(cfg.normalize_settings({
+        "lark": {"base_url_or_token": "appBaseToken", "table_id": "tbl_x"},
+        "fields": {"content_field": "口播文案", "date_field": "日期"},
+        "poll": {"enabled": True},
+    }))
+
+
+def _scan_rows():
+    return [
+        {"record_id": "rec_new", "title": "最新", "content": "最新文案。",
+         "date": "2026-01-02"},
+        {"record_id": "rec_old", "title": "旧", "content": "旧文案。",
+         "date": "2026-01-01"},
+    ]
+
+
+def test_base_scan_picks_single_newest(client, monkeypatch):
+    login(client)
+    _save_base_settings()
+    monkeypatch.setattr(server.base_client, "scan_records", lambda s: _scan_rows())
+    r = client.post("/api/base/scan")
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["pending"] == 2
+    assert len(body["created"]) == 1
+    assert body["created"][0]["record_id"] == "rec_new"
+    assert body["picked"] == {"record_id": "rec_new", "title": "最新"}
+    assert body["retried"] is None
+    assert body["skipped"] == []
+    assert "创建任务" in body["message"]
+
+
+def test_base_scan_skips_done_and_takes_next(client, monkeypatch):
+    login(client)
+    _save_base_settings()
+    done = db.create_task("最新文案。", record_id="rec_new")
+    db.update_task(done["id"], status="done", output_path=r"c:\out\new.mp4")
+    monkeypatch.setattr(server.base_client, "scan_records", lambda s: _scan_rows())
+    r = client.post("/api/base/scan")
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert len(body["created"]) == 1
+    assert body["created"][0]["record_id"] == "rec_old"
+    assert body["skipped"] == [{"record_id": "rec_new", "title": "最新",
+                                "reason": "已生成视频"}]
+
+
+def test_base_scan_retries_failed_newest(client, monkeypatch):
+    login(client)
+    _save_base_settings()
+    failed = db.create_task("最新文案。", record_id="rec_new")
+    db.update_task(failed["id"], status="error", error_message="boom")
+    monkeypatch.setattr(server.base_client, "scan_records", lambda s: _scan_rows())
+    r = client.post("/api/base/scan")
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["created"] == []
+    assert body["retried"] == {"record_id": "rec_new", "task_id": failed["id"],
+                               "title": "最新"}
+    assert db.get_task(failed["id"])["status"] == "queued"
+    assert "重试" in body["message"]
+
+
+def test_base_scan_all_done_returns_noop_message(client, monkeypatch):
+    login(client)
+    _save_base_settings()
+    for rid in ("rec_new", "rec_old"):
+        t = db.create_task("文案。", record_id=rid)
+        db.update_task(t["id"], status="done", output_path="x.mp4")
+    monkeypatch.setattr(server.base_client, "scan_records", lambda s: _scan_rows())
+    r = client.post("/api/base/scan")
+    body = r.json()
+    assert body["created"] == [] and body["retried"] is None
+    assert body["picked"] is None
+    assert "都已生成视频" in body["message"]
+
+
 # ---------------------------------------------------------------------------
 # task detail: 004-04 timing / llm usage fields
 # ---------------------------------------------------------------------------

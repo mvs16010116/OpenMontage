@@ -20,6 +20,7 @@ from apscheduler.triggers.interval import IntervalTrigger
 
 import web.base_client as base_client
 import web.db as db
+import web.scan_policy as scan_policy
 from web.pipeline import run_pipeline
 
 
@@ -128,7 +129,7 @@ def _config_word(key: str) -> str | None:
 
 
 def _poll() -> None:
-    """Auto-enqueue pending Base records, honoring poll.enabled + interval."""
+    """Auto-enqueue ONE newest pending Base record, honoring poll.enabled + interval."""
     global _last_poll_at
     settings = db.load_settings()
     poll = settings.get("poll") or {}
@@ -143,17 +144,21 @@ def _poll() -> None:
         rows = base_client.scan_records(settings)
     except base_client.BaseClientError:
         return
-    for row in rows:
-        rid = row.get("record_id")
-        content = row.get("content") or ""
-        if not rid or not content.strip():
-            continue
-        if db.get_task_by_record_id(rid) is None:
-            try:
-                db.create_task(content, status="queued", record_id=rid,
-                               base_record_title=row.get("title") or "")
-            except Exception:  # noqa: BLE001
-                pass
+    decision = scan_policy.pick_candidate(rows, db.get_task_by_record_id)
+    picked = decision["record"]
+    if picked is None:
+        return
+    try:
+        if decision["action"] == "retry":
+            db.update_task(decision["task_id"], status="queued", error_message="")
+        else:
+            db.create_task(
+                picked["content"], status="queued",
+                record_id=picked["record_id"],
+                base_record_title=picked["title"] or "",
+            )
+    except Exception:  # noqa: BLE001
+        pass
 
 
 def _sync_base(task: dict, status_word: str | None, output_path: str | None = None) -> None:

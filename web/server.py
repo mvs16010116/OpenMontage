@@ -32,6 +32,7 @@ import web.auth as auth
 import web.base_client as base_client
 import web.config as cfg
 import web.db as db
+import web.scan_policy as scan_policy
 from web.worker import progress_hub, start_scheduler, shutdown_scheduler
 
 WEB_DIR = Path(__file__).resolve().parent
@@ -162,7 +163,12 @@ def put_settings(
 
 @app.post("/api/base/scan")
 def scan_base(username: str = Depends(require_user)) -> dict:
-    """Scan pending records from the configured Base and enqueue new tasks."""
+    """Scan pending records and enqueue ONE task for the newest actionable one.
+
+    Newest = date desc (empty date last), tie-broken by content asc. Records
+    whose task already produced a video are skipped; a failed/interrupted task
+    for the newest record is requeued (retry) instead of duplicated.
+    """
     s = db.load_settings()
     lark = s.get("lark") or {}
     if not (lark.get("base_url_or_token") or "").strip() or not (lark.get("table_id") or "").strip():
@@ -171,29 +177,47 @@ def scan_base(username: str = Depends(require_user)) -> dict:
         pending = base_client.scan_records(s)
     except base_client.BaseClientError as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from None
+    decision = scan_policy.pick_candidate(pending, db.get_task_by_record_id)
+    picked = decision["record"]
     created: list[dict] = []
-    skipped: list[dict] = []
-    for rec in pending:
-        if not rec["record_id"]:
-            skipped.append({"record_id": "", "title": rec["title"], "reason": "缺少记录号"})
-            continue
-        if db.get_task_by_record_id(rec["record_id"]):
-            skipped.append({"record_id": rec["record_id"], "title": rec["title"], "reason": "已存在任务"})
-            continue
-        if not rec["content"]:
-            skipped.append({"record_id": rec["record_id"], "title": rec["title"], "reason": "文案字段为空"})
-            continue
-        task = db.create_task(
-            rec["content"],
-            record_id=rec["record_id"],
-            base_record_title=rec["title"],
-        )
-        created.append({"record_id": rec["record_id"], "task_id": task["id"], "title": rec["title"]})
+    retried: dict | None = None
+    if picked is not None:
+        if decision["action"] == "retry":
+            db.update_task(decision["task_id"], status="queued", error_message="")
+            retried = {"record_id": picked["record_id"],
+                       "task_id": decision["task_id"], "title": picked["title"]}
+        else:
+            task = db.create_task(
+                picked["content"],
+                record_id=picked["record_id"],
+                base_record_title=picked["title"],
+            )
+            created.append({"record_id": picked["record_id"],
+                            "task_id": task["id"], "title": picked["title"]})
+    picked_info = ({"record_id": picked["record_id"], "title": picked["title"]}
+                   if picked is not None else None)
     return {
         "pending": len(pending),
         "created": created,
-        "skipped": skipped,
+        "retried": retried,
+        "skipped": decision["skipped"],
+        "picked": picked_info,
+        "message": _scan_message(decision, len(pending)),
     }
+
+
+def _scan_message(decision: dict, pending_count: int) -> str:
+    picked = decision["record"]
+    if picked is not None:
+        head = (picked.get("title") or picked.get("content") or "")[:24]
+        if decision["action"] == "retry":
+            return f"已选定最新文案「{head}」，上次生成失败，已重新排队重试"
+        return f"已选定最新文案「{head}」并创建任务"
+    if pending_count == 0:
+        return "当前没有待处理文案"
+    if decision["skipped"]:
+        return "最新文案都已生成视频或正在生成，暂无新的待处理文案"
+    return "暂无待处理文案"
 
 
 @app.post("/api/generate")
