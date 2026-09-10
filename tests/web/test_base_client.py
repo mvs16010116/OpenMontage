@@ -98,6 +98,31 @@ def test_run_uses_native_exe_and_preserves_ampersand_url(monkeypatch, tmp_path):
     assert received["cmd"][received["cmd"].index("--url") + 1] == url
 
 
+def test_run_decodes_utf8_stdout(monkeypatch, tmp_path):
+    """004-07 regression: the CLI emits UTF-8 regardless of the local console
+    codepage. _run must force encoding=utf-8, or cn field names/content get
+    mojibake-decoded via the GBK locale when the server runs without -X utf8,
+    making configured fields 'not found'."""
+    exe = tmp_path / "lark-cli.exe"
+    exe.write_bytes(b"")
+    monkeypatch.setattr(bc.shutil, "which", lambda name: str(exe))
+    received = {}
+
+    class FakeProc:
+        returncode = 0
+        stdout = '{"data": {"fields": [{"id": "f1", "name": "\u4f18\u5316\u6587\u6848"}]}}'
+        stderr = ""
+
+    def fake_run(cmd, **kwargs):
+        received["kwargs"] = kwargs
+        return FakeProc()
+
+    monkeypatch.setattr(bc.subprocess, "run", fake_run)
+    out = bc._run(["base", "+field-list", "--base-token", "x", "--table-id", "t"])
+    assert received["kwargs"].get("encoding") == "utf-8"
+    assert "优化文案" in out.stdout
+
+
 # ---------------------------------------------------------------------------
 # error mapping
 # ---------------------------------------------------------------------------
@@ -146,25 +171,38 @@ def test_resolve_url_calls_url_resolve(monkeypatch):
 # ---------------------------------------------------------------------------
 # scan_records → normalization
 # ---------------------------------------------------------------------------
-def test_scan_args_builds_filter_and_sort(monkeypatch):
+def _field_map_fixture():
+    return {
+        "record_id": {"id": "fld_rid", "name": "record_id", "type": "formula"},
+        "口播文案": {"id": "fld_content", "name": "口播文案", "type": "text"},
+        "日期": {"id": "fld_date", "name": "日期", "type": "datetime"},
+        "状态": {"id": "fld_status", "name": "状态", "type": "text"},
+    }
+
+
+def test_scan_args_projects_fields_and_filters(monkeypatch):
+    monkeypatch.setattr(bc, "_field_map", lambda s: _field_map_fixture())
     monkeypatch.setattr(bc, "resolve_base", lambda v: "resolved_base")
     args = bc._scan_args(_settings())
     assert args[:2] == ["base", "+record-list"]
     assert "resolved_base" in args
     assert "--table-id" in args and args[args.index("--table-id") + 1] == "tbl_demo"
     assert "--limit" in args and args[args.index("--limit") + 1] == "20"
-    fi = args[args.index("--filter-json") + 1]
+    fids = [args[i + 1] for i, a in enumerate(args) if a == "--field-id"]
+    assert fids == ["fld_rid", "fld_content", "fld_date", "fld_status"]
     import json
+    fi = args[args.index("--filter-json") + 1]
     filt = json.loads(fi)
     assert filt["logic"] == "or"
     assert ["状态", "empty"] in filt["conditions"]
-    assert ["状态", "intersects", ["待处理"]] in filt["conditions"]
+    assert ["状态", "==", "待处理"] in filt["conditions"]
     si = json.loads(args[args.index("--sort-json") + 1])
     assert si == [{"field": "日期", "desc": False}]
 
 
 def test_scan_args_desc_sort(monkeypatch):
     s = _settings(); s["fields"]["date_sort"] = "desc"
+    monkeypatch.setattr(bc, "_field_map", lambda s: _field_map_fixture())
     monkeypatch.setattr(bc, "resolve_base", lambda v: "t")
     args = bc._scan_args(s)
     import json
@@ -175,33 +213,51 @@ def test_scan_args_no_status_no_sort(monkeypatch):
     s = _settings()
     s["fields"]["status_field"] = ""
     s["fields"]["date_field"] = ""
+    monkeypatch.setattr(bc, "_field_map", lambda s: _field_map_fixture())
     monkeypatch.setattr(bc, "resolve_base", lambda v: "t")
     args = bc._scan_args(s)
     assert "--filter-json" not in args
     assert "--sort-json" not in args
 
 
+def test_scan_args_missing_configured_field_raises(monkeypatch):
+    s = _settings()
+    s["fields"]["content_field"] = "不存在的列"
+    monkeypatch.setattr(bc, "_field_map", lambda s: _field_map_fixture())
+    monkeypatch.setattr(bc, "resolve_base", lambda v: "t")
+    with pytest.raises(bc.BaseClientError, match="不存在"):
+        bc._scan_args(s)
+
+
+def test_record_id_field_falls_back_to_formula(monkeypatch):
+    field_map = {
+        "标题": {"id": "fld_title", "name": "标题", "type": "text"},
+        "主键": {"id": "fld_rid", "name": "主键", "type": "formula", "expression": "RECORD_ID()"},
+    }
+    assert bc._record_id_field(field_map) == "fld_rid"
+
+
 def test_scan_records_projects_fields(monkeypatch):
-    data = {"items": [
-        {"record_id": "rec_1", "fields": {
-            "标题": "北美峰会", "口播文案": "开场文案内容。", "日期": "2026-06-01 10:00:00",
-            "状态": "",
-        }},
-        {"record_id": "rec_2", "fields": {
-            "标题": "欧洲观察", "口播文案": "第二段文案。", "日期": "2026-06-02 08:00:00",
-            "状态": "待处理",
-        }},
-    ]}
+    data = {"data": {
+        "data": [
+            ["开场文案内容。", "2026-06-01 10:00:00", "rec_1"],
+            ["第二段文案。", "2026-06-02 08:00:00", "rec_2"],
+        ],
+        "field_id_list": ["fld_content", "fld_date", "fld_rid"],
+        "field_type_list": [],
+    }}
+    monkeypatch.setattr(bc, "_field_map", lambda s: _field_map_fixture())
     monkeypatch.setattr(bc, "_run_json", lambda *a, **k: data)
     rows = bc.scan_records(_settings())
     assert [r["record_id"] for r in rows] == ["rec_1", "rec_2"]
-    assert rows[0]["title"] == "北美峰会"
+    assert rows[0]["title"] == "开场文案内容。"
     assert rows[0]["content"] == "开场文案内容。"
     assert rows[0]["date"] == "2026-06-01 10:00:00"
 
 
 def test_scan_records_empty_list(monkeypatch):
-    monkeypatch.setattr(bc, "_run_json", lambda *a, **k: {"items": []})
+    monkeypatch.setattr(bc, "_field_map", lambda s: _field_map_fixture())
+    monkeypatch.setattr(bc, "_run_json", lambda *a, **k: {"data": {"data": [], "field_id_list": [], "field_type_list": []}})
     assert bc.scan_records(_settings()) == []
 
 

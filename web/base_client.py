@@ -70,7 +70,8 @@ def _run(args: list[str], *, timeout: int = 120) -> subprocess.CompletedProcess:
     cmd = [exe] + args
     try:
         proc = subprocess.run(
-            cmd, capture_output=True, text=True, errors="replace", timeout=timeout,
+            cmd, capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=timeout,
         )
     except subprocess.TimeoutExpired:
         raise BaseClientError("调用 lark-cli 超时") from None
@@ -148,17 +149,19 @@ def _first_item(data: Any) -> dict | None:
 def _status_filter(status_field: str, pending_if: str) -> dict:
     conditions: list[Any] = [[status_field, "empty"]]
     if pending_if:
-        conditions.append([status_field, "intersects", [pending_if]])
+        conditions.append([status_field, "==", pending_if])
     return {"logic": "or", "conditions": conditions}
 
 
-def _scan_args(settings: dict) -> list[str]:
+def _scan_args(settings: dict, ids: dict | None = None) -> list[str]:
     lark = settings.get("lark") or {}
     fields = settings.get("fields") or {}
     poll = settings.get("poll") or {}
     table_id = (lark.get("table_id") or "").strip()
     if not table_id:
         raise BaseClientError("未配置数据表 ID/名称，请先在「配置」页填写")
+    if ids is None:
+        ids = _resolve_field_ids(settings)
     args = [
         "base", "+record-list",
         "--base-token", resolve_base(lark.get("base_url_or_token")),
@@ -167,36 +170,102 @@ def _scan_args(settings: dict) -> list[str]:
         "--format", "json",
         "--limit", str(int(poll.get("max_records_per_batch") or 20)),
     ]
+    for field_id in ids.values():
+        if field_id:
+            args += ["--field-id", field_id]
     status_field = (fields.get("status_field") or "").strip()
+    pending_if = ((settings.get("video") or {}).get("pending_if") or "").strip()
     if status_field:
         args += ["--filter-json", json.dumps(
-            _status_filter(status_field, (settings.get("video") or {}).get("pending_if") or ""),
-            ensure_ascii=False)]
+            _status_filter(status_field, pending_if), ensure_ascii=False)]
     date_field = (fields.get("date_field") or "").strip()
     if date_field:
         args += ["--sort-json", json.dumps(
-            [{"field": date_field, "desc": (fields.get("date_sort") or "asc") != "asc"}])]
+            [{"field": date_field, "desc": (fields.get("date_sort") or "asc") != "asc"}],
+            ensure_ascii=False)]
     return args
 
 
-def _records_from(data: Any) -> list[dict]:
-    if isinstance(data, dict):
-        for key in ("items", "records", "data"):
-            val = data.get(key)
-            if isinstance(val, list):
-                return [r for r in val if isinstance(r, dict)]
-    if isinstance(data, list):
-        return [r for r in data if isinstance(r, dict)]
-    return []
+def _field_map(settings: dict) -> dict:
+    lark = settings.get("lark") or {}
+    table_id = (lark.get("table_id") or "").strip()
+    if not table_id:
+        raise BaseClientError("未配置数据表 ID/名称，请先在「配置」页填写")
+    data = _run_json([
+        "base", "+field-list",
+        "--base-token", resolve_base(lark.get("base_url_or_token")),
+        "--table-id", table_id,
+        "--as", "user",
+        "--format", "json",
+    ])
+    inner = data.get("data") if isinstance(data, dict) else None
+    items = (inner or {}).get("fields") or []
+    return {f["name"]: f for f in items if isinstance(f, dict) and f.get("name")}
 
 
-def _field_value(record: dict, name: str) -> str:
-    name = (name or "").strip()
-    if not name:
+def _record_id_field(field_map: dict) -> str:
+    field = field_map.get("record_id")
+    if field:
+        return field.get("id") or ""
+    for candidate in field_map.values():
+        if candidate.get("type") == "formula" and "RECORD_ID" in (
+                candidate.get("expression") or ""):
+            return candidate.get("id") or ""
+    return ""
+
+
+def _resolve_field_ids(settings: dict) -> dict:
+    fields = settings.get("fields") or {}
+    field_map = _field_map(settings)
+    ids: dict[str, str] = {"record_id": _record_id_field(field_map)}
+    if not ids["record_id"]:
+        raise BaseClientError("未能定位记录 ID 字段，请检查表格结构")
+    for label, name in (
+        ("content", fields.get("content_field")),
+        ("date", fields.get("date_field")),
+        ("status", fields.get("status_field")),
+    ):
+        name = (name or "").strip()
+        if not name:
+            ids[label] = ""
+            continue
+        field = field_map.get(name)
+        if not field:
+            raise BaseClientError(f"字段「{name}」不存在，请检查字段映射")
+        ids[label] = field.get("id") or ""
+    return ids
+
+
+def _cell(row: list, pos: dict, field_id: str) -> str:
+    idx = pos.get(field_id) if field_id else None
+    if idx is None or idx >= len(row):
         return ""
-    fields = record.get("fields") or {}
-    value = fields.get(name)
-    return _stringify(value)
+    return _stringify(row[idx])
+
+
+def _rows_from(data: Any, ids: dict[str, str]) -> list[dict]:
+    inner = data.get("data") if isinstance(data, dict) else None
+    if not isinstance(inner, dict):
+        return []
+    field_ids = inner.get("field_id_list") or []
+    rows = inner.get("data") or []
+    if not isinstance(field_ids, list) or not isinstance(rows, list):
+        return []
+    pos = {fid: i for i, fid in enumerate(field_ids)}
+    out: list[dict] = []
+    for row in rows:
+        if not isinstance(row, list):
+            continue
+        content = _cell(row, pos, ids.get("content"))
+        date = _cell(row, pos, ids.get("date"))
+        out.append({
+            "record_id": _cell(row, pos, ids.get("record_id")),
+            "title": content or date,
+            "content": content,
+            "date": date,
+            "raw": row,
+        })
+    return out
 
 
 def _stringify(value: Any) -> str:
@@ -216,45 +285,17 @@ def _stringify(value: Any) -> str:
     return ""
 
 
-def _first_text(record: dict) -> str:
-    fields = record.get("fields") or {}
-    for _, value in fields.items():
-        cell = _stringify(value)
-        if cell:
-            return cell
-    return ""
-
-
 def scan_records(settings: dict) -> list[dict]:
     """Return pending records as [{record_id, title, content, date, raw}].
 
-    Filtering (status empty/pending) and date sorting run in Base via
-    --filter-json / --sort-json; the local normalization just projects the
-    configured fields.
+    Field IDs are resolved against the live table (field-list); a configured
+    field name that does not exist raises a clear error instead of silently
+    producing empty values. Filtering (status empty/pending) and date sorting
+    run in Base via --filter-json / --sort-json.
     """
-    fields = settings.get("fields") or {}
-    content_field = (fields.get("content_field") or "").strip()
-    date_field = (fields.get("date_field") or "").strip()
-    status_field = (fields.get("status_field") or "").strip()
-
-    data = _run_json(_scan_args(settings))
-    out: list[dict] = []
-    for record in _records_from(data):
-        record_id = (record.get("record_id") or record.get("id") or "").strip()
-        title = _first_text(record)
-        content = _field_value(record, content_field) if content_field else ""
-        date = _field_value(record, date_field) if date_field else ""
-        # safety re-filter when no status_field is configured
-        if status_field and not (record.get("fields") or {}).get(status_field):
-            pass
-        out.append({
-            "record_id": record_id,
-            "title": title,
-            "content": content,
-            "date": date,
-            "raw": record,
-        })
-    return out
+    ids = _resolve_field_ids(settings)
+    data = _run_json(_scan_args(settings, ids))
+    return _rows_from(data, ids)
 
 
 # ---------------------------------------------------------------------------
