@@ -242,12 +242,12 @@
 <script>
 const $ = (id) => document.getElementById(id);
 const STAGE_LABEL = {
-  llm_parse: "正在解析分节…",
-  generating_tts: "正在生成配音…",
-  fetching_images: "正在检索配图…",
-  rendering_scenes: "正在渲染画面…",
-  subtitles: "正在生成字幕…",
-  assembling: "正在合成成片…",
+  llm_parse: "文案整理中…",
+  generating_tts: "配音生成中…",
+  fetching_images: "配图检索中…",
+  rendering_scenes: "渲染中…",
+  subtitles: "生成字幕中…",
+  assembling: "合成成片中…",
   done: "生成完成",
   error: "生成失败",
   queued: "排队中…",
@@ -408,7 +408,9 @@ $("scanBtn").addEventListener("click", async () => {
   const r = await fetch("/api/base/scan", { method: "POST" });
   const body = await r.json().catch(() => ({}));
   if (!r.ok) { $("scanErr").textContent = body.detail || "扫描失败"; $("scanResult").textContent = ""; return; }
-  $("scanResult").textContent = `扫描到 ${body.pending} 条待处理，新建 ${body.created.length} 条任务，跳过 ${body.skipped.length} 条。`;
+  $("scanResult").textContent = body.message || `扫描到 ${body.pending} 条待处理`;
+  if (body.created && body.created.length) listen(body.created[0].task_id);
+  else if (body.retried) listen(body.retried.task_id);
   refreshList();
 });
 
@@ -439,7 +441,7 @@ function listen(taskId) {
     if (ev.stage === "error") { fail(ev.message || "生成失败"); es.close(); refreshList(); return; }
     const pos = idx[ev.stage];
     const pct = pos === undefined ? 10 : Math.max(5, Math.round(pos / (order.length - 1) * 95));
-    let extra = STAGE_LABEL[ev.stage] || ev.stage || "…";
+    let extra = ev.message || STAGE_LABEL[ev.stage] || ev.stage || "…";
     if (ev.total_elapsed_s != null) {
       const phase = (ev.phase_duration_s != null && ev.phase_duration_s > 0)
         ? ` · 上一步 ${(ev.phase_duration_s).toFixed(1)}s` : "";

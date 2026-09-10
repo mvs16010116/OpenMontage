@@ -480,7 +480,7 @@ def run_pipeline(
         except Exception:  # noqa: BLE001
             llm_settings = {}
 
-    emit("llm_parse", "正在解析分节…")
+    emit("llm_parse", "文案整理中…")
     from web import llm as llm_mod
     try:
         parsed, usage = llm_mod.parse_script_with_llm(
@@ -494,7 +494,7 @@ def run_pipeline(
     (project_dir / "artifacts" / "llm_usage.json").write_text(
         json.dumps(script["meta"], ensure_ascii=False, indent=2), encoding="utf-8")
 
-    emit("generating_tts", "正在生成配音…")
+    emit("generating_tts", "配音生成中…")
     narration_assets = step_tts(script, project_dir)  # local Edge TTS, no key
     # rebuild section windows from REAL narration durations so scenes &
     # subtitles stay in sync with the actual speech timing
@@ -502,16 +502,16 @@ def run_pipeline(
     (project_dir / "artifacts" / "script.json").write_text(
         json.dumps(script, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    emit("fetching_images", "正在检索配图…")
+    emit("fetching_images", "配图检索中…")
     manifest = step_images(script, project_dir)
 
-    emit("rendering_scenes", "正在渲染画面…")
+    emit("rendering_scenes", "渲染中…")
     step_render_scenes(script, manifest, project_dir)
 
-    emit("subtitles", "正在生成字幕…")
+    emit("subtitles", "生成字幕中…")
     step_subtitles(script, narration_assets, project_dir)
 
-    emit("assembling", "正在合成成片…")
+    emit("assembling", "合成成片中…")
     final = _concat_and_assemble(script, project_dir)
 
     emit("done", "生成完成", llm_usage=script.get("meta", {}).get("llm_usage"))
