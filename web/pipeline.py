@@ -168,6 +168,7 @@ def _ensure_project(project_dir: Path) -> None:
 TTS_VOICE = "zh-CN-YunxiNeural"
 TTS_RATE = "+0%"
 TTS_PAUSE_GAP = 0.6  # seconds of silence tail added per segment for breathing room
+TTS_TIMEOUT_S = 60  # hard cap per segment so a hung network call cannot wedge the worker
 
 
 def _probe_audio_duration(path: Path) -> float:
@@ -195,16 +196,31 @@ def _synthesize_edge(path: Path, text: str, voice: str = TTS_VOICE) -> float:
         async def _inner() -> None:
             communicate = edge_tts.Communicate(text, voice=voice, rate=TTS_RATE)
             await communicate.save(str(path))
-        asyncio.run(_inner())
+        asyncio.run(asyncio.wait_for(_inner(), timeout=TTS_TIMEOUT_S))
+
+    def _cleanup_stale() -> None:
+        """Remove a 0-byte mp3 left behind when save() hangs or fails mid-write."""
+        try:
+            if path.is_file() and path.stat().st_size == 0:
+                path.unlink()
+        except OSError:
+            pass
 
     try:
         # smallest available loop; retry once for transient network failures
         try:
             _run()
         except Exception:
+            _cleanup_stale()
             _run()
+    except asyncio.TimeoutError as exc:
+        _cleanup_stale()
+        raise RuntimeError(
+            f"Edge TTS synthesis failed for '{text[:20]}...': timeout after {TTS_TIMEOUT_S}s"
+        ) from exc
     except Exception as exc:  # noqa: BLE001
-        raise RuntimeError(f"Edge TTS synthesis failed for '{text[:20]}...': {exc}")
+        _cleanup_stale()
+        raise RuntimeError(f"Edge TTS synthesis failed for '{text[:20]}...': {exc}") from None
     return _probe_audio_duration(path)
 
 
