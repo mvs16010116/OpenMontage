@@ -79,3 +79,31 @@ export function writeText(fs, filePath, data) {
   fs.mkdirSync(filePath.dirname, { recursive: true });
   fs.writeFileSync(filePath, data, "utf8");
 }
+
+/**
+ * Write a full composition and its vendored gsap fallback next to it.
+ *
+ * If index.html references a CDN gsap, a local `gsap.min.js` is copied into
+ * the same directory so the renderer still resolves gsap offline (CDN 404
+ * fallback). Returns the output html file path.
+ *
+ * @param {object} fs         node:fs module
+ * @param {object} pathMod    node:path module (dirname/join/resolve)
+ * @param {string} html       composed index.html content
+ * @param {string} outputPath absolute path for index.html (dir is created)
+ * @param {string} [vendorGsap=""] absolute path to vendored gsap.min.js copy
+ * @returns {string}
+ */
+export function writeComposition(fs, pathMod, html, outputPath, vendorGsap = "") {
+  const dir = pathMod.dirname(outputPath);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(outputPath, html, "utf8");
+  if (vendorGsap) {
+    const dest = pathMod.join(dir, "gsap.min.js");
+    if (!fs.existsSync(dest)) {
+      fs.mkdirSync(pathMod.dirname(dest), { recursive: true });
+      fs.copyFileSync(vendorGsap, dest);
+    }
+  }
+  return outputPath;
+}

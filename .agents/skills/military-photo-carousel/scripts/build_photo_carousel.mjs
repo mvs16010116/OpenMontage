@@ -20,8 +20,13 @@
 import { dirname, join, resolve, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { mkdirSync, writeFileSync, copyFileSync, existsSync } from "node:fs";
+import fs from "node:fs";
+import path from "node:path";
 import process from "node:process";
-import { composition } from "../../_military-shared/composition.mjs";
+import { composition, writeComposition } from "../../_military-shared/composition.mjs";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const VENDOR_GSAP = resolve(__dirname, "../../_military-shared/vendor/gsap.min.js");
 
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 && process.argv[i + 1] !== undefined ? process.argv[i + 1] : d; };
 const project = arg("project", "demo");
@@ -147,8 +152,7 @@ const html = composition({
   `,
 });
 
-const out = join(process.cwd(), "projects", project, "hyperframes", "index.html");
-mkdirSync(join(out, ".."), { recursive: true });
-writeFileSync(out, html, "utf8");
+const out = resolve(process.cwd(), "projects", project, "hyperframes", "index.html");
+writeComposition(fs, path, html, out, VENDOR_GSAP);
 console.log(`[military-photo-carousel] wrote ${out}`);
 console.log(`[military-photo-carousel] images=${imagePaths.length} next: npx hyperframes lint && validate && render -o ../../renders/photo_carousel.mp4`);
