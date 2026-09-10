@@ -1,107 +1,57 @@
 # Handoff — OpenMontage
 
-**Date:** 2026-09-09
-**Branch:** main (head `0d0c7c5`, not pushed)
-**Next-session focus:** `issues/004` (narration-synth lark+LLM 流水线) fully shipped (004-01..05 DONE, `tests/web/` **75 passed**), including Base 扫描/轮询/回填/上传 + LLM 分节 + 阶段统计 + Range 视频预览. Next: 真机配置验证、新功能请求，或其它 tracker 项。Tracker: issues/001 (Pexels carousel), issues/002 (subtitle scale + keyword glow), issues/003 (web service), issues/004 (lark+LLM pipeline).
+**Date:** 2026-09-10
+**Branch:** main (004-07 与 004-08 改动将各自单独提交；已提交到 `c669020` merged+pushed)
+**Next-session focus:** 提交本次 004-07 + 004-08 改动（先 base_client/test_base_client/issues-004-07，再 scan_policy+server+worker+tests+issues-004-08，再 pipeline+index.html+issues-004-08-02，最后 HANDOFF）。之后走通真机全流程并验证 poll.enabled 自动轮询。Tracker: issues/001..004。
 
 ---
 
 ## 1. What this session accomplished
 
-Delivered a new reusable capability for narration-led videos: **Pexels keyword-relevant photo carousel** as the visual layer under title-card foregrounds, applied end-to-end to the `us-iran-hormuz-strike` landscape video. Full 5-stage workflow (grill → spec → tickets → implement → handoff) completed.
+### 004-07 — Base 扫描链路三根因修复（done，待提交）
+修复 `/api/base/scan` 在真实多维表格上的 502。三个相互独立根因（`web/base_client.py`）：
+1. 状态字段是**文本字段**时 `intersects` 数组过滤必失败（`800010507`）→ 改 `==`（保留 OR 空 语义）。
+2. lark-cli `+record-list` 返回**行式** `{data:{data:[[..]],field_id_list:[..]}}`，旧 `_records_from` 只认 dict 列表 → 静默 0 条 → 重写解析（`_field_map`/`_record_id_field`/`_resolve_field_ids`/`_rows_from`）。
+3. `_run` 无 `encoding="utf-8"` → 服务（无 `-X utf8`）按 GBK 解码乱码 → `字段「优化文案」不存在` → 显式 `encoding="utf-8"`。
+新增回归 `test_run_decodes_utf8_stdout`；全套件 **85 passed**；HTTP E2E 200。
 
-Tracker: `issues/001-pexels-keyword-image-carousel.md` (spec) + `issues/001-01..06` (tickets, t01→t06). All tickets DONE:
-- **001-01** `tools/graphics/pexels_image.py` — added multi-download (`count` + `output_dir`), returns per-photo `candidates` (photo_id/alt/dims/src/output); legacy single-download unchanged. Tests: `tests/tools/test_pexels_image.py` (3).
-- **001-02** `pexels_searches.json` (8×2-3 English queries) → `physics`-side alt-score curation → `pexels_manifest.json` (32 relevant photos across 8 sections; section_08 deep-card fallback by design).
-- **001-03** New reusable skill `.agents/skills/military-photo-carousel/` (`build_photo_carousel.mjs` + SKILL.md): landscape 1920×1080, crossfade 0.6s + Ken Burns, dark mask, title/kw/number foreground, `--no-carousel` fallback.
-- **001-04** section_02 sample baked + pixel-verified (photo bg, white headline, carousel motion confirmed by frame hashes).
-- **001-05** All 10 scenes baked (opener + 8 sections + 3s end-card); **breathing pauses** inserted (silence after number cues in `narration_section_02/04`); timeline/subtitles re-synced to 173.07s.
-- **001-06** Assembled `renders/final.mp4`, verified **16/16** (see below), pushed.
-
-Then a visual-revision round (spec + tickets `issues/002-subtitle-size-keyword-glow.md` + `002-01..04`), all DONE:
-- **002-01** kwtag → **dark translucent pill** (rgba(7,11,18,.62) rounded) + **amber breathing glow** (bg alpha .50↔.72, box-shadow .20↔.45, 2.6s sine yoyo, pinned to main paused timeline — deterministic/seek-safe). **No text glow** — that was the gaza comma-tag merge defect (3078077). Hex accent → rgba helper added to builder.
-- **002-02** subtitles scaled 1.8×: FontSize 44→**80**, Outline 3→**5**, MarginV 58→**90** in both `.ass` Style and burn `force_style`.
-- **002-03** all 10 scenes re-baked (durations hit windows).
-- **002-04** re-assembled `final.mp4`: verified 16/16, pytest 9 passed, pushed.
-
-### Final deliverable (after revisions)
-`projects/us-iran-hormuz-strike/renders/final.mp4`:
-1920×1080 · h264 · aac · yuv420p · 30fps · **173.07s**. Photo-carousel backgrounds at sampled times; **enlarged subtitles** (white-glyph px 4004–4851 vs 1297–1626 before), **kwtag dark pill + breathing glow** confirmed in final frames (s02/s04/s06); narration −25.8/−25.9/−27.0 dB; per-section crossfade confirmed.
-
-### Commits (each referenced by its ticket)
-001: `c608f45` → `e667e07` → `65b52b3` → `148d9dc` → `342491a` (001-06) → `3cc9335` (handoff).
-002: `3bc9c69` (002-01) → `5add2db` (002-02) → `970ef76` (002-03) → `abe2f53` (002-04).
-003: `aa2b884` (spec+tickets) → `514c4a5` (003-01) → `6aee00f` (003-02) → `a4f5d14` (003-03) → `11e733a` (003-04) → `bef005c` (003-05) → `078809f` (.gitignore, chore). Pushed to origin/main.
-
-## 1b. issues/003: narration-synth 口播视频生成 Web 服务 (shipped)
-
-Turned the CLI narration-synth flow into a single-user web service. Full 5-stage workflow done (grill → spec `issues/003-narration-synth-web-service.md` → tickets `003-01..05` → implement → handoff). All 5 tickets DONE, verified E2E.
-
-- **003-01** `web/db.py` (SQLite `tasks` CRUD, new-id, summarize), `web/requirements.txt` (fastapi/uvicorn/apscheduler/**edge-tts**).
-- **003-02** `web/pipeline.py` — parse_script (sentence split) → TTS → pexels images → hyperframes scene render → ASS subtitles → ffmpeg assemble. Chain: `python -m web.pipeline --task-id X --text "…"`.
-- **003-03** `web/worker.py` (APScheduler BackgroundScheduler IntervalTrigger 1s dispatch + `_job_lock` serial) + `web/server.py` (FastAPI routes: `/`, `/api/health`, `POST /api/generate`, `GET /api/tasks`, `/api/tasks/{id}`, `/api/tasks/{id}/video`, `/api/tasks/{id}/events` SSE). ProgressHub bound to uvicorn loop, cross-thread publish via `run_coroutine_threadsafe`.
-- **003-04** `web/templates/index.html` + `web/static/.gitkeep` — dark single-page SPA (textarea, button, SSE stage text, history list, download link), no CDN.
-- **003-05** `tests/web/test_pipeline.py` (7) + `test_api.py` (8) = **15 passed**. E2E: real server POST (UTF-8 Chinese) → SSE queued/parse/generating/fetching/rendering → done; `/api/tasks/{id}/video` returns video/mp4 3.1MB. CLI smoke `mt-smoketest1` final.mp4: 1920×1080, subtitle white px 6186/5055, bg colors 8363 (all OK).
-- **TTS decision (user):** free **Edge TTS** (`edge-tts`, voice `zh-CN-YunxiNeural`, no key) — rejected over Doubao (key empty) and SiliconFlow (user asked, then switched). Runtime db + generated `projects/narration-*/` dirs are gitignored.
-
-### How to run the service
-```
-.venv\Scripts\python.exe -m web.server          # 127.0.0.1:8000
-```
-Post Chinese text via a UTF-8-capable client (Python/curl, **not** PowerShell `ConvertTo-Json`). Stages: `queued → parse_script → generating_tts → fetching_images → rendering_scenes → subtitles → assembling → done/error`.
-
-## 1c. issues/004: lark 多维表格 + LLM 驱动的口播流水线 (shipped)
-
-Full 5-stage workflow done (spec `issues/004-narration-synth-lark-llm.md` → tickets `004-01..05`). All DONE; **`tests/web/` = 75 passed**.
-
-- **004-01** `web/auth.py`（admin 登录/会话/改密，密码 hash 落 db）+ `web/server.py` 路由拆分（`/api/me`、`/api/change-password`）。
-- **004-02** `web/base_client.py`（lark-cli subprocess：`resolve_base`/`scan_records`/`update_status`/`upload_video`，可读中文错误 `BaseClientError`）+ 前端扫描按钮 + settings 视图（lark/fields/poll/video 配置落 SQLite）。
-- **004-03** `web/llm.py`（OpenAI 兼容 `{base_url}/chat/completions`，requests；`parse_script_with_llm` → `{title,sections:[{text,keywords}]}`；`LlmError` 可读错误）；pipeline 删除硬编码 KEYWORD_MAP，改 LLM 分节关键词（`build_script_from_llm`，`meta.source="llm"`）。
-- **004-04** 阶段计时统计：`stage_timings`/`total_elapsed_s`/`llm_usage` 全链路（pipeline emit → ProgressHub SSE → db `_decode` → 前端 stats 表）。
-- **004-05** E2E 总装：`POST /api/tasks`（`record_id` 或 `narration_text`；未知记录 400、按 record 去重）+ `POST /api/tasks/batch`；worker 自动轮询（`poll.enabled`+`interval_seconds`）入队待处理；完成后 `_mark_processing`（处理中）→ `_sync_base`（成功/失败回填 + `final.mp4` 上传附件，失败记 `base_sync_status=failed` 不影响任务本体）；`GET .../video` 改 Range 流式（206/416）；前端 `<video controls>` 预览 + 下载。
-
-Commits (004): `9a8590c`(开头相关) → … → `1637321`/`334abc8`(004-03) → `593118c`/`3df82c1`(004-04) → `ea658ab`/`0d0c7c5`(004-05+handoff)。**未 push。**
-
----
+### 004-08 — 扫描单选最新文案 + 语义化进度（done，待提交）
+- **004-08-01** 新模块 `web/scan_policy.py`（纯函数 `pick_candidate(rows, task_lookup)`，无 CLI/DB 依赖）：
+  - 顺序 = date **降序**（空日期排最后）→ 同日按 content **升序**（稳定二段排序）。
+  - 遍历最新→最旧，首个可做项：无任务→`create`；`error`/`interrupted`→`retry`（复用原任务置 queued 并清 error_message）；`done`/`queued`/`running`→`skip`（带中文原因：已生成视频/生成中/文案字段为空/缺少记录号）。
+  - server `/api/base/scan` 与 worker `_poll` 共用；每轮**至多 1 个任务**；响应新增 `retried/picked/message`。
+- **004-08-02** 阶段消息语义化：文案整理中→配音生成中→配图检索中→渲染中→生成字幕中→合成成片中→生成完成（pipeline emit 与前端 `STAGE_LABEL` 同步）；前端 `listen` 优先用 `ev.message`；扫描按钮在 `created[0]`/`retried` 时自动 `listen(task_id)` 订阅 SSE。
+- 测试：新增 `tests/web/test_scan_policy.py`（11 例），worker poll 收敛为新规则，API 补 4 例成功路径。**`tests/web/` = 100 passed**。
+- HTTP E2E（服务 PID 9428，`python -X utf8 -m web.server`）：首次 scan `pending=1` → `retried={recvuNBBjoMci8, b149087c33bd}`（该任务此前 error/interrupted）；二次 scan `pending=0, message=当前没有待处理文案`（worker 已把它置 Base「处理中」）；重试任务 `GET /api/tasks/b149087c33bd` → `status=running, error_message=''`。中文经 python -X utf8 直连无乱码（先前 PowerShell 显示乱码为控制台伪象）。
 
 ## 2. Key gotchas learned (do not re-hit)
 
-- **Nested template-literal trap in hyperframes builders:** inside `build_photo_carousel.mjs` the `script:` string and its `${keyword ? \`…\` : ""}` branch are themselves backtick template literals. Writing a raw backtick inside the branch (e.g. `` boxShadow: `0 0 18px ${x}` ``) closes the branch early → `SyntaxError: Unexpected number`. Use double quotes + direct interpolation (`boxShadow: "0 0 18px ${accentRgba(0.2)}"`) instead.
-- **Pill chip must shrink-wrap:** an absolutely-positioned `#kwtag` with `left:0;right:0` stretches the pill across the full row. Use `left:50%; transform:translateX(-50%)` (no width) so the dark capsule wraps the text.
-- **Breathing glow stays on background/box-shadow ONLY.** The gaza kwtag textShadow breathing (3078077) visually merged comma-separated multi-tag keywords — never reintroduce text glow; animate `backgroundColor` + `boxShadow` with sine yoyo repeat on the paused main timeline (seek-safe, deterministic).
-- **Subtitle burn params must live in two places:** `.ass` Style line AND burn `force_style` must match (FontSize/Outline/MarginV). Keep them in sync or the wrapped ASS self-consistency breaks.
-- **ffmpeg `subtitles=` filter needs a RELATIVE path (no drive colon).** `subtitles=D:/….ass` → `original_size` parse error. Use `cwd=ROOT` + `subtitles=projects/.../subtitles.ass`. Also wrap the whole `force_style` value in single quotes inside the filter string or the commas get eaten.
-- **ffmpeg amix hang trap (recurring):** do NOT put `atrim`/`apad` inside the amix filter chain. Mix first (plain `adelay` + `amix=inputs=N:normalize=0`), then if you need to reach full length, extend the audio at the **mux step** with `-af apad=pad_dur=...` and `-shortest` (video length governs). `amix` output ends at the last non-silent input — it does not pad to your `-t`; without apad at mux the film truncates to last-narration end (168.6s!).
-- **HyperFrames media root = `hyperframes/` not project root.** Local `<img>` files must live at `projects/<name>/hyperframes/assets/images/<slug>/…` or the renderer 404s (visible only at capture → frame is black/empty; `hyperframes check` Runtime may still say 0 errors). The builder copies them there.
-- **PexelsImage `.env` load:** scripts run via `.venv` python must load `.env` manually (`PEXELS_API_KEY` is not in env by default). Guard with `os.environ.setdefault` loop.
-- **PowerShell inline `python -c` breaks on quotes/slashes/East-Asian chars.** Always write temp `.py` under `C:\Users\user\AppData\Local\Temp\opencode\` and run `& "$pwd\.venv\Scripts\python.exe" <file>`. Avoid `->`, `<unicode>` escapes in `-c`.
-- **PowerShell `ConvertTo-Json` also eats CJK** → HTTP POST with `Invoke-RestMethod` sends `?` for Chinese text (server gets garbage → edge-tts "No audio was received"). Use Python `urllib` (`.encode('utf-8')`) or `curl` for task submissions.
-- **`build_photo_carousel.mjs` arg parser only matches `--name value` (space-separated).** `--project=foo` is looked up as the literal token `--project` → falls back to project `demo` and writes there silently. Use `["--project", name, "--title", t, …]`.
-- **`peexels_image.execute` candidates are dicts**, each with `output` (absolute path). `manifest[i]["photos"]` = list of these dicts, NOT strings — basename via `cand["output"]`.
-- **`build_ass.py` narration manifest `scene_id` must be `scene_0N`** (it does `x["scene_id"].replace("scene_","")`), while script sections are `section_0N`. If you pass `section_0N` as scene_id → zero Dialogue events, silent subtitle loss.
-- **Slug must be ASCII.** `npx hyperframes render projects/<CJK-name>/…` and even `Path` join resolve fine to create, but the hyperframes CLI can't find a CJK-named composition dir. `_slugify` strips non-ASCII; uniqueness comes from appended task_id.
+（沿用 004-07 起补齐的全部既有条目；本节新增本次教训）
+
+- **乱码先分清「服务端 vs 控制台」**：服务端 FastAPI 是干净 UTF-8，PowerShell `Invoke-RestMethod` 回显中文会变 `?`——用 `python -X utf8` + urllib 直连验证正文，勿据此误判服务端编码回归。
+- **服务重启砍进程前先确认 PID**：`Stop-Process -Id <服务PID>` 可能连带杀掉工具链自身 shell（上次 `-Name python` 已踩）。用 `Get-Process python` 区分，按 Id 精确杀。
+- **PowerShell 无 heredoc**（`python - <<'PY'` 会当缺文件规范报错）：临时脚本一律写 `%TEMP%\opencode\*.py` 再跑。
+- **HTTP 405 别慌**：FastAPI 对未定义 method 返回 405。脚本 `post()` 只支持 POST，取任务详情要 GET。
 
 ## 3. Artifacts / files (reference these, don't duplicate)
 
-- Web service: `web/{server,worker,db,pipeline}.py`, `web/templates/index.html`, `web/requirements.txt`, `tests/web/*.py`. Runtime db `web/narration_synth.db` (gitignored; tasks survive restart).
-
-- Tracker: `issues/001-pexels-keyword-image-carousel.md` (spec) + `issues/001-01..06-*.md` (blocking edges); `issues/002-subtitle-size-keyword-glow.md` (spec) + `issues/002-01..04-*.md`.
-- Skill: `.agents/skills/military-photo-carousel/` (`build_photo_carousel.mjs`, `SKILL.md`) — reusable for future landscape videos.
-- Project artifacts: `projects/us-iran-hormuz-strike/artifacts/pexels_searches.json`, `pexels_manifest.json` (per-image `photo_id/alt/file/reason/score`), `pexels_fetch_raw.json`; `assets/images/<section>/*.jpg` (gitignored, refetches via manifest); `assets/subtitles.ass` (62 events, **Style FontSize=80/Outline=5/MarginV=90** — burn `force_style` must match); `assets/audio/narration_section_0X.mp3` (s02/s04 have breathing gaps); `artifacts/script.json` (windows 173.07s incl end-card 3s).
-- Tool change: `tools/graphics/pexels_image.py` (+ `tests/tools/test_pexels_image.py`).
-- Renders: `projects/us-iran-hormuz-strike/renders/final.mp4` (+ `.compose_tmp/_base_silent.mp4`, `narration_mix.m4a`, `_with_narration.mp4`, `concat.txt`).
-- Smoke products: `projects/narration-*/` (gitignored, deletable).
+- 004-08 新增/改动：`web/scan_policy.py`（新）、`web/server.py`（scan 单选+retry+message）、`web/worker.py`（`_poll` 单选）、`web/pipeline.py`（语义化 stage message）、`web/templates/index.html`（STAGE_LABEL + 自动订阅）、`tests/web/test_scan_policy.py`（新）、`tests/web/test_worker.py`、`tests/web/test_api.py`。
+- 004-07 仍待提交：`web/base_client.py`、`tests/web/test_base_client.py`、`issues/004-07-…….md`。
+- 票据：`issues/004-08-scan-single-newest.md`（spec+done 验证回填）、`issues/004-08-01-…-selection.md`、`issues/004-08-02-…-subscribe.md`（均 done）。
+- 验证脚本：`%TEMP%\opencode\verify_scan_00408*.py`。
 
 ## 4. Suggested skills for next agent
 
-- Skill tool: `implement` (tickets), `handoff`, `ass-subtitle-generator` (build_ass.py), `hyperframes-core` / `hyperframes-cli` (render), `military-photo-carousel` (self), `dev-validator` (final checks), `grilling`/`to-spec`/`to-tickets` if opening a new feature.
-- For the web service: FastAPI + uvicorn + APScheduler + SSE — see `issues/003-03` for the queue design if extending concurrency.
+- `implement`（按票实现）、`handoff`（格式同本文件）、`code-review`（提交前复查 004-08 diff）、`grilling`/`to-spec`/`to-tickets`（新 feature）。Web：FastAPI+APScheduler+SSE，见 `issues/003-03`。
 
 ## 5. Open items / hygiene
 
-- 004 相关 git history 未 push（head `0d0c7c5`）；如需同步远端先 push。
-- 真机验证待办：配置真实多维表格 + LLM（base_url/model/api_key）后走通「扫描→选中生成→进度→成功回填/上传→预览下载」全流程；开启 `poll.enabled` 后验证自动建任务。lark-cli 需 `--as user` 且已认证（user=侯辉聪，openId `ou_bec77ebe8e7a0d5a6c41d620af4116a6`）。默认登录 admin / `shiping@shiping`（首次登录请改密）。
-- `status_processing`/`status_success`/`status_failed` 词在 settings `video` 区配置，`pending_if` 决定扫描哪些记录；字段映射 `content_field`/`date_field`/`status_field`/`attachment_field`。
-- Uncommitted stale changes NOT related to 004: `.agents/skills/_military-shared/`（composition.mjs + vendor/）、`.reasonix/`、`AGENTS.md`（工作流规则）、`PROJECT_CONTEXT.md`、`docs/ARCHITECTURE.md`、`docs/PROVIDERS.md`、`reasonix.toml`、`_tmp_*.py`、`pipeline_defs/trump-skorea-drill/`、`projects/trump-skorea-drill/`、`projects/hormuz-strait-insurance/`、`tools/audio/edge_tts.py`。提交时只 stage 相关文件。
-- Web runtime: `web/narration_synth.db` + `web/__pycache__/` gitignored；`projects/narration-*/` smoke 产物可删。
-- Breathing pauses burned into narration MP3s (s02: +0.72s, s04: +0.37s) + scene durations +0.35/0.2 — if the script window math churns again, trust `script.json` `start/end_seconds` (already re-synced). Web-service path re-times windows from real edge-tts durations via `rewindow_script`.
+- 提交顺序（git 身份 `Dannyhiccpet <danny@hiccpet.com>`，只 stage 相关文件，工作区大量 `_tmp_*.py`/`.reasonix`/`.agents`/`projects` 无关）：
+  1. `issues/004-07`：`web/base_client.py` + `tests/web/test_base_client.py` + `issues/004-07-….md`。
+  2. `issues/004-08-01`：`web/scan_policy.py` + `web/server.py` + `web/worker.py` + `tests/web/test_scan_policy.py` + `tests/web/test_worker.py` + `tests/web/test_api.py` + `issues/004-08-scan-single-newest.md` + `issues/004-08-01-….md`。
+  3. `issues/004-08-02`：`web/pipeline.py` + `web/templates/index.html` + `issues/004-08-02-….md`。
+  4. 本 HANDOFF.md。
+- 真机待办：配置真实多维表格 + LLM（base_url/model/api_key）后走通「扫描→单选最新→进度→成功回填/上传→预览」；开 `poll.enabled` 验证自动单任务轮询（当前 poll.enabled=False）。lark-cli `--as user`（user=侯辉聪，openId `ou_bec77ebe8e7a0d5a6c41d620af4116a6`）。默认登录 admin / `shiping@shiping`。
+- 真实表（base_token `OZsLb287vaT2j8srKYXcyw05nkc`，table `tbl6rLRt9fdRbNa7`）：record_id=`fldC5GNO9A`(formula)；`content_field` 当前显示「优化文案」（曾见「新闻改写」，漂移中）；`date_field=创建时间`；`status_field=调用智能体`(text)；`attachment_field=附件`；`date_sort=desc`；进展字段与状态词在 settings `video` 区。
+- 任务表现状：历史多次 error/interrupted 属旧轮次遗留；004-08 起扫描按「只跳 done、失败重试」处置，无需人工清理。
+- 服务器当前：PID 9428（`python -X utf8 -m web.server`）；日志 `%TEMP%\opencode\webserver.log/.err.log`；运行时 db `web/narration_synth.db` gitignored。
