@@ -4,9 +4,9 @@
 
 **Blocked by:** None — can start immediately
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] `composition.mjs` 的 gsap 标签恢复为 `https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js`
-- [ ] photo-carousel builder 写 index.html 后把 vendor/gsap.min.js（72779B）拷入 `hyperframes/` 同目录；md5 与 vendor 一致
-- [ ] `node build_photo_carousel.mjs --no-carousel` 后 `hyperframes/index.html` 含 CDN URL，`hyperframes/gsap.min.js` 存在
-- [ ] 单场景 `npx hyperframes lint && validate` 通过
+- [x] `composition.mjs` 的 gsap 标签恢复为 `https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js`
+- [x] photo-carousel builder 写 index.html 后把 vendor/gsap.min.js（72779B）拷入 `hyperframes/` 同目录；md5 与 vendor 一致 — 新增 `writeComposition()` 助手；`build_photo_carousel.mjs` 走它；已复制文件 md5 `b729ff7f59` 与 vendor/CDN 一致
+- [x] `node build_photo_carousel.mjs --no-carousel` 后 `hyperframes/index.html` 含 CDN URL，`hyperframes/gsap.min.js` 存在 — `projects/005-accept/hyperframes/` 验证
+- [x] 单场景 `npx hyperframes lint && validate` 通过 — lint 0 error / validate 无 console errors；hyperframes compose 测试 46 passed/2 skipped

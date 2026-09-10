@@ -4,9 +4,9 @@
 
 **Blocked by:** None — can start immediately
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] 对正常文本，`_synthesize_edge` 仍在合理时间内产出非空 mp3，返回时长 > 0
-- [ ] 对模拟永不返回的 save（或短超时版本），在 ≤ 超时阈值时抛含 `timeout` 的 `RuntimeError`
-- [ ] 超时/异常路径会把同路径 0 字节残留文件删除
-- [ ] 既有「单次重试」语义保留（第一次异常/超时后重试一次）
+- [x] 对正常文本，`_synthesize_edge` 仍在合理时间内产出非空 mp3，返回时长 > 0 — 正常路径 23904B mp3 / dur 3.98s
+- [x] 对模拟永不返回的 save（或短超时版本），在 ≤ 超时阈值时抛含 `timeout` 的 `RuntimeError` — `TTS_TIMEOUT_S=0.1` 探针 3.2s 抛 `RuntimeError("..timeout after 0.1s")`
+- [x] 超时/异常路径会把同路径 0 字节残留文件删除 — 探针超时后残留被 `_cleanup_stale` 清除
+- [x] 既有「单次重试」语义保留（第一次异常/超时后重试一次）— 保留内层 `except Exception: _cleanup_stale(); _run()`；重试的 `TimeoutError` 由外层 `except asyncio.TimeoutError` 捕获，消息正确
