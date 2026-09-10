@@ -1,57 +1,44 @@
 # Handoff — OpenMontage
 
 **Date:** 2026-09-10
-**Branch:** main (004-07 与 004-08 改动将各自单独提交；已提交到 `c669020` merged+pushed)
-**Next-session focus:** 提交本次 004-07 + 004-08 改动（先 base_client/test_base_client/issues-004-07，再 scan_policy+server+worker+tests+issues-004-08，再 pipeline+index.html+issues-004-08-02，最后 HANDOFF）。之后走通真机全流程并验证 poll.enabled 自动轮询。Tracker: issues/001..004。
+**Branch:** main (005 全部 4 票完成并提交：`aec13a9`/`45eb3d7`/`afe618a`/`405be68`；已推至 origin/main)
+**Next-session focus:** 真机全流程可用（服务已重启用新代码）。可让用户在 UI 重提 12 个失败任务，确认批量成功；观察 FFmpeg 孤立案是否复现。Tracker: issues/001..005。
 
 ---
 
 ## 1. What this session accomplished
 
-### 004-07 — Base 扫描链路三根因修复（done，待提交）
-修复 `/api/base/scan` 在真实多维表格上的 502。三个相互独立根因（`web/base_client.py`）：
-1. 状态字段是**文本字段**时 `intersects` 数组过滤必失败（`800010507`）→ 改 `==`（保留 OR 空 语义）。
-2. lark-cli `+record-list` 返回**行式** `{data:{data:[[..]],field_id_list:[..]}}`，旧 `_records_from` 只认 dict 列表 → 静默 0 条 → 重写解析（`_field_map`/`_record_id_field`/`_resolve_field_ids`/`_rows_from`）。
-3. `_run` 无 `encoding="utf-8"` → 服务（无 `-X utf8`）按 GBK 解码乱码 → `字段「优化文案」不存在` → 显式 `encoding="utf-8"`。
-新增回归 `test_run_decodes_utf8_stdout`；全套件 **85 passed**；HTTP E2E 200。
-
-### 004-08 — 扫描单选最新文案 + 语义化进度（done，待提交）
-- **004-08-01** 新模块 `web/scan_policy.py`（纯函数 `pick_candidate(rows, task_lookup)`，无 CLI/DB 依赖）：
-  - 顺序 = date **降序**（空日期排最后）→ 同日按 content **升序**（稳定二段排序）。
-  - 遍历最新→最旧，首个可做项：无任务→`create`；`error`/`interrupted`→`retry`（复用原任务置 queued 并清 error_message）；`done`/`queued`/`running`→`skip`（带中文原因：已生成视频/生成中/文案字段为空/缺少记录号）。
-  - server `/api/base/scan` 与 worker `_poll` 共用；每轮**至多 1 个任务**；响应新增 `retried/picked/message`。
-- **004-08-02** 阶段消息语义化：文案整理中→配音生成中→配图检索中→渲染中→生成字幕中→合成成片中→生成完成（pipeline emit 与前端 `STAGE_LABEL` 同步）；前端 `listen` 优先用 `ev.message`；扫描按钮在 `created[0]`/`retried` 时自动 `listen(task_id)` 订阅 SSE。
-- 测试：新增 `tests/web/test_scan_policy.py`（11 例），worker poll 收敛为新规则，API 补 4 例成功路径。**`tests/web/` = 100 passed**。
-- HTTP E2E（服务 PID 9428，`python -X utf8 -m web.server`）：首次 scan `pending=1` → `retried={recvuNBBjoMci8, b149087c33bd}`（该任务此前 error/interrupted）；二次 scan `pending=0, message=当前没有待处理文案`（worker 已把它置 Base「处理中」）；重试任务 `GET /api/tasks/b149087c33bd` → `status=running, error_message=''`。中文经 python -X utf8 直连无乱码（先前 PowerShell 显示乱码为控制台伪象）。
+### 005 — 「生成必失败」修复合闸（done，全部提交并已推送）
+诊断结论 → spec `issues/005-narration-generation-reliability.md` → 4 票：
+1. **005-01 (aec13a9)** `web/pipeline.py`：`_synthesize_edge` 加 `asyncio.wait_for(_, TTS_TIMEOUT_S=60)` + `_cleanup_stale()` 删 0 字节残留，保留单次重试；杜绝 edge-tts 网络挂起永久占 worker。验证：正常 23904B mp3；`TTS_TIMEOUT_S=0.1` 探针 3.2s 抛 `RuntimeError(timeout…)` 且残留被清；`tests/web` 100 passed。
+2. **005-02 (45eb3d7)** gsap 404 根因：`composition.mjs` 未提交改动把 gsap 改成本地引用但 builder 从不拷文件。恢复 CDN `gsap@3.14.2` 标签 + 新增 `writeComposition(fs,pathMod,html,outputPath,vendorGsap)` 拷 `vendor/gsap.min.js` 兜底（`build_photo_carousel.mjs` 走它）。验证 `projects/005-accept/hyperframes/`：index.html 含 CDN URL、gsap 拷贝 md5 `b729ff7f59` 一致；`hyperframes lint` 0 error、`validate` 无 console errors；hyperframes compose 46 passed。
+3. **005-03 (afe618a)** 卡死任务 b149087c33bd：SQLite 置 error（可读 error_message）+ 重启服务（旧进程 9428 无超时代码的线程持锁，仅改 DB 不够）→ 新 PID **13624**。重启后 12 任务无 running。
+4. **005-04 (405be68)** 全链路回归通过：新任务 `77bb61948077` → done（150s），stage_timings llm_parse 3.65 / generating_tts 15.78 / fetching_images 0.03 / rendering_scenes 129.38 / subtitles 0.66 / assembling 12.31（秒）；`projects/narration-77bb61948077/renders/final.mp4` 513288B 1920x1080 h264+aac 10.9s；抽帧 signalstats YMIN=16 / YAVG≈29.6 / **YMAX=235**（有高亮白字，非黑帧）；`_video_master.mp4` 已 burn 字幕。**这是本批 12 个失败任务后首个端到端成功**。
+- code-review（005-01..03）0 硬违规；判断调用 4 项（清理重复、fs/path 双导入、死 mkdir、writeText 重复）；Spec 2 项子代理断言被复读代码证伪（重试超时由外层捕获、005-03 为 ops 票 .db 不跟踪）、1 项接受权衡（existsSync 守卫若目录已有脏 gsap 不覆盖——删文件重跑即可）。
 
 ## 2. Key gotchas learned (do not re-hit)
 
-（沿用 004-07 起补齐的全部既有条目；本节新增本次教训）
+（沿用 004-07/004-08 全部条目；本节新增本次教训）
 
-- **乱码先分清「服务端 vs 控制台」**：服务端 FastAPI 是干净 UTF-8，PowerShell `Invoke-RestMethod` 回显中文会变 `?`——用 `python -X utf8` + urllib 直连验证正文，勿据此误判服务端编码回归。
-- **服务重启砍进程前先确认 PID**：`Stop-Process -Id <服务PID>` 可能连带杀掉工具链自身 shell（上次 `-Name python` 已踩）。用 `Get-Process python` 区分，按 Id 精确杀。
-- **PowerShell 无 heredoc**（`python - <<'PY'` 会当缺文件规范报错）：临时脚本一律写 `%TEMP%\opencode\*.py` 再跑。
-- **HTTP 405 别慌**：FastAPI 对未定义 method 返回 405。脚本 `post()` 只支持 POST，取任务详情要 GET。
+- **服务只认 :8000，创建任务字段是 `narration_text`（不是 text）**；`POST /api/login` body `{"username":"admin","password":"shiping@shiping"}` 拿 session cookie；任务详情 `GET /api/tasks/<id>`、列表 `GET /api/tasks`（key=`id`）。命令以空格分隔参数（`--project 005-accept`，非 `--project=`）。
+- **无 --reload 的服务重启后旧 PID 线程仍持 `_job_lock`**：改 DB 清卡死任务必须连服务进程一起重启，否则队列继续堵。
+- **修环境类（gsap）先复现 Builder 失败，再动手**：005-02 曾误跑参数把产物写到 `projects/demo`，已 `git checkout --` 恢复；builder 参数解析只认空格风格。
+- **帧非空判定用 signalstats**：`ts/yuvj` 下 `metadata=print` 必须配 `-f null -` 且从 stderr 抓 `lavfi.signalstats.YMAX`；JPEG→signalstats 直接可读，不需要先转 PNG。
+- **PowerShell 无 heredoc**：临时脚本写 `%TEMP%\opencode\*.py` 再跑；`python -X utf8` 防 GBK 乱码。
 
 ## 3. Artifacts / files (reference these, don't duplicate)
 
-- 004-08 新增/改动：`web/scan_policy.py`（新）、`web/server.py`（scan 单选+retry+message）、`web/worker.py`（`_poll` 单选）、`web/pipeline.py`（语义化 stage message）、`web/templates/index.html`（STAGE_LABEL + 自动订阅）、`tests/web/test_scan_policy.py`（新）、`tests/web/test_worker.py`、`tests/web/test_api.py`。
-- 004-07 仍待提交：`web/base_client.py`、`tests/web/test_base_client.py`、`issues/004-07-…….md`。
-- 票据：`issues/004-08-scan-single-newest.md`（spec+done 验证回填）、`issues/004-08-01-…-selection.md`、`issues/004-08-02-…-subscribe.md`（均 done）。
-- 验证脚本：`%TEMP%\opencode\verify_scan_00408*.py`。
+- 005 改动：`web/pipeline.py`（TTS_TIMEOUT_S/_cleanup_stale/_synthesize_edge）、`.agents/skills/_military-shared/composition.mjs`（writeComposition/CDN 标签）、`.agents/skills/_military-shared/scripts/build_photo_carousel.mjs`、`.agents/skills/_military-shared/vendor/gsap.min.js`（新增 72779B）。
+- 票据：`issues/005-narration-generation-reliability.md`（spec）`+ 005-01..005-04`（均 done）。
+- 回归证据：`projects/narration-77bb61948077/`（渲染产物）、`projects/005-accept/`；临时验证 `%TEMP%\opencode\*005*`。
+- 服务器：**PID 13624**（`python -X utf8 -m web.server`）；日志 `%TEMP%\opencode\webserver.log/.err.log`；运行时 db `web/narration_synth.db` gitignored。
 
 ## 4. Suggested skills for next agent
 
-- `implement`（按票实现）、`handoff`（格式同本文件）、`code-review`（提交前复查 004-08 diff）、`grilling`/`to-spec`/`to-tickets`（新 feature）。Web：FastAPI+APScheduler+SSE，见 `issues/003-03`。
+- `implement`（按票实现）、`handoff`、`code-review`（先自查，几何指标同 005 已内建）、`grilling`/`to-spec`/`to-tickets`。视频资产技能：`ass-subtitle-generator`、`military-*` 系列、`hyperframes`、`ai-video-gen`。
 
 ## 5. Open items / hygiene
 
-- 提交顺序（git 身份 `Dannyhiccpet <danny@hiccpet.com>`，只 stage 相关文件，工作区大量 `_tmp_*.py`/`.reasonix`/`.agents`/`projects` 无关）：
-  1. `issues/004-07`：`web/base_client.py` + `tests/web/test_base_client.py` + `issues/004-07-….md`。
-  2. `issues/004-08-01`：`web/scan_policy.py` + `web/server.py` + `web/worker.py` + `tests/web/test_scan_policy.py` + `tests/web/test_worker.py` + `tests/web/test_api.py` + `issues/004-08-scan-single-newest.md` + `issues/004-08-01-….md`。
-  3. `issues/004-08-02`：`web/pipeline.py` + `web/templates/index.html` + `issues/004-08-02-….md`。
-  4. 本 HANDOFF.md。
-- 真机待办：配置真实多维表格 + LLM（base_url/model/api_key）后走通「扫描→单选最新→进度→成功回填/上传→预览」；开 `poll.enabled` 验证自动单任务轮询（当前 poll.enabled=False）。lark-cli `--as user`（user=侯辉聪，openId `ou_bec77ebe8e7a0d5a6c41d620af4116a6`）。默认登录 admin / `shiping@shiping`。
-- 真实表（base_token `OZsLb287vaT2j8srKYXcyw05nkc`，table `tbl6rLRt9fdRbNa7`）：record_id=`fldC5GNO9A`(formula)；`content_field` 当前显示「优化文案」（曾见「新闻改写」，漂移中）；`date_field=创建时间`；`status_field=调用智能体`(text)；`attachment_field=附件`；`date_sort=desc`；进展字段与状态词在 settings `video` 区。
-- 任务表现状：历史多次 error/interrupted 属旧轮次遗留；004-08 起扫描按「只跳 done、失败重试」处置，无需人工清理。
-- 服务器当前：PID 9428（`python -X utf8 -m web.server`）；日志 `%TEMP%\opencode\webserver.log/.err.log`；运行时 db `web/narration_synth.db` gitignored。
+- git 身份 `Dannyhiccpet <danny@hiccpet.com>`；只 stage 相关文件，工作区大量 `_tmp_*.py`/`.reasonix`/`.agents`/`projects` 无关（勿误提交）。
+- **005 后遗留**：12 个历史失败任务（47bae a6b0687f1a8a b7e5f58dd339 c2568e170ad1 35193159f5f4 e97002f66ec5 46b7e82056c6 b9c18894c2f0 e16b38b66aea e334892abf2e f61014d5fdc7 b149）可在 UI 重提验证「批量成功」。其中 b149 已 error 可重提；47bae 为 FFmpeg 探针偶发孤案（观察中，复现再转票）。
+- 真机可行点：配置真实多维表格 + LLM（base_url/model/api_key），开 `poll.enabled` 验证自动单任务轮询（当前 False）。lark-cli `--as user`（user=侯辉聪，openId `ou_bec77ebe8e7a0d5a6c41d620af4116a6`）。默认登录 admin / `shiping@shiping`。真实表 base_token `OZsLb287vaT2j8srKYXcyw05nkc`，table `tbl6rLRt9fdRbNa7`，record `fldC5GNO9A`，content 字段漂移中（曾见「优化文案」/「新闻改写」）。
