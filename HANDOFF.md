@@ -1,10 +1,20 @@
 # Handoff — OpenMontage
 
-**Date:** 2026-09-10
-**Branch:** main (005 全部 4 票完成并提交：`aec13a9`/`45eb3d7`/`afe618a`/`405be68`；已推至 origin/main)
-**Next-session focus:** 真机全流程可用（服务已重启用新代码）。可让用户在 UI 重提 12 个失败任务，确认批量成功；观察 FFmpeg 孤立案是否复现。Tracker: issues/001..005。
+**Date:** 2026-09-11
+**Branch:** main (006 全部 4 票完成并提交：`ef89639`/`3a2e363`/`ba85e6d`/`5821322`/`2e2ae6f`；已推至 origin/main)
+**Next-session focus:** 可在 UI 验收预览/下载拆分与下载计数（需重启服务加载新代码，见 §3 PID）。轮播能力已实证。Tracker: issues/001..006。
 
 ---
+
+## 0. Most recent milestone — 006 video preview/download split + download count (all done, pushed)
+
+**Spec:** `issues/006-video-preview-download-split-and-download-count.md`。4 票全 done：
+1. **006-01 (ef89639)** `/video` 改为纯 inline 预览（移除 `Content-Disposition: attachment`，保留 Range）；新增 `/download` 返回 `attachment; filename="{id}.mp4"`；抽 `_resolve_done_video`/`_video_chunks` 复用。
+2. **006-02 (3a2e363)** `tasks.download_count` 列（`_MIGRATIONS` 迁移，`INTEGER NOT NULL DEFAULT 0`）+ `increment_download_count()`；`/download` 每调 +1 并回 `X-Download-Count` 头。
+3. **006-03 (ba85e6d)** 前端：完成面板 `<video>` 走 `/video` 预览 + 下载按钮 `download="final.mp4"` 走 `/download` + 「已下载 N 次」；历史列表每行拆「预览」(新标签)/「下载」两链接 + 「下载 N 次」；新增 `updateDlCount()` 与 `.dcount` 样式。
+4. **006-04 (5821322)** 轮播实证 + 全量回归：`projects/narration-mt-smoketest1/hyperframes/index.html` 三张 bg 图 timeline 交叉淡化（bg-0 @0s→bg-1 @0.7s→bg-2 @1.7s，各配 scale 1→1.08 Ken Burns）+ 帧间 diff 0.08–0.13 证实运动；`pytest tests/web -q` **105 passed**。4d1358bbf203 走 no-carousel 属配图不足降级（设计内）。
+
+**关键决策**：预览（含 Range 播放）不计入下载次数；只有 `/download` 计数；计数持久化到 SQLite（重启不丢）。
 
 ## 1. What this session accomplished
 
@@ -28,17 +38,18 @@
 
 ## 3. Artifacts / files (reference these, don't duplicate)
 
-- 005 改动：`web/pipeline.py`（TTS_TIMEOUT_S/_cleanup_stale/_synthesize_edge）、`.agents/skills/_military-shared/composition.mjs`（writeComposition/CDN 标签）、`.agents/skills/_military-shared/scripts/build_photo_carousel.mjs`、`.agents/skills/_military-shared/vendor/gsap.min.js`（新增 72779B）。
-- 票据：`issues/005-narration-generation-reliability.md`（spec）`+ 005-01..005-04`（均 done）。
-- 回归证据：`projects/narration-77bb61948077/`（渲染产物）、`projects/005-accept/`；临时验证 `%TEMP%\opencode\*005*`。
-- 服务器：**PID 13624**（`python -X utf8 -m web.server`）；日志 `%TEMP%\opencode\webserver.log/.err.log`；运行时 db `web/narration_synth.db` gitignored。
+- 006 改动：`web/db.py`（download_count 迁移 + `increment_download_count`）、`web/server.py`（`/video` inline + `/download`）、`web/templates/index.html`（预览/下载拆分 + 计数展示）、`tests/web/test_api.py`（6 个新用例）。
+- 票据：`issues/006-video-preview-download-split-and-download-count.md`（spec）+ 006-01..006-04（均 done）。
+- 回归证据：`projects/narration-mt-smoketest1/hyperframes/index.html`（轮播 timeline）。
+- 服务器：**当前无 python web.server 进程在跑**（006 改动后未重启）；启动命令 `python -X utf8 -m web.server`；日志 `%TEMP%\opencode\webserver.log/.err.log`；运行时 db `web/narration_synth.db` gitignored。
 
 ## 4. Suggested skills for next agent
 
-- `implement`（按票实现）、`handoff`、`code-review`（先自查，几何指标同 005 已内建）、`grilling`/`to-spec`/`to-tickets`。视频资产技能：`ass-subtitle-generator`、`military-*` 系列、`hyperframes`、`ai-video-gen`。
+- `implement`（按票实现）、`handoff`、`code-review`（先自查）、`grilling`/`to-spec`/`to-tickets`。视频资产技能：`ass-subtitle-generator`、`military-*` 系列、`hyperframes`、`ai-video-gen`。
 
 ## 5. Open items / hygiene
 
-- git 身份 `Dannyhiccpet <danny@hiccpet.com>`；只 stage 相关文件，工作区大量 `_tmp_*.py`/`.reasonix`/`.agents`/`projects` 无关（勿误提交）。
-- **005 后遗留**：12 个历史失败任务（47bae a6b0687f1a8a b7e5f58dd339 c2568e170ad1 35193159f5f4 e97002f66ec5 46b7e82056c6 b9c18894c2f0 e16b38b66aea e334892abf2e f61014d5fdc7 b149）可在 UI 重提验证「批量成功」。其中 b149 已 error 可重提；47bae 为 FFmpeg 探针偶发孤案（观察中，复现再转票）。
+- git 身份 `Dannyhiccpet <danny@hiccpet.com>`；只 stage 相关文件，工作区大量无关 `_tmp_*`/`chrome_wincheck.py`/`tmp_*.json`/`projects/narration-*`/`renders`/`events.jsonl`（未跟踪，勿误提交）。
+- **006 后**：服务未重启——下次启动会 `mark_interrupted` 掉遗留 queued/running 任务（设计内）；可在 UI 真机验收预览/下载/计数。
+- **005 遗留**：12 个历史失败任务（47bae a6b0687f1a8a b7e5f58dd339 c2568e170ad1 35193159f5f4 e97002f66ec5 46b7e82056c6 b9c18894c2f0 e16b38b66aea e334892abf2e f61014d5fdc7 b149）可在 UI 重提验证「批量成功」。其中 b149 已 error 可重提；47bae 为 FFmpeg 探针偶发孤案（观察中，复现再转票）。
 - 真机可行点：配置真实多维表格 + LLM（base_url/model/api_key），开 `poll.enabled` 验证自动单任务轮询（当前 False）。lark-cli `--as user`（user=侯辉聪，openId `ou_bec77ebe8e7a0d5a6c41d620af4116a6`）。默认登录 admin / `shiping@shiping`。真实表 base_token `OZsLb287vaT2j8srKYXcyw05nkc`，table `tbl6rLRt9fdRbNa7`，record `fldC5GNO9A`，content 字段漂移中（曾见「优化文案」/「新闻改写」）。
