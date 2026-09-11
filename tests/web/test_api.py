@@ -462,6 +462,79 @@ def test_video_range_request(client, tmp_path):
     assert r.status_code == 416
 
 
+# ---------------------------------------------------------------------------
+# 006-01: preview (inline) vs download (attachment) split
+# ---------------------------------------------------------------------------
+def test_video_preview_is_inline_not_download(client, tmp_path):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "预览测试。"})
+    tid = r.json()["task_id"]
+    video = tmp_path / "final.mp4"
+    video.write_bytes(b"0123456789abcdef")
+    db.update_task(tid, status="done", output_path=str(video))
+
+    r = client.get(f"/api/tasks/{tid}/video")
+    assert r.status_code == 200
+    assert "attachment" not in r.headers.get("Content-Disposition", "").lower()
+    assert r.content == b"0123456789abcdef"
+
+
+def test_download_returns_attachment(client, tmp_path):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "下载测试。"})
+    tid = r.json()["task_id"]
+    video = tmp_path / "final.mp4"
+    video.write_bytes(b"0123456789abcdef")
+    db.update_task(tid, status="done", output_path=str(video))
+
+    r = client.get(f"/api/tasks/{tid}/download")
+    assert r.status_code == 200
+    header = r.headers.get("Content-Disposition", "")
+    assert header.startswith("attachment")
+    assert f"filename=\"{tid}.mp4\"" in header
+    assert r.content == b"0123456789abcdef"
+
+
+def test_download_before_done_404(client):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "未完成下载。"})
+    tid = r.json()["task_id"]
+    assert client.get(f"/api/tasks/{tid}/download").status_code == 404
+
+
+# ---------------------------------------------------------------------------
+# 006-02: download count persistence
+# ---------------------------------------------------------------------------
+def test_download_increments_count(client, tmp_path):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "计数测试。"})
+    tid = r.json()["task_id"]
+    video = tmp_path / "final.mp4"
+    video.write_bytes(b"0123456789abcdef")
+    db.update_task(tid, status="done", output_path=str(video))
+
+    assert db.get_task(tid)["download_count"] == 0
+    r1 = client.get(f"/api/tasks/{tid}/download")
+    assert r1.status_code == 200
+    assert r1.headers["X-Download-Count"] == "1"
+    r2 = client.get(f"/api/tasks/{tid}/download")
+    assert r2.headers["X-Download-Count"] == "2"
+    assert db.get_task(tid)["download_count"] == 2
+
+
+def test_video_preview_does_not_increment(client, tmp_path):
+    login(client)
+    r = client.post("/api/generate", json={"narration_text": "预览不计数。"})
+    tid = r.json()["task_id"]
+    video = tmp_path / "final.mp4"
+    video.write_bytes(b"0123456789abcdef")
+    db.update_task(tid, status="done", output_path=str(video))
+
+    client.get(f"/api/tasks/{tid}/video")
+    client.get(f"/api/tasks/{tid}/video", headers={"Range": "bytes=2-5"})
+    assert db.get_task(tid)["download_count"] == 0
+
+
 def test_mark_interrupted(client):
     login(client)
     # create two tasks that will be "stuck" on restart

@@ -308,8 +308,8 @@ def get_task(task_id: str, username: str = Depends(require_user)) -> dict:
     return task
 
 
-@app.get("/api/tasks/{task_id}/video")
-def get_video(task_id: str, request: Request, username: str = Depends(require_user)) -> Response:
+def _resolve_done_video(task_id: str) -> Path:
+    """Return the completed task's final.mp4 path, or raise 404 if not ready."""
     task = db.get_task(task_id)
     if task is None:
         raise HTTPException(status_code=404, detail="task not found")
@@ -318,19 +318,26 @@ def get_video(task_id: str, request: Request, username: str = Depends(require_us
     path = Path(task["output_path"])
     if not path.is_file():
         raise HTTPException(status_code=404, detail="video file missing")
+    return path
+
+
+def _video_chunks(path: Path, start: int, end: int):
+    with path.open("rb") as fh:
+        fh.seek(start)
+        remaining = end - start + 1
+        while remaining > 0:
+            chunk = fh.read(min(1024 * 1024, remaining))
+            if not chunk:
+                break
+            remaining -= len(chunk)
+            yield chunk
+
+
+@app.get("/api/tasks/{task_id}/video")
+def get_video(task_id: str, request: Request, username: str = Depends(require_user)) -> Response:
+    path = _resolve_done_video(task_id)
     size = path.stat().st_size
     media_type = "video/mp4"
-
-    def _chunks(start: int, end: int):
-        with path.open("rb") as fh:
-            fh.seek(start)
-            remaining = end - start + 1
-            while remaining > 0:
-                chunk = fh.read(min(1024 * 1024, remaining))
-                if not chunk:
-                    break
-                remaining -= len(chunk)
-                yield chunk
 
     range_header = request.headers.get("range")
     if range_header:
@@ -351,11 +358,24 @@ def get_video(task_id: str, request: Request, username: str = Depends(require_us
                                 headers={"Content-Range": f"bytes */{size}"})
             headers = {"Content-Range": f"bytes {start}-{end}/{size}",
                        "Accept-Ranges": "bytes", "Content-Length": str(end - start + 1)}
-            return StreamingResponse(_chunks(start, end), status_code=206,
+            return StreamingResponse(_video_chunks(path, start, end), status_code=206,
                                      media_type=media_type, headers=headers)
-    headers = {"Accept-Ranges": "bytes", "Content-Length": str(size),
-               "Content-Disposition": f'attachment; filename="{task_id}.mp4"'}
-    return StreamingResponse(_chunks(0, size - 1), media_type=media_type, headers=headers)
+    headers = {"Accept-Ranges": "bytes", "Content-Length": str(size)}
+    return StreamingResponse(_video_chunks(path, 0, size - 1), media_type=media_type, headers=headers)
+
+
+@app.get("/api/tasks/{task_id}/download")
+def download_video(task_id: str, username: str = Depends(require_user)) -> Response:
+    path = _resolve_done_video(task_id)
+    size = path.stat().st_size
+    count = db.increment_download_count(task_id)
+    headers = {
+        "Content-Length": str(size),
+        "Content-Disposition": f'attachment; filename="{task_id}.mp4"',
+        "X-Download-Count": str(count),
+    }
+    return StreamingResponse(_video_chunks(path, 0, size - 1),
+                             media_type="video/mp4", headers=headers)
 
 
 @app.get("/api/tasks/{task_id}/events")
