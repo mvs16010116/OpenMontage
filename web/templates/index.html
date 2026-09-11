@@ -75,6 +75,7 @@
   .item .time { font-size: 11px; color: var(--muted); white-space: nowrap; }
   .item .dl { color: var(--accent); text-decoration: none; font-size: 12px; white-space: nowrap; }
   .item .dl:hover { text-decoration: underline; }
+  .item .dcount { color: var(--muted); font-size: 12px; white-space: nowrap; }
   nav { display: flex; gap: 8px; margin: 16px 0; }
   nav button { background: transparent; color: var(--muted); border: 1px solid var(--border);
     padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; }
@@ -127,7 +128,7 @@
         <div class="err" id="err"></div>
         <div class="done-link" id="doneLink" style="display:none">
           <video id="preview" controls style="width:100%;max-width:640px;max-height:360px;background:#000"></video>
-          <p><a id="dlHref" href="#" target="_blank">下载成片 final.mp4</a></p>
+          <p><a id="dlHref" href="#" download="final.mp4">下载成片 final.mp4</a> <span class="dcount" id="dlCount"></span></p>
         </div>
       </div>
       <h2>历史生成</h2>
@@ -431,10 +432,11 @@ function listen(taskId) {
     if (ev.stage === "__close__") { es.close(); refreshList(); busy = false; $("go").disabled = false; return; }
     if (ev.stage === "done") {
       showProgress("done", 100, "生成完成");
-      $("dlHref").href = `/api/tasks/${taskId}/video`;
+      $("dlHref").href = `/api/tasks/${taskId}/download`;
       $("preview").src = `/api/tasks/${taskId}/video`;
       $("preview").load();
       $("doneLink").style.display = "block";
+      updateDlCount(taskId);
       renderStats(ev);
       es.close(); refreshList(); busy = false; $("go").disabled = false; return;
     }
@@ -480,13 +482,26 @@ async function refreshList() {
   if (!tasks.length) { list.innerHTML = '<div class="sub">暂无历史任务</div>'; return; }
   for (const t of tasks) {
     const item = document.createElement("div"); item.className = "item";
-    const dl = t.status === "done" ? `<a class="dl" href="/api/tasks/${t.id}/video" target="_blank">预览/下载</a>` : "";
+    const acts = t.status === "done"
+      ? `<a class="dl" href="/api/tasks/${t.id}/video" target="_blank">预览</a> ` +
+        `<a class="dl" href="/api/tasks/${t.id}/download" download="final.mp4">下载</a> ` +
+        `<span class="dcount">下载 ${t.download_count || 0} 次</span>`
+      : "";
     item.innerHTML =
       `<div class="sum">${escapeHtml(t.summary)}</div>` +
       `<span class="badge ${t.status}">${t.status}</span>` +
-      `<span class="time">${fmtTime(t.created_at)}</span>${dl}`;
+      `<span class="time">${fmtTime(t.created_at)}</span>${acts}`;
     list.appendChild(item);
   }
+}
+
+async function updateDlCount(taskId) {
+  const res = await fetch(`/api/tasks/${taskId}`).catch(() => null);
+  if (!res || !res.ok) return;
+  const t = await res.json().catch(() => null);
+  if (!t) return;
+  const c = t.download_count || 0;
+  $("dlCount").textContent = `已下载 ${c} 次`;
 }
 function escapeHtml(s) { return (s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function fmtTime(ts) { const d = new Date(ts * 1000); return d.toLocaleString("zh-CN", {month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
