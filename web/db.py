@@ -53,6 +53,7 @@ _MIGRATIONS = {
     "total_elapsed_s": "ALTER TABLE tasks ADD COLUMN total_elapsed_s REAL",
     "base_sync_status": "ALTER TABLE tasks ADD COLUMN base_sync_status TEXT",
     "base_sync_error": "ALTER TABLE tasks ADD COLUMN base_sync_error TEXT",
+    "download_count": "ALTER TABLE tasks ADD COLUMN download_count INTEGER NOT NULL DEFAULT 0",
 }
 
 _JSON_COLUMNS = ("stage_timings", "llm_usage")
@@ -170,6 +171,23 @@ def update_task(task_id: str, **fields) -> dict | None:
     finally:
         conn.close()
     return get_task(task_id)
+
+
+def increment_download_count(task_id: str) -> int:
+    """Increment a task's download counter and return the new value."""
+    conn = _connect()
+    try:
+        conn.execute(
+            "UPDATE tasks SET download_count = download_count + 1 WHERE id = ?",
+            (task_id,),
+        )
+        conn.commit()
+        row = conn.execute(
+            "SELECT download_count FROM tasks WHERE id = ?", (task_id,)
+        ).fetchone()
+        return row["download_count"] if row else 0
+    finally:
+        conn.close()
 
 
 def list_tasks(limit: int = 50) -> list[dict]:
